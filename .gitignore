@@ -1,9 +1,0 @@
-dist/
-shots/
-__pycache__/
-*.pyc
-.venv/
-.DS_Store
-
-# local-only copies of books supplied for private use (never commit)
-sources/local/
