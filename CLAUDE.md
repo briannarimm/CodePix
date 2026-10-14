@@ -2,7 +2,7 @@
 
 A public static website with two modules: **Module A, Intro to CS and Python**, which unlocks **Module B, Intro to Machine Learning**. It fuses a point-and-click visual novel with an interactive, cited textbook, in a 90s edutainment look with a Kid Pix style toolbox. The learner installs Python on their own computer and does the exercises there. **No Python runs in the browser.** Everything the app shows as Python output was recorded from real `python3` at build time.
 
-- Live site: https://codepix.briannaimm.com (domain spelled without the "r", unlike the GitHub account). Fallback: https://briannarimm.github.io/codepix/
+- Live site (target): https://dev.briannaimm.com/CodePix/ (works once `brianna-imm-site` is renamed `briannarimm.github.io`, see `docs/deploy.md`). Fallback: https://briannarimm.github.io/CodePix/. The old `codepix.briannaimm.com` plan is dropped.
 - Repo: github.com/briannarimm/CodePix (public). Pushes to `main` build and deploy through GitHub Actions.
 - The full spec is `docs/handoff.md`. Decisions and their reasons are in `docs/decisions.md`. Brianna's deploy steps are in `docs/deploy.md`.
 - Sibling project for patterns and copied infrastructure: `~/Documents/Programming/ai-pix-explorer/` (read its CLAUDE.md). It moved out of the Google Drive folder in October 2026.
@@ -31,7 +31,7 @@ dist/                    BUILT OUTPUT, git-ignored, deployed by Actions. Never e
 ## Platform rules
 
 - Static site on GitHub Pages. Single-page app; navigate with in-app state or the hash, never with paths.
-- **Use relative URLs** (`assets/x.css`, not `/assets/x.css`) so the site works both at the domain root and under `/codepix/`. `404.html` is the exception: it inlines everything because it can be served at any depth.
+- **Use relative URLs** (`assets/x.css`, not `/assets/x.css`) so the site works under the path `/CodePix/` (case-sensitive). `404.html` is the exception: it inlines everything because it can be served at any depth.
 - No tracking and no third-party scripts. Fonts are self-hosted from `static/fonts/`. External links use `target="_blank" rel="noopener noreferrer"`.
 - Phone width (400 px) works with no horizontal page scroll; code blocks scroll inside their own panel.
 - Honor `prefers-reduced-motion`. `localStorage` may throw: always use the `store` wrapper. The save key is `codepix-save`.
