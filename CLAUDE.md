@@ -6,6 +6,7 @@ A public static website with two modules: **Module A, Intro to CS and Python**, 
 - Repo: github.com/briannarimm/codepix (public). Pushes to `main` build and deploy through GitHub Actions.
 - The full spec is `docs/handoff.md`. Decisions and their reasons are in `docs/decisions.md`. Brianna's deploy steps are in `docs/deploy.md`.
 - Sibling project for patterns and copied infrastructure: `~/Documents/Programming/ai-pix-explorer/` (read its CLAUDE.md). It moved out of the Google Drive folder in October 2026.
+- **Branches:** `main` is the source (research, lesson plans, tools, `site/`). `pages` is the published branch and contains ONLY the files from `site/`; update it with `tools/publish_pages.sh`, never by hand. Claude may commit and push to both without asking (Brianna, 2026-10-14). The repo is public (needed for free Pages) but the project is for Brianna's private use. `docs/deploy.md` has the domain and DNS steps.
 - Lesson plans: `docs/lessons/module-a-cs-python.md` and `docs/lessons/module-b-machine-learning.md`. Research summary, decisions needed and gaps: `docs/research-summary.md`.
 
 ## Layout
