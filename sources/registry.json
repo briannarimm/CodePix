@@ -1,3 +1,1455 @@
 {
-  "sources": []
+ "sources": [
+  {
+   "id": "py-downloads",
+   "status": "verified",
+   "title": "Download Python",
+   "author": "Python Software Foundation",
+   "site": "Python.org",
+   "date": "n.d.",
+   "url": "https://www.python.org/downloads/",
+   "license": "Python is open source; no page license shown",
+   "licenseUrl": "",
+   "reuse": "Facts only (version number, date).",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": "Shows Python 3.15.0 dated Oct. 9, 2026 as the latest release when read."
+  },
+  {
+   "id": "py-devguide-versions",
+   "status": "verified",
+   "title": "Status of Python versions",
+   "author": "Python Software Foundation",
+   "site": "Python Developer's Guide",
+   "date": "n.d.",
+   "url": "https://devguide.python.org/versions/",
+   "license": "No license shown",
+   "licenseUrl": "",
+   "reuse": "Facts only (support table).",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": "Table lists 3.9 end-of-life 2025-10-31 and 3.10 end-of-life 2026-10-01. The page's own chart and table disagree about 3.15, so only the 3.9 and 3.10 rows are used."
+  },
+  {
+   "id": "py-docs-mac",
+   "status": "verified",
+   "title": "Using Python on macOS",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/using/mac.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-windows",
+   "status": "verified",
+   "title": "Using Python on Windows",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/using/windows.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-unix",
+   "status": "verified",
+   "title": "Using Python on Unix platforms",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/using/unix.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-tutorial-intro",
+   "status": "verified",
+   "title": "An informal introduction to Python",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/introduction.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1,
+    3,
+    4,
+    7
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-tutorial-controlflow",
+   "status": "verified",
+   "title": "More control flow tools",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/controlflow.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    5,
+    6,
+    9,
+    12
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-tutorial-datastructures",
+   "status": "verified",
+   "title": "Data structures",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/datastructures.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    5,
+    7,
+    8,
+    12
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-tutorial-errors",
+   "status": "verified",
+   "title": "Errors and exceptions",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/errors.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    10
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-tutorial-classes",
+   "status": "verified",
+   "title": "Classes",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/classes.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    3,
+    14
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-tutorial-io",
+   "status": "verified",
+   "title": "Input and output",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/inputoutput.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    4,
+    11,
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-glossary",
+   "status": "verified",
+   "title": "Glossary",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/glossary.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    0,
+    1,
+    3,
+    9,
+    12,
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-unicode-howto",
+   "status": "verified",
+   "title": "Unicode HOWTO",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/howto/unicode.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    2
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-functions",
+   "status": "verified",
+   "title": "Built-in functions",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/functions.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    2,
+    3,
+    4,
+    6,
+    7,
+    12
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py39-docs-functions",
+   "status": "verified",
+   "title": "Built-in functions (Python 3.9)",
+   "author": "Python Software Foundation",
+   "site": "Python 3.9 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3.9/library/functions.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    11
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-stdtypes",
+   "status": "verified",
+   "title": "Built-in types",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/stdtypes.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    4,
+    11
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-csv",
+   "status": "verified",
+   "title": "csv: CSV file reading and writing",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/csv.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    11
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-math",
+   "status": "verified",
+   "title": "math: Mathematical functions",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/math.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-datetime",
+   "status": "verified",
+   "title": "datetime: Basic date and time types",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/datetime.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-unittest",
+   "status": "verified",
+   "title": "unittest: Unit testing framework",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/unittest.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    10
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-turtle",
+   "status": "verified",
+   "title": "turtle: Turtle graphics",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/turtle.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    6
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-venv",
+   "status": "verified",
+   "title": "venv: Creation of virtual environments",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/venv.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-random",
+   "status": "verified",
+   "title": "random: Generate pseudo-random numbers",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/random.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-timeit",
+   "status": "verified",
+   "title": "timeit: Measure execution time of small code snippets",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/timeit.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    15
+   ],
+   "notes": ""
+  },
+  {
+   "id": "py-docs-history",
+   "status": "verified",
+   "title": "History and license",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/license.html#history-of-the-software",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    -1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "pep-668",
+   "status": "verified",
+   "title": "PEP 668: Marking Python base environments as \"externally managed\"",
+   "author": "Thomas, G., Klose, M., Laíns, F., Stufft, D., Chung, T., Rivera, S., Hashman, E., & Gedam, P.",
+   "site": "Python Enhancement Proposals",
+   "date": "2021",
+   "url": "https://peps.python.org/pep-0668/",
+   "license": "Public domain / CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "reuse": "Public domain or CC0; may paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1,
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "pep-20",
+   "status": "verified",
+   "title": "PEP 20: The Zen of Python",
+   "author": "Peters, T.",
+   "site": "Python Enhancement Proposals",
+   "date": "2004",
+   "url": "https://peps.python.org/pep-0020/",
+   "license": "Public domain / CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "reuse": "Public domain.",
+   "accessed": "2026-10-14",
+   "levels": [
+    -1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "pypa-venv-guide",
+   "status": "verified",
+   "title": "Installing packages using pip and virtual environments",
+   "author": "Python Packaging Authority",
+   "site": "Python Packaging User Guide",
+   "date": "n.d.",
+   "url": "https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/",
+   "license": "No license shown on page",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "pytest-start",
+   "status": "verified",
+   "title": "Get started",
+   "author": "pytest development team",
+   "site": "pytest documentation",
+   "date": "n.d.",
+   "url": "https://docs.pytest.org/en/stable/getting-started.html",
+   "license": "MIT (project license)",
+   "licenseUrl": "https://github.com/pytest-dev/pytest/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    13
+   ],
+   "notes": ""
+  },
+  {
+   "id": "brew-installation",
+   "status": "verified",
+   "title": "Installation",
+   "author": "Homebrew",
+   "site": "Homebrew Documentation",
+   "date": "n.d.",
+   "url": "https://docs.brew.sh/Installation",
+   "license": "No license text on page",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "brew-homepage",
+   "status": "verified",
+   "title": "Homebrew: The missing package manager for macOS (or Linux)",
+   "author": "Homebrew",
+   "site": "Homebrew",
+   "date": "n.d.",
+   "url": "https://brew.sh/",
+   "license": "No license text on page",
+   "licenseUrl": "",
+   "reuse": "Command text only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "brew-python314",
+   "status": "verified",
+   "title": "python@3.14 formula",
+   "author": "Homebrew",
+   "site": "Homebrew Formulae",
+   "date": "n.d.",
+   "url": "https://formulae.brew.sh/formula/python@3.14",
+   "license": "Python-2.0 (formula's stated license)",
+   "licenseUrl": "",
+   "reuse": "Facts only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1,
+    6
+   ],
+   "notes": ""
+  },
+  {
+   "id": "brew-formula-python314",
+   "status": "verified",
+   "title": "Formula source: python@3.14.rb",
+   "author": "Homebrew",
+   "site": "Homebrew/homebrew-core on GitHub",
+   "date": "n.d.",
+   "url": "https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/p/python@3.14.rb",
+   "license": "BSD 2-Clause (homebrew-core repository license)",
+   "licenseUrl": "https://github.com/Homebrew/homebrew-core/blob/HEAD/LICENSE.txt",
+   "reuse": "Cite the file; do not copy code.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1,
+    13
+   ],
+   "notes": "Primary source for the EXTERNALLY-MANAGED marker. python@3.15.rb has the same lines.",
+   "text": true
+  },
+  {
+   "id": "brew-pythontk314",
+   "status": "verified",
+   "title": "python-tk@3.14 formula",
+   "author": "Homebrew",
+   "site": "Homebrew Formulae",
+   "date": "n.d.",
+   "url": "https://formulae.brew.sh/formula/python-tk@3.14",
+   "license": "Python-2.0 (formula's stated license)",
+   "licenseUrl": "",
+   "reuse": "Facts only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    6
+   ],
+   "notes": ""
+  },
+  {
+   "id": "vscode-python",
+   "status": "verified",
+   "title": "Getting started with Python in VS Code",
+   "author": "Microsoft",
+   "site": "Visual Studio Code Documentation",
+   "date": "2026",
+   "url": "https://code.visualstudio.com/docs/python/python-tutorial",
+   "license": "No license shown (Terms of Use link only)",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "apple-terminal-open",
+   "status": "verified",
+   "title": "Open or quit Terminal on Mac",
+   "author": "Apple Inc.",
+   "site": "Terminal User Guide",
+   "date": "2026",
+   "url": "https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac",
+   "license": "© Apple Inc. All rights reserved",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    0
+   ],
+   "notes": ""
+  },
+  {
+   "id": "missing-semester-shell",
+   "status": "verified",
+   "title": "Course overview + the shell",
+   "author": "Missing Semester course staff",
+   "site": "The Missing Semester of Your CS Education",
+   "date": "2020",
+   "url": "https://missing.csail.mit.edu/2020/course-shell/",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "ShareAlike and NonCommercial: cite and paraphrase, do not copy text.",
+   "accessed": "2026-10-14",
+   "levels": [
+    0
+   ],
+   "notes": "Footer says CC BY-NC-SA; the version number (4.0) was not seen on the page and should be confirmed before the credits page lists it."
+  },
+  {
+   "id": "cs50-notes-0",
+   "status": "verified",
+   "title": "Lecture 0: Scratch (CS50x notes)",
+   "author": "Malan, D. J.",
+   "site": "CS50x 2026",
+   "date": "2026",
+   "url": "https://cs50.harvard.edu/x/notes/0/",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "ShareAlike and NonCommercial: cite and paraphrase, do not copy text.",
+   "accessed": "2026-10-14",
+   "levels": [
+    2
+   ],
+   "notes": "License verified on https://cs50.harvard.edu/x/license/"
+  },
+  {
+   "id": "cs50-notes-3",
+   "status": "verified",
+   "title": "Lecture 3: Algorithms (CS50x notes)",
+   "author": "Malan, D. J.",
+   "site": "CS50x 2026",
+   "date": "2026",
+   "url": "https://cs50.harvard.edu/x/notes/3/",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "ShareAlike and NonCommercial: cite and paraphrase, do not copy text.",
+   "accessed": "2026-10-14",
+   "levels": [
+    15,
+    16
+   ],
+   "notes": ""
+  },
+  {
+   "id": "thinkpython3-ch1",
+   "status": "verified",
+   "title": "Think Python, 3rd edition: Chapter 1, Programming as a way of thinking",
+   "author": "Downey, A. B.",
+   "site": "Think Python",
+   "date": "2024",
+   "url": "https://allendowney.github.io/ThinkPython/chap01.html",
+   "license": "CC BY-NC-SA 4.0 (text); MIT (code)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    3,
+    10
+   ],
+   "notes": ""
+  },
+  {
+   "id": "thinkpython3-ch2",
+   "status": "verified",
+   "title": "Think Python, 3rd edition: Chapter 2, Variables and statements",
+   "author": "Downey, A. B.",
+   "site": "Think Python",
+   "date": "2024",
+   "url": "https://allendowney.github.io/ThinkPython/chap02.html",
+   "license": "CC BY-NC-SA 4.0 (text); MIT (code)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    3,
+    4,
+    10
+   ],
+   "notes": ""
+  },
+  {
+   "id": "thinkpython3-ch5",
+   "status": "verified",
+   "title": "Think Python, 3rd edition: Chapter 5, Conditionals and recursion",
+   "author": "Downey, A. B.",
+   "site": "Think Python",
+   "date": "2024",
+   "url": "https://allendowney.github.io/ThinkPython/chap05.html",
+   "license": "CC BY-NC-SA 4.0 (text); MIT (code)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    5,
+    16
+   ],
+   "notes": ""
+  },
+  {
+   "id": "atbs3-ch5",
+   "status": "verified",
+   "title": "Automate the Boring Stuff with Python, 3rd edition: Chapter 5, Debugging",
+   "author": "Sweigart, A.",
+   "site": "Automate the Boring Stuff with Python",
+   "date": "2025",
+   "url": "https://automatetheboringstuff.com/3e/chapter5.html",
+   "license": "CC BY-NC-SA 3.0 (book license per site; not shown on this chapter page)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    10
+   ],
+   "notes": "Does not explain how to read a traceback, so do not cite it for that."
+  },
+  {
+   "id": "progit-what-is-git",
+   "status": "verified",
+   "title": "Pro Git: What is Git?",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "License verified in https://github.com/progit/progit2/blob/main/LICENSE.asc. Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    18
+   ],
+   "notes": ""
+  },
+  {
+   "id": "progit-recording",
+   "status": "verified",
+   "title": "Pro Git: Recording changes to the repository",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    18
+   ],
+   "notes": ""
+  },
+  {
+   "id": "numpy-beginners",
+   "status": "verified",
+   "title": "NumPy: The absolute basics for beginners",
+   "author": "NumPy Developers",
+   "site": "NumPy v2.5 Manual",
+   "date": "n.d.",
+   "url": "https://numpy.org/doc/stable/user/absolute_beginners.html",
+   "license": "BSD 3-Clause (project LICENSE.txt)",
+   "licenseUrl": "https://github.com/numpy/numpy/blob/main/LICENSE.txt",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    102
+   ],
+   "notes": ""
+  },
+  {
+   "id": "pandas-intro",
+   "status": "verified",
+   "title": "What kind of data does pandas handle?",
+   "author": "pandas development team",
+   "site": "pandas documentation",
+   "date": "n.d.",
+   "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/01_table_oriented.html",
+   "license": "BSD 3-Clause (project LICENSE)",
+   "licenseUrl": "https://github.com/pandas-dev/pandas/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    102
+   ],
+   "notes": ""
+  },
+  {
+   "id": "matplotlib-quick",
+   "status": "verified",
+   "title": "Quick start guide",
+   "author": "Matplotlib development team",
+   "site": "Matplotlib documentation",
+   "date": "n.d.",
+   "url": "https://matplotlib.org/stable/users/explain/quick_start.html",
+   "license": "Matplotlib License (project LICENSE)",
+   "licenseUrl": "https://github.com/matplotlib/matplotlib/blob/main/LICENSE/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    103
+   ],
+   "notes": ""
+  },
+  {
+   "id": "gfg-types-ml",
+   "status": "verified",
+   "title": "Types of machine learning",
+   "author": "GeeksforGeeks",
+   "site": "GeeksforGeeks",
+   "date": "2026",
+   "url": "https://www.geeksforgeeks.org/machine-learning/types-of-machine-learning/",
+   "license": "© GeeksforGeeks, all rights reserved (Brianna: private use)",
+   "licenseUrl": "",
+   "reuse": "Supplied by Brianna for private use. Cite and paraphrase only; cross-check with an independent source.",
+   "accessed": "2026-10-14",
+   "levels": [
+    100,
+    114
+   ],
+   "notes": "Page shows Last Updated 19 Jan, 2026 and no author."
+  },
+  {
+   "id": "jm2-2007",
+   "status": "verified",
+   "title": "Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition (Draft)",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Draft PDF supplied by Brianna",
+   "date": "2007",
+   "url": "file:///Users/bri/Downloads/Jurafsky, Martin.-Speech and Language Processing_ An Introduction to Natural Language Processing (2007).pdf",
+   "license": "© authors; draft supplied by Brianna for private use",
+   "licenseUrl": "",
+   "reuse": "Private use. Cite by chapter and section (the draft restarts page numbers in each chapter). Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    100,
+    101,
+    106,
+    107,
+    108,
+    111,
+    112,
+    113
+   ],
+   "notes": "This is a 2007 draft of the 2nd edition (1,044 PDF pages). It predates neural networks and transformers, so use it for classical ideas only.",
+   "file": "/Users/bri/Downloads/Jurafsky, Martin.-Speech and Language Processing_ An Introduction to Natural Language Processing (2007).pdf",
+   "localOnly": true,
+   "textFallback": "sources/local/jm2-2007.txt"
+  },
+  {
+   "id": "jm3-ch1",
+   "status": "verified",
+   "title": "Speech and language processing (3rd ed. draft), Chapter 1: Introduction",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Stanford University",
+   "date": "2026",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/1.pdf",
+   "license": "© authors, all rights reserved; draft of Aug. 19, 2026 offered for class use",
+   "licenseUrl": "",
+   "reuse": "Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    115
+   ],
+   "notes": "Draft of August 19, 2026. Site invites use of draft chapters in classes.",
+   "pdf": true
+  },
+  {
+   "id": "jm3-ch3",
+   "status": "verified",
+   "title": "Speech and language processing (3rd ed. draft), Chapter 3: N-gram language models",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Stanford University",
+   "date": "2026",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
+   "license": "© authors, all rights reserved; draft of Aug. 19, 2026 offered for class use",
+   "licenseUrl": "",
+   "reuse": "Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    111
+   ],
+   "notes": "Draft of August 19, 2026. Site invites use of draft chapters in classes.",
+   "pdf": true
+  },
+  {
+   "id": "jm3-ch4",
+   "status": "verified",
+   "title": "Speech and language processing (3rd ed. draft), Chapter 4: Logistic regression and text classification",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Stanford University",
+   "date": "2026",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/4.pdf",
+   "license": "© authors, all rights reserved; draft of Aug. 19, 2026 offered for class use",
+   "licenseUrl": "",
+   "reuse": "Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    106,
+    107,
+    108
+   ],
+   "notes": "Draft of August 19, 2026. Site invites use of draft chapters in classes.",
+   "pdf": true
+  },
+  {
+   "id": "jm3-ch5",
+   "status": "verified",
+   "title": "Speech and language processing (3rd ed. draft), Chapter 5: Embeddings",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Stanford University",
+   "date": "2026",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/5.pdf",
+   "license": "© authors, all rights reserved; draft of Aug. 19, 2026 offered for class use",
+   "licenseUrl": "",
+   "reuse": "Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    113
+   ],
+   "notes": "Draft of August 19, 2026. Site invites use of draft chapters in classes.",
+   "pdf": true
+  },
+  {
+   "id": "jm3-ch6",
+   "status": "verified",
+   "title": "Speech and language processing (3rd ed. draft), Chapter 6: Neural networks",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Stanford University",
+   "date": "2026",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/6.pdf",
+   "license": "© authors, all rights reserved; draft of Aug. 19, 2026 offered for class use",
+   "licenseUrl": "",
+   "reuse": "Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    112
+   ],
+   "notes": "Draft of August 19, 2026. Site invites use of draft chapters in classes.",
+   "pdf": true
+  },
+  {
+   "id": "jm3-ch7",
+   "status": "verified",
+   "title": "Speech and language processing (3rd ed. draft), Chapter 7: Transformers and pretraining",
+   "author": "Jurafsky, D., & Martin, J. H.",
+   "site": "Stanford University",
+   "date": "2026",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/7.pdf",
+   "license": "© authors, all rights reserved; draft of Aug. 19, 2026 offered for class use",
+   "licenseUrl": "",
+   "reuse": "Paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    113
+   ],
+   "notes": "Draft of August 19, 2026. Site invites use of draft chapters in classes.",
+   "pdf": true
+  },
+  {
+   "id": "mlcc-what-is-ml",
+   "status": "verified",
+   "title": "What is machine learning?",
+   "author": "Google for Developers",
+   "site": "Google for Developers: Machine Learning",
+   "date": "2026-01-27",
+   "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    100
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-supervised",
+   "status": "verified",
+   "title": "Supervised learning",
+   "author": "Google for Developers",
+   "site": "Google for Developers: Machine Learning",
+   "date": "2025-08-25",
+   "url": "https://developers.google.com/machine-learning/intro-to-ml/supervised",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    100,
+    102
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-linear-regression",
+   "status": "verified",
+   "title": "Linear regression",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-09",
+   "url": "https://developers.google.com/machine-learning/crash-course/linear-regression",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    104
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-gradient-descent",
+   "status": "verified",
+   "title": "Linear regression: Gradient descent",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-02-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    105
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-sigmoid",
+   "status": "verified",
+   "title": "Logistic regression: Calculating a probability with the sigmoid function",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-12",
+   "url": "https://developers.google.com/machine-learning/crash-course/logistic-regression/sigmoid-function",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    106
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-metrics",
+   "status": "verified",
+   "title": "Classification: Accuracy, recall, precision, and related metrics",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-12",
+   "url": "https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    108
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-overfitting",
+   "status": "verified",
+   "title": "Datasets, generalization, and overfitting: Overfitting",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    107
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-splits",
+   "status": "verified",
+   "title": "Datasets, generalization, and overfitting: Dividing the original dataset",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    107
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-nn-nodes",
+   "status": "verified",
+   "title": "Neural networks: Nodes and hidden layers",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/neural-networks/nodes-hidden-layers",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    112
+   ],
+   "notes": ""
+  },
+  {
+   "id": "mlcc-bias",
+   "status": "verified",
+   "title": "Fairness: Types of bias",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/types-of-bias",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-14",
+   "levels": [
+    115
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-getting-started",
+   "status": "verified",
+   "title": "Getting started",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/getting_started.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    101,
+    104
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-install",
+   "status": "verified",
+   "title": "Installing scikit-learn",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/install.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    101
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-cv",
+   "status": "verified",
+   "title": "Cross-validation: evaluating estimator performance",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    107
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-overfit-example",
+   "status": "verified",
+   "title": "Underfitting vs. overfitting",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    107
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-clustering",
+   "status": "verified",
+   "title": "Clustering",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/clustering.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    110
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-neighbors",
+   "status": "verified",
+   "title": "Nearest neighbors",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/neighbors.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    109
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-tree",
+   "status": "verified",
+   "title": "Decision trees",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/tree.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    109
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-nb",
+   "status": "verified",
+   "title": "Naive Bayes",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/naive_bayes.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    109,
+    111
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-metrics",
+   "status": "verified",
+   "title": "Metrics and scoring: quantifying the quality of predictions",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    108
+   ],
+   "notes": ""
+  },
+  {
+   "id": "sk-linear",
+   "status": "verified",
+   "title": "Linear models",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-14",
+   "levels": [
+    104,
+    106
+   ],
+   "notes": ""
+  },
+  {
+   "id": "samuel-1959",
+   "status": "verified",
+   "title": "Some studies in machine learning using the game of checkers",
+   "author": "Samuel, A. L.",
+   "site": "IBM Journal of Research and Development",
+   "date": "1959",
+   "url": "https://people.csail.mit.edu/brooks/idocs/Samuel.pdf",
+   "license": "© IBM (journal article); copy hosted at MIT CSAIL",
+   "licenseUrl": "",
+   "reuse": "Cite only; short paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    116
+   ],
+   "notes": "Read the abstract from the PDF. DOI 10.1147/rd.33.0210 per a search listing (not opened).",
+   "pdf": true
+  },
+  {
+   "id": "rosenblatt-1958",
+   "status": "verified",
+   "title": "The perceptron: A probabilistic model for information storage and organization in the brain",
+   "author": "Rosenblatt, F.",
+   "site": "Psychological Review",
+   "date": "1958",
+   "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf",
+   "license": "© American Psychological Association (journal article); copy hosted at UIC",
+   "licenseUrl": "",
+   "reuse": "Cite only; short paraphrase.",
+   "accessed": "2026-10-14",
+   "levels": [
+    116
+   ],
+   "notes": "Read the first two pages. DOI 10.1037/h0042519 per a search listing (not opened).",
+   "pdf": true
+  },
+  {
+   "id": "d2l",
+   "status": "unverified",
+   "title": "Dive into Deep Learning",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "d2l.ai",
+   "date": "2023",
+   "url": "https://d2l.ai/",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    112
+   ],
+   "notes": "Only the landing page was read. Not cited for any fact yet."
+  },
+  {
+   "id": "runestone-pythonds",
+   "status": "rejected",
+   "title": "Problem Solving with Algorithms and Data Structures using Python (Big-O page)",
+   "author": "Miller, B., & Ranum, D.",
+   "site": "Runestone Academy",
+   "date": "n.d.",
+   "url": "https://runestone.academy/ns/books/published/pythonds3/AlgorithmAnalysis/BigONotation.html",
+   "license": "unknown",
+   "licenseUrl": "",
+   "reuse": "Not used.",
+   "accessed": "2026-10-14",
+   "levels": [
+    15
+   ],
+   "notes": "Server returned HTTP 403 to every request, so the page could not be read. Use CS50 notes instead."
+  },
+  {
+   "id": "ibm-fortran",
+   "status": "verified",
+   "title": "FORTRAN",
+   "author": "IBM",
+   "site": "IBM History",
+   "date": "n.d.",
+   "url": "https://www.ibm.com/history/fortran",
+   "license": "© IBM",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-14",
+   "levels": [
+    -1
+   ],
+   "notes": ""
+  },
+  {
+   "id": "turing-1950",
+   "status": "unverified",
+   "title": "Computing machinery and intelligence",
+   "author": "Turing, A. M.",
+   "site": "Mind",
+   "date": "1950",
+   "url": "https://doi.org/10.1093/mind/LIX.236.433",
+   "license": "© Oxford University Press",
+   "licenseUrl": "",
+   "reuse": "Not read.",
+   "accessed": "2026-10-14",
+   "levels": [
+    116
+   ],
+   "notes": "No openly accessible full text was found. Do not cite the paper itself. J&M (2007, Section 1.4) describes the Turing test and cites the paper; cite J&M for that description."
+  }
+ ]
 }
