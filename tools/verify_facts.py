@@ -174,7 +174,13 @@ def load_source(src: dict, fresh: bool):
         txt.write_text("")
         return code, ""
     if src.get("pdf"):
-        raw_text = pdf_text(raw)
+        try:
+            raw_text = pdf_text(raw)
+        except Exception as e:  # a truncated or non-PDF response (for example a bot page) counts as unreadable
+            print(f"note: {src['id']}: could not read the PDF ({type(e).__name__})")
+            meta.write_text("0")
+            txt.write_text("")
+            return 0, ""
     elif src.get("text"):
         raw_text = raw.read_bytes().decode("utf-8", errors="replace")
     else:

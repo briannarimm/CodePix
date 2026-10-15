@@ -3422,8 +3422,7 @@
     "In 1843 she published a translation from the French",
     "first published description of a stepwise sequence of operations"
    ],
-   "mod": "py",
-   "pending": true
+   "mod": "py"
   },
   {
    "id": "py-223",
@@ -3433,8 +3432,7 @@
    "check": [
     "about three times the length of the original memoir"
    ],
-   "mod": "py",
-   "pending": true
+   "mod": "py"
   },
   {
    "id": "py-224",
@@ -3445,8 +3443,7 @@
     "University of Pennsylvania in 1946",
     "Moore School of Electrical Engineering"
    ],
-   "mod": "py",
-   "pending": true
+   "mod": "py"
   },
   {
    "id": "py-225",
@@ -3460,8 +3457,7 @@
     "1952",
     "COBOL"
    ],
-   "mod": "py",
-   "pending": true
+   "mod": "py"
   },
   {
    "id": "py-226",
@@ -3472,8 +3468,7 @@
     "step-by-step set of instructions to solve a problem",
     "Pseudocode is human-readable instructions"
    ],
-   "mod": "py",
-   "pending": true
+   "mod": "py"
   },
   {
    "id": "ml-108",
@@ -3587,8 +3582,7 @@
     "Hyperparameters are variables that control different aspects of training",
     "influences how quickly the model converges"
    ],
-   "mod": "ml",
-   "pending": true
+   "mod": "ml"
   },
   {
    "id": "ml-118",
@@ -3769,8 +3763,7 @@
    "check": [
     "lower-dimensional representations of sparse data"
    ],
-   "mod": "ml",
-   "pending": true
+   "mod": "ml"
   },
   {
    "id": "ml-134",
@@ -3780,8 +3773,7 @@
    "check": [
     "A language model estimates the probability of a token or sequence of tokens"
    ],
-   "mod": "ml",
-   "pending": true
+   "mod": "ml"
   },
   {
    "id": "ml-135",
@@ -3825,6 +3817,1164 @@
     "or python hello.py (Windows)"
    ],
    "mod": "py"
+  },
+  {
+   "id": "py-229",
+   "src": "missing-semester-shell",
+   "anchor": "#the-shell",
+   "claim": "In the lecture's example prompt missing:~$, the current working directory is shown as ~, which is short for home.",
+   "check": [
+    "or where you currently are, is",
+    "(short for \"home\")"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-230",
+   "src": "apple-mac-folders",
+   "anchor": "Users folder",
+   "claim": "Apple says the Users folder holds the home folders of everyone set up as a user on the Mac, and your home folder is named with your user name and has folders for desktop files, downloads, pictures, documents, movies, music and public files.",
+   "check": [
+    "contains the home folders of all the people set up as users on your Mac",
+    "Your home folder is named with your user name"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-231",
+   "src": "apple-rename-home",
+   "anchor": "Rename the home folder",
+   "claim": "In Apple's example, a user whose user name is johnappleseed has the home directory /Users/johnappleseed.",
+   "check": [
+    "/Users/johnappleseed"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-232",
+   "src": "py-docs-tutorial-interpreter",
+   "anchor": "#interactive-mode",
+   "claim": "In interactive mode the interpreter prompts with the primary prompt, usually three greater-than signs (>>>), and with three dots (...) for continuation lines; it prints a welcome message with its version number before the first prompt.",
+   "check": [
+    "it prompts for the next command with the primary prompt",
+    "usually three greater-than signs",
+    "by default three dots",
+    "prints a welcome message stating its version number"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-233",
+   "src": "py-docs-tutorial-interpreter",
+   "anchor": "#invoking-the-interpreter",
+   "claim": "Typing an end-of-file character at the primary prompt (Control-D on Unix, Control-Z on Windows) exits the interpreter; if that does not work, typing quit() exits it.",
+   "check": [
+    "Typing an end-of-file character",
+    "Control-D on Unix, Control-Z on",
+    "exit the interpreter by typing the following command: quit()"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-234",
+   "src": "fedora-python",
+   "anchor": "Running Python",
+   "claim": "Fedora's developer portal says Python 3 is already pre-installed on Fedora, you start it by typing python in a terminal and leave it with Ctrl + D, and python3 and python are equivalent commands there.",
+   "check": [
+    "Python 3 is already pre-installed on Fedora",
+    "If you want to exit Python, press",
+    "These commands are equivalent"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-235",
+   "src": "vscode-setup-mac",
+   "anchor": "#install-vs-code-on-macos",
+   "claim": "To install VS Code on macOS you download it, open the downloaded .dmg file, drag the app to the Applications folder, and open it from there.",
+   "check": [
+    "Open the downloaded",
+    ".app to the Applications folder",
+    "from the Applications folder by double-clicking the icon"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-236",
+   "src": "vscode-setup-mac",
+   "anchor": "#configure-path-with-vs-code",
+   "claim": "To start VS Code from the terminal with code, open the Command Palette in VS Code, run Shell Command: Install 'code' command in PATH, and restart the terminal; then code . opens the current folder.",
+   "check": [
+    "Shell Command: Install 'code' command in PATH",
+    "Restart the terminal for the new",
+    "in any folder to start editing files in that folder"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-237",
+   "src": "brew-faq",
+   "anchor": "#why-should-i-install-homebrew-in-the-default-location",
+   "claim": "Homebrew's default prefix is /opt/homebrew on Apple silicon Macs and /usr/local on Intel Macs, which Homebrew labels legacy with Tier 3 support.",
+   "check": [
+    "/opt/homebrew for macOS on Apple Silicon",
+    "/usr/local for macOS on Intel (legacy"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-238",
+   "src": "brew-installation",
+   "anchor": "#post-installation-steps",
+   "claim": "When you install Homebrew it prints directions for updating your shell's config file, Homebrew will not work if you skip them, and which file to edit depends on your shell.",
+   "check": [
+    "it prints some directions for updating your shell's config",
+    "If you don't follow those directions, Homebrew will not work",
+    "which file exactly depends on your shell"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-239",
+   "src": "brew-install-script",
+   "anchor": "Next steps",
+   "claim": "In the Homebrew installer's source, the Next steps commands add the brew shellenv line to ~/.zprofile when the shell is zsh on macOS, and to ~/.bash_profile when it is bash on macOS.",
+   "check": [
+    "ohai \"Next steps:\"",
+    "shell_rcfile=\"${ZDOTDIR:-\"${HOME}\"}/.zprofile\"",
+    "shell_rcfile=\"${HOME}/.bash_profile\""
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-240",
+   "src": "ubuntu-python-setup",
+   "anchor": "#installing-python-runtime-environment",
+   "claim": "Canonical's Ubuntu guide says the python3 package is part of the default system installation and must not be removed, and that sudo apt install -y python3-full adds the complete class library, venv support and IDLE.",
+   "check": [
+    "It is a part of the default system installation",
+    "Do not remove the default system installation of Python",
+    "sudo apt install -y python3-full",
+    "which automatically installs the interpreter with the complete class library"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-241",
+   "src": "py-docs-tutorial-intro",
+   "anchor": "#first-steps-towards-programming",
+   "claim": "The tutorial says the body of a loop is indented, that indentation is Python's way of grouping statements, and that each line within a basic block must be indented by the same amount.",
+   "check": [
+    "indentation is Python's way of grouping",
+    "each line within a basic block must be indented by the same amount"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-242",
+   "src": "py-docs-lexical",
+   "anchor": "#indentation",
+   "claim": "The language reference says the leading whitespace at the start of a line sets its indentation level, which determines how statements are grouped.",
+   "check": [
+    "is used to compute the indentation level of the line",
+    "the grouping of statements"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-243",
+   "src": "py-docs-tutorial-controlflow",
+   "anchor": "#intermezzo-coding-style",
+   "claim": "The tutorial's coding-style advice is to use 4-space indentation and no tabs.",
+   "check": [
+    "Use 4-space indentation, and no tabs."
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-244",
+   "src": "py-docs-tutorial-errors",
+   "anchor": "#handling-exceptions",
+   "claim": "The tutorial says the user can interrupt a program with Control-C (or whatever the operating system supports), and the interruption is signalled by raising KeyboardInterrupt.",
+   "check": [
+    "allows the user to interrupt the program",
+    "Control-C or whatever the operating system supports",
+    "is signalled by raising the KeyboardInterrupt exception"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-245",
+   "src": "py-docs-exceptions",
+   "anchor": "#KeyboardInterrupt",
+   "claim": "KeyboardInterrupt is raised when the user hits the interrupt key, normally Control-C or Delete.",
+   "check": [
+    "Raised when the user hits the interrupt key",
+    "normally Control-C or"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-246",
+   "src": "py-docs-turtle",
+   "anchor": "#turtle",
+   "claim": "The turtle documentation says the python.org installers for Windows and macOS include tkinter, but some Linux distributions package it separately; if import turtle fails with an error mentioning _tkinter, look for documentation from whoever provided your Python.",
+   "check": [
+    "The python.org installers for Windows and macOS include it",
+    "may package it separately",
+    "look for documentation from your distributor"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-247",
+   "src": "py-docs-tkinter",
+   "anchor": "#module-tkinter",
+   "claim": "Running python -m tkinter from the command line should open a window with a simple Tk interface, which shows that tkinter is installed and which Tcl/Tk version you have.",
+   "check": [
+    "Running python -m tkinter from the command line should open a window",
+    "properly installed on your system"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-248",
+   "src": "py-docs-windows",
+   "anchor": "#installing-without-ui",
+   "claim": "In the full Windows installer, which is deprecated since 3.14, the Include_tcltk option installs Tcl/Tk support and IDLE.",
+   "check": [
+    "Include_tcltk",
+    "Install Tcl/Tk support and IDLE",
+    "This installer is deprecated since 3.14"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-249",
+   "src": "thinkpython3-ch3",
+   "anchor": "#tracebacks",
+   "claim": "Think Python says a traceback shows the function that was running when the error occurred, the function that called it, and so on; the functions are listed in the same order as the frames in a stack diagram, with the running function at the bottom.",
+   "check": [
+    "shows the function that was running when the error occurred",
+    "the same as the order of the frames in the stack diagram",
+    "The function that was running is at the bottom"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-250",
+   "src": "py-docs-traceback",
+   "anchor": "#traceback.print_exception",
+   "claim": "A printed traceback starts with the header Traceback (most recent call last): and prints the exception type and value after the stack trace entries.",
+   "check": [
+    "it prints a header Traceback (most recent call last):",
+    "it prints the exception type and value after the stack trace"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-251",
+   "src": "py-docs-library-intro",
+   "anchor": "#introduction",
+   "claim": "The Python standard library is a collection of modules, most written in Python and some in C, and all of them can be imported into your program to add functionality.",
+   "check": [
+    "The Python standard library consists of a collection of modules",
+    "Most modules are written in Python",
+    "All can be imported into your program to add functionality"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-252",
+   "src": "pytest-start",
+   "anchor": "#run-multiple-tests",
+   "claim": "The pytest getting-started page runs tests with the bare command pytest, which runs all files of the form test_*.py or *_test.py in the current directory and its subdirectories.",
+   "check": [
+    "$ pytest",
+    "will run all files of the form",
+    "in the current directory and its subdirectories"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-253",
+   "src": "runestone-pythonds-insertion",
+   "anchor": "The insertion sort",
+   "claim": "Miller and Ranum describe insertion sort as keeping a sorted sublist in the lower positions of the list and inserting each new item into it, so the sorted sublist grows by one item each time.",
+   "check": [
+    "It always maintains a sorted sublist in the lower positions of the list",
+    "the sorted sublist is one item larger"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-254",
+   "src": "runestone-pythonds-insertion",
+   "anchor": "The insertion sort",
+   "claim": "On each pass of insertion sort the current item is checked against the sorted sublist, and items greater than it are shifted to the right until a smaller item or the end of the sublist is reached.",
+   "check": [
+    "we shift those items",
+    "that are greater to the right",
+    "When we reach a smaller item or the end"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-255",
+   "src": "runestone-pythonds-insertion",
+   "anchor": "The insertion sort",
+   "claim": "The most comparisons insertion sort can need is the sum of the first n-1 integers, which is O(n squared); in the best case, an already sorted list, it needs only one comparison on each pass.",
+   "check": [
+    "The maximum number of comparisons for an insertion sort is the sum of",
+    "only one comparison needs to be done on each",
+    "This would be the case for an already sorted list"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-256",
+   "src": "py-docs-main",
+   "anchor": "#name-main",
+   "claim": "When a module is imported, __name__ is set to the module's name, usually the file name without .py; when the module runs in the top-level code environment, __name__ is set to the string '__main__'.",
+   "check": [
+    "is set to the module's name",
+    "the name of the Python file itself without the",
+    "its __name__ is set to the string '__main__'"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-257",
+   "src": "py-docs-main",
+   "anchor": "#idiomatic-usage",
+   "claim": "Code inside an if __name__ == '__main__': block runs only when the module is executed in the top-level environment, so importing the module (for example to unit test it) does not run that code.",
+   "check": [
+    "Code within this block won't run unless the module is executed in the",
+    "for example to unit test"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-258",
+   "src": "progit-viewing-history",
+   "anchor": "#_viewing_history",
+   "claim": "With no arguments, git log lists the commits in reverse chronological order, most recent first, with each commit's SHA-1 checksum, author name and email, date and message.",
+   "check": [
+    "in reverse chronological order; that is, the most recent commits show up first",
+    "lists each commit with its SHA-1 checksum"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-259",
+   "src": "progit-viewing-history",
+   "anchor": "#_viewing_history",
+   "claim": "git log --oneline is shorthand for --pretty=oneline --abbrev-commit, and the oneline format prints each commit on a single line.",
+   "check": [
+    "Shorthand for --pretty=oneline --abbrev-commit used together",
+    "prints each commit on a single line"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-260",
+   "src": "progit-recording",
+   "anchor": "#_staging_modified_files",
+   "claim": "A tracked file that you changed shows under Changes not staged for commit; you stage it with git add, which Pro Git calls a multipurpose command that begins tracking new files and also stages files.",
+   "check": [
+    "which means that a file that is tracked has been modified in the working directory but not yet staged",
+    "is a multipurpose command",
+    "to begin tracking new files, to stage files"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-261",
+   "src": "gh-docs-remote-repos",
+   "anchor": "#cloning-with-https-urls",
+   "claim": "When you clone, fetch, pull or push a private repository over an HTTPS URL on the command line, Git asks for your GitHub username and password.",
+   "check": [
+    "to a private remote repository using HTTPS URLs on the command line",
+    "username and password"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-262",
+   "src": "gh-docs-remote-repos",
+   "anchor": "#cloning-with-ssh-urls",
+   "claim": "To use SSH URLs with GitHub you generate an SSH keypair on your computer and add the public key to your GitHub account.",
+   "check": [
+    "you must generate an SSH keypair on your computer and add the"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-263",
+   "src": "gh-docs-pat",
+   "anchor": "#about-personal-access-tokens",
+   "claim": "GitHub says a personal access token is an alternative to a password for authenticating to GitHub on the command line or with the API, and to treat access tokens like passwords.",
+   "check": [
+    "are an alternative to using passwords for authentication to",
+    "Treat your access tokens like passwords"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-264",
+   "src": "gh-docs-credentials",
+   "anchor": "Caching your GitHub credentials in Git",
+   "claim": "For HTTPS, GitHub recommends GitHub CLI or Git Credential Manager (GCM) to remember your credentials; if you use SSH, you authenticate with an SSH key instead.",
+   "check": [
+    "or Git Credential Manager (GCM) to remember your credentials",
+    "then you can authenticate using an SSH key instead of using other credentials"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-265",
+   "src": "gh-docs-branches",
+   "anchor": "#about-the-default-branch",
+   "claim": "GitHub names the default branch main in any new repository, and the default branch is the one Git checks out locally when someone clones the repository.",
+   "check": [
+    "names the default branch main in any new repository",
+    "the initial branch that Git checks out locally when someone clones the repository"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-266",
+   "src": "progit-first-time-setup",
+   "anchor": "#_new_default_branch",
+   "claim": "By default git init creates a branch called master; from Git 2.28 on you can set a different initial name, for example with git config --global init.defaultBranch main.",
+   "check": [
+    "By default Git will create a branch called master when you create a new repository with git init",
+    "From Git version 2.28 onwards",
+    "git config --global init.defaultBranch main"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-267",
+   "src": "vscode-python-envs",
+   "anchor": "#select-an-environment",
+   "claim": "In VS Code you pick the Python environment from the Status Bar or by running Python: Select Interpreter in the Command Palette, and the selected environment is used for running code, debugging and IntelliSense.",
+   "check": [
+    "run Python: Select Interpreter and choose from the list",
+    "The selected environment is used for running code, debugging"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-268",
+   "src": "vscode-python-envs",
+   "anchor": "#terminal-settings",
+   "claim": "When you open a terminal in VS Code, the Python extension activates your selected environment so that python and pip use the correct interpreter.",
+   "check": [
+    "the extension automatically activates your selected Python environment"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-269",
+   "src": "gomes-2026-intro-programming",
+   "anchor": "Abstract",
+   "claim": "A study of 150 CS1 and CS2 courses at 83 top-ranked universities found Python the most common CS1 language (32.5 percent) and Java the most common in CS2 (56.7 percent).",
+   "check": [
+    "150 programming courses across 83 institutions",
+    "Python in CS1 (32.5 %)",
+    "Java in CS2 (56.7 %)"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-270",
+   "src": "gomes-2026-intro-programming",
+   "anchor": "4.4 Programming paradigms",
+   "claim": "The same study found that almost all CS1 courses use the imperative paradigm, that object-oriented programming is typically introduced near the middle or end of the course, and that CS2 is mostly object-oriented.",
+   "check": [
+    "almost all courses use the imperative paradigm",
+    "is introduced near the middle or at the end of the course"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-271",
+   "src": "gomes-2026-intro-programming",
+   "anchor": "Conclusion",
+   "claim": "Exams carry the most weight in these courses, but projects and labs are widely adopted and quizzes are emerging as valuable formative tools.",
+   "check": [
+    "Examinations usually have the highest weight",
+    "projects and labs are widely adopted",
+    "quizzes emerging as valuable formative tools"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-272",
+   "src": "gomes-2026-intro-programming",
+   "anchor": "Abstract; Introduction",
+   "claim": "Course policies on students' use of generative AI ranged from complete prohibition to active encouragement, and the authors say teachers and institutions must establish clear guidelines for how students can use these tools.",
+   "check": [
+    "from complete prohibition to active encouragement",
+    "establish clear guidelines for students on how they can use them"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-273",
+   "src": "newhall-2025-cs31",
+   "anchor": "6 Class meetings",
+   "claim": "Swarthmore's CS 31, taught to students with only a CS1 background, mixes lectures with small-group active learning exercises and mainly uses peer instruction with clickers.",
+   "check": [
+    "only a CS1 background",
+    "lectures punctuated by several active learning exercises in small groups",
+    "peer instruction"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-274",
+   "src": "newhall-2025-cs31",
+   "anchor": "2.2 Course structure; 6 Class meetings",
+   "claim": "CS 31 holds daily graded reading quizzes answered with clickers, and all of its lab assignments are done in pairs.",
+   "check": [
+    "daily (graded) reading quizzes",
+    "All lab assignments in CS 31 are done in pairs"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-275",
+   "src": "newhall-2025-cs31",
+   "anchor": "5 Homeworks; 6 Class meetings",
+   "claim": "CS 31 homework asks students to draw the stack at a point in a program's execution, and a visualizer tool lets them step through assembly code one instruction at a time.",
+   "check": [
+    "drawing the stack at some point in the execution",
+    "step through assembly code one instruction at a time"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-276",
+   "src": "newhall-2025-cs31",
+   "anchor": "7.1 Impact on upper level curriculum",
+   "claim": "Since adding CS 31, the authors see a substantial change in students' preparedness, knowledge and comfort with parallel computing and systems concepts in later courses.",
+   "check": [
+    "substantial change in preparedness, knowledge, and comfort"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "ml-137",
+   "src": "numpy-install",
+   "anchor": "Introduction",
+   "claim": "NumPy's install page says the only prerequisite for installing NumPy is Python itself.",
+   "check": [
+    "The only prerequisite for installing NumPy is Python itself"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-138",
+   "src": "numpy-install",
+   "anchor": "Environment based: Pip",
+   "claim": "NumPy's install page gives pip install numpy, and its tip recommends a virtual environment: python -m venv my-env, then source my-env/bin/activate on macOS and Linux (my-env\\Scripts\\activate on Windows), then pip install numpy.",
+   "check": [
+    "pip install numpy",
+    "Use a virtual environment for better dependency management",
+    "python -m venv my-env",
+    "source my-env/bin/activate"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-139",
+   "src": "pandas-install",
+   "anchor": "#installing-with-pip",
+   "claim": "pandas can be installed from PyPI with pip install pandas, and the pandas documentation recommends installing and running pandas from a virtual environment, for example one made with the standard library's venv.",
+   "check": [
+    "pip install pandas",
+    "it is recommended to install and run pandas from a virtual environment, for example",
+    "using the Python standard library's"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-140",
+   "src": "mpl-install",
+   "anchor": "#install-an-official-release",
+   "claim": "Matplotlib publishes wheel packages for macOS, Windows and Linux on PyPI, and its install page installs it with python -m pip install -U pip followed by python -m pip install -U matplotlib.",
+   "check": [
+    "available as wheel packages for macOS, Windows and",
+    "python -m pip install -U pip",
+    "python -m pip install -U matplotlib"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-141",
+   "src": "pandas-read-write",
+   "anchor": "How do I read and write tabular data?",
+   "claim": "pandas provides the read_csv function to read data stored as a CSV file into a DataFrame; its readers for other formats (such as Excel, SQL, JSON and parquet) all start with read_.",
+   "check": [
+    "to read data stored as a csv",
+    "file into a pandas",
+    "each of them with the prefix"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-142",
+   "src": "pandas-read-write",
+   "anchor": "How do I read and write tabular data?",
+   "claim": "When a DataFrame is displayed, pandas shows the first and last 5 rows by default; the head method shows the first N rows (for example head(8)), and tail shows the last N.",
+   "check": [
+    "the first and last 5 rows will be",
+    "To see the first N rows of a",
+    "titanic.tail(10)"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-143",
+   "src": "pandas-read-write",
+   "anchor": "REMEMBER",
+   "claim": "The pandas tutorial says to always check the data after reading it in, and calls head, tail, info and the dtypes attribute convenient for a first check.",
+   "check": [
+    "Make sure to always have a check on the data after reading in the",
+    "are convenient for a first check"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-144",
+   "src": "sk-linear",
+   "anchor": "#ordinary-least-squares",
+   "claim": "scikit-learn's LinearRegression takes X and y in its fit method and stores the learned coefficients in its coef_ and intercept_ attributes; in the documentation's example, fitting [[0, 0], [1, 1], [2, 2]] to [0, 1, 2] gives coef_ array([0.5, 0.5]) and intercept_ 0.0.",
+   "check": [
+    "coef_ and intercept_ attributes",
+    "reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])",
+    "array([0.5, 0.5])"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-145",
+   "src": "sk-linreg-api",
+   "anchor": "Attributes",
+   "claim": "On LinearRegression, coef_ holds the estimated coefficients for the linear regression problem (a 1D array with one value per feature when there is one target), and intercept_ is the independent term in the linear model, set to 0.0 when fit_intercept is False.",
+   "check": [
+    "Estimated coefficients for the linear regression problem",
+    "one target is passed, this is a 1D array of length n_features",
+    "Independent term in the linear model"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-146",
+   "src": "openstax-stats-12-3",
+   "anchor": "Least squares criteria for best fit",
+   "claim": "OpenStax says the best-fit line is the one that minimizes the sum of the squared errors (SSE); any other line would have a higher SSE, and this line is called the least-squares regression line.",
+   "check": [
+    "the sum of the squared errors (SSE) is minimized",
+    "Any other line you might choose would have a higher SSE than the best fit line",
+    "least-squares regression line"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-147",
+   "src": "openstax-stats-12-3",
+   "anchor": "Least squares criteria for best fit",
+   "claim": "OpenStax says calculus gives the a and b that make the SSE smallest: for the line y-hat = a + bx, the slope b is the sum of (x - x-bar)(y - y-bar) divided by the sum of (x - x-bar) squared, and a = y-bar - b times x-bar. The line always passes through the point (x-bar, y-bar).",
+   "check": [
+    "Using calculus, you can determine the values of a and b that make the SSE a minimum",
+    "Σ ( x − x ¯ ) ( y − y ¯ ) Σ ( x − x ¯ ) 2",
+    "The best fit line always passes through the point"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-148",
+   "src": "sk-metrics",
+   "anchor": "#mean-squared-error",
+   "claim": "scikit-learn defines mean squared error as the average, over the samples, of the squared difference between each true value and its prediction; its example with y_true [3, -0.5, 2, 7] and y_pred [2.5, 0.0, 2, 8] returns 0.375.",
+   "check": [
+    "computes mean squared error",
+    "the expected value of the squared (quadratic) error",
+    "y_pred = [2.5, 0.0, 2, 8]",
+    "0.375"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-149",
+   "src": "mlcc-loss",
+   "anchor": "Loss",
+   "claim": "Google defines loss as a numerical metric that describes how wrong a model's predictions are, and says the goal of training is to minimize the loss.",
+   "check": [
+    "Loss is a numerical metric that describes how wrong a model's predictions are",
+    "The goal of training a model is to minimize the loss"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-150",
+   "src": "mlcc-loss",
+   "anchor": "Types of loss",
+   "claim": "Google defines L2 loss as the sum of the squared differences between predicted and actual values, and mean squared error (MSE) as the average of L2 losses across a set of N examples.",
+   "check": [
+    "The sum of the squared difference between the predicted values and the actual values",
+    "The average of L2 losses across a set of"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-151",
+   "src": "mlcc-loss",
+   "anchor": "Choosing a loss",
+   "claim": "Squaring makes a large difference between prediction and label even larger, so L2 loss penalizes an outlier much more than L1 loss, and MSE moves the model more toward outliers than MAE does.",
+   "check": [
+    "squaring makes the loss even larger",
+    "L2 loss incurs a much higher penalty for an outlier than L1 loss",
+    "MSE moves the model more toward the outliers"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-152",
+   "src": "mlcc-splits",
+   "anchor": "Dividing the original dataset",
+   "claim": "Google's example divides data into training and test sets with an 80-20 split, and says a better approach than two sets is three subsets, adding a validation set that does the initial testing while the model is being trained.",
+   "check": [
+    "with an 80-20 split",
+    "a better approach is to divide the dataset into three subsets",
+    "A validation set performs the initial testing on the model as it is being trained"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-153",
+   "src": "mlcc-splits",
+   "anchor": "Dividing the original dataset",
+   "claim": "Google says the training set usually has more examples than the validation or test set, but there are no percentage requirements for the different sets.",
+   "check": [
+    "is usually greater than the number of examples in the validation set or test set",
+    "there are no percentage requirements for the different sets"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-154",
+   "src": "mlcc-splits",
+   "anchor": "Dividing the original dataset",
+   "claim": "Google says that in theory the validation set and the test set should contain the same number of examples, or nearly so.",
+   "check": [
+    "should contain the same number of examples or nearly so"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-155",
+   "src": "mlcc-splits",
+   "anchor": "Additional problems with test sets",
+   "claim": "Google lists what a good test set needs: large enough for statistically significant results, representative of the dataset as a whole and of the real-world data the model will meet, and zero examples duplicated in the training set.",
+   "check": [
+    "Large enough to yield statistically significant testing results",
+    "Representative of the dataset as a whole",
+    "Zero examples duplicated in the training set"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-156",
+   "src": "sk-train-test-split",
+   "anchor": "test_size",
+   "claim": "In scikit-learn's train_test_split, test_size is the proportion (or number) of samples for the test split; if neither test_size nor train_size is given, the test size is set to 0.25.",
+   "check": [
+    "represent the proportion of the dataset to include in the test split",
+    "it will be set to 0.25"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-157",
+   "src": "sk-text-features",
+   "anchor": "The Bag of Words representation",
+   "claim": "scikit-learn says most machine learning algorithms expect numerical feature vectors of a fixed size, so raw text of variable length cannot be fed to them directly.",
+   "check": [
+    "cannot be fed directly to the algorithms themselves",
+    "numerical feature vectors with a fixed size"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-158",
+   "src": "sk-text-features",
+   "anchor": "The Bag of Words representation",
+   "claim": "To turn text into numbers, scikit-learn tokenizes strings and gives each possible token an integer id (for instance using white space and punctuation as separators), counts the occurrences of tokens in each document, and can normalize and weight the counts.",
+   "check": [
+    "giving an integer id for each possible token",
+    "using white-spaces and punctuation as token separators",
+    "the occurrences of tokens in each document"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-159",
+   "src": "sk-text-features",
+   "anchor": "The Bag of Words representation",
+   "claim": "This strategy (tokenization, counting and normalization) is called the Bag of Words or Bag of n-grams representation: a corpus becomes a matrix with one row per document and one column per token, and the relative position of the words is ignored completely.",
+   "check": [
+    "is called the Bag of Words",
+    "one row per document and one column per token",
+    "completely ignoring the relative position information"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-160",
+   "src": "sk-text-features",
+   "anchor": "Sparsity",
+   "claim": "Because each document uses only a small subset of the corpus's words, a bag-of-words matrix is mostly zeros, typically more than 99% of its values.",
+   "check": [
+    "(typically more than 99% of them)"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-161",
+   "src": "jm3-ch3",
+   "anchor": "3.6 Smoothing, interpolation, and backoff",
+   "claim": "Jurafsky and Martin say any finite training corpus will be missing some perfectly acceptable word sequences, so an n-gram can appear in the test set without ever occurring in training (their example is the phrase ruby slippers).",
+   "check": [
+    "any finite training corpus will be missing some perfectly acceptable",
+    "ruby slippers"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-162",
+   "src": "jm3-ch3",
+   "anchor": "3.6 Smoothing, interpolation, and backoff",
+   "claim": "Jurafsky and Martin call such unseen sequences zeros and say that if the probability of any word in the test set is 0, the probability of the whole test set is 0.",
+   "check": [
+    "the probability of the whole test set is 0"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-163",
+   "src": "jm3-ch3",
+   "anchor": "3.6.1 Laplace smoothing",
+   "claim": "Laplace smoothing adds one to each count, which is why it is also called add-one smoothing.",
+   "check": [
+    "Laplace smoothing merely adds one to each count",
+    "add-one smoothing"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-164",
+   "src": "d2l-language-model",
+   "anchor": "9.3.1.2 Word frequency",
+   "claim": "Dive into Deep Learning says many plausible three-word combinations will never appear in a dataset, and unless they are given a nonzero count they cannot be used in a language model.",
+   "check": [
+    "There will be many plausible three-word combinations that we likely will not see in our dataset",
+    "Unless we provide some solution to assign such word combinations a nonzero count"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-165",
+   "src": "d2l-language-model",
+   "anchor": "9.3.1.3 Laplace smoothing",
+   "claim": "Dive into Deep Learning describes Laplace smoothing as adding a small constant to all counts, and says it suits language modeling poorly because many n-grams occur very rarely.",
+   "check": [
+    "A common strategy is to perform some form of",
+    "The solution is to add a small constant to all counts",
+    "making Laplace smoothing rather unsuitable for language modeling"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-166",
+   "src": "d2l-text-sequence",
+   "anchor": "9.2.2 Tokenization",
+   "claim": "Dive into Deep Learning says tokens are the atomic (indivisible) units of text, and what counts as a token (for example a word or a character) is a design choice.",
+   "check": [
+    "are the atomic (indivisible) units of text",
+    "what precisely constitutes a token is a design choice"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-167",
+   "src": "d2l-text-sequence",
+   "anchor": "9.2.3 Vocabulary",
+   "claim": "Because model inputs must be numbers, a vocabulary gives each distinct token a unique index; a token never seen in training, or dropped as rare, is represented by a special unknown token written <unk>.",
+   "check": [
+    "the inputs to our models must ultimately consist of numerical inputs",
+    "associate each distinct token value with a unique index",
+    "signifying that this is an"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-168",
+   "src": "mlcc-llm",
+   "anchor": "Introduction to LLMs",
+   "claim": "Google says a token could be a word, a subword (a subset of a word) or a single character, and that tokens are the smallest unit of language modeling.",
+   "check": [
+    "A token could be a word, a subword (a subset of a word), or even a single character",
+    "Tokens are the atomic unit or smallest unit of language modeling"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-169",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.2 Self-supervised word2vec",
+   "claim": "The word2vec tool has two models, skip-gram and continuous bag of words (CBOW); skip-gram assumes a word can be used to generate the words around it, and CBOW assumes a center word is generated from its surrounding context words.",
+   "check": [
+    "The word2vec tool contains two models",
+    "assumes that a word can be used to generate its surrounding words",
+    "assumes that a center word is generated based on its surrounding context words"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-170",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.2 Self-supervised word2vec",
+   "claim": "word2vec training predicts some words from the words around them in a corpus; because that supervision comes from data without labels, skip-gram and CBOW are self-supervised models.",
+   "check": [
+    "predicting some words using some of their surrounding words",
+    "Since supervision comes from the data without labels"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-171",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.3.1 Training",
+   "claim": "Skip-gram learns a center-word vector and a context-word vector for each word by maximizing the likelihood (maximum likelihood estimation), and the center-word vectors are typically used as the word representations.",
+   "check": [
+    "In training, we learn the model parameters by maximizing the likelihood function",
+    "the center word vectors of the skip-gram model are typically used as the word representations"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-172",
+   "src": "mlcc-obtaining-embeddings",
+   "anchor": "Training an embedding as part of a neural network",
+   "claim": "Google says you can create an embedding while training a neural network for your task: the network learns weights for the first hidden layer so that the embedding vectors for similar examples end up closer to each other.",
+   "check": [
+    "You can create an embedding while training a neural network for your target task",
+    "the neural network model will learn the optimal weights for the nodes in the first hidden layer",
+    "so that the embedding vectors for similar examples are closer to each other"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-173",
+   "src": "d2l-qkv",
+   "anchor": "11.1 Queries, keys, and values",
+   "claim": "Dive into Deep Learning defines attention over a set of key-value pairs as a weighted sum of the values, with scalar attention weights computed from a query and each key; the name comes from paying particular attention to the terms whose weight is large.",
+   "check": [
+    "are scalar attention weights",
+    "The name attention derives from the fact that the operation pays particular attention to the terms"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-174",
+   "src": "d2l-qkv",
+   "anchor": "11.1 Queries, keys, and values",
+   "claim": "The most common setting is weights that are nonnegative and sum to 1, which a softmax can produce; Dive into Deep Learning warns that reading large weights as the model selecting relevant parts is only an intuition.",
+   "check": [
+    "This is the most common setting in deep learning",
+    "apply the softmax operation",
+    "it is important to remember that it is just that, an"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-175",
+   "src": "mlcc-transformers",
+   "anchor": "Self-attention",
+   "claim": "Google says transformers rely heavily on self-attention, which asks, for each input token, how much each other token affects its interpretation; in The animal didn't cross the street because it was too tired, animal matters more than street to the pronoun it.",
+   "check": [
+    "Transformers rely heavily on a concept called self-attention",
+    "How much does each other token of input affect the interpretation of this token?",
+    "animal is more important than street to the pronoun"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-176",
+   "src": "mlcc-bias",
+   "anchor": "Reporting bias",
+   "claim": "Reporting bias occurs when how often events, properties or outcomes appear in a dataset does not accurately reflect their real-world frequency.",
+   "check": [
+    "occurs when the frequency of events, properties, and/or outcomes captured in a dataset does not accurately reflect",
+    "their real-world frequency"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-177",
+   "src": "mlcc-bias",
+   "anchor": "Historical bias",
+   "claim": "Historical bias occurs when historical data reflects inequities that existed in the world at that time.",
+   "check": [
+    "Historical bias occurs when historical data reflects inequities that existed in the world at that time"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-178",
+   "src": "mlcc-bias",
+   "anchor": "Automation bias",
+   "claim": "Automation bias is a tendency to favor results from automated systems over those from non-automated systems, whatever the error rates of each.",
+   "check": [
+    "Automation bias is a tendency to favor results generated by automated systems over those generated by non-automated",
+    "irrespective of the error rates of each"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-179",
+   "src": "mlcc-bias",
+   "anchor": "Selection bias",
+   "claim": "Selection bias occurs if a dataset's examples are chosen in a way that does not reflect their real-world distribution; coverage bias means data not selected in a representative way, non-response (participation) bias means participation gaps in data collection, and sampling bias means no proper randomization.",
+   "check": [
+    "Selection bias occurs if a dataset's examples are chosen in a way that is not reflective of their real-world distribution",
+    "Coverage bias occurs if data is not selected in a representative fashion",
+    "due to participation gaps in the data-collection process",
+    "Sampling bias occurs if proper randomization is not used during data collection"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-180",
+   "src": "mlcc-bias",
+   "anchor": "Group attribution bias",
+   "claim": "Group attribution bias is a tendency to generalize what is true of individuals to their whole group; in-group bias prefers members of your own group, and out-group homogeneity bias stereotypes members of a group you do not belong to or sees them as more uniform.",
+   "check": [
+    "Group attribution bias is a tendency to generalize what is true of individuals to the entire group to which they belong",
+    "In-group bias is a preference for members of your own group",
+    "Out-group homogeneity bias is a tendency to stereotype individual members of a group to which you do not belong",
+    "or to see their characteristics as more uniform"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-181",
+   "src": "mlcc-bias",
+   "anchor": "Implicit bias",
+   "claim": "Implicit bias occurs when assumptions come from one's own model of thinking and personal experiences that don't necessarily apply more generally.",
+   "check": [
+    "Implicit bias occurs when assumptions are made based on one's own model of thinking and personal experiences",
+    "necessarily apply more generally"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-182",
+   "src": "mlcc-bias",
+   "anchor": "Confirmation bias",
+   "claim": "Confirmation bias occurs when model builders unconsciously process data in ways that affirm pre-existing beliefs and hypotheses; experimenter's bias occurs when a model builder keeps training until the result matches their original hypothesis.",
+   "check": [
+    "Confirmation bias occurs when model builders unconsciously process data in ways that affirm pre-existing beliefs",
+    "Experimenter's bias occurs when a model builder keeps training a model until it produces a result that aligns with",
+    "their original hypothesis"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-183",
+   "src": "mlcc-evaluating-bias",
+   "anchor": "Evaluating for bias",
+   "claim": "Google warns that metrics calculated on a whole test or validation set don't always give an accurate picture, because great performance overall can mask poor performance on a minority subset of examples.",
+   "check": [
+    "metrics calculated against an entire test or validation set don't always give an accurate picture",
+    "may mask poor performance on a minority subset of examples"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-184",
+   "src": "mlcc-demographic-parity",
+   "anchor": "Demographic parity",
+   "claim": "In Google's admissions example, the model's predictions show demographic parity if the admission rates for the two groups are equal, so a student's chance of admission doesn't vary by demographic group.",
+   "check": [
+    "then the model's predictions exhibit demographic parity",
+    "doesn't vary by demographic group"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-185",
+   "src": "mlcc-demographic-parity",
+   "anchor": "Demographic parity",
+   "claim": "Google says demographic parity has a significant drawback: it does not take the distribution of predictions into account, so it may not be the best metric for evaluating fairness.",
+   "check": [
+    "demographic parity has one significant drawback",
+    "it does not take the distribution of predictions",
+    "may not be the optimal metric to choose for evaluating fairness"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-186",
+   "src": "mlcc-equal-opportunity",
+   "anchor": "Equality of opportunity",
+   "claim": "A model shows equality of opportunity if qualified members of each group have an equal chance of acceptance, whichever demographic group they belong to; the ratio of positive to negative predictions may still differ between groups.",
+   "check": [
+    "If the acceptance rates for qualified students in both groups are equal, the model exhibits equality of opportunity",
+    "irrespective of which demographic group they belong to",
+    "ratio of positive to negative predictions"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-187",
+   "src": "mlcc-equal-opportunity",
+   "anchor": "Equality of opportunity",
+   "claim": "Google notes two drawbacks of equality of opportunity: it needs a clear-cut preferred label, and it compares error rates in aggregate for demographic groups, which may not always be feasible.",
+   "check": [
+    "it is designed for use cases where there is a clear-cut preferred label",
+    "comparing error rates in aggregate",
+    "which may not always be feasible"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-188",
+   "src": "nyamawe-2025-pml",
+   "anchor": "Book description",
+   "claim": "Nyamawe and colleagues' open beginner textbook says it puts responsible and explainable AI into machine learning models from the start, as a priority instead of an afterthought.",
+   "check": [
+    "emphasizes the importance of integrating responsible and explainable AI into machine learning models",
+    "rather than treated as an afterthought"
+   ],
+   "mod": "ml",
+   "pending": true
+  },
+  {
+   "id": "ml-189",
+   "src": "turing-archive-amt-b-19",
+   "anchor": "Catalogue entry",
+   "claim": "The Turing Digital Archive at King's College, Cambridge holds an off-print of Turing's Computing machinery and intelligence from Mind, Vol. LIX, No. 236, October 1950, reproduced with the permission of Oxford University Press.",
+   "check": [
+    "Computing machinery and intelligence",
+    "Oct. 1950",
+    "with the permission of Oxford University Press"
+   ],
+   "mod": "ml"
   }
  ]
 }
