@@ -5,3 +5,7 @@ __pycache__/
 .venv/
 .DS_Store
 
+node_modules/
+build/
+.claude/worktrees/
+tools/_shot.mjs

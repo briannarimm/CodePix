@@ -1,0 +1,18 @@
+{
+  "id": "b08-scores",
+  "level": "b08",
+  "title": "Keep score, and beat the lazy machine",
+  "file": "scores.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Ms. Gridlock's urgent-ticket machine made 12 guesses. Fill in four small functions: `count` for the four boxes of the confusion matrix, `precision`, `recall`, and `baseline`, the score of a lazy machine that always gives the most common answer.\n\nIf the bottom of a fraction is zero, return `0.0` so the program never crashes. When it works, `python3 scores.py` prints the counts, the two scores and the lazy baseline.",
+  "run_command": "python3 -m unittest test_scores.py",
+  "expected_output": "tp 3 fp 2 fn 1 tn 6\nprecision 0.6 recall 0.75\nlazy baseline accuracy 0.67",
+  "hints": [
+    "`zip(actual, predicted)` hands you one pair at a time. Each pair lands in exactly one of the four boxes.",
+    "Precision divides by everything the machine called yes: `tp + fp`. Recall divides by everything that really was yes: `tp + fn`. Check for zero first.",
+    "For the baseline, count the 1s with `actual.count(1)`, the rest are 0s, and divide the bigger count by `len(actual)`."
+  ],
+  "explain_after": "Google defines recall as TP/(TP+FN) and precision as TP/(TP+FP) [ml-054]. scikit-learn calls comparing your model against simple rules of thumb a sanity check, and its `DummyClassifier` with the `most_frequent` strategy always predicts the most frequent training label [ml-118]. Your `baseline` is that machine's accuracy. If a real model cannot beat it, it has learned nothing useful yet. Here the lazy machine gets 0.67 and the real one gets 0.75 accuracy, which is a smaller win than it first looks.",
+  "concepts": ["confusion matrix", "precision", "recall", "baseline"]
+}

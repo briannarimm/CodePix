@@ -1,0 +1,18 @@
+{
+  "id": "b09-neighbors",
+  "level": "b09",
+  "title": "Ask the neighbors",
+  "file": "knn.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Write the k-nearest-neighbors vote by hand. Sort the past gadgets by their distance to the new one, keep the nearest `k`, and return the decision most of them share.\n\nWhen it works, `python3 knn.py` prints `replace` for the gadget at (5, 6) and `fix` for the one at (2, 2).",
+  "run_command": "python3 -m unittest test_neighbors.py",
+  "expected_output": "replace\nfix",
+  "hints": [
+    "`sorted` takes a `key`: a small function that says what to sort by. Here it is the distance from `new` to the row's first two numbers.",
+    "`row[:2]` is the (age, estimate) part of a row. `math.dist(new, row[:2])` is its distance.",
+    "`ranked = sorted(past, key=lambda row: math.dist(new, row[:2]))`. Then loop over `nearest` and add 1 to `votes[decision]` with `votes.get(decision, 0) + 1`."
+  ],
+  "explain_after": "scikit-learn describes nearest-neighbors classification the same way: keep the training examples, then give a new point the class that most of its k nearest neighbors have [ml-064]. The gadget at (5, 6), which flips from fix to replace when k goes from 1 to 3, is a small taste of why the same page says the best k depends heavily on the data [ml-064].",
+  "concepts": ["k-nearest neighbors", "sorting with a key", "dictionaries"]
+}

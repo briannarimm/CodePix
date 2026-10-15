@@ -1,0 +1,21 @@
+{
+  "id": "a08-wordcount",
+  "level": "a08",
+  "title": "Count the words in a repair note",
+  "file": "wordcount.py",
+  "kind": "test",
+  "prompt": "A customer left a long (fictional) note about their talking kettle. Count how many times each word appears. Store the counts in a dictionary named `counts`, with each word as a key and its count as the value.\n\nThe note is already lowercase with no punctuation, so `note.split()` gives you the words. When it works, the program prints how many times `kettle` appears: `kettle: 3`.",
+  "run_command": "python3 -m unittest test_wordcount.py",
+  "expected_output": "kettle: 3",
+  "hints": [
+    "Start with an empty dictionary, `counts = {}`, and loop over `note.split()`.",
+    "For each word, ask `if word in counts:`. If yes, add 1 to what is in that drawer. If no, make a new drawer holding 1.",
+    "`counts[word] = counts[word] + 1` in the yes branch, and `counts[word] = 1` in the else branch."
+  ],
+  "explain_after": "Each word became a key, the label on a folder, and its count became the value inside [py-082]. `word in counts` tests whether a key is present [py-079], so you never asked for a folder that did not exist.",
+  "concepts": [
+    "dictionaries",
+    "keys",
+    "counting"
+  ]
+}

@@ -1,0 +1,89 @@
+# Build and check the site on every push and pull request. On main, publish dist/ to the `pages`
+# branch, which GitHub Pages serves (Settings > Pages: deploy from branch `pages`, folder /).
+name: Build, check and publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python 3.9 (Module A floor)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - run: echo "PY39=$(which python)" >> "$GITHUB_ENV"
+      - name: Practice package for A13 on 3.9
+        run: python -m pip install --quiet texttable==1.7.1
+
+      - name: Current Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Libraries for Module B programs
+        run: python -m pip install --quiet numpy pandas scikit-learn matplotlib pytest texttable==1.7.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Playwright and Chromium
+        run: |
+          npm install --no-save --prefix tools playwright@1.56.1
+          npx --prefix tools playwright install --with-deps chromium
+
+      - name: Lesson citations and numbers
+        run: |
+          python tools/check_lessons.py
+          python tools/check_numbers.py
+
+      - name: Build
+        run: python tools/build.py --out dist
+
+      - name: Module A programs also run on Python 3.9
+        run: python tools/gen_traces.py --verify-with "$PY39"
+
+      - name: Exercises pass with real Python (3.9 and current)
+        run: python tools/exercises_check.py --python "$PY39" python
+
+      - name: Play every level in Chromium (1280 px and 400 px)
+        run: python tools/check.py --dist dist --skip-exercises --shots shots
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: shots/
+          retention-days: 7
+
+      - name: Publish dist/ to the pages branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          SRC="$(git rev-parse --short HEAD)"
+          git fetch --quiet origin pages || true
+          WT="$RUNNER_TEMP/pages"
+          if git rev-parse --verify --quiet origin/pages >/dev/null; then
+            git worktree add --quiet -B pages "$WT" origin/pages
+          else
+            git worktree add --quiet --orphan -b pages "$WT"
+          fi
+          rsync -a --delete --exclude '.git' dist/ "$WT"/
+          cd "$WT"
+          git add -A
+          if git diff --cached --quiet; then echo "pages already up to date"; exit 0; fi
+          git commit --quiet -m "Publish site from main@$SRC"
+          git push --quiet origin pages

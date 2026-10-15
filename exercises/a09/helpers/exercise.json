@@ -1,0 +1,20 @@
+{
+  "id": "a09-helpers",
+  "level": "a09",
+  "title": "Three recipe cards",
+  "file": "helpers.py",
+  "kind": "test",
+  "prompt": "Write three small functions in `helpers.py`. The test file calls each one.\n\n`is_even(n)` returns `True` when `n` is even and `False` otherwise. `average(numbers)` returns the average of a list of numbers. `clamp(value, low, high)` returns `value`, pulled back inside the range from `low` to `high`: below `low` gives `low`, above `high` gives `high`.",
+  "run_command": "python3 -m unittest test_helpers.py",
+  "hints": [
+    "Each function needs a `return` line. Without one, a function hands back `None`, and the tests fail.",
+    "`n % 2` is the remainder after dividing by 2. For `average`, `sum(numbers)` and `len(numbers)` help.",
+    "For `clamp`: `if value < low: return low`, then `if value > high: return high`, then `return value`."
+  ],
+  "explain_after": "A function without a `return` statement still returns a value, `None` [py-084]. That is why the starter's tests failed even though nothing crashed.\n\nThe tests are the *arguments* side of the story: they pass values in, and your *parameters* name them [py-090].",
+  "concepts": [
+    "functions",
+    "return",
+    "parameters"
+  ]
+}

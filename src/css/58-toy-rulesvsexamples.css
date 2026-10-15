@@ -1,0 +1,13 @@
+/* Rules vs Examples (B0) */
+.toy-rulesvsexamples .rv-h{margin:0 0 8px}
+.toy-rulesvsexamples .rv-rules{display:flex;flex-wrap:wrap;gap:8px}
+.toy-rulesvsexamples .rv-rules .btn{white-space:normal;text-align:left}
+.toy-rulesvsexamples .rv-bar{justify-content:space-between}
+.toy-rulesvsexamples .rv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
+.toy-rulesvsexamples .rv-card{position:relative;display:flex;flex-direction:column;gap:2px;padding:8px 10px;border:3px solid var(--ink);border-radius:10px;background:#fff;font-size:15px;line-height:1.3;box-shadow:2px 2px 0 var(--ink)}
+.toy-rulesvsexamples .rv-card > b:first-child{font-size:17px;text-transform:capitalize}
+.toy-rulesvsexamples .rv-card.ok{background:#ecffd6}
+.toy-rulesvsexamples .rv-card.bad{background:#ffe3ec}
+.toy-rulesvsexamples .rv-mark{position:absolute;top:4px;right:8px;font-size:20px;font-weight:700}
+.toy-rulesvsexamples .rv-note{margin-top:8px;font-family:var(--f-book)}
+@media (max-width:480px){.toy-rulesvsexamples .rv-grid{grid-template-columns:1fr 1fr}.toy-rulesvsexamples .rv-card{font-size:14px}}

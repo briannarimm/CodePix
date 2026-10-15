@@ -1,0 +1,22 @@
+{
+  "id": "b04-fit",
+  "level": "b04",
+  "title": "Let scikit-learn fit it",
+  "file": "fit.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Finish `fit_line(hours, costs)` so it fits a `LinearRegression` and returns `(b, w)`: the bias and the weight. Remember that `X` needs one row per ticket, so turn each hour into a one-item list first.\n\nRun it inside your virtual environment. `python3 fit.py` prints the line for the twelve fictional tickets.",
+  "run_command": "python3 -m unittest test_fit.py",
+  "expected_output": "b = 14.89  w = 36.75",
+  "hints": [
+    "`X = [[h] for h in hours]` makes one row per ticket with one feature in each row.",
+    "`model = LinearRegression()` then `model.fit(X, costs)`. After fitting, `model.intercept_` is the bias and `model.coef_[0]` is the weight for the one feature.",
+    "`return float(model.intercept_), float(model.coef_[0])`."
+  ],
+  "explain_after": "scikit-learn fits with `fit(X, y)`, where `X` has shape `(n_samples, n_features)` [ml-026]; your `X` has 12 rows of 1 feature. `LinearRegression` chooses the line with the smallest residual sum of squares [ml-032], the same score you computed by hand in *Score a guessed line*. The book's plain-Python recipe in `b04_byhand` lands on the same two numbers.",
+  "concepts": [
+    "scikit-learn",
+    "LinearRegression",
+    "fit"
+  ]
+}

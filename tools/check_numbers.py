@@ -44,5 +44,9 @@ check("eight bits max", 255, 2 ** 8 - 1); check("three bits max", 7, 2 ** 3 - 1)
 check("selection sort steps n=10 : n(n-1)/2", 45, sum(range(1, 10)))
 check("round(0.5)", 0, round(0.5)); check("round(1.5)", 2, round(1.5))
 check("17//3", 5, 17 // 3); check("17%3", 2, 17 % 3); check("-3**2", -9, -3 ** 2)
+# Dive into Deep Learning 15.1.1: cosine similarity of two different one-hot vectors is 0
+oh_a, oh_b = [1, 0, 0, 0], [0, 0, 1, 0]
+cos = sum(x * y for x, y in zip(oh_a, oh_b)) / (math.sqrt(sum(x * x for x in oh_a)) * math.sqrt(sum(y * y for y in oh_b)))
+check("D2L one-hot cosine similarity", 0, cos)
 print(f"\n{sum(results)} of {len(results)} numbers confirmed")
 sys.exit(0 if all(results) else 1)

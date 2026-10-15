@@ -1,0 +1,29 @@
+/* Bit Board toy (A2). */
+.toy-bitboard .bb-row{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;max-width:620px}
+.toy-bitboard .bb-sw{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:120px;padding:6px 2px;border:3px solid var(--ink);border-radius:10px;background:var(--silver);box-shadow:3px 3px 0 var(--ink);touch-action:manipulation}
+.toy-bitboard .bb-sw:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.toy-bitboard .bb-bulb{width:24px;height:24px;border:2px solid var(--ink);border-radius:50%;background:#fff}
+.toy-bitboard .bb-lever{position:relative;width:24px;height:44px;border:2px solid var(--ink);border-radius:6px;background:#fff}
+.toy-bitboard .bb-lever::after{content:"";position:absolute;left:2px;right:2px;bottom:2px;height:18px;border:2px solid var(--ink);border-radius:4px;background:var(--silver-d);transition:bottom .12s}
+.toy-bitboard .bb-v{font-family:var(--f-code);font-size:13px;font-weight:700}
+.toy-bitboard .bb-sw.on{background:var(--lemon)}
+.toy-bitboard .bb-sw.on .bb-bulb{background:var(--tang);box-shadow:0 0 10px 3px var(--lemon)}
+.toy-bitboard .bb-sw.on .bb-lever::after{bottom:20px;background:var(--tang)}
+.toy-bitboard .bb-read{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:12px;max-width:620px}
+.toy-bitboard .bb-read > div{display:flex;flex-direction:column}
+.toy-bitboard .bb-k{font-size:13px;color:var(--ink2)}
+.toy-bitboard .bb-read b{font-family:var(--f-code);font-size:24px;overflow-wrap:anywhere}
+.toy-bitboard .bb-sum{margin:8px 0;font-family:var(--f-code);font-size:15px;overflow-wrap:anywhere}
+.toy-bitboard .bb-type{display:flex;align-items:center;gap:8px;font-weight:700}
+.toy-bitboard .bb-in{width:3em;min-height:38px;padding:4px;border:3px solid var(--ink);border-radius:8px;text-align:center;font-family:var(--f-code);font-size:20px}
+.toy-bitboard .bb-msg{min-height:1.5em;margin:4px 0;color:var(--ink2)}
+@media (prefers-reduced-motion:reduce){.toy-bitboard .bb-lever::after{transition:none}}
+@media (max-width:480px){
+  .toy-bitboard .bb-row{gap:3px}
+  .toy-bitboard .bb-sw{min-height:104px;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+  .toy-bitboard .bb-bulb{width:18px;height:18px}
+  .toy-bitboard .bb-lever{width:18px;height:38px}
+  .toy-bitboard .bb-lever::after{height:15px}
+  .toy-bitboard .bb-sw.on .bb-lever::after{bottom:17px}
+  .toy-bitboard .bb-v{font-size:11px}
+}

@@ -112,6 +112,133 @@ add("runestone-pythonds","Problem Solving with Algorithms and Data Structures us
 add("ibm-fortran","FORTRAN","IBM","IBM History","n.d.","https://www.ibm.com/history/fortran",("© IBM",""),"Cite and paraphrase only.",[-1])
 add("turing-1950","Computing machinery and intelligence","Turing, A. M.","Mind","1950","https://doi.org/10.1093/mind/LIX.236.433",("© Oxford University Press",""),"Not read.",[116],status="unverified",notes="No openly accessible full text was found. Do not cite the paper itself.")
 
+# ---------------- Added 2026-10-15 (gap research) ----------------
+# The research sandbox could reach only GitHub and PyPI with curl (other hosts: proxy 403). Every page below was
+# opened in a browser-style fetch to confirm it loads and shows the passage; the check strings are then matched
+# against the publisher's own source file ("mirror"). Sources with no mirror are "unverified" and their facts pending.
+ACC2 = "2026-10-15"
+GH = "https://raw.githubusercontent.com/"
+CPY = GH + "python/cpython/3.15/Doc/"
+SKG = GH + "scikit-learn/scikit-learn/1.9.X/"
+def add2(*a, **k):
+    k.setdefault("accessed", ACC2)
+    add(*a, **k)
+NCSA4_OS = ("CC BY-NC-SA 4.0", "https://creativecommons.org/licenses/by-nc-sa/4.0/")
+SA4 = ("CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/")
+NCSA_REUSE = "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples."
+# Python docs
+add2("py-docs-exceptions","Built-in exceptions","Python Software Foundation","Python 3.15.0 documentation","n.d.","https://docs.python.org/3/builtins/exceptions.html",PSF,DOCS_REUSE,[10,11,-1],mirror=CPY+"builtins/exceptions.rst",notes="In 3.15 the page lives under /3/builtins/ (the old /3/library/exceptions.html path still serves it).")
+add2("py-docs-faq-general","General Python FAQ","Python Software Foundation","Python 3.15.0 documentation","n.d.","https://docs.python.org/3/faq/general.html#why-was-python-created-in-the-first-place",PSF,DOCS_REUSE,[-1],mirror=CPY+"faq/general.rst",notes="Guido van Rossum's own account of Python's start, quoted in the FAQ.")
+add2("pypa-linux-tools","Installing pip/setuptools/wheel with Linux package managers","Python Packaging Authority","Python Packaging User Guide","2021","https://packaging.python.org/en/latest/guides/installing-using-linux-tools/",("No license named (footer: Copyright 2013-2020, PyPA)",""),"Cite and paraphrase.",[1,13],mirror=GH+"pypa/packaging.python.org/main/source/guides/installing-using-linux-tools.rst",notes="Page says Page Status: Incomplete, Last Reviewed: 2021-07-26. Use only for the distro package names, and say the page is old.")
+# OpenStax Introduction to Python Programming (2024), CC BY-NC-SA 4.0
+OSX = "https://openstax.org/books/introduction-python-programming/pages/"
+OSG = GH + "openstax/osbooks-introduction-python-programming/main/modules/"
+for sid, sec, page, mod, lv in [
+    ("openstax-py-1-1","1.1 Background","1-1-background","m00002",[0,1,13]),
+    ("openstax-py-1-5","1.5 Number basics","1-5-number-basics","m00006",[3,4]),
+    ("openstax-py-1-6","1.6 Error messages","1-6-error-messages","m00007",[10]),
+    ("openstax-py-1-8","1.8 Why Python?","1-8-why-python","m00009",[-1]),
+    ("openstax-py-2-1","2.1 The Python shell","2-1-the-python-shell","m00011",[1]),
+    ("openstax-py-3-1","3.1 Strings revisited","3-1-strings-revisited","m00021",[-1])]:
+    add2(sid,f"Introduction to Python Programming, {sec}","Das, U., Lawson, A., Mayfield, C., & Norouzi, N.","OpenStax","2024",OSX+page,NCSA4_OS,NCSA_REUSE,lv,mirror=OSG+mod+"/index.cnxml",notes=f"OpenStax module {mod}. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.")
+add2("runestone-pythonds-cs","Problem Solving with Algorithms and Data Structures using Python, 1.3 What is computer science?","Miller, B. N., & Ranum, D. L.","Runestone Academy","2014","https://runestone.academy/ns/books/published/pythonds/Introduction/WhatIsComputerScience.html",NCSA4_OS,NCSA_REUSE,[0,15],mirror=GH+"RunestoneInteractive/pythonds/master/_sources/Introduction/WhatIsComputerScience.rst",notes="License stated in the book source (file header and index). The page itself shows only a copyright line. The separate Big-O page entry stays rejected.")
+# Microsoft PowerShell docs (repository licensed CC BY 4.0)
+MSLIC = ("CC BY 4.0 (MicrosoftDocs/PowerShell-Docs LICENSE.md); page footer shows (c) Microsoft","https://creativecommons.org/licenses/by/4.0/")
+MSG = GH + "MicrosoftDocs/PowerShell-Docs/main/reference/docs-conceptual/learn/"
+add2("ms-ps-aliases","Using aliases","Microsoft","PowerShell documentation, Microsoft Learn","2026","https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/using-aliases#compatibility-aliases-in-windows",MSLIC,"Attribute Microsoft; paraphrase.",[0],mirror=MSG+"shell/using-aliases.md",notes="Last updated 2026-01-13.")
+add2("ms-ps101-ch1","PowerShell 101, Chapter 1: Getting started with PowerShell","Microsoft","PowerShell documentation, Microsoft Learn","2026","https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started",MSLIC,"Attribute Microsoft; paraphrase.",[0,1,13],mirror=MSG+"ps101/01-getting-started.md",notes="Page shows Last updated 2026-02-06 (file date 2024-08-02). Written for Windows PowerShell 5.1 on Windows 11.")
+# Pro Git (CC BY-NC-SA 3.0)
+PG = GH + "progit/progit2/main/book/"
+for sid, title, path, src, lv in [
+    ("progit-installing","Pro Git: Installing Git","Getting-Started-Installing-Git","01-introduction/sections/installing.asc",[18]),
+    ("progit-first-time-setup","Pro Git: First-time Git setup","Getting-Started-First-Time-Git-Setup","01-introduction/sections/first-time-setup.asc",[18]),
+    ("progit-getting-repo","Pro Git: Getting a Git repository","Git-Basics-Getting-a-Git-Repository","02-git-basics/sections/getting-a-repository.asc",[18]),
+    ("progit-remotes","Pro Git: Working with remotes","Git-Basics-Working-with-Remotes","02-git-basics/sections/remotes.asc",[18]),
+    ("progit-history","Pro Git: A short history of Git","Getting-Started-A-Short-History-of-Git","01-introduction/sections/history.asc",[-1,18])]:
+    add2(sid,title,"Chacon, S., & Straub, B.","Pro Git","2014","https://git-scm.com/book/en/v2/"+path,NCSA3,"Cite and paraphrase.",lv,mirror=PG+src)
+# GitHub Docs (CC BY 4.0)
+GHD = GH + "github/docs/main/content/"
+add2("gh-docs-account","Creating an account on GitHub","GitHub","GitHub Docs","n.d.","https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github",("CC BY 4.0 (github/docs LICENSE)","https://creativecommons.org/licenses/by/4.0/"),"Attribute GitHub; paraphrase.",[18],mirror=GHD+"account-and-profile/how-tos/account-management/creating-an-account-on-github.md",notes="Caution: the fetch tool's page summary listed sign-up steps that differ from the source file. Steps change often; link to the page and keep the book to the facts below.")
+add2("gh-docs-repo-quickstart","Quickstart for repositories","GitHub","GitHub Docs","n.d.","https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories",("CC BY 4.0 (github/docs LICENSE)","https://creativecommons.org/licenses/by/4.0/"),"Attribute GitHub; paraphrase.",[18],mirror=GHD+"repositories/creating-and-managing-repositories/quickstart-for-repositories.md")
+# PyPI project pages (read through PyPI's JSON API for the same release; the HTML page serves a bot challenge to scripts)
+PYPI_LIC = ("Package metadata (facts only)","")
+def pypi(sid, name, ver, lv, notes="", pkg_lic=None):
+    add2(sid, f"{name} {ver}", "Python Package Index", "PyPI", "2026", f"https://pypi.org/project/{name}/{ver}/", pkg_lic or PYPI_LIC, "Facts only (version, date, requirements). Write our own examples and run them.", lv, mirror=f"https://pypi.org/pypi/{name}/{ver}/json", text=True, prefer_mirror=True, notes=notes)
+pypi("pypi-texttable","texttable","1.7.1",[13],"A13 package pick: pure Python (py2.py3-none-any wheel, about 11 KB), MIT, no required dependencies, on PyPI since 2015. Tested by the scout on Python 3.9.25 and 3.15.0b4 with identical output (sanity check only; record book output with the exercise pipeline).",("MIT (package license)","https://opensource.org/license/mit"))
+pypi("pypi-colorama","colorama","0.4.6",[13],"A13 backup pick: pure Python, BSD, no requirements beyond the standard library, unchanged since 2022. Its output is ANSI colour codes, which are awkward to record and display, so it is the backup.",("BSD 3-Clause (package license)","https://opensource.org/license/bsd-3-clause"))
+pypi("pypi-scikit-learn","scikit-learn","1.9.1",[101])
+pypi("pypi-numpy","numpy","2.5.4",[101])
+pypi("pypi-pandas","pandas","3.0.6",[101])
+pypi("pypi-matplotlib","matplotlib","3.11.2",[101,103])
+# scikit-learn 1.9.1 pages
+for sid, title, path, lv in [
+    ("sk-ensemble","Ensembles: Gradient boosting, random forests, bagging, voting, stacking","modules/ensemble.html",[109]),
+    ("sk-svm","Support vector machines","modules/svm.html",[109]),
+    ("sk-semi-supervised","Semi-supervised learning","modules/semi_supervised.html",[114]),
+    ("sk-glossary","Glossary of common terms and API elements","glossary.html",[100,104,106]),
+    ("sk-grid-search","Tuning the hyper-parameters of an estimator","modules/grid_search.html",[105,107]),
+    ("sk-sgd","Stochastic gradient descent","modules/sgd.html",[105]),
+    ("sk-mlp","Neural network models (supervised)","modules/neural_networks_supervised.html",[112])]:
+    add2(sid,title,"scikit-learn developers","scikit-learn 1.9.1 documentation","n.d.",SK+path,SKL,"Cite and paraphrase. Write our own examples and run them.",lv,mirror=SKG+"doc/"+path.replace(".html",".rst"))
+add2("mpl-savefig","matplotlib.figure.Figure.savefig","Matplotlib development team","Matplotlib 3.11.2 documentation","n.d.","https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html",("Matplotlib License (project LICENSE)","https://github.com/matplotlib/matplotlib/blob/main/LICENSE/LICENSE"),"Cite and paraphrase.",[103],mirror=GH+"matplotlib/matplotlib/v3.11.2/lib/matplotlib/figure.py",text=True,notes="The API page is generated from the savefig docstring in figure.py at tag v3.11.2.")
+# Dive into Deep Learning chapters (CC BY-SA 4.0). Site shows version 1.0.3; mirror is the master branch source.
+D2L = GH + "d2l-ai/d2l-en/master/"
+for sid, title, path, lv in [
+    ("d2l-linreg","Dive into Deep Learning, 3.1 Linear regression","chapter_linear-regression/linear-regression",[104,105]),
+    ("d2l-backprop","Dive into Deep Learning, 5.3 Forward propagation, backward propagation, and computational graphs","chapter_multilayer-perceptrons/backprop",[112]),
+    ("d2l-word2vec","Dive into Deep Learning, 15.1 Word embedding (word2vec)","chapter_natural-language-processing-pretraining/word2vec",[113]),
+    ("d2l-pretraining","Dive into Deep Learning, 11.9 Large-scale pretraining with transformers","chapter_attention-mechanisms-and-transformers/large-pretraining-transformers",[113])]:
+    add2(sid,title,"Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.","Dive into Deep Learning","2023","https://d2l.ai/"+path+".html",("CC BY-SA 4.0 (verified in the repository LICENSE)","https://creativecommons.org/licenses/by-sa/4.0/"),"ShareAlike: cite and paraphrase only.",lv,mirror=D2L+path+".md")
+# Read in a browser-style fetch only; raw text not reachable from the research sandbox. Facts from these are PENDING.
+PEND = "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+for sid, title, path, date in [("mlcc-hyperparameters","Linear regression: Hyperparameters","crash-course/linear-regression/hyperparameters","2025-12-03"),
+                               ("mlcc-embeddings","Embeddings","crash-course/embeddings","2025-08-25"),
+                               ("mlcc-llm","Introduction to large language models","crash-course/llm","2026-01-09")]:
+    add2(sid,title,"Google for Developers","Machine Learning Crash Course",date,MLCC+path,CC4,"CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",[105] if "hyper" in sid else [113],status="unverified",notes=PEND)
+add2("chm-lovelace","Ada Lovelace","Computer History Museum","The Babbage Engine","n.d.","https://www.computerhistory.org/babbage/adalovelace/",("(c) Computer History Museum; no license shown",""),"Cite and paraphrase only.",[-1],status="unverified",notes=PEND)
+add2("mactutor-lovelace","Ada Lovelace (1815-1852), biography","O'Connor, J. J., & Robertson, E. F.","MacTutor History of Mathematics, University of St Andrews","2002","https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/",("unknown (site Copyright information page not read)",""),"Cite and paraphrase only.",[-1],status="unverified",notes=PEND+" Page says Last Update August 2002.")
+add2("ethw-eniac","Milestones: Electronic Numerical Integrator and Computer, 1946","IEEE History Center","Engineering and Technology History Wiki","n.d.","https://ethw.org/Milestones:Electronic_Numerical_Integrator_and_Computer,_1946",("unknown (no license in footer)",""),"Cite and paraphrase only.",[-1],status="unverified",notes=PEND+" Plaque dedicated by the IEEE Philadelphia Section in September 1987.")
+add2("yale-hopper","Biography of Grace Murray Hopper","Yale University, Office of the President","Yale University","n.d.","https://president.yale.edu/biography-grace-murray-hopper",("(c) Yale University, all rights reserved",""),"Cite and paraphrase only.",[-1],status="unverified",notes=PEND)
+add2("gutenberg-menabrea-1843","Sketch of the Analytical Engine invented by Charles Babbage, Esq. (with notes by the translator)","Menabrea, L. F.","Project Gutenberg (eBook 75107)","1843","https://gutenberg.org/files/75107/75107-h/75107-h.htm",("Public domain in the USA (Project Gutenberg); terms section not read",""),"Not used yet.",[-1],status="unverified",notes="Primary source for Lovelace's notes. The fetch tool read only the first 100,000 characters and did not reach Note G. No facts taken.")
+
+# Mirrors: the publisher's own source file for the same page, read by tools/verify_facts.py only when
+# the page itself cannot be fetched. Python docs: branch 3.15 matches docs.python.org/3/ (3.15.0).
+GH = "https://raw.githubusercontent.com/"
+CPY = GH + "python/cpython/3.15/Doc/"
+SKG = GH + "scikit-learn/scikit-learn/1.9.X/"
+MIRRORS = {
+ "py-docs-mac": CPY+"using/mac.rst", "py-docs-windows": CPY+"using/windows.rst", "py-docs-unix": CPY+"using/unix.rst",
+ "py-docs-tutorial-intro": CPY+"tutorial/introduction.rst", "py-docs-tutorial-controlflow": CPY+"tutorial/controlflow.rst",
+ "py-docs-tutorial-datastructures": CPY+"tutorial/datastructures.rst", "py-docs-tutorial-errors": CPY+"tutorial/errors.rst",
+ "py-docs-tutorial-classes": CPY+"tutorial/classes.rst", "py-docs-tutorial-io": CPY+"tutorial/inputoutput.rst",
+ "py-docs-glossary": CPY+"glossary.rst", "py-docs-unicode-howto": CPY+"howto/unicode.rst",
+ "py-docs-functions": CPY+"builtins/functions.rst", "py-docs-stdtypes": CPY+"builtins/stdtypes.rst",
+ "py39-docs-functions": GH+"python/cpython/3.9/Doc/library/functions.rst",
+ "py-docs-csv": CPY+"library/csv.rst", "py-docs-math": CPY+"library/math.rst", "py-docs-datetime": CPY+"library/datetime.rst",
+ "py-docs-unittest": CPY+"library/unittest.rst", "py-docs-turtle": CPY+"library/turtle.rst", "py-docs-venv": CPY+"library/venv.rst",
+ "py-docs-random": CPY+"library/random.rst", "py-docs-timeit": CPY+"library/timeit.rst", "py-docs-history": CPY+"license.rst",
+ "pep-668": GH+"python/peps/main/peps/pep-0668.rst", "pep-20": GH+"python/peps/main/peps/pep-0020.rst",
+ "pypa-venv-guide": GH+"pypa/packaging.python.org/main/source/guides/installing-using-pip-and-virtual-environments.rst",
+ "pytest-start": GH+"pytest-dev/pytest/main/doc/en/getting-started.rst",
+ "brew-installation": GH+"Homebrew/brew/main/docs/Installation.md", "brew-homepage": GH+"Homebrew/brew.sh/main/index.html",
+ "vscode-python": GH+"microsoft/vscode-docs/main/docs/python/python-tutorial.md",
+ "missing-semester-shell": GH+"missing-semester/missing-semester/master/_2020/course-shell.md",
+ "thinkpython3-ch1": GH+"AllenDowney/ThinkPython/v3/chapters/chap01.ipynb", "thinkpython3-ch2": GH+"AllenDowney/ThinkPython/v3/chapters/chap02.ipynb",
+ "thinkpython3-ch5": GH+"AllenDowney/ThinkPython/v3/chapters/chap05.ipynb",
+ "progit-what-is-git": GH+"progit/progit2/main/book/01-introduction/sections/what-is-git.asc",
+ "progit-recording": GH+"progit/progit2/main/book/02-git-basics/sections/recording-changes.asc",
+ "numpy-beginners": GH+"numpy/numpy/main/doc/source/user/absolute_beginners.rst",
+ "pandas-intro": GH+"pandas-dev/pandas/main/doc/source/getting_started/intro_tutorials/01_table_oriented.rst",
+ "matplotlib-quick": GH+"matplotlib/matplotlib/main/galleries/users_explain/quick_start.py",
+ "sk-getting-started": SKG+"doc/getting_started.rst", "sk-install": SKG+"doc/install.rst", "sk-cv": SKG+"doc/modules/cross_validation.rst",
+ "sk-overfit-example": SKG+"examples/model_selection/plot_underfitting_overfitting.py", "sk-clustering": SKG+"doc/modules/clustering.rst",
+ "sk-neighbors": SKG+"doc/modules/neighbors.rst", "sk-tree": SKG+"doc/modules/tree.rst", "sk-nb": SKG+"doc/modules/naive_bayes.rst",
+ "sk-metrics": SKG+"doc/modules/model_evaluation.rst", "sk-linear": SKG+"doc/modules/linear_model.rst",
+}
+for s in S:
+    if s["id"] in MIRRORS and "mirror" not in s:
+        s["mirror"] = MIRRORS[s["id"]]
+
 out = pathlib.Path(__file__).with_name("registry.json")
 out.write_text(json.dumps({"sources": S}, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 print(f"wrote {len(S)} sources to {out.name}")

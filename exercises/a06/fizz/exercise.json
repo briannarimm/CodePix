@@ -1,0 +1,22 @@
+{
+  "id": "a06-fizz",
+  "level": "a06",
+  "title": "FizzBuzz",
+  "file": "fizz.py",
+  "kind": "test",
+  "prompt": "The shop's counting game. Count from 1 to `last`. Print `Fizz` for multiples of 3, `Buzz` for multiples of 5, `FizzBuzz` for multiples of both, and the number itself for everything else.\n\nThe loop is already there. Your job is the branching inside it. Hint from Lesson A4: `n % 3 == 0` is true when 3 divides `n` exactly.",
+  "run_command": "python3 -m unittest test_fizz.py",
+  "expected_output": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz",
+  "hints": [
+    "The remainder `%` tells you about multiples: `n % 5 == 0` means 5 divides `n` with nothing left over.",
+    "Check the both-at-once case first. If you test for 3 first, 15 prints Fizz and never reaches FizzBuzz.",
+    "`if n % 15 == 0:` FizzBuzz, `elif n % 3 == 0:` Fizz, `elif n % 5 == 0:` Buzz, `else:` the number."
+  ],
+  "explain_after": "`%` gives the remainder [py-046], so a remainder of 0 means an exact multiple. The order of the branches matters because Python runs only the first true one. Putting the FizzBuzz test first is the whole trick.",
+  "concepts": [
+    "for loops",
+    "range",
+    "remainder",
+    "if/elif/else"
+  ]
+}

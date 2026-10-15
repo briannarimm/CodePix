@@ -1,21 +1,16 @@
-# Deploying the coming-soon page
+# Deploying Code Pix
 
 Live address (target): **https://www.briannaimm.com/CodePix/**
 Fallback that always works: https://briannarimm.github.io/CodePix/
 
 Branches:
 
-- `main` holds the source of everything: research, lesson plans, tools, and `site/` (the coming-soon page).
-- `pages` holds **only** the published files. `tools/publish_pages.sh` rebuilds it from `site/`. Nothing from `docs/` or `sources/` is ever on this branch, so it cannot be served. Run the script from `main`.
+- `main` holds the source of everything: research, lesson plans, tools and the app in `src/`.
+- `pages` holds **only** the built site (`dist/`). Nothing from `docs/` or `sources/` is ever on this branch, so it cannot be served.
 
-Publish a change:
+How a change goes live: merge to `main`. The workflow `.github/workflows/site.yml` builds the site, checks it (every exercise with real Python 3.9 and current, every level played in Chromium at 1280 px and 400 px) and, only if all of that passes, copies `dist/` to the `pages` branch. Pull requests run the same checks without publishing. `tools/publish_pages.sh` does the publish step by hand if CI is ever unavailable.
 
-```bash
-# edit site/index.html on main, commit, then:
-tools/publish_pages.sh
-```
-
-Later, GitHub Actions will build `dist/` and replace this script (see `docs/handoff.md` section 3). Pages settings: Deploy from a branch, branch `pages`, folder `/ (root)`.
+Pages settings stay as they are: Deploy from a branch, branch `pages`, folder `/ (root)`.
 
 ## How the `www.briannaimm.com/CodePix` address works
 

@@ -1,0 +1,22 @@
+{
+  "id": "a17-tracker",
+  "level": "a17",
+  "title": "Showcase project: the stock tracker",
+  "file": "tracker.py",
+  "kind": "test",
+  "prompt": "Your showcase project, option one. `tracker.py` keeps the shop's stock book in a JSON file, `stock.json` (fictional parts). Loading and saving already work. Finish three functions:\n\n`add(stock, name, count)` puts more of a part on the shelf, and a brand-new part starts at 0. `remove(stock, name, count)` takes some off and returns `True`, or changes nothing and returns `False` when there are not enough. `low_stock(stock, limit=5)` returns the names of parts below the limit, in alphabetical order.\n\nWhen the tests pass, run `python3 tracker.py`. It prints `Low stock: washer` and saves the new counts back into `stock.json`. Open that file in VS Code and look.",
+  "run_command": "python3 -m unittest test_tracker.py",
+  "hints": [
+    "In `add`, ask first whether the part already has a line in the stock book: `if name in stock:`. If it does, add to the old count. If it does not, start a new line with `stock[name] = count`.",
+    "In `remove`, check before you change anything. If the part is missing, or `stock[name] < count`, return `False` right away.",
+    "For `low_stock`, make an empty list, append every name whose count is below `limit`, and return `sorted()` of that list."
+  ],
+  "explain_after": "Your tracker combines most of Module A. The stock book is a dictionary, indexed by keys [py-078], and `name in stock` tests whether a key is present [py-079]. `json.dump` writes it to a text file and `json.load` reads it back [py-105]. The `with` block closes the file for you, even if something goes wrong [py-102]. `sorted()` hands back a new sorted list [py-109]. And the tests are a `unittest.TestCase` with methods whose names start with `test` [py-099].\n\nRunning the program a second time adds 10 more gears and takes 5 more bolts, because the file remembers the last run. Download a fresh `stock.json` to start over.",
+  "concepts": [
+    "capstone",
+    "dictionaries",
+    "json files",
+    "functions",
+    "tests"
+  ]
+}

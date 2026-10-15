@@ -1,0 +1,22 @@
+{
+  "id": "a10-fixit",
+  "level": "a10",
+  "title": "Three bugs in the stock report",
+  "file": "fixit.py",
+  "kind": "test",
+  "prompt": "The stock report crashes. It has three separate bugs, and Python reports them one at a time. Run it, read the last line of the error, fix that line, and run it again.\n\nWhen all three are fixed, it prints the three lines shown below and the tests pass.",
+  "run_command": "python3 -m unittest test_fixit.py",
+  "expected_output": "Springs: 12\nGears: 8\nTotal: 20",
+  "hints": [
+    "Run `python3 fixit.py`. The last line of the error names the kind of problem. The line just above the pointer marks shows the code.",
+    "One bug is a misspelled name, one joins text and a number with `+`, and one asks the dictionary for a key it does not have.",
+    "Fix `sprngs` to `springs`, wrap the number in `str()`, and use the key `\"gears\"` exactly as it is spelled in `stock`."
+  ],
+  "explain_after": "You met three exceptions. A name with no value raises a `NameError` [py-045]. Joining a string and a number with `+` raises a `TypeError` [py-093]. A missing dictionary key raises a `KeyError` [py-079]. Each time, the last line of the message said what happened [py-092].",
+  "concepts": [
+    "tracebacks",
+    "NameError",
+    "TypeError",
+    "KeyError"
+  ]
+}

@@ -28,3 +28,10 @@ Facts drawn from each source live in `docs/source-notes.md` (fact, source id, lo
 - `sources/build_registry.py` writes `sources/registry.json`. Extra fields: `pdf` / `text` (how to read the URL).
 - `sources/build_facts.py` writes `sources/facts.json`. Each fact: `id` (py-001, ml-001, ...), `src`, `anchor`, `claim` (our paraphrase, the only thing a lesson may say), `check` (strings that must appear in the source), `mod`.
 - `tools/verify_facts.py`, `tools/check_numbers.py`, `tools/check_lessons.py` check them. `docs/source-notes.md` and `docs/source-candidates.md` are generated and must not be edited by hand.
+
+## Fields added 2026-10-15
+
+- `mirror` (registry): raw URL of the publisher's own source file for the same page, for example the `.rst` file in `python/cpython` (branch `3.15`) that docs.python.org/3/ is built from, the `.asc` chapter in `progit/progit2`, or PyPI's JSON for one release. `tools/verify_facts.py` reads it only when the page itself cannot be fetched, strips light markup, and labels the result "read via mirror". The page `url` stays the citation link.
+- `prefer_mirror` (registry): read the mirror first. Used for PyPI project pages, which send a bot challenge to scripts.
+- `pending` (fact): the fact was taken from a page that could be opened only through a summarizing fetch tool, never as raw text. Facts on sources whose `status` is not `verified` are pending too. `tools/verify_facts.py` lists them as PENDING and skips them; `tools/check_lessons.py` fails if a lesson cites one. To promote: run `python3 tools/verify_facts.py --pending` on a machine that can reach the source, read `--audit`, then set the source to `verified` (or drop the flag).
+- `tools/check_links.py` requests every page URL and mirror (HEAD, then GET), one request per host per second, with a `CodePixLinkCheck/1.0` User-Agent. It exits 1 on a dead link of a verified source, and 2 when verified URLs get no HTTP answer at all (pass `--allow-unreachable` in a sandbox). `--quiet` prints only problems.

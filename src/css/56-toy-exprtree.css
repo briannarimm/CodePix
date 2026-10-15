@@ -1,0 +1,19 @@
+/* Expression Tree toy (A4) */
+.toy-exprtree .picks{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.toy-exprtree .picks .btn{font-size:13px}
+.toy-exprtree .picks code{font-family:var(--f-code);font-size:13px;white-space:nowrap}
+.toy-exprtree .board{border:3px solid var(--ink);border-radius:12px;background:#fff;padding:8px;box-shadow:3px 3px 0 var(--ink);overflow-x:auto}
+.toy-exprtree .board svg{display:block;width:100%;max-height:360px;height:auto}
+.toy-exprtree .board line{stroke:var(--ink);stroke-width:3}
+.toy-exprtree .board rect{stroke:var(--ink);stroke-width:3}
+.toy-exprtree .board text{font-family:var(--f-code);font-variant-ligatures:none;font-size:18px;font-weight:700;text-anchor:middle;fill:var(--ink)}
+.toy-exprtree .board .leaf rect{fill:#fff}
+.toy-exprtree .board .op rect{fill:var(--sky)}
+.toy-exprtree .board .hot rect{fill:var(--lemon);stroke-width:5;stroke-dasharray:8 4;animation:toy-exprtree-pulse 1.2s ease-in-out infinite}
+@keyframes toy-exprtree-pulse{50%{stroke-dashoffset:12}}
+.toy-exprtree .line{margin:10px 0 4px;padding:8px 12px;border:3px solid var(--ink);border-radius:10px;background:var(--code-bg);color:var(--code-fg);overflow-x:auto;white-space:nowrap}
+.toy-exprtree .line code{font-family:var(--f-code);font-variant-ligatures:none;font-size:18px}
+.toy-exprtree .line mark{background:var(--lemon);color:var(--ink);border-radius:4px;padding:0 2px}
+.toy-exprtree .what{margin:4px 0;font-weight:700}
+.toy-exprtree .stepno{font-size:14px;color:var(--ink2)}
+.toy-exprtree .own{font-size:13px;color:var(--ink2)}

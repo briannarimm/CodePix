@@ -1,0 +1,9 @@
+/* Shared bits for toys. Each toy's own rules live in src/css/5x-toy-*.css, prefixed with the toy id. */
+.toy{display:block}
+.toy .goal{margin:0 0 10px;padding:8px 12px;border:3px solid var(--ink);border-radius:12px;background:var(--lemon);font-weight:700;box-shadow:3px 3px 0 var(--ink)}
+.toy .goal.done{background:var(--lime)}
+.toy .panel{border:3px solid var(--ink);border-radius:12px;background:#fff;padding:10px;box-shadow:3px 3px 0 var(--ink)}
+.toy .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.toy .readout{font-family:var(--f-read);font-size:24px;line-height:1.1}
+.toy svg.board{width:100%;height:auto;border:3px solid var(--ink);border-radius:12px;background:#fff;touch-action:none}
+.toy input[type=range]{accent-color:var(--tang);width:min(320px,100%)}

@@ -1,0 +1,20 @@
+{
+  "id": "a00-where",
+  "level": "a00",
+  "title": "Make your codepix folder",
+  "file": "where.py",
+  "kind": "explore",
+  "prompt": "Today you only need Terminal. Open it from Spotlight by typing Terminal, or from the Utilities folder inside Applications [py-001]. Then type these, pressing Return after each one: `pwd`, `mkdir codepix`, `cd codepix`, `pwd`, `ls`.\n\nOn Windows, open PowerShell instead: on Windows 11, type PowerShell into the search bar [py-167]. The same five commands work there through PowerShell's aliases [py-168] [py-169].\n\nThe second `pwd` should end in `codepix`, and `ls` prints nothing yet, because the folder is empty.\n\nThe file `where.py` is Byte's tiny program. Python is not on your machine until A1, so save it in the folder now and run it after A1. It prints the same thing `pwd` does.",
+  "run_command": "python3 -m unittest test_where.py",
+  "hints": [
+    "Type each command exactly, then press Return. Spaces matter: `mkdir codepix` has one space in it.",
+    "If `mkdir` says the folder already exists, that is fine. Skip to `cd codepix`.",
+    "Lost? `pwd` always tells you where you are, and `cd ..` takes you up one folder."
+  ],
+  "explain_after": "`pwd` printed your working directory, `cd` changed it, and `ls` listed what is inside [py-003]. `mkdir` made the new folder [py-007]. After A1, `python3 where.py` prints the same path that `pwd` printed, and the test checks that it does.",
+  "concepts": [
+    "terminal",
+    "folders",
+    "paths"
+  ]
+}

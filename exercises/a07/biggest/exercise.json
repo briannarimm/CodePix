@@ -1,0 +1,21 @@
+{
+  "id": "a07-biggest",
+  "level": "a07",
+  "title": "Find the priciest part by hand",
+  "file": "biggest.py",
+  "kind": "test",
+  "prompt": "Ms. Gridlock wants the highest price on the parts list. Python has a built-in shortcut for this, but today you find it by hand, so you see how it works.\n\nSet `biggest` to the largest number in `prices` with a loop. Do not use `max(`. When it works, `python3 biggest.py` prints `Biggest: 30`.",
+  "run_command": "python3 -m unittest test_biggest.py",
+  "expected_output": "Biggest: 30",
+  "hints": [
+    "Pretend you read the prices one at a time with your finger. What do you need to remember as you go?",
+    "Start with `biggest = prices[0]`. Then loop over `prices` and compare each one with `biggest`.",
+    "Inside the loop: `if price > biggest:` then `biggest = price`."
+  ],
+  "explain_after": "Your loop kept one box, `biggest`, holding the best price seen so far. Every price got one comparison. That is the same idea the built-in `max()` uses for you; it takes an iterable or several arguments [py-111].\n\nStarting from `prices[0]` matters. Starting from 0 would give a wrong answer for a list of negative numbers.",
+  "concepts": [
+    "lists",
+    "for loops",
+    "comparison"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "a17-quiz",
+  "level": "a17",
+  "title": "Showcase project: quiz night",
+  "file": "quiz.py",
+  "kind": "test",
+  "prompt": "Your showcase project, option two. `quiz.py` runs a quiz from a question bank in `questions.json` (three fictional shop questions). Loading the bank and playing the game already work. Finish two functions:\n\n`is_right(reply, answer)` is `True` when the reply matches the answer, ignoring capital letters and spaces at either end. `score(questions, replies)` counts how many replies are right.\n\nWhen the tests pass, run `python3 quiz.py` and play. Then add a question of your own to `questions.json` and play again.",
+  "run_command": "python3 -m unittest test_quiz.py",
+  "hints": [
+    "Strings have a `lower()` method [py-160]. They also have `strip()`: try `\"  Gear \".strip()` in the Python REPL to see what it does. Tidy both strings the same way before you compare them with `==`.",
+    "`is_right` can be one line: `return reply.strip().lower() == answer.strip().lower()`.",
+    "In `score`, start a counter at 0. Walk through the questions and the replies side by side with `zip(questions, replies)`, and add 1 each time `is_right(reply, item[\"a\"])` is `True`."
+  ],
+  "explain_after": "Your quiz reads its questions with `json.load` [py-105], keeps each question as a small dictionary [py-082], and walks two lists side by side with `zip()` [py-107]. The last test plays a whole game: it starts `quiz.py` as a separate program and types three answers into it.\n\nAdding a question needs no new code, only a new line in the JSON file. Keeping data apart from code like that is a habit worth keeping.",
+  "concepts": [
+    "capstone",
+    "json files",
+    "strings",
+    "loops",
+    "tests"
+  ]
+}

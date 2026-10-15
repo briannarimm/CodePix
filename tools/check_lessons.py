@@ -15,6 +15,9 @@ import json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 facts = {f["id"]: f for f in json.loads((ROOT / "sources/facts.json").read_text())["facts"]}
+status = {s["id"]: s["status"] for s in json.loads((ROOT / "sources/registry.json").read_text())["sources"]}
+# A pending fact (flagged, or resting on a source that is not verified) must never be cited.
+pending = {i for i, f in facts.items() if f.get("pending") or status.get(f["src"]) != "verified"}
 TAG = re.compile(r"\[((?:py|ml)-\d{3})\]")
 squash = lambda s: re.sub(r"\s+", "", s).lower()
 reviewed = set()
@@ -44,6 +47,8 @@ for path in sorted((ROOT / "docs/lessons").glob("*.md")):
             used.add(i)
             if i not in facts:
                 print(f"{path.name}: unknown fact {i}"); problems += 1
+            elif i in pending:
+                print(f"{path.name}: cites pending fact {i} (source not verified as raw text)"); problems += 1
         if not ids or "GAP" in b and "[" not in b: continue
         known = [facts[i] for i in ids if i in facts]
         hay = squash(" ".join(f["claim"] + " " + " ".join(f["check"]) for f in known))
@@ -56,7 +61,7 @@ for path in sorted((ROOT / "docs/lessons").glob("*.md")):
             if squash(t.rstrip(".,")) not in hay and squash(t) not in hay:
                 print(f"{path.name}: {t!r} not covered by {ids}\n    in: {b[:150]}"); problems += 1
 
-unused = [i for i in facts if i not in used]
-print(f"\n{len(used)} facts cited, {len(unused)} not cited yet; {problems} items to review")
+unused = [i for i in facts if i not in used and i not in pending]
+print(f"\n{len(used)} facts cited, {len(unused)} not cited yet, {len(pending)} pending (not citable); {problems} items to review")
 if "--unused" in sys.argv: print(", ".join(unused))
 sys.exit(1 if problems else 0)

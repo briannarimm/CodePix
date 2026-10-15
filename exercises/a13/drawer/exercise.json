@@ -1,0 +1,21 @@
+{
+  "id": "a13-drawer",
+  "level": "a13",
+  "title": "Pack it with the math drawer",
+  "file": "drawer.py",
+  "kind": "test",
+  "prompt": "The shipping bench needs two small tools. `boxes_needed` should count boxes, rounding up when the last box is only partly full. `tile_side` should give the side of a square tile from its area. Both tools are in the math module: `math.sqrt(x)` gives the square root of x [py-163], and `math.ceil` rounds up, as the book's recorded example shows.\n\n**First, set up a virtual environment** in the exercise folder, so this job has its own workbench. On macOS or Linux: `python3 -m venv .venv`, then `source .venv/bin/activate` [py-116]. Activating puts the environment's `bin` folder first on your PATH [py-115]. Check with `which python3`. Leave the environment later by typing `deactivate` [py-115]. On Windows, make it with `python -m venv .venv` [py-178] and activate it with `.venv\\Scripts\\activate.bat` in cmd.exe or `.venv\\Scripts\\Activate.ps1` in PowerShell [py-180].\n\nThen edit `drawer.py` and run the tests. When it works, the program prints `Boxes for 50 springs, 12 per box: 5` and `Side of a 49 square-inch tile: 7.0`.\n\n**Extra, inside the environment:** install pytest with `pip install -U pytest` [py-119], then type `pytest`. It looks for files named `test_*.py` [py-120], so it finds `test_drawer.py` too.\n\n**Then your practice package:** with the environment still active, install texttable with `python3 -m pip install texttable` [py-117]. texttable is a module to create simple ASCII tables [py-205]. Copy the parts-table program from this chapter's book (the Copy button on the page \"Installing with pip, testing with pytest\"), save it as `parts_table.py` and run `python3 parts_table.py`. Add a row for a part of your own and run it again. `pip freeze` shows the version you got [py-118]; the book recorded its output with 1.7.1.",
+  "run_command": "python3 -m unittest test_drawer.py",
+  "expected_output": "Boxes for 50 springs, 12 per box: 5\nSide of a 49 square-inch tile: 7.0",
+  "hints": [
+    "`parts // per_box` drops the leftovers. You want to divide with `/` and then round the result up.",
+    "Rounding up is `math.ceil(...)`. Put the division inside the parentheses.",
+    "`return math.ceil(parts / per_box)` and `return math.sqrt(area)`."
+  ],
+  "explain_after": "`import math` opened the math drawer, and the dot in `math.ceil` reached inside it for one tool. The math module provides `math.sqrt`, `math.floor`, `math.ceil` and the constant `math.pi` [py-163].\n\nThe virtual environment did not change these answers, because `math` comes with Python. It matters when you install packages: an environment is isolated from the packages in the base Python by default [py-112], so each project keeps its own.\n\ntexttable is different: it does not come with Python, so it lives only in the environment you installed it into. `import` raises `ModuleNotFoundError` when it could not locate a module [py-200], which is what you see if you run `parts_table.py` with the environment switched off.",
+  "concepts": [
+    "import",
+    "modules",
+    "virtual environments"
+  ]
+}

@@ -1,0 +1,47 @@
+/* Tokens, reset and shared controls. Single light theme on purpose (90s edutainment look). */
+:root{
+  --ink:#141414; --ink2:#3b3b3b; --paper:#fffdf6; --paper2:#fff6e0;
+  --silver:#d9dde2; --silver-l:#f1f3f5; --silver-d:#9aa3ad;
+  --tang:#ff8a1f; --tang-d:#c2570a; --tang-l:#ffd2a8;
+  --teal:#1a8a8a; --teal-d:#0f5f5f; --teal-l:#bfeaea;
+  --lime:#9be34a; --lime-d:#4f8a12; --lemon:#ffe45c; --pink:#ff6fae; --sky:#5cc8ff; --grape:#9b6bff;
+  --peg:#e9d9b8; --hole:#c9b58c; --wood:#b97a43; --wood-d:#7d4d23;
+  --code-bg:#1d2330; --code-fg:#f3f1e8; --term-bg:#121417; --term-fg:#d7ffd0;
+  --f-display:"Bungee","Arial Black",Impact,system-ui,sans-serif;
+  --f-story:"Comic Neue","Comic Sans MS","Trebuchet MS",system-ui,sans-serif;
+  --f-book:"Lora",Georgia,"Times New Roman",serif;
+  --f-read:"VT323","Courier New",monospace;
+  --f-code:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --shadow:4px 4px 0 var(--ink);
+  --r:10px;
+  --cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M6 2c1.6 0 2.6 1 2.6 2.6v8.2l1-.2V3.8c0-1.4 1-2.4 2.3-2.4s2.3 1 2.3 2.4v8.5l1 .1V5.2c0-1.3 1-2.2 2.2-2.2s2.2.9 2.2 2.2v8.1l.9.2V8.4c0-1.2.9-2 2-2s2 .8 2 2v9.8c0 5.3-3.6 8.6-8.7 8.6-3.8 0-6.2-1.6-8.2-4.6L2.4 15c-.8-1.2-.5-2.6.6-3.3 1-.6 2.2-.4 3 .6V4.6C6 3 4.4 2 6 2z' fill='%23fff' stroke='%23141414' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E") 8 2, pointer;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{margin:0;min-height:100%;background:var(--peg);color:var(--ink);font-family:var(--f-story);font-size:18px;line-height:1.5;overflow-x:hidden}
+[hidden]{display:none !important}
+button,input,select,textarea{font:inherit;color:inherit}
+button,a,[role=button],label,select,summary{cursor:var(--cursor)}
+a{color:var(--teal-d)}
+img,svg{max-width:100%}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--lemon)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Chunky glossy buttons with hard shadows */
+.btn{display:inline-flex;align-items:center;gap:.4em;padding:.45em 1em;border:3px solid var(--ink);border-radius:999px;
+  background:linear-gradient(#fff8 0 40%,#0000 41%),var(--c,var(--lemon));color:var(--ink);font-weight:700;font-family:var(--f-story);
+  box-shadow:3px 3px 0 var(--ink);text-decoration:none;line-height:1.2;min-height:44px;transition:transform .08s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+.btn.small{min-height:34px;padding:.2em .8em;font-size:.9em;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+.btn.lemon{--c:var(--lemon)} .btn.tang{--c:var(--tang)} .btn.teal{--c:var(--teal);color:#fff} .btn.lime{--c:var(--lime)} .btn.sky{--c:var(--sky)}
+.btn.pink{--c:var(--pink)} .btn.grape{--c:var(--grape);color:#fff} .btn.plain{--c:#fff}
+.chip{display:inline-block;padding:.05em .55em;border:2px solid var(--ink);border-radius:999px;background:var(--c,#fff);font-size:.8em;font-weight:700;white-space:nowrap}
+.ok-mark::before{content:"\2714\FE0E  "} .no-mark::before{content:"\2718\FE0E  "}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+body.reduce *,body.reduce *::before,body.reduce *::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}

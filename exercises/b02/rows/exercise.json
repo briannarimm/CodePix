@@ -1,0 +1,22 @@
+{
+  "id": "b02-rows",
+  "level": "b02",
+  "title": "Tickets into rows",
+  "file": "rows.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Each fictional ticket is `[ticket_id, hours, parts, cost]`. Finish `split_tickets(tickets)` so it returns two lists: `X`, one `[hours, parts]` row per ticket, and `y`, the costs in the same order.\n\nWhen it works, `python3 rows.py` prints the two lists.",
+  "run_command": "python3 -m unittest test_rows.py",
+  "expected_output": "X = [[0.5, 1], [1.0, 0], [1.5, 2]]\ny = [42, 48, 78]",
+  "hints": [
+    "Start with two empty lists, then loop over the tickets.",
+    "Inside the loop, `ticket[1]` is hours, `ticket[2]` is parts and `ticket[3]` is cost. The id at `ticket[0]` is neither a feature nor the label.",
+    "`X.append([ticket[1], ticket[2]])` and `y.append(ticket[3])`, then `return X, y` after the loop."
+  ],
+  "explain_after": "You just split each example into its features and its label. In supervised learning the features are what the model uses to predict the label, and the label is the answer we want predicted [ml-005]. The ticket id stays out: it names the ticket and says nothing about the repair.",
+  "concepts": [
+    "feature",
+    "label",
+    "lists"
+  ]
+}

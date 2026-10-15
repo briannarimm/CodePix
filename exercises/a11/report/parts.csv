@@ -1,0 +1,5 @@
+part,qty,price_each
+bolt,30,0.10
+nut,45,0.05
+gear,6,3.75
+spring,19,0.25

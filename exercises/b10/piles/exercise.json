@@ -1,0 +1,18 @@
+{
+  "id": "b10-piles",
+  "level": "b10",
+  "title": "Make the piles",
+  "file": "piles.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "k-means repeats two moves. **Assign**: every screw joins the pile of its nearest centroid. **Move**: every centroid jumps to the average of its pile. Write both moves as functions.\n\nWhen it works, `python3 piles.py` prints three lines. The labels settle into `[0, 0, 0, 1, 1, 1]` and the centroids stop moving.",
+  "run_command": "python3 -m unittest test_piles.py",
+  "expected_output": "[0, 1, 0, 1, 1, 1] [(10.5, 2.0), (25.8, 5.0)]\n[0, 0, 0, 1, 1, 1] [(11.0, 2.3), (30.3, 5.7)]\n[0, 0, 0, 1, 1, 1] [(11.0, 2.3), (30.3, 5.7)]",
+  "hints": [
+    "For each point, make a list of its distances to every centroid with `math.dist`. The smallest distance's position is the label.",
+    "`d.index(min(d))` gives the position of the smallest number in `d`. For `move`, collect the points whose label equals the pile number.",
+    "In `move`, `members = [p for p, label in zip(points, labels) if label == pile]`, then average the first numbers and the second numbers separately and round them to 1 place."
+  ],
+  "explain_after": "scikit-learn's `KMeans` does the same job on a bigger scale: it separates samples into groups by making the inertia (the within-cluster sum of squares) small, and you must tell it how many clusters you want [ml-071]. Your first line shows a wobble: the starting guesses sat close together, so one screw switched piles after the first move. Starting guesses matter, which is why scikit-learn offers the k-means++ start [ml-072].",
+  "concepts": ["k-means", "centroid", "clustering"]
+}

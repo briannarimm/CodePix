@@ -1,0 +1,22 @@
+{
+  "id": "a06-total",
+  "level": "a06",
+  "title": "Add up 1 to n",
+  "file": "total.py",
+  "kind": "test",
+  "prompt": "Byte wants to know 1 + 2 + 3 + ... + n. Write a loop that adds each number into `total`. Use the accumulator pattern: `total` starts at 0 and grows by one number on every pass.\n\nWhen it works, `python3 total.py` prints `Sum: 55`. The tests also try `n = 1` and `n = 100`. Watch the end of your `range()`.",
+  "run_command": "python3 -m unittest test_total.py",
+  "expected_output": "Sum: 55",
+  "hints": [
+    "`for k in range(...):` hands you one number at a time. Inside the loop, add `k` to `total`.",
+    "`range(1, n)` stops one short of `n`. You need the end to be one past the last number you want.",
+    "`for k in range(1, n + 1):` and, indented under it, `total = total + k`."
+  ],
+  "explain_after": "`range()` never includes its end point [py-064], so `range(1, n + 1)` gives 1 up to and including `n`. Forgetting the `+ 1` is the classic off-by-one error: the program runs, prints a number and is quietly wrong.",
+  "concepts": [
+    "for loops",
+    "range",
+    "accumulator",
+    "off-by-one"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "b01-bench",
+  "level": "b01",
+  "title": "Check the bench",
+  "file": "bench.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "With your virtual environment active and the four tools installed, finish `bench.py` so it imports each tool under its usual short name and prints its version.\n\nThe tests check that the names `np`, `pd`, `plt`, `matplotlib` and `sklearn` exist in your file. Your version numbers can differ from anyone else's; that is fine.",
+  "run_command": "python3 -m unittest test_bench.py",
+  "hints": [
+    "If the test says `No module named numpy`, your virtual environment is not active, or the install did not finish. Run `source .venv/bin/activate` in this terminal and try again.",
+    "The usual short names: `import numpy as np` and `import pandas as pd`. Matplotlib's plotting part is `import matplotlib.pyplot as plt`.",
+    "You need five import lines: `numpy as np`, `pandas as pd`, `matplotlib`, `matplotlib.pyplot as plt`, and `sklearn`. Then one `print` per tool."
+  ],
+  "explain_after": "The short names are conventions the libraries' own documentation uses: `import numpy as np` [ml-018], `import pandas as pd` [ml-019] and `import matplotlib.pyplot as plt` [ml-020]. Everyone uses the same ones, so code you find elsewhere will read the same way.",
+  "concepts": [
+    "virtual environment",
+    "imports",
+    "NumPy",
+    "pandas",
+    "Matplotlib",
+    "scikit-learn"
+  ]
+}

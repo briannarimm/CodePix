@@ -1,0 +1,20 @@
+{
+  "id": "a03-swap",
+  "level": "a03",
+  "title": "Swap two boxes",
+  "file": "swap.py",
+  "kind": "test",
+  "prompt": "Ms. Gridlock filled the bins the wrong way round. The box named `left` holds `\"springs\"` and the box named `right` holds `\"gears\"`. Swap them, without typing either word again.\n\nWhen it works, `python3 swap.py` prints `left: gears` and then `right: springs`.",
+  "run_command": "python3 -m unittest test_swap.py",
+  "expected_output": "left: gears\nright: springs",
+  "hints": [
+    "If you write `left = right` first, what is in `left` now? Is the word springs still anywhere?",
+    "Before you overwrite `left`, copy its value into a third box, for example `spare = left`.",
+    "Three lines do it: `spare = left`, then `left = right`, then `right = spare`."
+  ],
+  "explain_after": "An assignment makes a name refer to a value [py-043]. After `left = right`, the name `left` refers to `\"gears\"`, and nothing refers to `\"springs\"` any more. The third box keeps hold of `\"springs\"` while `left` changes.",
+  "concepts": [
+    "variables",
+    "assignment"
+  ]
+}

@@ -1,0 +1,18 @@
+/* Ticket Table (B2) */
+.toy-tickettable .tt-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px;align-items:start}
+.toy-tickettable .tt-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.toy-tickettable .tt-card{display:flex;flex-direction:column;align-items:flex-start;padding:6px 8px;min-height:44px;border:3px solid var(--ink);border-radius:8px;background:#fffbe6;box-shadow:2px 2px 0 var(--ink);font:inherit;font-size:15px;line-height:1.2;text-align:left;transform:rotate(-1deg)}
+.toy-tickettable .tt-card:nth-child(even){transform:rotate(1deg)}
+.toy-tickettable .tt-card.seen{background:#e6f7ff}
+.toy-tickettable .tt-card.on{background:var(--lemon);transform:none}
+.toy-tickettable .tt-detail{min-height:3.2em;margin-bottom:6px;font-family:var(--f-book);font-size:16px}
+.toy-tickettable .tt-detail code{font-family:var(--f-code);font-size:.85em;background:#f2ead6;border-radius:4px;padding:0 .25em}
+.toy-tickettable .tt-table{width:100%;border-collapse:collapse;font-family:var(--f-code);font-size:14px}
+.toy-tickettable .tt-table th,.toy-tickettable .tt-table td{border:2px solid var(--ink);padding:2px 6px;text-align:right}
+.toy-tickettable .tt-table th:first-child,.toy-tickettable .tt-table td:first-child{text-align:left}
+.toy-tickettable .tt-x{background:#e3f6ff}
+.toy-tickettable .tt-y{background:#ffe9d1}
+.toy-tickettable .tt-roles td{font-family:var(--f-story);font-size:12px;text-align:center;font-weight:700}
+.toy-tickettable tr.on td{background:var(--lemon)}
+.toy-tickettable .tt-shape{margin:6px 0 0;font-family:var(--f-code);font-size:14px}
+@media (max-width:640px){.toy-tickettable .tt-wrap{grid-template-columns:minmax(0,1fr)}.toy-tickettable .tt-cards{grid-template-columns:repeat(4,minmax(0,1fr))}.toy-tickettable .tt-card{font-size:13px;padding:4px 6px}}

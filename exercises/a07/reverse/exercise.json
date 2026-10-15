@@ -1,0 +1,21 @@
+{
+  "id": "a07-reverse",
+  "level": "a07",
+  "title": "Read the list backwards",
+  "file": "backwards.py",
+  "kind": "test",
+  "prompt": "Byte stacked the parts list upside down. The list `parts` is in the right order. Build a new list named `backwards` that holds the same parts in the opposite order.\n\nLeave `parts` itself alone. When it works, `python3 backwards.py` prints the reversed list.",
+  "run_command": "python3 -m unittest test_reverse.py",
+  "expected_output": "['fuse', 'bolt', 'spring', 'gear']",
+  "hints": [
+    "Start with an empty list: `backwards = []`. Which item should go into it first?",
+    "A `for` loop gives you each part from the front. `insert(0, part)` puts a part at the very front of `backwards`.",
+    "Inside the loop write `backwards.insert(0, part)`. The slice `parts[::-1]` also works, if you like shortcuts."
+  ],
+  "explain_after": "Each `insert(0, part)` pushed the newer part to the front, so the first part ended up at the back. `insert` changes the list and returns `None` [py-074], which is why the line stands on its own.\n\nYour original list stayed the same because you built a new list. A slice also returns a new list [py-077].",
+  "concepts": [
+    "lists",
+    "insert",
+    "for loops"
+  ]
+}
