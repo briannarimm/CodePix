@@ -1,0 +1,21 @@
+{
+  "id": "a05-shipping",
+  "level": "a05",
+  "title": "Shipping fee",
+  "file": "shipping.py",
+  "kind": "test",
+  "prompt": "Gadget Gulch ships repaired gadgets home. Replace the line `fee = 12` with an `if`/`elif`/`else` chain that follows the rules in the comments.\n\nWhen it works, `python3 shipping.py` prints `Shipping: 7`. The tests try light, heavy and member parcels, including exactly 1 kg and exactly 5 kg.",
+  "run_command": "python3 -m unittest test_shipping.py",
+  "expected_output": "Shipping: 7",
+  "hints": [
+    "The member rule has two parts that must both be true. Which word joins them?",
+    "Put the member check first, then the light parcels, then the middle ones. The first true branch wins.",
+    "`if member and weight < 5:` sets `fee = 0`; then `elif weight < 1:` sets 3; `elif weight < 5:` sets 7; `else:` sets 12."
+  ],
+  "explain_after": "`and` joins two conditions, and it short-circuits: when `member` is `False`, Python does not even look at the weight [py-060]. `elif` is short for else if [py-058], and the chain runs only its first true branch. A 0.5 kg parcel also passes `weight < 5`, so the `weight < 1` branch has to come first.",
+  "concepts": [
+    "boolean operators",
+    "if/elif/else",
+    "comparisons"
+  ]
+}

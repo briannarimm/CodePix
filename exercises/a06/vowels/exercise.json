@@ -1,0 +1,22 @@
+{
+  "id": "a06-vowels",
+  "level": "a06",
+  "title": "Count the vowels",
+  "file": "vowels.py",
+  "kind": "test",
+  "prompt": "The label printer charges by the vowel (do not ask). Loop over the letters of `word` and count the vowels: a, e, i, o and u.\n\nWhen it works, `python3 vowels.py` prints `Vowels: 3`.",
+  "run_command": "python3 -m unittest test_vowels.py",
+  "expected_output": "Vowels: 3",
+  "hints": [
+    "A `for` loop over a string hands you one letter at a time: `for letter in word:`.",
+    "`letter in \"aeiou\"` is `True` when the letter is one of those five.",
+    "Inside the loop: `if letter in \"aeiou\":` and, indented under it, `count = count + 1`."
+  ],
+  "explain_after": "Python's `for` goes through the items of any sequence in order [py-063], and a string is a sequence of characters. `count` is an accumulator: it starts at 0 and the loop adds to it.",
+  "concepts": [
+    "for loops",
+    "strings",
+    "accumulator",
+    "conditions"
+  ]
+}

@@ -1,0 +1,10 @@
+/* Turtle Replay toy (A6b) */
+.toy-turtlereplay .layout{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:start}
+@media (min-width:860px){.toy-turtlereplay .layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.toy-turtlereplay .paper{border:3px solid var(--ink);border-radius:12px;background:#fff;box-shadow:3px 3px 0 var(--ink);padding:8px;
+  background-image:linear-gradient(#e8eef5 1px,transparent 1px),linear-gradient(90deg,#e8eef5 1px,transparent 1px);background-size:24px 24px}
+.toy-turtlereplay .paper svg{display:block;width:100%;height:auto;max-height:min(52vh,420px)}
+.toy-turtlereplay .ink line{stroke-linecap:round}
+.toy-turtlereplay .cursor path{fill:var(--lime-d);stroke:var(--ink);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.toy-turtlereplay .status{margin:4px 0;font-weight:700}
+.toy-turtlereplay .code{margin-top:0}

@@ -1,0 +1,20 @@
+{
+  "id": "a06b-hexagon",
+  "level": "a06b",
+  "title": "Draw a hexagon",
+  "file": "hexagon.py",
+  "kind": "test",
+  "prompt": "The starter draws a square. Change it to draw a hexagon: six sides of 100 steps each, with the turtle back where it started at the end.\n\nRun `python3 hexagon.py` to see your drawing in a window. The tests use a stand-in turtle that writes down every move, so they run even on a computer without Tk.",
+  "run_command": "python3 -m unittest test_hexagon.py",
+  "hints": [
+    "Two numbers change: how many times the loop runs, and how far the turtle turns at each corner.",
+    "To get back where it started, the turtle turns all the way round once in total: 360 degrees shared among six corners.",
+    "`for side in range(6):` with `turtle.forward(100)` and `turtle.left(60)` inside."
+  ],
+  "explain_after": "`forward(d)` moves the turtle and `left(a)` turns it by degrees [py-069]. Six turns of 60 degrees add up to one full turn, so the turtle ends facing the way it started. `turtle.done()` stays last so the window stays open [py-070].",
+  "concepts": [
+    "turtle",
+    "for loops",
+    "range"
+  ]
+}
