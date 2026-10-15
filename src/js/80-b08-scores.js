@@ -1,5 +1,5 @@
 /* B8. Scorekeeping: accuracy, precision, recall, F1, the confusion matrix, rare classes. */
-// TODO(research): no sourced statement about human-level performance as a ceiling. Baselines are sourced [ml-118].
+// TODO(research): human performance as a baseline is sourced [ml-190] [ml-191]; no open source read so far calls it a ceiling.
 
 const B08_GRID = () => `<svg viewBox="0 0 340 220" role="img" aria-label="A two by two confusion matrix">
   <text x="200" y="18" text-anchor="middle" font-size="13" font-weight="700">the machine said</text>
@@ -51,6 +51,10 @@ PAGES("b08", [
       { code: "b08_dummy", out: true },
       "Most of the twelve fictional tickets are not urgent, so the lazy machine says 0 every time, even for a nine-hour, nine-part monster. It still scores 0.67. Byte's 0.75 beats it, by less than it first looked. If a model cannot beat the most common answer, it has not learned anything useful yet.",
       { analogy: "Before you praise a new apprentice's guesses, compare them with a rubber stamp that says NOT URGENT. Stamp every ticket. On most days the stamp is right more often than you would like." },
+      { h3: "People as a yardstick" },
+      "The rubber stamp is the low bar. A second yardstick is people. Cowley and colleagues say comparisons between algorithm and human performance provide a [[baseline]] against which algorithm performance may be evaluated. They add that designing a human study for a fair comparison can be hard [ml-190].",
+      "Their guiding principles: give people and the algorithm the same task, match the trials each one sees, design the human test with the differences between human and machine thinking in mind, and follow good practice for psychology studies [ml-191].",
+      { analogy: "If Ms. Gridlock sorts the same twelve tickets by hand, her score is a fair yardstick for Byte. If she sorts different tickets, or gets an hour while Byte gets a second, the comparison tells you less." },
     ],
   },
   {
@@ -70,6 +74,7 @@ GLOSS({
   precision: "Of the examples the model called yes, the share that really were yes: TP/(TP+FP). [ml-057]",
   recall: "Of the examples that really were yes, the share the model caught: TP/(TP+FN). [ml-057]",
   "f1 score": "One number from precision and recall: their harmonic mean, weighting both equally. [ml-060]",
+  baseline: "A reference score to compare a model against: a simple rule of thumb such as always predicting the most common label [ml-118], or people doing the same task [ml-190].",
   "confusion matrix": "A table that counts, for each true class, how often each class was predicted. Entry (i, j) is really i, predicted j. [ml-059]",
 }, "b08");
 
@@ -140,6 +145,8 @@ LEVEL({
     { predict: { program: "b08_dummy", q: "The lazy machine learns from the twelve tickets, then guesses. What does it say for a nine-hour, nine-part ticket?" } },
     { ask: { q: "A rare-fault detector reports 99.9% accuracy. What should you ask next?", choices: ["Nothing; 99.9% is excellent", "What are its precision and recall on the rare faults?", "How fast does it run?"], answer: 1,
       why: "When one class is rare, accuracy can be high for a machine that finds nothing [ml-055]. Precision and recall look at the rare class directly." } },
+    { ask: { q: "Byte scores 0.75 on the ticket sort. You want to compare it with Ms. Gridlock sorting by hand. What makes that fair?", choices: ["She sorts the same tickets under matched conditions", "She sorts any tickets she likes", "She guesses Byte's score"], answer: 0,
+      why: "Comparing with people gives a baseline, and a fair comparison matches the trials people and the algorithm see [ml-190] [ml-191]." } },
     say("nib", "One more wrinkle. With three classes, you can average per-class scores two ways. Jurafsky and Martin's example gets .60 macroaveraged and .73 microaveraged, and the micro average is dominated by the most frequent class [ml-058]."),
     { book: 3, text: "The last book page runs that macro and micro comparison on our own fictional inbox." },
     say("gridlock", "Right. No framing until I see precision and recall. And {{you}}: write the scorekeeper yourself, so I can check Byte."),

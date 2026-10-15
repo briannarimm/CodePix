@@ -1,6 +1,5 @@
 /* A1. Set Up Your Bench: install Python with Homebrew, check which python3, VS Code, hello.py, the REPL. Monday midday. */
 
-// TODO(research): starting the REPL by typing `python3` with no file name is sourced for Fedora only [py-234]; macOS and Windows need a source.
 // TODO(research): Linux: Ubuntu [py-240] and Fedora [py-234] are covered; other distributions are not.
 // TODO(research): real `which python3` and `python3 --version` output from a clean macOS account (lesson plan asks for it).
 
@@ -173,10 +172,16 @@ PAGES("a01", [
       { analogy: "`>>>` is Reader tapping the clipboard: *your turn, give me a line*. `...` is Reader saying *keep going, I am listening*." },
       "To leave, type an end-of-file character at the `>>>` prompt: Control-D on Unix, Control-Z on Windows. If that does not work, type `quit()` [py-233].",
       "A handy trick: in most Python shells, the up arrow brings back the previous line you typed and the down arrow the next one, so you can repeat a line without retyping it [py-191].",
-      { alt: "How to start it", body: [
+      "So how do you get to `>>>`? Leave off the file name. The tutorial says the interpreter works a bit like the shell. Started from a terminal with no file, it reads and executes commands interactively. Given a file name, it runs that file as a script [py-277].",
+      "The macOS docs say that in a Terminal window you can invoke `python3`, optionally followed by command line options [py-279]. Type it alone and press Return:",
+      { term: [["python3", "No file name, so Python starts the REPL and waits at `>>>` [py-277] [py-279]."], ["quit()", "Leave the REPL. Control-D works too [py-233]."]], title: "Terminal (Mac)" },
+      { analogy: "`python3 hello.py` hands Reader a finished clipboard to work through. `python3` alone hands Reader a blank one, and you fill it a line at a time." },
+      { alt: "Windows and Linux", body: [
+        "On Windows the recommended command for launching Python is `python` [py-026]. The tutorial adds that with the `py.exe` launcher installed you can use `py` [py-278]. Type either one with no file name.",
+        { term: [["python", "Start the REPL on Windows [py-026]. Leave with Control-Z or `quit()` [py-233]."]], title: "Windows terminal" },
         "Fedora's developer portal says you start Python by typing `python` in a terminal and leave it with Ctrl + D [py-234]:",
         { term: [["python", "Start the interactive interpreter on Fedora [py-234]. Leave with Ctrl + D."]], title: "Fedora" },
-        { honest: "Our sources show the start command for Fedora only so far. Every REPL example in this book is also a program file you can run with `python3`, so you lose nothing if you skip the REPL for now." },
+        "Whatever command starts Python on your system, run it from a terminal with no file name and the interpreter reads your commands interactively [py-277].",
       ] },
     ],
   },

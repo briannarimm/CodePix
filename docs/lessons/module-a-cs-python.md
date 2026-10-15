@@ -247,7 +247,7 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 
 ### A6b. Optional lesson: Draw With a Turtle
 
-- `turtle` needs `tkinter`, which is built on Tk; if `import turtle` fails with an error mentioning `_tkinter`, look for the install fix from whoever provided Python [py-068]. On Homebrew the formula `python-tk@3.14` exists, described as the Python interface to Tcl/Tk [py-072] and `brew install python-tk@3.14` is named for IDLE's tkinter [py-021]. GAP: the exact Homebrew step for turtle on the version a learner installed should be confirmed on a clean Mac.
+- `turtle` needs `tkinter`, which is built on Tk; if `import turtle` fails with an error mentioning `_tkinter`, look for the install fix from whoever provided Python [py-068]. On Homebrew the formula `python-tk@3.14` exists, described as the Python interface to Tcl/Tk [py-072] and `brew install python-tk@3.14` is named for IDLE's tkinter [py-021]. Homebrew's python and python3 aliases select its current default Python formula, which changes as releases are adopted [py-280]; today that is python@3.15, whose caveat names `brew install python-tk@3.15` [py-281], and the formula source builds the name as python-tk@ plus the Python formula's major.minor version [py-282]. Linux: Ubuntu lists `python3-tk` [py-283] and Fedora lists `python3-tkinter` [py-284]. GAP: other distributions' package names.
 - `forward`, `left`, `right`, `penup`, `pendown` move and turn the turtle [py-069]; `turtle.done()` or `mainloop()` must be last to keep the window open [py-070].
 - The module implements drawing tools introduced in Logo in 1967 [py-071].
 - In the app, a build-time recorded replay of the drawing is shown, labeled "a replay of what your program draws."
@@ -504,6 +504,7 @@ Two templates (Brianna's choice): a **shop inventory tracker** and a **quiz game
 A clickable timeline in the shop's back room. Each card shows one dated event and its citation. Only the facts below may appear; the dates are as the sources state them.
 
 - *1906 to 1992.* Grace Hopper (1906-1992) came up with the idea of machine-independent programming languages and imagined a language based on English [py-220].
+- *1946.* Penn Engineering says ENIAC was announced on February 14, 1946, and was constructed and operated at the Moore School of Electrical Engineering [py-285]. It filled a room 30 by 50 feet, weighed 30 tons and needed 18,000 vacuum tubes [py-286]. A team of six women ran and programmed it, by plugging in cables and setting switches [py-287].
 - *1954 to 1957.* IBM says Fortran, led by John Backus, was created in 1954 and released commercially in 1957 [py-153].
 - *1967.* Turtle graphics implements drawing tools introduced in Logo in 1967 [py-071].
 - *1989.* Guido van Rossum started Python during the 1989 Christmas holidays [py-217]. The docs place its creation at CWI in the Netherlands, as a successor to a language called ABC [py-150].
@@ -511,9 +512,9 @@ A clickable timeline in the shop's back room. Each card shows one dated event an
 - *The name.* Python is named after Monty Python's Flying Circus, a BBC comedy series from the 1970s, because van Rossum wanted a short, unique and slightly mysterious name [py-218].
 - *2001.* The Python Software Foundation was formed [py-151].
 - *2005.* Git was born when the Linux kernel community lost free use of BitKeeper and built its own tool [py-221].
-- *Any year.* The Zen of Python (PEP 20, Tim Peters) lists aphorisms such as "Readability counts", and `import this` prints them [py-152].
+- *2004.* PEP 20, The Zen of Python, by Tim Peters, was created on 19 August 2004. It puts Python's guiding design principles into 20 aphorisms, only 19 of which are written down [py-288]. They include "Readability counts", and `import this` prints them [py-152].
 
-Pending cards (researched, NOT citable yet; their sources could not be checked as raw text, so the checker blocks them): Ada Lovelace's 1843 translation and Notes (chm-lovelace, mactutor-lovelace), ENIAC in operation in 1946 (ethw-eniac), Grace Hopper's A-0 compiler and COBOL (yale-hopper). Run `python3 tools/verify_facts.py --pending` on a networked machine, read the `--audit` output, and only then mark those sources verified. Until then, leave these cards out.
+Pending cards (researched, NOT citable yet; their sources could not be checked as raw text, so the checker blocks them): Ada Lovelace's 1843 translation and Notes (chm-lovelace, mactutor-lovelace), ENIAC in operation in 1946 (ethw-eniac; the timeline cites Penn Engineering instead), Grace Hopper's A-0 compiler and COBOL (yale-hopper). Run `python3 tools/verify_facts.py --pending` on a networked machine, read the `--audit` output, and only then mark those sources verified. Until then, leave these cards out.
 
 ## Troubleshooting
 
