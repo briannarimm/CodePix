@@ -1,5 +1,5 @@
 /* B8. Scorekeeping: accuracy, precision, recall, F1, the confusion matrix, rare classes. */
-// TODO(research): no sourced statement about human ceilings. Baselines are sourced now [ml-118].
+// TODO(research): no sourced statement about human-level performance as a ceiling. Baselines are sourced [ml-118].
 
 const B08_GRID = () => `<svg viewBox="0 0 340 220" role="img" aria-label="A two by two confusion matrix">
   <text x="200" y="18" text-anchor="middle" font-size="13" font-weight="700">the machine said</text>
