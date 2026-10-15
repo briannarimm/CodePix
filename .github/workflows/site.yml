@@ -26,13 +26,15 @@ jobs:
         with:
           python-version: "3.9"
       - run: echo "PY39=$(which python)" >> "$GITHUB_ENV"
+      - name: Practice package for A13 on 3.9
+        run: python -m pip install --quiet texttable==1.7.1
 
       - name: Current Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
       - name: Libraries for Module B programs
-        run: python -m pip install --quiet numpy pandas scikit-learn matplotlib pytest
+        run: python -m pip install --quiet numpy pandas scikit-learn matplotlib pytest texttable==1.7.1
 
       - uses: actions/setup-node@v4
         with:
