@@ -1,0 +1,22 @@
+{
+  "id": "b12-xor",
+  "level": "b12",
+  "title": "Wire an XOR network",
+  "file": "xor.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "One unit cannot compute XOR. Two layers can. The starter has the wiring with every weight and bias set to 0. Change the numbers so that `xor(x1, x2)` gives 1 when exactly one input is 1, and 0 otherwise.\n\nThe test also reads your code: no `if`, no `^` and no `!=` inside `xor()`. Units only.",
+  "run_command": "python3 -m unittest test_xor.py",
+  "expected_output": "0 0 -> 0\n0 1 -> 1\n1 0 -> 1\n1 1 -> 0",
+  "hints": [
+    "Let hidden unit 1 count how many inputs are on. Weights 1 and 1, bias 0.",
+    "Let hidden unit 2 wake up only when both inputs are on. With ReLU, a bias of -1 does that.",
+    "The output takes h1 and subtracts something whenever h2 is awake. Try weight 1 on h1 and weight -2 on h2."
+  ],
+  "explain_after": "A single perceptron cannot compute XOR because XOR is not linearly separable, and that is why layered networks matter [ml-084]. Your hidden layer uses ReLU, which outputs z when z is positive and 0 otherwise [ml-085]. These weights are hand-picked; a real network finds its own weights from examples.",
+  "concepts": [
+    "XOR",
+    "hidden layer",
+    "ReLU"
+  ]
+}

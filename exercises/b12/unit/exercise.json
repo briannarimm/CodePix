@@ -1,0 +1,22 @@
+{
+  "id": "b12-unit",
+  "level": "b12",
+  "title": "Build one unit",
+  "file": "unit.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Write the two pieces of a neural unit in plain Python.\n\n`weighted_sum(weights, inputs, bias)` multiplies each weight by its input, adds the products, and adds the bias. `relu(z)` gives back `z` when it is above 0, and 0 otherwise.\n\nWhen it works, `python3 unit.py` prints the book's example: `z = 0.87`.",
+  "run_command": "python3 -m unittest test_unit.py",
+  "expected_output": "z = 0.87\nrelu(z) = 0.87\nrelu(-3) = 0",
+  "hints": [
+    "Start a running total at the bias. Then walk through the weights and inputs together.",
+    "`zip(weights, inputs)` hands you one weight and its input at a time. Add `w * x` to the total each time.",
+    "For `relu`, `max(z, 0)` does the whole job in one line."
+  ],
+  "explain_after": "A neural unit takes a weighted sum of its inputs plus a bias, then passes it through a non-linear activation such as ReLU [ml-082]. ReLU outputs z when z is positive and 0 otherwise [ml-085]. Your numbers match Jurafsky and Martin's worked unit, where z = 0.87 [ml-083].",
+  "concepts": [
+    "neural unit",
+    "weighted sum",
+    "activation function"
+  ]
+}

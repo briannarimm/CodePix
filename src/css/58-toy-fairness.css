@@ -1,0 +1,7 @@
+/* Toy: Fair Share (b15) */
+.toy-fairness .fs-cut{display:block;font-weight:700;margin:6px 0}
+.toy-fairness .fs-cut input{display:block}
+.toy-fairness .fs-groups{display:grid;gap:10px}
+.toy-fairness .fs-group svg{width:100%;height:auto;display:block}
+.toy-fairness .fs-title{margin:0 0 4px;font-weight:700}
+.toy-fairness .fs-sum{margin:10px 0 0}
