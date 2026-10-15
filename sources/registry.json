@@ -2169,7 +2169,7 @@
   },
   {
    "id": "mlcc-hyperparameters",
-   "status": "unverified",
+   "status": "verified",
    "title": "Linear regression: Hyperparameters",
    "author": "Google for Developers",
    "site": "Machine Learning Crash Course",
@@ -2182,11 +2182,11 @@
    "levels": [
     105
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with the fetch tool on 2026-10-15; the release-candidate research pass found the check strings verbatim on the live page and marked the source verified. Raw text is not reachable from the research sandbox (proxy 403); CI re-verifies with network access."
   },
   {
    "id": "mlcc-embeddings",
-   "status": "unverified",
+   "status": "verified",
    "title": "Embeddings",
    "author": "Google for Developers",
    "site": "Machine Learning Crash Course",
@@ -2199,11 +2199,11 @@
    "levels": [
     113
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with the fetch tool on 2026-10-15; the release-candidate research pass found the check strings verbatim on the live page and marked the source verified. Raw text is not reachable from the research sandbox (proxy 403); CI re-verifies with network access."
   },
   {
    "id": "mlcc-llm",
-   "status": "unverified",
+   "status": "verified",
    "title": "Introduction to large language models",
    "author": "Google for Developers",
    "site": "Machine Learning Crash Course",
@@ -2216,7 +2216,7 @@
    "levels": [
     113
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with the fetch tool on 2026-10-15; the release-candidate research pass found the check strings verbatim on the live page and marked the source verified. Raw text is not reachable from the research sandbox (proxy 403); CI re-verifies with network access."
   },
   {
    "id": "chm-lovelace",
@@ -2302,6 +2302,379 @@
     -1
    ],
    "notes": "Primary source for Lovelace's notes. The fetch tool read only the first 100,000 characters and did not reach Note G. No facts taken."
+  },
+  {
+   "id": "numpy-install",
+   "status": "verified",
+   "title": "Installing NumPy",
+   "author": "NumPy Developers",
+   "site": "NumPy",
+   "date": "n.d.",
+   "url": "https://numpy.org/install/",
+   "license": "BSD 3-Clause (numpy/numpy.org LICENSE)",
+   "licenseUrl": "https://github.com/numpy/numpy.org/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/numpy/numpy.org/main/content/en/install.md"
+  },
+  {
+   "id": "pandas-install",
+   "status": "verified",
+   "title": "Installation",
+   "author": "pandas development team",
+   "site": "pandas 3.0.6 documentation",
+   "date": "n.d.",
+   "url": "https://pandas.pydata.org/docs/getting_started/install.html#installing-with-pip",
+   "license": "BSD 3-Clause (project LICENSE)",
+   "licenseUrl": "https://github.com/pandas-dev/pandas/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pandas-dev/pandas/v3.0.6/doc/source/getting_started/install.rst"
+  },
+  {
+   "id": "mpl-install",
+   "status": "verified",
+   "title": "Installation",
+   "author": "Matplotlib development team",
+   "site": "Matplotlib 3.11.2 documentation",
+   "date": "n.d.",
+   "url": "https://matplotlib.org/stable/install/index.html#install-an-official-release",
+   "license": "Matplotlib License (project LICENSE)",
+   "licenseUrl": "https://github.com/matplotlib/matplotlib/blob/main/LICENSE/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.11.2/doc/install/index.rst"
+  },
+  {
+   "id": "pandas-read-write",
+   "status": "verified",
+   "title": "How do I read and write tabular data?",
+   "author": "pandas development team",
+   "site": "pandas 3.0.6 documentation",
+   "date": "n.d.",
+   "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html",
+   "license": "BSD 3-Clause (project LICENSE)",
+   "licenseUrl": "https://github.com/pandas-dev/pandas/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    102
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pandas-dev/pandas/v3.0.6/doc/source/getting_started/intro_tutorials/02_read_write.rst"
+  },
+  {
+   "id": "sk-linreg-api",
+   "status": "verified",
+   "title": "sklearn.linear_model.LinearRegression",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    104
+   ],
+   "notes": "The API page is generated from the LinearRegression docstring in _base.py on the 1.9.X branch.",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/sklearn/linear_model/_base.py",
+   "text": true
+  },
+  {
+   "id": "sk-train-test-split",
+   "status": "verified",
+   "title": "sklearn.model_selection.train_test_split",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    107,
+    116
+   ],
+   "notes": "The API page is generated from the train_test_split docstring in _split.py on the 1.9.X branch.",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/sklearn/model_selection/_split.py",
+   "text": true
+  },
+  {
+   "id": "sk-text-features",
+   "status": "verified",
+   "title": "Feature extraction: Text feature extraction",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    111
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/feature_extraction.rst"
+  },
+  {
+   "id": "openstax-stats-12-3",
+   "status": "verified",
+   "title": "Introductory Statistics 2e, 12.3 The regression equation",
+   "author": "Illowsky, B., & Dean, S.",
+   "site": "OpenStax",
+   "date": "2023",
+   "url": "https://openstax.org/books/introductory-statistics-2e/pages/12-3-the-regression-equation",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    104
+   ],
+   "notes": "OpenStax module m47117 (book published Dec. 13, 2023). License from the page footer and the bundle README. The slope formula is MathML; the check string is its plain-text reading.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introductory-statistics-bundle/main/modules/m47117/index.cnxml"
+  },
+  {
+   "id": "d2l-text-sequence",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 9.2 Converting raw text into sequence data",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_recurrent-neural-networks/text-sequence.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    111,
+    113
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_recurrent-neural-networks/text-sequence.md"
+  },
+  {
+   "id": "d2l-language-model",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 9.3 Language models",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_recurrent-neural-networks/language-model.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    111
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_recurrent-neural-networks/language-model.md"
+  },
+  {
+   "id": "d2l-qkv",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 11.1 Queries, keys, and values",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_attention-mechanisms-and-transformers/queries-keys-values.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_attention-mechanisms-and-transformers/queries-keys-values.md"
+  },
+  {
+   "id": "mlcc-loss",
+   "status": "verified",
+   "title": "Linear regression: Loss",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-05",
+   "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/loss",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    105
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-evaluating-bias",
+   "status": "verified",
+   "title": "Fairness: Evaluating for bias",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-08-25",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/evaluating-for-bias",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-demographic-parity",
+   "status": "verified",
+   "title": "Fairness: Demographic parity",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-08-25",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/demographic-parity",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-equal-opportunity",
+   "status": "verified",
+   "title": "Fairness: Equality of opportunity",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/equality-of-opportunity",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-transformers",
+   "status": "verified",
+   "title": "LLMs: What's a large language model? (Transformers)",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-02",
+   "url": "https://developers.google.com/machine-learning/crash-course/llm/transformers",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-obtaining-embeddings",
+   "status": "verified",
+   "title": "Embeddings: Obtaining embeddings",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-02-17",
+   "url": "https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "turing-archive-amt-b-19",
+   "status": "verified",
+   "title": "AMT/B/19: Off-print, 'Computing machinery and intelligence' from Mind",
+   "author": "Turing, A. M.",
+   "site": "The Turing Digital Archive, King's College, Cambridge",
+   "date": "1950",
+   "url": "https://turingarchive.kings.cam.ac.uk/amt-b-19",
+   "license": "Images copyrighted; reproduced from Mind with the permission of Oxford University Press; archive terms of use apply",
+   "licenseUrl": "",
+   "reuse": "Cite only; link for reading. Do not copy page images.",
+   "accessed": "2026-10-15",
+   "levels": [
+    116
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access. The archive item offers a PDF of the 1950 off-print under its terms of use; the publisher's page (academic.oup.com) is subscriber-only, so this is the free copy to link. Only the catalogue entry was read, not the scanned paper."
+  },
+  {
+   "id": "nyamawe-2025-pml",
+   "status": "unverified",
+   "title": "Practical machine learning: A beginner's guide with ethical insights",
+   "author": "Nyamawe, A. S., Mjahidi, M. M., Nnko, N. E., Diwani, S. A., Minja, G. G., & Malyango, K.",
+   "site": "Chapman and Hall/CRC (Taylor & Francis)",
+   "date": "2025",
+   "url": "https://doi.org/10.1201/9781003486817",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "reuse": "NonCommercial, NoDerivatives: cite and paraphrase only; never copy text or figures.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115,
+    -1
+   ],
+   "notes": "Open access monograph (OAPEN handle 20.500.12657/98246; published Feb. 7, 2025). Only the book description and the chapter 6 learning objectives on taylorfrancis.com could be read: the OAPEN PDF is robots-disallowed for the fetch tool and the Taylor & Francis PDF endpoint returned an error. Re-read the full text on a networked machine before citing."
+  },
+  {
+   "id": "zhao-2025-procs",
+   "status": "unverified",
+   "title": "Teaching reform of machine learning courses based on a multi-stage cognitive advancement framework",
+   "author": "Zhao, Y., Hu, Z., Wang, J., & Li, X.",
+   "site": "Procedia Computer Science, 259, 1249-1258",
+   "date": "2025",
+   "url": "https://doi.org/10.1016/j.procs.2025.04.080",
+   "license": "CC BY-NC-ND 4.0 (per Crossref metadata)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "reuse": "Not read; no facts.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Bibliographic data from Crossref. ScienceDirect (PII S1877050925011810) is robots-disallowed for the fetch tool, the Elsevier API returned an error and doi.org rate-limited the sandbox, so the paper was not read. No claims taken."
+  },
+  {
+   "id": "imavis-2012-cv-core",
+   "status": "unverified",
+   "title": "Computer vision needs a core and foundations",
+   "author": "(authors not confirmed)",
+   "site": "Image and Vision Computing",
+   "date": "2012",
+   "url": "https://doi.org/10.1016/j.imavis.2011.12.013",
+   "license": "unknown",
+   "licenseUrl": "",
+   "reuse": "Not read; no facts.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "doi.org and Crossref rate-limited the sandbox and ScienceDirect is robots-disallowed, so neither the paper nor its access status could be read. No claims taken."
   }
  ]
 }
