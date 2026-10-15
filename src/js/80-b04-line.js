@@ -1,6 +1,5 @@
 /* B4. Fit a Line: y' = b + w x, by hand and with scikit-learn.
-   TODO(research): a source for LinearRegression's coef_ and intercept_ attributes (shown working in recorded programs only).
-   TODO(research): a source for the least-squares slope formula used in b04_byhand (the book checks it against scikit-learn instead). */
+   coef_ and intercept_: [ml-144] [ml-145]. Least squares and the slope formula in b04_byhand: [ml-146] [ml-147]. */
 
 PAGES("b04", [
   {
@@ -27,10 +26,13 @@ PAGES("b04", [
   {
     h: "The best line, by hand",
     body: [
-      "We could keep guessing. There is also a recipe that goes straight to the line with the smallest score. It uses the average hours and the average cost, then one loop.",
+      "We could keep guessing. Statisticians already know which line wins. OpenStax's statistics textbook says the best-fit line is the one that minimizes the sum of the squared errors, the SSE. Any other line would have a higher SSE, and this line is called the [[least squares|least-squares regression line]] [ml-146]. The SSE is exactly the score from the last page.",
+      "The same book gives the recipe for that line. Calculus finds it. The slope is the sum of (x minus the average x) times (y minus the average y), divided by the sum of (x minus the average x) squared. The intercept is the average y minus the slope times the average x [ml-147].",
+      { honest: "OpenStax writes the line as y-hat = a + bx, so its *b* is the slope and its *a* is the intercept [ml-147]. Google's letters run the other way: *w* is the weight and *b* is the bias [ml-027]. The program below uses Google's letters, so the slope lands in `w`." },
+      "Here is that recipe in plain Python. `top` builds the first sum and `bottom` the second, in one loop over the tickets.",
       { code: "b04_byhand", out: true },
-      { honest: "This book does not prove the recipe. The next page checks it a different way: scikit-learn, working its own way, lands on the same two numbers." },
       "So the Quote Machine's first draft says: about $15 to open the case, plus about $37 for every hour of work. A 2.5-hour job comes to $106.77.",
+      "OpenStax adds one more property: the line always passes through the point (average x, average y) [ml-147]. You can see why in the last line of the recipe. Put the average hours into the line and out comes the average cost.",
     ],
   },
   {
@@ -38,7 +40,11 @@ PAGES("b04", [
     body: [
       "Now let the library do it. scikit-learn's `LinearRegression` fits its coefficients by minimizing the residual sum of squares [ml-032]: the same sum of squared mistakes you scored by hand. Like every scikit-learn estimator it is fitted with `fit(X, y)` and used with `predict`, with `X` shaped `(n_samples, n_features)` [ml-026].",
       { code: "b04_sklearn", out: true },
-      "The same w, the same b and the same price for a 2.5-hour job. `coef_` holds the learned weight and `intercept_` the learned bias. The new ticket goes into `predict` as a one-row table with an `hours` column, the same shape as the training `X`.",
+      "The same w, the same b and the same price for a 2.5-hour job. After `fit`, `LinearRegression` stores what it learned in two attributes, `coef_` and `intercept_` [ml-144]. `coef_` holds the estimated coefficients, one per feature, and `intercept_` is the independent term in the linear model [ml-145]. In our letters, `coef_[0]` is the weight w and `intercept_` is the bias b.",
+      "The new ticket goes into `predict` as a one-row table with an `hours` column, the same shape as the training `X`.",
+      { nerd: "Why `coef_[0]` and not just `coef_`?", body: [
+        "`coef_` is a 1D array with one value per feature [ml-145]. We have one feature, hours, so the array holds one number, and `[0]` takes it out. scikit-learn's own example fits two features and gets two coefficients, `array([0.5, 0.5])`, with `intercept_` 0.0 [ml-144].",
+      ] },
       { nerd: "Why double brackets in `df[[\"hours\"]]`?", body: [
         "`X` must be a table, even with one feature: one row per ticket, one column per feature [ml-026]. Double brackets keep it a DataFrame with shape (12, 1). Single brackets would give a Series of shape (12,).",
       ] },
@@ -53,6 +59,7 @@ GLOSS({
   weight: "In y' = b + w1x1, the number w1 that multiplies the feature x1: how much the prediction changes per unit of the feature. [ml-027]",
   bias: "In y' = b + w1x1, the number b added on its own: the prediction when the feature is zero. [ml-027]",
   regressor: "A supervised predictor whose output values are continuous, such as a price. [ml-113]",
+  "least squares": "The rule that picks the line with the smallest sum of squared errors (SSE). That line is the least-squares regression line. [ml-146]",
 }, "b04");
 
 /* ---- Toy: Line Fitter (JS demo) ---- */
@@ -124,12 +131,16 @@ LEVEL({
     { trace: { program: "b04_guess", note: "Watch `error` for each ticket, and `total` growing by its square." } },
     { ask: { q: "Why square each mistake before adding?", choices: ["so misses above and below both count, and big misses count more", "to make the numbers smaller", "because Python cannot add negative numbers"], answer: 0,
       why: "A miss of -10 and a miss of +10 would cancel if you added them raw. Squared, both count as 100, and a miss of 30 counts as 900." } },
-    say("nib", "Now the best line for all twelve tickets, first with a plain-Python recipe, then with scikit-learn. If two methods agree, I start to believe them."),
+    say("nib", "Statisticians call the winner the least-squares regression line: the line with the smallest sum of squared errors. Every other line scores higher [ml-146]."),
+    say("nib", "And there is a recipe for it. Slope: add up (x minus average x) times (y minus average y), then divide by the sum of (x minus average x) squared [ml-147].", "think"),
+    say("byte", "Averages, one loop, one division. Even I can do that without a ruler."),
     { predict: { program: "b04_byhand", q: "The recipe in plain Python. What line does it find?" } },
+    { ask: { q: "The least-squares line always passes through one special point. Which?", choices: ["(0, 0)", "(average hours, average cost)", "the most expensive ticket"], answer: 1,
+      why: "OpenStax says the line always passes through the point (x-bar, y-bar), the two averages [ml-147]. The last line of the recipe, b = mean_y - w × mean_x, makes sure of it." } },
     say("nib", "scikit-learn's `LinearRegression` picks the line with the smallest residual sum of squares [ml-032]. That is the score you just used.", "think"),
     { predict: { program: "b04_sklearn", q: "Same twelve tickets, fitted by scikit-learn. Does it agree with the recipe?" } },
     { show: ["nib", "byte", "gridlock"], ...say("gridlock", "Fifteen dollars to open the case and thirty-seven an hour. That is... roughly what I charge. Did the machine read my mind?", "wow") },
-    say("nib", "It read your old tickets, which is the next best thing."),
+    say("nib", "It read your old tickets, which is the next best thing. After `fit`, the learned numbers live in `coef_` and `intercept_` [ml-144]."),
     { ask: { q: "In `model.fit(X, y)`, what shape must `X` have for twelve tickets and one feature?", choices: ["(12,)", "(12, 1)", "(1, 12)"], answer: 1,
       why: "`X` has shape `(n_samples, n_features)` [ml-026]: twelve rows, one column. That is why the program uses `df[[\"hours\"]]` with double brackets." } },
     { book: 3, text: "The book has every program in this level, and a note on the double brackets." },

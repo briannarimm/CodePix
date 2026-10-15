@@ -1,5 +1,5 @@
 /* B2. Tables of Numbers: features, labels, arrays and DataFrames.
-   TODO(research): a source for pandas.read_csv and DataFrame.head (the book only shows them working in recorded programs). */
+   read_csv, head, tail and the first check: [ml-141] to [ml-143]. */
 
 /* The twelve fictional tickets in content/programs/data/b02_tickets.csv. B3 and B4 toys draw these too. Keep the two in step. */
 const B0X_TICKETS = [
@@ -37,11 +37,21 @@ PAGES("b02", [
     h: "pandas tables",
     body: [
       "Real tickets have words in them too, like *toaster*. A [[DataFrame]] from [[pandas]] is a two-dimensional data structure that can hold different types in its columns, and a [[Series]] is a single column [ml-024].",
-      "This program reads all twelve fictional tickets from `b02_tickets.csv`. It prints the first three rows, then a summary.",
+      "This program reads all twelve fictional tickets from `b02_tickets.csv`. pandas provides the [[read_csv]] function to read data stored as a CSV file into a DataFrame. Its readers for other formats, such as Excel and JSON, all start with `read_` too [ml-141].",
+      "When pandas displays a whole DataFrame, it shows the first and last 5 rows by default. The `head` method shows the first N rows, and `tail` shows the last N [ml-142]. The program asks for the first three, then a summary.",
       { code: "b02_pandas", out: true },
       "`describe()` summarizes the numerical columns of a table [ml-025]. Read the cost column: the cheapest repair was $30, the dearest $172, and the mean is a little over $85. The text columns, `ticket` and `appliance`, are left out of the summary.",
       "The last two lines pick columns. Two names in a list give a DataFrame with two columns: that is `X`. One name gives a Series: that is `y`.",
       { honest: "All twelve tickets are fictional. The tables above are what real pandas printed when the site was built." },
+    ],
+  },
+  {
+    h: "Look before you learn",
+    body: [
+      "A typo in one ticket can teach the machine nonsense. So check the table right after you read it. The pandas tutorial says to always check the data after reading it in. It calls `head`, `tail`, `info` and the `dtypes` attribute convenient for a first check [ml-143].",
+      { code: "b02_firstlook", out: true },
+      "`tail(2)` shows the last two tickets, so you can see the file was read to the end. The `dtypes` list gives each column's type. Hours hold decimals, parts and cost hold whole numbers, and the two text columns hold words. If the cost column ever showed up as text, a stray letter would be hiding in it somewhere.",
+      { analogy: "Before Byte copies a shoebox of tickets into the ledger, someone flips through the top few and the bottom few. Two minutes of flipping saves an afternoon of wrong quotes." },
     ],
   },
   {
@@ -63,6 +73,7 @@ GLOSS({
   ndarray: "NumPy's N-dimensional array. All its elements have the same type, and its size cannot change once created. [ml-021]",
   dataframe: "A pandas two-dimensional table whose columns can hold different types. [ml-024]",
   series: "A single column of a pandas DataFrame. [ml-024]",
+  read_csv: "The pandas function that reads a CSV file into a DataFrame. [ml-141]",
 }, "b02");
 
 /* ---- Toy: Ticket Table (JS demo) ---- */
@@ -131,12 +142,16 @@ LEVEL({
     { ask: { q: "An array holds 12 tickets with 2 features each. What is its `shape`?", choices: ["`(2, 12)`", "`(12, 2)`", "`24`"], answer: 1,
       why: "Shape lists rows first, then columns: a 3-by-4 array has shape (3, 4) [ml-022]. Twelve rows of two features is (12, 2). Its `size` would be 24." } },
     say("nib", "And for a whole table with words and numbers mixed, pandas. A [[DataFrame]] can hold different types in its columns; a [[Series]] is one column [ml-024]."),
+    say("nib", "pandas reads the shoebox for us. `read_csv` turns a CSV file into a DataFrame [ml-141], and `head(3)` shows its first three rows [ml-142]."),
     { predict: { program: "b02_pandas", q: "Twelve tickets from a CSV file. What do the summary and the shapes look like?" } },
     say("gridlock", "Mean cost eighty-five dollars. I'd have guessed sixty. Huh.", "wow"),
     say("nib", "`describe()` summarizes the numerical columns [ml-025]. And look at the shapes. scikit-learn wants `X` with one row per sample and one column per feature [ml-026]."),
     { ask: { q: "Which line gives a **Series** with the costs?", choices: ["`df[[\"cost\"]]`", "`df[\"cost\"]`", "`df.describe()`"], answer: 1,
       why: "One column name in single brackets picks one column, a Series [ml-024]. Double brackets around a list of names give a DataFrame, which is how `X` was picked." } },
-    { book: 3, text: "The book has the whole chapter. This last page shows the shape scikit-learn expects." },
+    say("nib", "One habit before any learning. The pandas tutorial says to always check the data after reading it in, with `head`, `tail`, `info` or `dtypes` [ml-143].", "think"),
+    { ask: { q: "You read a long ticket file and want to see whether the last rows came through. Which line shows the last five?", choices: ["`df.head(5)`", "`df.tail(5)`", "`df.describe()`"], answer: 1,
+      why: "`head` shows the first N rows and `tail` shows the last N [ml-142]." } },
+    { book: 3, text: "The book has the whole chapter. This page shows a first check of the data, and the next one shows the shape scikit-learn expects." },
     { toy: "tickettable", goal: "Click three different tickets and find each one's row." },
     say("nib", "Now on your own machine: first rows by hand, then the same table with pandas. Use the virtual environment from B1."),
     { machine: ["b02-rows", "b02-table"] },
