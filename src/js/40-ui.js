@@ -28,7 +28,7 @@ const UI = {
       el("div.row", {},
         el("button.btn.tang", { type: "button", "data-hint": started ? "Pick up where you left off" : "Start your first day at the shop", onclick: go }, started ? "Continue ▶" : "Start ▶"),
         started ? el("button.btn.plain", { type: "button", "data-hint": "Open settings, where you can reset your progress", onclick: () => this.settings() }, "Settings") : null),
-      el("p.fine", {}, `Beta v0.1. Everything shown as Python output was recorded from real Python ${DATA.python || ""}. No Python runs in this page. All shops, people and data are fictional. Progress saves in this browser only.`));
+      el("p.fine", {}, `${VERSION_TEXT}. Everything shown as Python output was recorded from real Python ${DATA.python || ""}. No Python runs in this page. All shops, people and data are fictional. Progress saves in this browser only.`));
     this.root.append(el("div.title.checker", {}, card));
     name.focus();
   },
@@ -225,8 +225,8 @@ const UI = {
       el("div.field", {}, el("b", {}, "Your computer"), os),
       el("div.field", {}, sw("Sounds", "Little beeps on clicks and answers", S.settings.sound, v => (S.settings.sound = v))),
       el("div.field", {}, el("b", {}, "Motion"), motion),
-      el("div.field", {}, sw("Beta: open every level, including Module B", "Testing switch for the beta. Normally Module B opens after A17.", S.settings.unlockAll, v => { S.settings.unlockAll = v; this.palette(); })),
-      el("p.honest", {}, "Progress is saved in this browser only, under the name codepix-save. Private windows may not keep it."),
+      el("div.field", {}, sw("Open every level, including Module B", "Normally Module B opens after you finish A17. Turn this on to explore in any order.", S.settings.unlockAll, v => { S.settings.unlockAll = v; this.palette(); })),
+      el("p.honest", {}, `Progress is saved in this browser only, under the name ${SAVE_KEY}. Private windows may not keep it.`),
       el("div.field", {}, reset));
     const w = this.win({ title: "Settings", body: box, cls: "narrow", color: "var(--silver-d)", color2: "#6d7891" });
     w.onclose = () => { if (this.wrap && !ENGINE.lvl) this.hub(); };
@@ -335,8 +335,10 @@ const UI = {
       el("p", { html: rich("Site text: CC BY 4.0. Code: MIT. Fonts (self-hosted): Bungee, Comic Neue, VT323, Lora and JetBrains Mono, all under the SIL Open Font License 1.1. Characters and art are drawn in code for this project.") }),
       el("h3", {}, "Fictional"),
       el("p", {}, "Gadget Gulch Repair & Tinker Shop, its staff, customers, inventory and data files are invented. Any resemblance to a real shop is a coincidence."),
-      el("h3", {}, "Beta"),
-      el("p", {}, "This is beta v0.1. Some toys are simple and some pages will grow. Settings has a switch that opens every level for testing."));
+      el("h3", {}, "Version"),
+      el("p", {}, DATA.channel === "rc"
+        ? `${VERSION_TEXT}, built ${DATA.built}. This copy is for checking before release. Its progress is saved separately from the live site.`
+        : `${VERSION_TEXT}, built ${DATA.built}. Settings has a switch that opens every level, if you want to explore in any order.`));
     this.win({ title: "About, credits and licenses", body: box, color: "var(--teal)", color2: "var(--teal-d)" });
   },
 };
