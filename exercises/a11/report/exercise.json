@@ -1,0 +1,21 @@
+{
+  "id": "a11-report",
+  "level": "a11",
+  "title": "Count the shelf, write a report",
+  "file": "report.py",
+  "kind": "test",
+  "prompt": "Ms. Gridlock wants one number: how many parts sit on the shelf. The file `parts.csv` (fictional) lists each part with its `qty`. Add up the `qty` column, then write the answer into a new file named `report.txt`.\n\nKeep `parts.csv` in the same folder as `report.py`, and run the commands from that folder. A file name with no folder in front is a relative path, so Python looks for it in the current working directory [py-005].\n\nWhen it works, `report.txt` holds one line, `Total parts: 100`, and the program prints the same line.",
+  "run_command": "python3 -m unittest test_report.py",
+  "expected_output": "Total parts: 100",
+  "hints": [
+    "Each `row` is a dictionary. `row[\"qty\"]` gives you the quantity, as text such as `\"30\"`.",
+    "Text and numbers do not add. Turn the text into a whole number first: `int(row[\"qty\"])`. Then add it to `total`.",
+    "For the report, open a second file with `with open(\"report.txt\", \"w\", encoding=\"utf-8\") as out:` and call `out.write(\"Total parts: \" + str(total) + \"\\n\")` inside it."
+  ],
+  "explain_after": "`csv.DictReader` turned each row into a dictionary keyed by the header names [py-162]. Mode `'w'` writes a file and erases anything that was there before [py-101], and `f.write(string)` puts your text in it [py-103]. The `with` block closed both files for you [py-102].\n\nOpen `report.txt` in VS Code to see what your program made. Run the program twice: the file still holds one line, because `'w'` starts fresh each time.",
+  "concepts": [
+    "files",
+    "csv",
+    "writing files"
+  ]
+}

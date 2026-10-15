@@ -1,0 +1,21 @@
+{
+  "id": "a13-drawer",
+  "level": "a13",
+  "title": "Pack it with the math drawer",
+  "file": "drawer.py",
+  "kind": "test",
+  "prompt": "The shipping bench needs two small tools. `boxes_needed` should count boxes, rounding up when the last box is only partly full. `tile_side` should give the side of a square tile from its area. Both tools are in the math module: `math.sqrt(x)` gives the square root of x [py-163], and `math.ceil` rounds up, as the book's recorded example shows.\n\n**First, set up a virtual environment** in the exercise folder, so this job has its own workbench. On macOS or Linux: `python3 -m venv .venv`, then `source .venv/bin/activate` [py-116]. Activating puts the environment's `bin` folder first on your PATH [py-115]. Check with `which python3`. Leave the environment later by typing `deactivate` [py-115].\n\nThen edit `drawer.py` and run the tests. When it works, the program prints `Boxes for 50 springs, 12 per box: 5` and `Side of a 49 square-inch tile: 7.0`.\n\n**Extra, inside the environment:** install pytest with `pip install -U pytest` [py-119], then type `pytest`. It looks for files named `test_*.py` [py-120], so it finds `test_drawer.py` too.",
+  "run_command": "python3 -m unittest test_drawer.py",
+  "expected_output": "Boxes for 50 springs, 12 per box: 5\nSide of a 49 square-inch tile: 7.0",
+  "hints": [
+    "`parts // per_box` drops the leftovers. You want to divide with `/` and then round the result up.",
+    "Rounding up is `math.ceil(...)`. Put the division inside the parentheses.",
+    "`return math.ceil(parts / per_box)` and `return math.sqrt(area)`."
+  ],
+  "explain_after": "`import math` opened the math drawer, and the dot in `math.ceil` reached inside it for one tool. The math module provides `math.sqrt`, `math.floor`, `math.ceil` and the constant `math.pi` [py-163].\n\nThe virtual environment did not change these answers, because `math` comes with Python. It matters when you install packages: an environment is isolated from the packages in the base Python by default [py-112], so each project keeps its own.",
+  "concepts": [
+    "import",
+    "modules",
+    "virtual environments"
+  ]
+}
