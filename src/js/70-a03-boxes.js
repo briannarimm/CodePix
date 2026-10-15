@@ -33,6 +33,7 @@ PAGES("a03", [
     body: [
       "Every value has a [[type]]: whole numbers, decimal numbers, text and so on. You can ask for any object's type with `type(obj)` [py-050].",
       { code: "a03_types", out: true },
+      "Numbers come in two kinds. In the Python tutorial, whole numbers such as 2, 4 and 20 have type `int`, and numbers with a fractional part such as 5.0 and 1.6 have type `float` [py-192]. OpenStax calls these the two basic number formats, integer and floating-point, and calls the format used to represent data its **data type** [py-193].",
       { table: { head: ["Type", "What it holds (shop example)"], rows: [["`int`", "a whole number: 7 springs"], ["`float`", "a number with a decimal point: 1.25 kilograms"], ["`str`", "text in quotes: `\"spring\"`"], ["`bool`", "`True` or `False`: is it in stock?"], ["`NoneType`", "`None`, meaning no value yet"]] } },
       { honest: "The table's examples are our own shop examples. The output above is what real Python printed." },
     ],
@@ -53,7 +54,7 @@ PAGES("a03", [
 
 GLOSS({
   variable: "A name that refers to a value. An assignment statement such as `gears = 12` creates it. [py-043]",
-  type: "The kind of value an object is, such as `int` or `str`. `type(obj)` tells you. [py-050]",
+  type: "The kind of value an object is, such as `int` or `str`. `type(obj)` tells you. [py-050] OpenStax calls the format used to represent data a data type. [py-193]",
   immutable: "Cannot be changed after it is made. Numbers, strings and tuples are immutable. [py-049]",
   aliasing: "Two or more names bound to the same object. [py-051]",
 }, "a03");
@@ -81,7 +82,7 @@ LEVEL({
     { trace: { program: "a03_boxes", note: "Watch the box named `gears` change on the last assignment." } },
     say("nib", "Every value also has a [[type]]. `type(obj)` tells you which [py-050]. Numbers, text and true-or-false values are different kinds of thing.", "think"),
     { ask: { q: "What does `type(1.25)` report?", choices: ["`<class 'int'>`", "`<class 'float'>`", "`<class 'str'>`"], answer: 1,
-      why: "1.25 has a decimal point, so it is a `float`. The Memory Shelf's *Five types* recording shows all five." } },
+      why: "1.25 has a fractional part, so its type is `float`; whole numbers such as 20 are `int` [py-192]. The Memory Shelf's *Five types* recording shows all five." } },
     say("nib", "Now the surprise. Two names can point at the same object [py-051]. With a list, that matters a great deal.", "wow"),
     { predict: { program: "a03_alias", q: "`shelf = bins`, then a washer goes onto `shelf`. What is in `bins`?" } },
     { trace: { program: "a03_alias", note: "Watch the color tags. Same color means same list." } },
