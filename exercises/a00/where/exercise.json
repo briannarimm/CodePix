@@ -11,7 +11,7 @@
     "If `mkdir` says the folder already exists, that is fine. Skip to `cd codepix`.",
     "Lost? `pwd` always tells you where you are, and `cd ..` takes you up one folder."
   ],
-  "explain_after": "`pwd` printed your working directory, `cd` changed it, and `ls` listed what is inside [py-003]. `mkdir` made the new folder [py-007]. After A1, `python3 where.py` prints the same path that `pwd` printed, and the test checks that it does.",
+  "explain_after": "`pwd` printed your working directory, `cd` changed it, and `ls` listed what is inside [py-003]. `mkdir` made the new folder [py-007]. On a Mac, a path that starts with `/Users/` and your user name is inside your home folder [py-230] [py-231]; the shell may show that folder as `~` [py-229]. After A1, `python3 where.py` prints the same path that `pwd` printed, and the test checks that it does.",
   "concepts": [
     "terminal",
     "folders",
