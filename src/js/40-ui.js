@@ -103,7 +103,7 @@ const UI = {
       if (!ls.length) return;
       const done = ls.filter(l => S.done[l.id]).length;
       const sec = el("section.mod", {}, el("h2", {}, `${MOD_INFO[m].title} (${done}/${ls.length})`));
-      if (m === "B" && !this.unlocked(ls[0])) sec.append(el("p.lock-note", { html: rich("Module B opens when you finish **A17, Saturday Showcase**. It needs Python 3.10 or newer and a virtual environment, which Module A teaches.") }));
+      if (m === "B" && !this.unlocked(ls[0])) sec.append(el("p.lock-note", { html: rich("Module B opens when you finish **A17, Saturday Showcase**. It needs a recent Python (3.12 or newer for the current NumPy) and a virtual environment, which Module A teaches.") }));
       const tiles = el("div.tiles");
       ls.forEach(L => {
         const st = S.done[L.id] ? "Done" : S.beat[L.id] ? "In progress" : this.unlocked(L) ? "Not started" : "Locked";
