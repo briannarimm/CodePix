@@ -1,6 +1,7 @@
 /* Time machine events for Module B. Each event names a Module B level, so it shows only once Module B is open.
    Cited facts only (see the B-Bonus lesson plan). */
 EVENTS([
+  { year: 1950, when: "October 1950", text: "Turing's *Computing machinery and intelligence* appears in *Mind* (Vol. LIX, No. 236). The Turing Digital Archive at King's College, Cambridge holds an off-print. [ml-189]", level: "bbonus" },
   { year: 1958, when: "1958", text: "Rosenblatt's article *The Perceptron* appears in *Psychological Review*. [ml-098]", level: "b12" },
   { year: 1959, when: "1959", text: "Samuel reports a computer that learns to play checkers better than the person who programmed it, in about 8 or 10 hours of play. [ml-097]", level: "bbonus" },
   { year: 1975, when: "1975 to 1985", text: "Fred Jelinek and colleagues at IBM invent the term *language model* and develop n-gram language models. [ml-089]", level: "b13" },

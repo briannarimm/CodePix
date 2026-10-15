@@ -13,7 +13,7 @@
     "For groups, first sort the rows into lists: `groups.setdefault(group, []).append(row)`.",
     "Then build the answer with one `error_rate` call per group: `{g: error_rate(rows) for g, rows in groups.items()}`."
   ],
-  "explain_after": "Jurafsky and Martin warn that machine learning systems can replicate and even amplify the biases in their training data [ml-100]. Splitting a score by group is one simple way to look for that. Here the online bookings get 1 of 8 wrong and the phone bookings 3 of 4; the overall number alone would hide the gap.",
+  "explain_after": "Jurafsky and Martin warn that machine learning systems can replicate and even amplify the biases in their training data [ml-100]. Google warns that great performance overall can mask poor performance on a minority subset of examples [ml-183]. Splitting a score by group is one simple way to look for that. Here the online bookings get 1 of 8 wrong and the phone bookings 3 of 4; the overall number alone would hide the gap.",
   "concepts": [
     "error rate",
     "fairness",
