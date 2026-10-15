@@ -1,8 +1,7 @@
 /* A5. Yes or No: comparisons, booleans, and/or/not, short-circuit, truthiness, if/elif/else.
    Toy: Gate Garden (gategarden), a JavaScript demo of a two-gate if/elif/else chain. */
 
-// TODO(research): no source yet for how indentation marks a block (lesson plan GAP). The book describes the
-// branches only as what the recorded programs show; IndentationError and TabError are cited [py-196] [py-197].
+// Indentation marks a block [py-241] [py-242]; style advice is 4 spaces, no tabs [py-243]. Errors: [py-196] [py-197].
 
 PAGES("a05", [
   {
@@ -36,6 +35,12 @@ PAGES("a05", [
       "The indented lines under `if`, `elif` and `else` are the branches. Watch the recording: Python checks `age < 12` first, finds it false, moves on to the `elif`, finds that true, and runs that one branch. It never even looks at the `else`.",
       { trace: "a05_ticket", label: "🔍 Watch the program pick a branch" },
       { analogy: "A fork in the road with signs. The first sign says \"Under 12? Turn here.\" If that is not you, walk on to the next sign. The last road has no sign: it is where everyone else goes." },
+      { h3: "Indentation draws the lines" },
+      "How does Python know which lines belong to a branch? It looks at the spaces at the start of each line. The tutorial says indentation is Python's way of grouping statements, and each line within a basic [[block]] must be indented by the same amount [py-241]. The language reference adds that the leading whitespace on a line sets its [[indentation]] level, which decides how statements are grouped [py-242].",
+      { code: "a05_block", out: true },
+      "Lines 4 and 5 sit four spaces in, so they form the `if` block. The customer is 70, so the whole block is skipped. Line 6 starts at the left edge again, so it is outside the block and runs for everyone.",
+      { analogy: "Indented lines are the small print under a sign. Everything tucked under \"Under 12?\" only applies to kids. A line back at the left edge is a new sign for everybody." },
+      "How far should you indent? The tutorial's coding-style advice is 4 spaces and no tabs [py-243]. Every program in this book follows it.",
       { nerd: "Spaces at the start of a line matter", body: [
         "Python takes the spaces at the start of a line seriously. In OpenStax's table of common errors, an accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. Here is the ticket idea with one stray space on its last line:",
         { code: "a05_indent", out: true },
@@ -64,6 +69,8 @@ PAGES("a05", [
 GLOSS({
   boolean: "One of the two values `True` and `False`. Comparisons such as `3 < 5` produce them. (Our own definition.)",
   comparison: "A question about two values, written with `<`, `>`, `==`, `<=`, `>=` or `!=`. [py-158]",
+  block: "A group of lines that run together, such as the lines under an `if`. Python groups them by indentation, and each line in a basic block is indented by the same amount. [py-241]",
+  indentation: "The spaces at the start of a line. Its level decides how statements are grouped. The tutorial's style advice is 4 spaces and no tabs. [py-242] [py-243]",
   condition: "A question in an `if`, `elif` or `while` line whose answer decides what runs next. (Our own definition.)",
   truthiness: "Whether a value counts as true. Any non-zero integer is true and zero is false; non-empty sequences are true and empty ones are false. [py-062]",
 }, "a05");
@@ -191,6 +198,10 @@ LEVEL({
       why: "`age < 12` is false, so Python moves to the `elif`. `age >= 65` is true, so `or` stops there and the price is 8." } },
     { trace: { program: "a05_ticket", note: "Watch which lines Python skips. Only one branch runs." } },
     say("reader", "I check the signs from the top. The first sign that says yes, I follow. I never read the rest.", "happy"),
+    say("nib", "How does Reader know where a branch ends? Indentation. It is Python's way of grouping statements, and every line in a [[block]] is indented by the same amount [py-241]. The style advice is 4 spaces, no tabs [py-243].", "think"),
+    { predict: { program: "a05_block", q: "The customer is 70. Lines 4 and 5 are indented under the `if`; line 6 is not. What prints?",
+      choices: ["Thanks for coming to tinker class", "Kids pay 5\nFree sticker for kids\nThanks for coming to tinker class", "Free sticker for kids\nThanks for coming to tinker class"], answer: 0,
+      why: "Lines 4 and 5 form the `if` block, so they are skipped together. Line 6 is back at the left edge, outside the block, so it always runs [py-241]." } },
     say("nib", "Those indented lines are fussy, by the way. An accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. The book shows one.", "think"),
     { toy: "gategarden", goal: "Land a customer in each of the three price bins. Then try the swap switch." },
     { ask: { q: "A 10-year-old member arrives. With the gates in the normal order, which price do they pay?", choices: ["5", "8", "10"], answer: 0,
