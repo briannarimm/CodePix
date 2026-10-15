@@ -48,7 +48,7 @@ PAGES("a17", [
         "Run the tests. A test case is a subclass of `unittest.TestCase`, and its tests are methods whose names start with `test` [py-099]. Run them from the folder with `python3 -m unittest` and the test file's name [py-100].",
         "Run the program itself and read what it prints. Then read the JSON file it uses, in VS Code.",
         "Change one thing on purpose: add a part, or a question. Run the tests again.",
-        "If you add a package from pip, keep it in a virtual environment. Homebrew's Python asks for that for any library that Homebrew does not provide [py-155], and you activate one with `source <venv>/bin/activate` [py-114].",
+        "If you add a package from pip, keep it in a virtual environment. Homebrew's Python asks for that for any library that Homebrew does not provide [py-155], and you activate one with `source <venv>/bin/activate` [py-114]. On Windows it is `<venv>\\Scripts\\activate.bat` in cmd.exe or `<venv>\\Scripts\\Activate.ps1` in PowerShell [py-180]. Want a tidy low-stock report? texttable, the table package from the Toolbox Drawer job [py-205], is a good first addition.",
         "Show it to someone. Byte counts as someone.",
       ] },
       { toy: "workshop", label: "Tick it off on the Workshop Board" },

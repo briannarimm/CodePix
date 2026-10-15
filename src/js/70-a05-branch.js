@@ -1,8 +1,8 @@
 /* A5. Yes or No: comparisons, booleans, and/or/not, short-circuit, truthiness, if/elif/else.
    Toy: Gate Garden (gategarden), a JavaScript demo of a two-gate if/elif/else chain. */
 
-// TODO(research): no source yet for how indentation marks a block, or for IndentationError (lesson plan GAP).
-// The book describes indentation only as what the recorded programs show.
+// TODO(research): no source yet for how indentation marks a block (lesson plan GAP). The book describes the
+// branches only as what the recorded programs show; IndentationError and TabError are cited [py-196] [py-197].
 
 PAGES("a05", [
   {
@@ -36,6 +36,12 @@ PAGES("a05", [
       "The indented lines under `if`, `elif` and `else` are the branches. Watch the recording: Python checks `age < 12` first, finds it false, moves on to the `elif`, finds that true, and runs that one branch. It never even looks at the `else`.",
       { trace: "a05_ticket", label: "🔍 Watch the program pick a branch" },
       { analogy: "A fork in the road with signs. The first sign says \"Under 12? Turn here.\" If that is not you, walk on to the next sign. The last road has no sign: it is where everyone else goes." },
+      { nerd: "Spaces at the start of a line matter", body: [
+        "Python takes the spaces at the start of a line seriously. In OpenStax's table of common errors, an accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. Here is the ticket idea with one stray space on its last line:",
+        { code: "a05_indent", out: true },
+        "Look at what is missing: `Checking age 70` never printed. The mistake is on line 5, yet line 3 did not run either. The program stopped before it ran a single line.",
+        "`IndentationError` is a kind of `SyntaxError`. A close cousin, `TabError`, appears when the indentation mixes tabs and spaces inconsistently [py-197]. Pick one way to indent, and keep to it.",
+      ] },
       { toy: "gategarden", label: "Open the Gate Garden" },
     ],
   },
@@ -185,6 +191,7 @@ LEVEL({
       why: "`age < 12` is false, so Python moves to the `elif`. `age >= 65` is true, so `or` stops there and the price is 8." } },
     { trace: { program: "a05_ticket", note: "Watch which lines Python skips. Only one branch runs." } },
     say("reader", "I check the signs from the top. The first sign that says yes, I follow. I never read the rest.", "happy"),
+    say("nib", "Those indented lines are fussy, by the way. An accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. The book shows one.", "think"),
     { toy: "gategarden", goal: "Land a customer in each of the three price bins. Then try the swap switch." },
     { ask: { q: "A 10-year-old member arrives. With the gates in the normal order, which price do they pay?", choices: ["5", "8", "10"], answer: 0,
       why: "`age < 12` is the first gate and it is true, so Python takes that branch and never asks about membership. Swap the gates and the answer changes to 8." } },

@@ -1,9 +1,9 @@
 /* A10. Bug Hunt: kinds of errors, reading the last line of a traceback, print debugging, try/except,
    assert, and running tests with unittest. Toy: "bugboard", real recorded tracebacks plus a pattern-matching
    decoder (a JavaScript helper; it never runs pasted text).
-   TODO(research): no source yet explains reading a traceback from top to bottom (lesson plan GAP).
-   The book only explains the last line [py-092] and leaves the rest to the Bug Board's highlighting.
-   TODO(research): IndexError, ValueError and IndentationError have no cited notes yet. */
+   TODO(research): no source yet walks through a multi-frame traceback from top to bottom (lesson plan GAP).
+   The book explains the last line [py-092] and the line number and caret [py-194], and leaves the frames
+   to the Bug Board's highlighting. */
 
 PAGES("a10", [
   {
@@ -17,7 +17,7 @@ PAGES("a10", [
       ] } },
       { honest: "The middle and right-hand columns are our own descriptions. The three names come from Think Python [py-096]." },
       "Syntax errors are also known as parsing errors. The tutorial's example is `while True print('Hello world')`, which gives `SyntaxError: invalid syntax` [py-091].",
-      "Errors found while the program runs are exceptions. The last line of the error message says what happened, and it shows the exception type, such as `ZeroDivisionError` or `NameError` [py-092]. The whole message is called a [[traceback]].",
+      "Errors found while the program runs are exceptions. The last line of the error message says what happened, and it shows the exception type, such as `ZeroDivisionError` or `NameError` [py-092]. The whole message is called a [[traceback]]: OpenStax describes it as Python's report of the location and type of error [py-195].",
       { code: "a10_typo", out: true },
       "The last line says `NameError`, and it names `prise`. Using a name that has no value raises a `NameError` [py-045]. One typo, one clue.",
     ],
@@ -26,12 +26,15 @@ PAGES("a10", [
     h: "Read the last line first",
     body: [
       "A traceback can look like a wall of text. Start at the bottom. The last line names the exception type and says what happened [py-092].",
+      "Then look up. OpenStax lists what an error message shows: the line number, the type of error, and more details. A caret (`^`) marks where Python found the error, and that spot may be a line or two after the real mistake [py-194]. So when the named line looks fine, check the line above it.",
       { code: "a10_zero", out: true },
       "Notice that `Minutes: 0` printed first. Everything before the bad line ran normally. The program stopped at the line that divided by zero.",
       { code: "a10_type", out: true },
       "This one is the tutorial's own example in shop clothes. Adding `'2' + 2` raises `TypeError: can only concatenate str (not \"int\") to str` [py-093]. The fix is to turn the number into text first, for example with `str(count)`.",
       { code: "a10_index", out: true },
-      "The list has positions 0, 1 and 2. Asking for position 3 stops the program, and the last line names the problem.",
+      "The list has positions 0, 1 and 2. Asking for position 3 stops the program. Python raises an `IndexError` when a sequence subscript (the number in the square brackets) is out of range [py-201].",
+      { code: "a10_value", out: true },
+      "A cousin: `ValueError` means an argument has the right type but an inappropriate value [py-201]. `int` happily takes a string, so the type is fine. The string `'ten'` just is not a number `int` can read.",
       { h3: "When the bug is inside a function" },
       { code: "a10_deep", out: true },
       "This traceback is longer, because the error happened inside `price_each`, which `quote` called, which the main program called. Each `File ..., line N` entry names a line of the program. The last line still says what happened: a division by zero [py-092].",
@@ -83,7 +86,7 @@ PAGES("a10", [
 
 GLOSS({
   exception: "An error found while a program runs [py-092]. Unless something catches it, the program stops and prints a traceback.",
-  traceback: "The message Python prints when an exception stops a program. Its last line says what happened and names the exception type [py-092].",
+  traceback: "Python's report of the location and type of an error [py-195]. Its last line says what happened and names the exception type [py-092].",
   test: "A small program that calls your code and checks the result. With `unittest`, tests are methods whose names start with `test` [py-099].",
   assertion: "A check that a value is what you expect. `assert` raises `AssertionError` when its check fails [py-097]; `assertEqual` is the unittest version [py-099].",
 }, "a10");
@@ -98,6 +101,13 @@ const BUG_NOTES = {
   SyntaxError: "Syntax errors are also called parsing errors [py-091]: the way the code is written breaks Python's rules. Names with punctuation, and keywords used as names, cause them too [py-044].",
   AssertionError: "An `assert` check failed [py-097]. Someone wrote down what they expected, and it was not true here.",
   RecursionError: "If a recursion never reaches its base case, Python stops it with this error [py-141]. The Mirrors Inside Mirrors job covers this.",
+  IndexError: "A sequence subscript is out of range [py-201]: the program asked for a position the list or string does not have. Positions start at 0, so a list of three ends at position 2.",
+  ValueError: "An argument has the right type but an inappropriate value [py-201]. `int('ten')` is the classic: a string is fine, that string is not.",
+  IndentationError: "Indentation is wrong. It is a kind of `SyntaxError` [py-197]. An accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196].",
+  TabError: "The indentation mixes tabs and spaces inconsistently [py-197]. Re-indent the lines it names with one kind only.",
+  FileNotFoundError: "A file or directory was requested but does not exist [py-199]. Check the spelling, and check which folder the terminal is in with `pwd` and `ls` [py-003].",
+  ModuleNotFoundError: "`import` could not locate the module [py-200]. If it is a package you installed, check that the right virtual environment is active.",
+  PermissionError: "An operation ran without adequate access rights, for example filesystem permissions [py-198].",
 };
 
 TOY("bugboard", {
@@ -118,7 +128,7 @@ TOY("bugboard", {
     </div>
     <div class="bb-result" role="status" aria-live="polite"></div>`,
   init(root, ctx) {
-    const BUGS = [["a10_typo", "Typo"], ["a10_zero", "No jobs"], ["a10_type", "Text plus number"], ["a10_index", "Too far"], ["a08_missing", "Missing folder"], ["a10_deep", "Deep inside"], ["a10_assert", "Failed check"]]
+    const BUGS = [["a10_typo", "Typo"], ["a10_zero", "No jobs"], ["a10_type", "Text plus number"], ["a10_index", "Too far"], ["a10_value", "Words for numbers"], ["a05_indent", "Stray space"], ["a11_lost", "Lost letter"], ["a08_missing", "Missing key"], ["a10_deep", "Deep inside"], ["a10_assert", "Failed check"]]
       .filter(([p]) => DATA.programs[p] && DATA.programs[p].err);
     const pins = $(".bb-pins", root), box = $(".bb-case", root), ta = $(".bb-paste", root), res = $(".bb-result", root);
     let current = BUGS.length ? BUGS[0][0] : null;
@@ -196,6 +206,9 @@ LEVEL({
     { trace: { program: "a10_typo", note: "Step to the end. The last line names the error and the name Python could not find." } },
     { ask: { q: "Where in a traceback does Python say what happened and name the exception type?", choices: ["the first line", "the last line", "the line with the pointer marks"], answer: 1,
       why: "The last line of the error message says what happened and shows the exception type [py-092]." } },
+    say("nib", "Then read upward. The message gives a line number, and a caret (`^`) marks where Python found the error. That spot may be a line or two after the real mistake [py-194]."),
+    { ask: { q: "The caret points at line 7, and line 7 looks perfect. Where do you look next?", choices: ["a line or two above it", "the last line of the file", "nowhere: Python must be wrong"], answer: 0,
+      why: "The caret shows where Python found the error, which may be a line or two after the real mistake [py-194]." } },
     { predict: { program: "a10_zero", q: "Zero jobs today. What prints before the program stops? (Show the last line of the error too.)",
       choices: ["Minutes: 0\nAverage: 0", "Minutes: 0\nZeroDivisionError: division by zero", "ZeroDivisionError: division by zero"], answer: 1,
       why: "The first `print` ran normally. The second divided by zero, and the program stopped with a `ZeroDivisionError` [py-092]." } },
