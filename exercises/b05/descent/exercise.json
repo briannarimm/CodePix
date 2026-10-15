@@ -4,7 +4,7 @@
   "title": "Walk downhill",
   "file": "descent.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Finish `mse(b, w, xs, ys)`, the average squared mistake, and `step(b, w, xs, ys, size)`, which feels the slope for `b` and for `w` and moves each one a little bit downhill. The slope helpers are written for you.\n\nWhen both work, `python3 descent.py` runs 200 steps and prints where it ended up.",
   "run_command": "python3 -m unittest test_descent.py",
   "expected_output": "b = 14.87  w = 38.47  loss = 33.79",

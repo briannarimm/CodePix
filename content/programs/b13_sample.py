@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # Same counts, but now the next word is drawn at random, weighted by its count.
 import random

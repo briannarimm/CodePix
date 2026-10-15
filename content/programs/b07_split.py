@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Shuffle ten fictional tickets, then deal them into three piles.
 import random
 

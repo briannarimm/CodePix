@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # Gradient descent in plain Python on four fictional tickets.
 hours = [0.5, 1.0, 2.0, 4.0]

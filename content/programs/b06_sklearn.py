@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,sklearn
 # Learn the weights from fictional past tickets instead of guessing them.

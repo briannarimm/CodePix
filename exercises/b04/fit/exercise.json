@@ -4,7 +4,7 @@
   "title": "Let scikit-learn fit it",
   "file": "fit.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Finish `fit_line(hours, costs)` so it fits a `LinearRegression` and returns `(b, w)`: the bias and the weight. Remember that `X` needs one row per ticket, so turn each hour into a one-item list first.\n\nRun it inside your virtual environment. `python3 fit.py` prints the line for the twelve fictional tickets.",
   "run_command": "python3 -m unittest test_fit.py",
   "expected_output": "b = 14.89  w = 36.75",

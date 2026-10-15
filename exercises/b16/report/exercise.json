@@ -4,7 +4,7 @@
   "title": "The Quote Machine's report card",
   "file": "report.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Finish the report for the Saturday Showcase.\n\nWrite `precision(tp, fp)`, `recall(tp, fn)` and `f1(p, r)`. Each returns `0.0` instead of dividing by zero. Then fill in the three parts of `MODEL_CARD` in your own words: the data, the intended use and the limits.\n\nWhen it works, `python3 report.py` prints `precision 0.80  recall 0.67  f1 0.73` and your card.",
   "run_command": "python3 -m unittest test_report.py",
   "hints": [

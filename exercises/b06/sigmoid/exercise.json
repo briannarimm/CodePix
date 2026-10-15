@@ -4,7 +4,7 @@
   "title": "Build the yes-or-no squeezer",
   "file": "sigmoid.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "The Quote Machine needs a part that turns any score into a chance between 0 and 1, and a part that turns that chance into an answer.\n\nFill in `sigmoid(z)` with the formula 1 / (1 + e^-z). `math.exp(-z)` gives e^-z. Then fill in `decide(p, threshold)`: answer `\"yes\"` when `p` is at least the threshold, and `\"no\"` otherwise.\n\nWhen it works, `python3 sigmoid.py` prints three lines, and the middle one is `0 0.5 yes`.",
   "run_command": "python3 -m unittest test_sigmoid.py",
   "expected_output": "-2 0.119 no\n0 0.5 yes\n2 0.881 yes",

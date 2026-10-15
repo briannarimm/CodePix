@@ -4,7 +4,7 @@
   "title": "Order the time machine",
   "file": "timeline.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "The time machine's cards fell on the floor. Write `in_order(events)`, which returns a new list sorted oldest first and leaves the original alone, and `span(events)`, the number of years from the oldest event to the newest.\n\nWhen it works, `python3 timeline.py` starts with 1958 and ends with `span: 59 years`.",
   "run_command": "python3 -m unittest test_timeline.py",
   "expected_output": "1958 Rosenblatt's perceptron article\n1959 Samuel's checkers paper\n1986 backpropagation becomes widespread\n2017 transformer architecture\nspan: 59 years",

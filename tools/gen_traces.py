@@ -13,10 +13,10 @@ Header comments at the top of a program (all optional):
   # codepix: stdin=TEXT       text fed to input(); use \\n for new lines
   # codepix: max-steps=N      cap on recorded steps (default 400)
   # codepix: needs=numpy,sklearn   modules that must import (Module B)
-  # codepix: py=3.10          minimum Python (Module B); otherwise programs must run on 3.9
+  # codepix: py=3.12          minimum Python (Module B); otherwise programs must run on 3.9
 
 Writes build/programs.json (id -> src, out, err, python, steps count) and build/traces/<id>.json.
-With --verify-with PY, also runs every program that does not set py=3.10 under PY (for example python3.9)
+With --verify-with PY, also runs every program that does not set py= under PY (for example python3.9)
 and fails if its output differs from the recorded output. Nothing is written in that mode.
 Usage: python3 tools/gen_traces.py [--python PATH] [--only ID ...] [--quiet] [--verify-with PY]
 """

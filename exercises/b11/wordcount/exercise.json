@@ -4,7 +4,7 @@
   "title": "Count the words, then the pairs",
   "file": "wordcount.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "A model can only read numbers, so the shop's repair notes need turning into counts. Write three functions: `tokens` cuts a note into clean lowercase words, `bag` counts each word, and `pairs` counts each pair of words that sit side by side.\n\nWhen it works, `python3 wordcount.py` shows that the pair `('the', 'lamp')` appears twice.",
   "run_command": "python3 -m unittest test_wordcount.py",
   "expected_output": "['the', 'lamp', 'flickers', 'the', 'lamp', 'hums']\n{'the': 2, 'lamp': 2, 'flickers': 1, 'hums': 1}\n{('the', 'lamp'): 2, ('lamp', 'flickers'): 1, ('flickers', 'the'): 1, ('lamp', 'hums'): 1}",

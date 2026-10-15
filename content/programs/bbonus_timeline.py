@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # A time line of learning machines, sorted by year. Each event comes from a cited source.
 events = [
     (2017, "transformer architecture"),

@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Two guessed lines for four fictional tickets. Which one makes smaller mistakes?
 hours = [0.5, 1.0, 2.0, 4.0]
 costs = [42, 48, 86, 172]

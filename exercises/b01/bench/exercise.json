@@ -4,7 +4,7 @@
   "title": "Check the bench",
   "file": "bench.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "With your virtual environment active and the four tools installed, finish `bench.py` so it imports each tool under its usual short name and prints its version.\n\nThe tests check that the names `np`, `pd`, `plt`, `matplotlib` and `sklearn` exist in your file. Your version numbers can differ from anyone else's; that is fine.",
   "run_command": "python3 -m unittest test_bench.py",
   "hints": [

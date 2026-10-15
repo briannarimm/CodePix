@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Count which word follows which in four fictional repair notes, then guess the next word.
 notes = [
     "the kettle needs a new switch",

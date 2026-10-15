@@ -4,7 +4,7 @@
   "title": "Learn from rewards",
   "file": "rewards.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Byte searches three shelves for a spare fuse. Each search earns a reward: 1 for a fuse, 0 for nothing. Byte keeps one average per shelf.\n\nWrite `new_average(average, tries, reward)`, which updates an average with one more reward, and `best_shelf(averages)`, which names the shelf with the highest average.\n\nWhen it works, `python3 rewards.py` ends with `habit: middle`.",
   "run_command": "python3 -m unittest test_rewards.py",
   "expected_output": "top 0.5\nmiddle 0.67\nbottom 0.0\nhabit: middle",

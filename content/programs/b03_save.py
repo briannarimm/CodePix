@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=matplotlib
 # Draw the scatter plot and save it as a picture file.

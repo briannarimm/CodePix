@@ -44,7 +44,7 @@ dist/                    BUILT OUTPUT, git-ignored, deployed by Actions. Never e
 
 - Never build an in-browser Python runner, editor or Pyodide integration.
 - Every program, output and number shown is produced by running real Python (`gen_traces.py`, `exercises_check.py`).
-- Module A examples run on **Python 3.9 and the current release** (pending Brianna's decision on the floor, see `docs/research-summary.md`). No `match`, no `X | Y` type syntax, no other post-3.9 features. As of 2026-10-14 both 3.9 and 3.10 are end-of-life and the current release is 3.15.0. Module B needs **3.10 or newer** (scikit-learn 1.7 requires it).
+- **Python versions (Brianna left the choice to Claude, 2026-10-15):** the book tells learners to install the current release. Module A examples must also run on **Python 3.9** (no `match`, no `X | Y` type syntax, no other post-3.9 features), so Apple's built-in 3.9.6 still works for Module A. Module B needs **3.12 or newer**, because current NumPy requires 3.12 [ml-109] (scikit-learn, pandas and Matplotlib need 3.11). Module B programs and exercises carry `py=3.12`. As of 2026-10-14 both 3.9 and 3.10 are end-of-life and the current release is 3.15.0.
 - Every `open()` names its encoding (3.9 defaults to the platform encoding; the 3.15 tutorial says UTF-8).
 - Never write version numbers or install steps from memory. They come only from verified facts in `sources/facts.json`.
 - macOS is primary and **installs Python with Homebrew** (after Xcode Command Line Tools). Teach `which python3`, because the tools' older `/usr/bin/python3` also exists. Homebrew's Python refuses global `pip install` (externally managed), so the `pip` level starts with `venv`. Windows (python.org installer) and Linux go in collapsible alternates.

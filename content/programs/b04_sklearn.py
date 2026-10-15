@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=pandas,sklearn
 # The same line, fitted by scikit-learn.

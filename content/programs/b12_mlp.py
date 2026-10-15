@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=sklearn
 # The same XOR job, learned by scikit-learn's small neural network from four examples.

@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Sort a mixed bin of screws into 2 piles by (length mm, width mm). Fictional screws.
 import math
 

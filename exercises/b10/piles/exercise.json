@@ -4,7 +4,7 @@
   "title": "Make the piles",
   "file": "piles.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "k-means repeats two moves. **Assign**: every screw joins the pile of its nearest centroid. **Move**: every centroid jumps to the average of its pile. Write both moves as functions.\n\nWhen it works, `python3 piles.py` prints three lines. The labels settle into `[0, 0, 0, 1, 1, 1]` and the centroids stop moving.",
   "run_command": "python3 -m unittest test_piles.py",
   "expected_output": "[0, 1, 0, 1, 1, 1] [(10.5, 2.0), (25.8, 5.0)]\n[0, 0, 0, 1, 1, 1] [(11.0, 2.3), (30.3, 5.7)]\n[0, 0, 0, 1, 1, 1] [(11.0, 2.3), (30.3, 5.7)]",

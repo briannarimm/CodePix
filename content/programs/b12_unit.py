@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # One neural unit, worked by hand with the numbers from Jurafsky and Martin's example.
 import math
 

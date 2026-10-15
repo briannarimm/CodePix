@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Turn one fictional repair note into word counts.
 note = "Toaster sings off key. Toaster smells of toast, and the toast is burnt."
 

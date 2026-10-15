@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Learn a sorting rule from examples instead of writing it by hand.
 # Each example: the sound a gadget made, and how big the job turned out (fictional).
 examples = [

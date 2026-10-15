@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # One unit with a step: it answers 1 when z is above 0, and 0 otherwise.
 def unit(w1, w2, b, x1, x2):
     z = w1 * x1 + w2 * x2 + b

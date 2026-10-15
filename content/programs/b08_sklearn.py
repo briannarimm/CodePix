@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,sklearn
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score

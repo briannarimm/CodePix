@@ -4,7 +4,7 @@
   "title": "Mistakes by group",
   "file": "rates.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "One overall score can hide trouble. Write `error_rate(rows)`, the share of tickets the model got wrong, and `rates_by_group(rows)`, which gives each group its own error rate.\n\nThe twelve tickets are fictional. When it works, `python3 rates.py` shows that phone bookings get far more wrong answers than online bookings.",
   "run_command": "python3 -m unittest test_rates.py",
   "expected_output": "all: 33% wrong\nonline: 12% wrong\nphone: 75% wrong",

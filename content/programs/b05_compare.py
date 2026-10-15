@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=sklearn
 # scikit-learn's answer for the same four fictional tickets.

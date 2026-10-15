@@ -4,7 +4,7 @@
   "title": "Build one unit",
   "file": "unit.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Write the two pieces of a neural unit in plain Python.\n\n`weighted_sum(weights, inputs, bias)` multiplies each weight by its input, adds the products, and adds the bias. `relu(z)` gives back `z` when it is above 0, and 0 otherwise.\n\nWhen it works, `python3 unit.py` prints the book's example: `z = 0.87`.",
   "run_command": "python3 -m unittest test_unit.py",
   "expected_output": "z = 0.87\nrelu(z) = 0.87\nrelu(-3) = 0",

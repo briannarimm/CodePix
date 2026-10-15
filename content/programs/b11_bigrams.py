@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Which word tends to follow "the" in the shop's (fictional) repair notes?
 notes = [
     "the kettle hums and the lid sticks",

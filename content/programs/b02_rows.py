@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Three fictional repair tickets: ticket id, hours of work, parts used, final cost.
 tickets = [
     ["T01", 0.5, 1, 42],

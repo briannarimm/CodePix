@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Raw text, no labels typed by anyone. The next word in the text becomes the label.
 note = "the fan rattles when it spins"
 words = note.split()

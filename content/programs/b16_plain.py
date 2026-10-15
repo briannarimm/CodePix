@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # The Quote Machine in plain Python: is this ticket a big job (cost of 150 or more)?
 import csv

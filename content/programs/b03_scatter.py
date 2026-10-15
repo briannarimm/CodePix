@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=matplotlib
 # Hours against cost for twelve fictional tickets, as a scatter plot.
