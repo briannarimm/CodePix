@@ -1,0 +1,13 @@
+ticket,appliance,hours,parts,cost
+T01,toaster,0.5,1,42
+T02,kettle,1.0,0,48
+T03,fan,1.5,2,78
+T04,radio,2.0,1,86
+T05,lamp,0.5,0,30
+T06,blender,2.5,3,118
+T07,clock,1.0,1,55
+T08,fridge,4.0,4,172
+T09,vacuum,3.0,2,120
+T10,kettle,2.0,0,74
+T11,toaster,3.5,2,136
+T12,fan,1.5,1,65
