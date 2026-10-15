@@ -1,0 +1,21 @@
+{
+  "id": "a02-toaster",
+  "level": "a02",
+  "title": "Decode the toaster",
+  "file": "toaster.py",
+  "kind": "test",
+  "prompt": "The talking toaster flashes three patterns of eight switches. Each pattern is one letter in ASCII. The first line of `toaster.py` already decodes the first one.\n\nAdd two lines that decode `01001111` and `01010100` the same way. Run `python3 toaster.py` to read the toaster's message, then run the tests.",
+  "run_command": "python3 -m unittest test_toaster.py",
+  "expected_output": "H\nO\nT",
+  "hints": [
+    "Copy the first `print` line twice. Each copy needs a different pattern of 0s and 1s.",
+    "Change only the text inside the quotes. Keep `base=2`, because the pattern is binary.",
+    "The new lines are `print(chr(int(\"01001111\", base=2)))` and `print(chr(int(\"01010100\", base=2)))`."
+  ],
+  "explain_after": "`int(\"01001111\", base=2)` read the switches as a base-2 number [py-039], and `chr()` turned the number into its character, the inverse of `ord()` [py-040]. The toaster is warning you that it is hot.",
+  "concepts": [
+    "binary",
+    "ASCII",
+    "chr and int"
+  ]
+}

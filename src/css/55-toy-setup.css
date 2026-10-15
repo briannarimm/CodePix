@@ -1,0 +1,19 @@
+/* Setup Checklist toy (A1). */
+.toy-setup .su-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}
+.toy-setup .su-h{margin:0 0 8px;font-weight:700}
+.toy-setup .su-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.toy-setup .su-tabs button{min-height:38px;padding:4px 12px;border:2px solid var(--ink);border-radius:10px 10px 0 0;background:var(--silver-l);font-weight:700}
+.toy-setup .su-tabs button[aria-selected=true]{background:var(--lime)}
+.toy-setup .su-steps{margin:0;padding-left:1.4em}
+.toy-setup .su-steps li{margin:0 0 8px}
+.toy-setup .su-steps label{display:flex;gap:8px;align-items:flex-start}
+.toy-setup .su-steps input{width:22px;height:22px;flex:none;margin-top:3px;accent-color:var(--lime-d)}
+.toy-setup .su-steps code,.toy-setup .su-ans code{overflow-wrap:anywhere}
+.toy-setup .su-count{margin:6px 0 0;font-weight:700}
+.toy-setup .su-qs{display:flex;flex-direction:column;gap:6px}
+.toy-setup .su-q{display:block;width:100%;text-align:left;border-radius:10px;white-space:normal;line-height:1.35}
+.toy-setup .su-q.on{background:var(--lemon)}
+.toy-setup .su-ans{margin-top:10px;padding-top:6px;border-top:2px dashed var(--ink2)}
+.toy-setup .su-for{display:inline-block;margin:0 0 4px;padding:0 8px;border:2px solid var(--ink);border-radius:999px;background:var(--sky);font-size:.85em;font-weight:700}
+.toy-setup .su-none{color:var(--ink2)}
+@media (max-width:700px){.toy-setup .su-wrap{grid-template-columns:1fr}}

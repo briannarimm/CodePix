@@ -1,0 +1,21 @@
+{
+  "id": "a01-hello",
+  "level": "a01",
+  "title": "Say hello from your bench",
+  "file": "hello.py",
+  "kind": "test",
+  "prompt": "Your first real program. Open `hello.py` in VS Code and add one line that prints `Hello from Gadget Gulch!` exactly.\n\nRun it two ways. In the terminal, type `python3 hello.py`. In VS Code, press the Run Python File button, which runs the same command for you [py-024]. Then run the tests.",
+  "run_command": "python3 -m unittest test_hello.py",
+  "expected_output": "Hello from Gadget Gulch!",
+  "hints": [
+    "The line starts with `print(` and ends with `)`.",
+    "Text goes inside quotes: `print(\"...\")`, with the words between the quotes.",
+    "The whole line is `print(\"Hello from Gadget Gulch!\")`. Save the file before you run it."
+  ],
+  "explain_after": "`python3 hello.py` handed your file to the interpreter, which ran it straight from the source file with no separate build step [py-031]. The tests read the same file and checked what it printed.",
+  "concepts": [
+    "print",
+    "running a file",
+    "tests"
+  ]
+}
