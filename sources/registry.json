@@ -49,7 +49,8 @@
    "levels": [
     1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/using/mac.rst"
   },
   {
    "id": "py-docs-windows",
@@ -66,7 +67,8 @@
    "levels": [
     1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/using/windows.rst"
   },
   {
    "id": "py-docs-unix",
@@ -83,7 +85,8 @@
    "levels": [
     1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/using/unix.rst"
   },
   {
    "id": "py-docs-tutorial-intro",
@@ -103,7 +106,8 @@
     4,
     7
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/introduction.rst"
   },
   {
    "id": "py-docs-tutorial-controlflow",
@@ -123,7 +127,8 @@
     9,
     12
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/controlflow.rst"
   },
   {
    "id": "py-docs-tutorial-datastructures",
@@ -143,7 +148,8 @@
     8,
     12
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/datastructures.rst"
   },
   {
    "id": "py-docs-tutorial-errors",
@@ -160,7 +166,8 @@
    "levels": [
     10
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/errors.rst"
   },
   {
    "id": "py-docs-tutorial-classes",
@@ -178,7 +185,8 @@
     3,
     14
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/classes.rst"
   },
   {
    "id": "py-docs-tutorial-io",
@@ -197,7 +205,8 @@
     11,
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/inputoutput.rst"
   },
   {
    "id": "py-docs-glossary",
@@ -219,7 +228,8 @@
     12,
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/glossary.rst"
   },
   {
    "id": "py-docs-unicode-howto",
@@ -236,7 +246,8 @@
    "levels": [
     2
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/howto/unicode.rst"
   },
   {
    "id": "py-docs-functions",
@@ -258,7 +269,8 @@
     7,
     12
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/builtins/functions.rst"
   },
   {
    "id": "py39-docs-functions",
@@ -275,7 +287,8 @@
    "levels": [
     11
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.9/Doc/library/functions.rst"
   },
   {
    "id": "py-docs-stdtypes",
@@ -293,7 +306,8 @@
     4,
     11
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/builtins/stdtypes.rst"
   },
   {
    "id": "py-docs-csv",
@@ -310,7 +324,8 @@
    "levels": [
     11
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/csv.rst"
   },
   {
    "id": "py-docs-math",
@@ -327,7 +342,8 @@
    "levels": [
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/math.rst"
   },
   {
    "id": "py-docs-datetime",
@@ -344,7 +360,8 @@
    "levels": [
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/datetime.rst"
   },
   {
    "id": "py-docs-unittest",
@@ -361,7 +378,8 @@
    "levels": [
     10
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/unittest.rst"
   },
   {
    "id": "py-docs-turtle",
@@ -378,7 +396,8 @@
    "levels": [
     6
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/turtle.rst"
   },
   {
    "id": "py-docs-venv",
@@ -395,7 +414,8 @@
    "levels": [
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/venv.rst"
   },
   {
    "id": "py-docs-random",
@@ -412,7 +432,8 @@
    "levels": [
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/random.rst"
   },
   {
    "id": "py-docs-timeit",
@@ -429,7 +450,8 @@
    "levels": [
     15
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/timeit.rst"
   },
   {
    "id": "py-docs-history",
@@ -446,7 +468,8 @@
    "levels": [
     -1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/license.rst"
   },
   {
    "id": "pep-668",
@@ -464,7 +487,8 @@
     1,
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0668.rst"
   },
   {
    "id": "pep-20",
@@ -481,7 +505,8 @@
    "levels": [
     -1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0020.rst"
   },
   {
    "id": "pypa-venv-guide",
@@ -498,7 +523,8 @@
    "levels": [
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pypa/packaging.python.org/main/source/guides/installing-using-pip-and-virtual-environments.rst"
   },
   {
    "id": "pytest-start",
@@ -515,7 +541,8 @@
    "levels": [
     13
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pytest-dev/pytest/main/doc/en/getting-started.rst"
   },
   {
    "id": "brew-installation",
@@ -532,7 +559,8 @@
    "levels": [
     1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/brew/main/docs/Installation.md"
   },
   {
    "id": "brew-homepage",
@@ -549,7 +577,8 @@
    "levels": [
     1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/brew.sh/main/index.html"
   },
   {
    "id": "brew-python314",
@@ -620,7 +649,8 @@
    "levels": [
     1
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/microsoft/vscode-docs/main/docs/python/python-tutorial.md"
   },
   {
    "id": "apple-terminal-open",
@@ -654,7 +684,8 @@
    "levels": [
     0
    ],
-   "notes": "Footer says CC BY-NC-SA; the version number (4.0) was not seen on the page and should be confirmed before the credits page lists it."
+   "notes": "Footer says CC BY-NC-SA; the version number (4.0) was not seen on the page and should be confirmed before the credits page lists it.",
+   "mirror": "https://raw.githubusercontent.com/missing-semester/missing-semester/master/_2020/course-shell.md"
   },
   {
    "id": "cs50-notes-0",
@@ -707,7 +738,8 @@
     3,
     10
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/chapters/chap01.ipynb"
   },
   {
    "id": "thinkpython3-ch2",
@@ -726,7 +758,8 @@
     4,
     10
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/chapters/chap02.ipynb"
   },
   {
    "id": "thinkpython3-ch5",
@@ -744,7 +777,8 @@
     5,
     16
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/chapters/chap05.ipynb"
   },
   {
    "id": "atbs3-ch5",
@@ -778,7 +812,8 @@
    "levels": [
     18
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/01-introduction/sections/what-is-git.asc"
   },
   {
    "id": "progit-recording",
@@ -795,7 +830,8 @@
    "levels": [
     18
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/02-git-basics/sections/recording-changes.asc"
   },
   {
    "id": "numpy-beginners",
@@ -812,7 +848,8 @@
    "levels": [
     102
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/numpy/numpy/main/doc/source/user/absolute_beginners.rst"
   },
   {
    "id": "pandas-intro",
@@ -829,7 +866,8 @@
    "levels": [
     102
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/source/getting_started/intro_tutorials/01_table_oriented.rst"
   },
   {
    "id": "matplotlib-quick",
@@ -846,7 +884,8 @@
    "levels": [
     103
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/matplotlib/matplotlib/main/galleries/users_explain/quick_start.py"
   },
   {
    "id": "gfg-types-ml",
@@ -1163,7 +1202,8 @@
     101,
     104
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/getting_started.rst"
   },
   {
    "id": "sk-install",
@@ -1180,7 +1220,8 @@
    "levels": [
     101
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/install.rst"
   },
   {
    "id": "sk-cv",
@@ -1197,7 +1238,8 @@
    "levels": [
     107
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/cross_validation.rst"
   },
   {
    "id": "sk-overfit-example",
@@ -1214,7 +1256,8 @@
    "levels": [
     107
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/examples/model_selection/plot_underfitting_overfitting.py"
   },
   {
    "id": "sk-clustering",
@@ -1231,7 +1274,8 @@
    "levels": [
     110
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/clustering.rst"
   },
   {
    "id": "sk-neighbors",
@@ -1248,7 +1292,8 @@
    "levels": [
     109
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/neighbors.rst"
   },
   {
    "id": "sk-tree",
@@ -1265,7 +1310,8 @@
    "levels": [
     109
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/tree.rst"
   },
   {
    "id": "sk-nb",
@@ -1283,7 +1329,8 @@
     109,
     111
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/naive_bayes.rst"
   },
   {
    "id": "sk-metrics",
@@ -1300,7 +1347,8 @@
    "levels": [
     108
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/model_evaluation.rst"
   },
   {
    "id": "sk-linear",
@@ -1318,7 +1366,8 @@
     104,
     106
    ],
-   "notes": ""
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/linear_model.rst"
   },
   {
    "id": "samuel-1959",
@@ -1423,6 +1472,836 @@
     116
    ],
    "notes": "No openly accessible full text was found. Do not cite the paper itself."
+  },
+  {
+   "id": "py-docs-exceptions",
+   "status": "verified",
+   "title": "Built-in exceptions",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/builtins/exceptions.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    10,
+    11,
+    -1
+   ],
+   "notes": "In 3.15 the page lives under /3/builtins/ (the old /3/library/exceptions.html path still serves it).",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/builtins/exceptions.rst"
+  },
+  {
+   "id": "py-docs-faq-general",
+   "status": "verified",
+   "title": "General Python FAQ",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/faq/general.html#why-was-python-created-in-the-first-place",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Guido van Rossum's own account of Python's start, quoted in the FAQ.",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/faq/general.rst"
+  },
+  {
+   "id": "pypa-linux-tools",
+   "status": "verified",
+   "title": "Installing pip/setuptools/wheel with Linux package managers",
+   "author": "Python Packaging Authority",
+   "site": "Python Packaging User Guide",
+   "date": "2021",
+   "url": "https://packaging.python.org/en/latest/guides/installing-using-linux-tools/",
+   "license": "No license named (footer: Copyright 2013-2020, PyPA)",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    13
+   ],
+   "notes": "Page says Page Status: Incomplete, Last Reviewed: 2021-07-26. Use only for the distro package names, and say the page is old.",
+   "mirror": "https://raw.githubusercontent.com/pypa/packaging.python.org/main/source/guides/installing-using-linux-tools.rst"
+  },
+  {
+   "id": "openstax-py-1-1",
+   "status": "verified",
+   "title": "Introduction to Python Programming, 1.1 Background",
+   "author": "Das, U., Lawson, A., Mayfield, C., & Norouzi, N.",
+   "site": "OpenStax",
+   "date": "2024",
+   "url": "https://openstax.org/books/introduction-python-programming/pages/1-1-background",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    0,
+    1,
+    13
+   ],
+   "notes": "OpenStax module m00002. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introduction-python-programming/main/modules/m00002/index.cnxml"
+  },
+  {
+   "id": "openstax-py-1-5",
+   "status": "verified",
+   "title": "Introduction to Python Programming, 1.5 Number basics",
+   "author": "Das, U., Lawson, A., Mayfield, C., & Norouzi, N.",
+   "site": "OpenStax",
+   "date": "2024",
+   "url": "https://openstax.org/books/introduction-python-programming/pages/1-5-number-basics",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    3,
+    4
+   ],
+   "notes": "OpenStax module m00006. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introduction-python-programming/main/modules/m00006/index.cnxml"
+  },
+  {
+   "id": "openstax-py-1-6",
+   "status": "verified",
+   "title": "Introduction to Python Programming, 1.6 Error messages",
+   "author": "Das, U., Lawson, A., Mayfield, C., & Norouzi, N.",
+   "site": "OpenStax",
+   "date": "2024",
+   "url": "https://openstax.org/books/introduction-python-programming/pages/1-6-error-messages",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    10
+   ],
+   "notes": "OpenStax module m00007. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introduction-python-programming/main/modules/m00007/index.cnxml"
+  },
+  {
+   "id": "openstax-py-1-8",
+   "status": "verified",
+   "title": "Introduction to Python Programming, 1.8 Why Python?",
+   "author": "Das, U., Lawson, A., Mayfield, C., & Norouzi, N.",
+   "site": "OpenStax",
+   "date": "2024",
+   "url": "https://openstax.org/books/introduction-python-programming/pages/1-8-why-python",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "OpenStax module m00009. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introduction-python-programming/main/modules/m00009/index.cnxml"
+  },
+  {
+   "id": "openstax-py-2-1",
+   "status": "verified",
+   "title": "Introduction to Python Programming, 2.1 The Python shell",
+   "author": "Das, U., Lawson, A., Mayfield, C., & Norouzi, N.",
+   "site": "OpenStax",
+   "date": "2024",
+   "url": "https://openstax.org/books/introduction-python-programming/pages/2-1-the-python-shell",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1
+   ],
+   "notes": "OpenStax module m00011. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introduction-python-programming/main/modules/m00011/index.cnxml"
+  },
+  {
+   "id": "openstax-py-3-1",
+   "status": "verified",
+   "title": "Introduction to Python Programming, 3.1 Strings revisited",
+   "author": "Das, U., Lawson, A., Mayfield, C., & Norouzi, N.",
+   "site": "OpenStax",
+   "date": "2024",
+   "url": "https://openstax.org/books/introduction-python-programming/pages/3-1-strings-revisited",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "OpenStax module m00021. Book published Mar. 13, 2024. License from the page footer and the book's collection file. Some error messages in 1.6 come from older Python versions; show our own recorded tracebacks instead.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introduction-python-programming/main/modules/m00021/index.cnxml"
+  },
+  {
+   "id": "runestone-pythonds-cs",
+   "status": "verified",
+   "title": "Problem Solving with Algorithms and Data Structures using Python, 1.3 What is computer science?",
+   "author": "Miller, B. N., & Ranum, D. L.",
+   "site": "Runestone Academy",
+   "date": "2014",
+   "url": "https://runestone.academy/ns/books/published/pythonds/Introduction/WhatIsComputerScience.html",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    0,
+    15
+   ],
+   "notes": "License stated in the book source (file header and index). The page itself shows only a copyright line. The separate Big-O page entry stays rejected.",
+   "mirror": "https://raw.githubusercontent.com/RunestoneInteractive/pythonds/master/_sources/Introduction/WhatIsComputerScience.rst"
+  },
+  {
+   "id": "ms-ps-aliases",
+   "status": "verified",
+   "title": "Using aliases",
+   "author": "Microsoft",
+   "site": "PowerShell documentation, Microsoft Learn",
+   "date": "2026",
+   "url": "https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/using-aliases#compatibility-aliases-in-windows",
+   "license": "CC BY 4.0 (MicrosoftDocs/PowerShell-Docs LICENSE.md); page footer shows (c) Microsoft",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute Microsoft; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    0
+   ],
+   "notes": "Last updated 2026-01-13.",
+   "mirror": "https://raw.githubusercontent.com/MicrosoftDocs/PowerShell-Docs/main/reference/docs-conceptual/learn/shell/using-aliases.md"
+  },
+  {
+   "id": "ms-ps101-ch1",
+   "status": "verified",
+   "title": "PowerShell 101, Chapter 1: Getting started with PowerShell",
+   "author": "Microsoft",
+   "site": "PowerShell documentation, Microsoft Learn",
+   "date": "2026",
+   "url": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started",
+   "license": "CC BY 4.0 (MicrosoftDocs/PowerShell-Docs LICENSE.md); page footer shows (c) Microsoft",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute Microsoft; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    0,
+    1,
+    13
+   ],
+   "notes": "Page shows Last updated 2026-02-06 (file date 2024-08-02). Written for Windows PowerShell 5.1 on Windows 11.",
+   "mirror": "https://raw.githubusercontent.com/MicrosoftDocs/PowerShell-Docs/main/reference/docs-conceptual/learn/ps101/01-getting-started.md"
+  },
+  {
+   "id": "progit-installing",
+   "status": "verified",
+   "title": "Pro Git: Installing Git",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/01-introduction/sections/installing.asc"
+  },
+  {
+   "id": "progit-first-time-setup",
+   "status": "verified",
+   "title": "Pro Git: First-time Git setup",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/01-introduction/sections/first-time-setup.asc"
+  },
+  {
+   "id": "progit-getting-repo",
+   "status": "verified",
+   "title": "Pro Git: Getting a Git repository",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/02-git-basics/sections/getting-a-repository.asc"
+  },
+  {
+   "id": "progit-remotes",
+   "status": "verified",
+   "title": "Pro Git: Working with remotes",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/02-git-basics/sections/remotes.asc"
+  },
+  {
+   "id": "progit-history",
+   "status": "verified",
+   "title": "Pro Git: A short history of Git",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1,
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/01-introduction/sections/history.asc"
+  },
+  {
+   "id": "gh-docs-account",
+   "status": "verified",
+   "title": "Creating an account on GitHub",
+   "author": "GitHub",
+   "site": "GitHub Docs",
+   "date": "n.d.",
+   "url": "https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github",
+   "license": "CC BY 4.0 (github/docs LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute GitHub; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "Caution: the fetch tool's page summary listed sign-up steps that differ from the source file. Steps change often; link to the page and keep the book to the facts below.",
+   "mirror": "https://raw.githubusercontent.com/github/docs/main/content/account-and-profile/how-tos/account-management/creating-an-account-on-github.md"
+  },
+  {
+   "id": "gh-docs-repo-quickstart",
+   "status": "verified",
+   "title": "Quickstart for repositories",
+   "author": "GitHub",
+   "site": "GitHub Docs",
+   "date": "n.d.",
+   "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories",
+   "license": "CC BY 4.0 (github/docs LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute GitHub; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/github/docs/main/content/repositories/creating-and-managing-repositories/quickstart-for-repositories.md"
+  },
+  {
+   "id": "pypi-texttable",
+   "status": "verified",
+   "title": "texttable 1.7.1",
+   "author": "Python Package Index",
+   "site": "PyPI",
+   "date": "2026",
+   "url": "https://pypi.org/project/texttable/1.7.1/",
+   "license": "MIT (package license)",
+   "licenseUrl": "https://opensource.org/license/mit",
+   "reuse": "Facts only (version, date, requirements). Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    13
+   ],
+   "notes": "A13 package pick: pure Python (py2.py3-none-any wheel, about 11 KB), MIT, no required dependencies, on PyPI since 2015. Tested by the scout on Python 3.9.25 and 3.15.0b4 with identical output (sanity check only; record book output with the exercise pipeline).",
+   "mirror": "https://pypi.org/pypi/texttable/1.7.1/json",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "pypi-colorama",
+   "status": "verified",
+   "title": "colorama 0.4.6",
+   "author": "Python Package Index",
+   "site": "PyPI",
+   "date": "2026",
+   "url": "https://pypi.org/project/colorama/0.4.6/",
+   "license": "BSD 3-Clause (package license)",
+   "licenseUrl": "https://opensource.org/license/bsd-3-clause",
+   "reuse": "Facts only (version, date, requirements). Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    13
+   ],
+   "notes": "A13 backup pick: pure Python, BSD, no requirements beyond the standard library, unchanged since 2022. Its output is ANSI colour codes, which are awkward to record and display, so it is the backup.",
+   "mirror": "https://pypi.org/pypi/colorama/0.4.6/json",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "pypi-scikit-learn",
+   "status": "verified",
+   "title": "scikit-learn 1.9.1",
+   "author": "Python Package Index",
+   "site": "PyPI",
+   "date": "2026",
+   "url": "https://pypi.org/project/scikit-learn/1.9.1/",
+   "license": "Package metadata (facts only)",
+   "licenseUrl": "",
+   "reuse": "Facts only (version, date, requirements). Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "pypi-numpy",
+   "status": "verified",
+   "title": "numpy 2.5.4",
+   "author": "Python Package Index",
+   "site": "PyPI",
+   "date": "2026",
+   "url": "https://pypi.org/project/numpy/2.5.4/",
+   "license": "Package metadata (facts only)",
+   "licenseUrl": "",
+   "reuse": "Facts only (version, date, requirements). Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://pypi.org/pypi/numpy/2.5.4/json",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "pypi-pandas",
+   "status": "verified",
+   "title": "pandas 3.0.6",
+   "author": "Python Package Index",
+   "site": "PyPI",
+   "date": "2026",
+   "url": "https://pypi.org/project/pandas/3.0.6/",
+   "license": "Package metadata (facts only)",
+   "licenseUrl": "",
+   "reuse": "Facts only (version, date, requirements). Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://pypi.org/pypi/pandas/3.0.6/json",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "pypi-matplotlib",
+   "status": "verified",
+   "title": "matplotlib 3.11.2",
+   "author": "Python Package Index",
+   "site": "PyPI",
+   "date": "2026",
+   "url": "https://pypi.org/project/matplotlib/3.11.2/",
+   "license": "Package metadata (facts only)",
+   "licenseUrl": "",
+   "reuse": "Facts only (version, date, requirements). Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101,
+    103
+   ],
+   "notes": "",
+   "mirror": "https://pypi.org/pypi/matplotlib/3.11.2/json",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "sk-ensemble",
+   "status": "verified",
+   "title": "Ensembles: Gradient boosting, random forests, bagging, voting, stacking",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    109
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/ensemble.rst"
+  },
+  {
+   "id": "sk-svm",
+   "status": "verified",
+   "title": "Support vector machines",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/svm.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    109
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/svm.rst"
+  },
+  {
+   "id": "sk-semi-supervised",
+   "status": "verified",
+   "title": "Semi-supervised learning",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/semi_supervised.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    114
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/semi_supervised.rst"
+  },
+  {
+   "id": "sk-glossary",
+   "status": "verified",
+   "title": "Glossary of common terms and API elements",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/glossary.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    100,
+    104,
+    106
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/glossary.rst"
+  },
+  {
+   "id": "sk-grid-search",
+   "status": "verified",
+   "title": "Tuning the hyper-parameters of an estimator",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/grid_search.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    105,
+    107
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/grid_search.rst"
+  },
+  {
+   "id": "sk-sgd",
+   "status": "verified",
+   "title": "Stochastic gradient descent",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/sgd.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    105
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/sgd.rst"
+  },
+  {
+   "id": "sk-mlp",
+   "status": "verified",
+   "title": "Neural network models (supervised)",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/neural_networks_supervised.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    112
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/neural_networks_supervised.rst"
+  },
+  {
+   "id": "mpl-savefig",
+   "status": "verified",
+   "title": "matplotlib.figure.Figure.savefig",
+   "author": "Matplotlib development team",
+   "site": "Matplotlib 3.11.2 documentation",
+   "date": "n.d.",
+   "url": "https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html",
+   "license": "Matplotlib License (project LICENSE)",
+   "licenseUrl": "https://github.com/matplotlib/matplotlib/blob/main/LICENSE/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    103
+   ],
+   "notes": "The API page is generated from the savefig docstring in figure.py at tag v3.11.2.",
+   "mirror": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.11.2/lib/matplotlib/figure.py",
+   "text": true
+  },
+  {
+   "id": "d2l-linreg",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 3.1 Linear regression",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_linear-regression/linear-regression.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    104,
+    105
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_linear-regression/linear-regression.md"
+  },
+  {
+   "id": "d2l-backprop",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 5.3 Forward propagation, backward propagation, and computational graphs",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_multilayer-perceptrons/backprop.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    112
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_multilayer-perceptrons/backprop.md"
+  },
+  {
+   "id": "d2l-word2vec",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 15.1 Word embedding (word2vec)",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_natural-language-processing-pretraining/word2vec.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_natural-language-processing-pretraining/word2vec.md"
+  },
+  {
+   "id": "d2l-pretraining",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 11.9 Large-scale pretraining with transformers",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.md"
+  },
+  {
+   "id": "mlcc-hyperparameters",
+   "status": "unverified",
+   "title": "Linear regression: Hyperparameters",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/hyperparameters",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    105
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+  },
+  {
+   "id": "mlcc-embeddings",
+   "status": "unverified",
+   "title": "Embeddings",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-08-25",
+   "url": "https://developers.google.com/machine-learning/crash-course/embeddings",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+  },
+  {
+   "id": "mlcc-llm",
+   "status": "unverified",
+   "title": "Introduction to large language models",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-09",
+   "url": "https://developers.google.com/machine-learning/crash-course/llm",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+  },
+  {
+   "id": "chm-lovelace",
+   "status": "unverified",
+   "title": "Ada Lovelace",
+   "author": "Computer History Museum",
+   "site": "The Babbage Engine",
+   "date": "n.d.",
+   "url": "https://www.computerhistory.org/babbage/adalovelace/",
+   "license": "(c) Computer History Museum; no license shown",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+  },
+  {
+   "id": "mactutor-lovelace",
+   "status": "unverified",
+   "title": "Ada Lovelace (1815-1852), biography",
+   "author": "O'Connor, J. J., & Robertson, E. F.",
+   "site": "MacTutor History of Mathematics, University of St Andrews",
+   "date": "2002",
+   "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/",
+   "license": "unknown (site Copyright information page not read)",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine. Page says Last Update August 2002."
+  },
+  {
+   "id": "ethw-eniac",
+   "status": "unverified",
+   "title": "Milestones: Electronic Numerical Integrator and Computer, 1946",
+   "author": "IEEE History Center",
+   "site": "Engineering and Technology History Wiki",
+   "date": "n.d.",
+   "url": "https://ethw.org/Milestones:Electronic_Numerical_Integrator_and_Computer,_1946",
+   "license": "unknown (no license in footer)",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine. Plaque dedicated by the IEEE Philadelphia Section in September 1987."
+  },
+  {
+   "id": "yale-hopper",
+   "status": "unverified",
+   "title": "Biography of Grace Murray Hopper",
+   "author": "Yale University, Office of the President",
+   "site": "Yale University",
+   "date": "n.d.",
+   "url": "https://president.yale.edu/biography-grace-murray-hopper",
+   "license": "(c) Yale University, all rights reserved",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+  },
+  {
+   "id": "gutenberg-menabrea-1843",
+   "status": "unverified",
+   "title": "Sketch of the Analytical Engine invented by Charles Babbage, Esq. (with notes by the translator)",
+   "author": "Menabrea, L. F.",
+   "site": "Project Gutenberg (eBook 75107)",
+   "date": "1843",
+   "url": "https://gutenberg.org/files/75107/75107-h/75107-h.htm",
+   "license": "Public domain in the USA (Project Gutenberg); terms section not read",
+   "licenseUrl": "",
+   "reuse": "Not used yet.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Primary source for Lovelace's notes. The fetch tool read only the first 100,000 characters and did not reach Note G. No facts taken."
   }
  ]
 }

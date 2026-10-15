@@ -1,6 +1,6 @@
 # Module A: Intro to CS and Python (lesson plan)
 
-Status: research draft, 2026-10-14. Content and accuracy first; no code has been written for the app.
+Status: research draft, 2026-10-14; gaps closed 2026-10-15 (Windows and Linux install, Windows terminal, int and float, error reading, troubleshooting, git and GitHub, the A13 package, a history timeline). Content and accuracy first.
 
 How to read this plan:
 
@@ -63,7 +63,9 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 - `mkdir` makes a directory, `mv` moves or renames, and `cp` copies [py-007].
 - The `$PATH` variable lists the directories the shell searches for a command, and `which echo` shows the file a command runs [py-006].
 - Optional: `>` sends output to a file, `>>` appends, and `|` sends one program's output to another [py-008].
-- ◇ A computer is a very literal helper. A program is a numbered list of instructions that the helper follows exactly. (Own definitions; GAP: no source found for a formal definition of "program" or "computer". Keep them plain and flagged.)
+- OpenStax defines a computer as an electronic device that stores and processes information, and a program as a sequence of instructions that a computer can run [py-187].
+- An algorithm is a step-by-step list of instructions for solving any instance of a problem [py-189].
+- ◇ Our analogy: the computer is a very literal helper. A program is a numbered list of instructions that the helper follows exactly.
 
 **Analogy.** A workshop with labeled rooms; a path is directions to a room. ◇
 
@@ -73,7 +75,14 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 
 **Quiz ideas.** What does `cd ..` do? Which paths are absolute? (All from [py-004] [py-005].)
 
-**Open issues.** The source for the shell is a 2020 course (CC BY-NC-SA); cite and paraphrase only. Windows (PowerShell) and Linux alternates: only the macOS/Linux shell is sourced so far. GAP: Windows terminal commands.
+**Windows alternate (collapsible).**
+- Windows PowerShell is a command-line shell that comes preinstalled on modern Windows [py-166]. On Windows 11, type PowerShell into the search bar to find it [py-167].
+- On Windows, PowerShell has compatibility aliases, so `cd`, `ls`, `pwd`, `cp` and `mv` still work. They run `Set-Location`, `Get-ChildItem`, `Get-Location`, `Copy-Item` and `Move-Item` [py-168].
+- Microsoft's alias table pairs `mkdir` with the cmdlet `New-Item` [py-169]. These aliases exist only on Windows [py-170].
+- Windows paths use `\` between folders, and each disk partition has its own root, such as `C:\` [py-171].
+- ◇ Show the same five commands in both shells side by side. ⚙ Record the Windows output on a real Windows machine before showing it.
+
+**Open issues.** The source for the shell is a 2020 course (CC BY-NC-SA); cite and paraphrase only. Microsoft's PowerShell docs are CC BY 4.0 (attribute Microsoft). Linux uses the same shell commands as macOS.
 
 ---
 
@@ -92,8 +101,23 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 - *Editor.* VS Code needs Python 3, VS Code and the Python extension [py-022]. Make a `hello` folder, `cd hello`, and `code .` [py-025]. The Run Python File button runs `python3 hello.py` on macOS and Linux [py-024]. IDLE ships with official Python distributions [py-015] and is the fallback.
 - *Interactive session.* The glossary calls the REPL the read-eval-print loop, another name for the interactive interpreter shell [py-030].
 - *What an interpreter is.* The glossary says Python is interpreted rather than compiled, though the line is blurry because of the bytecode compiler, and source files can be run directly [py-031]. Python source is compiled to bytecode and cached in `.pyc` files [py-032].
-- *Windows alternate.* The Windows docs open with the Python install manager and say the recommended launch command is `python` [py-026]; `py` also starts Python and accepts version choices [py-027]. GAP: step-by-step Windows install and VS Code on Windows are only partly sourced; confirm before writing.
-- *Linux alternate.* Python comes preinstalled on most distributions and is a package on the rest [py-028]. For scripts, the docs recommend the shebang `#!/usr/bin/env python3` [py-029]. GAP: no sourced `apt`/`dnf` commands.
+- *High-level language.* Python is a high-level language: its source code is meant for humans to read, while computers understand only low-level machine code of 1s and 0s [py-190].
+- *Shell tip.* In most Python shells the up arrow brings back the previous line and the down arrow the next one [py-191].
+- *Windows alternate (collapsible).*
+  - Windows does not include a system supported Python [py-172]. Get it from the CPython team with the Python Install Manager, from python.org/downloads or the Microsoft Store app [py-173].
+  - From the Store, click Install, then open a terminal and type `python`. For the python.org file, double-click it and select Install [py-174].
+  - Afterwards the `python`, `py` and `pymanager` commands should work. Older installs or PATH changes may need removing first [py-175].
+  - `python` launches the current latest version, and `py list` shows which version that is [py-176]. The docs name `python` as the recommended launch command [py-026]. `py` also starts Python and accepts version choices [py-027].
+  - The install manager includes a `python3` command only to catch POSIX habits, and the docs do not recommend it [py-177].
+  - ◇ Our rule: on Windows, type `python` wherever the book shows `python3`.
+  - If `python` says command not found or opens the Store, check that the install manager is installed and that the Python (default) aliases are on under Manage app execution aliases [py-179].
+  - VS Code on Windows: the tutorial checks the install with `py -3 --version` in a command prompt [py-227], and its Run Python File button runs `python hello.py` [py-228].
+- *Linux alternate (collapsible).*
+  - Python comes preinstalled on most distributions and is a package on the rest [py-028]. Check it with `python3 --version` [py-165].
+  - On Debian and Ubuntu, the Packaging User Guide runs `sudo apt update` and then `sudo apt install python3-venv python3-pip` [py-183]. On Fedora it runs `sudo dnf install python3-pip python3-wheel` [py-184].
+  - That page is marked incomplete and was last reviewed on 2021-07-26, so the book shows a "last checked" date next to these commands [py-185].
+  - If IDLE is missing: `sudo apt install idle` on Debian and Ubuntu, `sudo dnf install python3-idle` on Fedora [py-186].
+  - For scripts, the docs recommend the shebang `#!/usr/bin/env python3` [py-029].
 
 **Analogy.** Setting up the workbench before the first job. ◇
 
@@ -140,6 +164,8 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 - A name with punctuation, such as `million!`, is illegal and gives a SyntaxError; keywords such as `class` cannot be variable names [py-044].
 - In the tutorial, using a name that has no value raises a NameError [py-045].
 - `type(obj)` shows an object's type [py-050].
+- Whole numbers such as 2, 4 and 20 have type `int`; numbers with a fractional part such as 5.0 and 1.6 have type `float` [py-192].
+- OpenStax adds that an integer is a whole number, a floating-point number is a decimal number, and the format used to represent data is called a data type [py-193].
 - Strings are immutable: assigning to `word[0]` raises a TypeError [py-047]. The glossary lists numbers, strings and tuples as immutable [py-049].
 - Assigning one list to another name does not copy it; a slice makes a shallow copy [py-048]. The tutorial says multiple names can be bound to one object, known as aliasing in other languages, and it matters for mutable objects [py-051].
 
@@ -149,7 +175,7 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 
 **On your machine.** Swap two variables; predict values after reassignments; make an alias and change it.
 
-**Open issues.** Types `int`, `float`, `str`, `bool`, `None`: the tutorial text confirms numbers and strings in examples, but a single sentence defining each is not in the ledger. GAP: add a fact for the tutorial's int/float sentence before stating it as sourced.
+**Open issues.** `int` and `float` are now sourced. GAP: no one-sentence definitions of `bool` and `None` are in the ledger yet; show them only through recorded `type()` output. ⚙
 
 ---
 
@@ -304,7 +330,9 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 - A `try` statement can have `except` and `else`, plus a `finally` clause for clean-up that must run under all circumstances [py-094]. An `except` matches the named class and its subclasses [py-095].
 - `assert` raises `AssertionError` when a check fails; assertions are for programmer errors, not user errors [py-097]. Logging levels run DEBUG, INFO, WARNING, ERROR, CRITICAL [py-098].
 - A unittest test case subclasses `unittest.TestCase`, test methods start with `test`, and checks use methods like `assertEqual` [py-099]. Run with `python -m unittest` [py-100].
-- GAP: no source explains reading a traceback from top to bottom. The tutorial shows tracebacks and explains the last line [py-092]. The Automate the Boring Stuff chapter shows tracebacks but does not explain how to read them, so it must not be cited for that.
+- A traceback is Python's report of the location and type of an error [py-195]. An error message shows the line number, the type of error and more details. The caret (^) marks where Python noticed the problem, which can be a line or two after the real mistake [py-194].
+- An accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. `IndentationError` is the syntax error for bad indentation, and `TabError` means tabs and spaces are mixed [py-197].
+- GAP: no source walks through a multi-frame traceback from top to bottom. The tutorial explains the last line [py-092]. The Automate the Boring Stuff chapter shows tracebacks but does not explain them, so it must not be cited for that.
 
 **Analogy.** A detective reading clues. ◇
 
@@ -362,6 +390,7 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 
 **Concept points.**
 - A module is an organizational unit of code with a namespace; a package is a module that can contain submodules [py-124].
+- OpenStax defines a library as a collection of code that can be used in other programs, and the syntax of a language as the rules for how code must be structured [py-188].
 - `math.sqrt`, `math.floor`, `math.ceil`, `math.pi` [py-163]. `datetime.date.today()` gives the current local date [py-164]. `json` as in A11 [py-105].
 - `random.seed()` initializes the generator [py-121]; algorithms may change across Python versions, so a seed does not promise the same numbers everywhere [py-122]. The module is not for security; `secrets` is [py-123].
 - *Why a virtual environment comes first.* PEP 668 describes an EXTERNALLY-MANAGED file that makes installers refuse to change a protected Python outside a virtual environment [py-033]. Homebrew's Python is marked this way and its message points to a virtual environment [py-155].
@@ -371,9 +400,17 @@ Completing A17 (certificate) unlocks Module B. See `docs/lessons/module-b-machin
 
 **Toy: Drawer.** Browse modules with real examples. ⚙
 
-**On your machine.** Make a venv, install one small pure-Python package, import it, run a pytest file.
+- *The package we install: texttable.* texttable 1.7.1 is a module to create simple ASCII tables, released on 2026-10-12 under the MIT license, as a single wheel file `texttable-1.7.1-py2.py3-none-any.whl` [py-205]. It lists no required dependencies [py-206].
+- ◇ Why texttable: the wheel is tiny, the project has been on PyPI for about a decade, and it prints plain text, so its output is easy to record and show in the app. The scout ran a small fictional parts table on the oldest and newest Pythons available to it and got identical output (details in the research summary). ⚙ The book's own output must still come from the exercise pipeline.
+- Backup: colorama 0.4.6 makes colored terminal text work on Windows, does nothing elsewhere, and needs only the standard library [py-207].
+- ◇ Colorama's output is ANSI color codes, which are harder to record and display, so it stays the backup.
+- *Windows alternate (collapsible).* The Windows docs recommend a virtual environment per project, made with `python -m venv <env path>` [py-178]. Activate it with `<venv>\Scripts\activate.bat` in cmd.exe or `<venv>\Scripts\Activate.ps1` in PowerShell [py-180].
+  - On Windows 10 and Windows 11 the default PowerShell execution policy is Restricted, so `Activate.ps1` fails with "running scripts is disabled on this system" [py-181]. Microsoft's guide changes the policy with `Set-ExecutionPolicy` and recommends `RemoteSigned`. It says to read about_Execution_Policies first, and changing the policy for the whole machine needs an administrator PowerShell [py-182].
+- *Linux alternate.* On Debian and Ubuntu, install `python3-venv` before making a venv [py-183].
 
-**Open issues.** Pick the example package (small, pure Python); read its PyPI page and add facts before use. Windows activation commands are in the venv docs but not yet in the ledger.
+**On your machine.** Make a venv, `pip install texttable`, print a fictional parts table, run a pytest file.
+
+**Open issues.** Pin `texttable==1.7.1` in `requirements.txt` so 3.9 and the current release install the same version. Its PyPI classifiers list Python versions only up to 3.9 [py-205], so the exercise checker must keep running it on the current release.
 
 ---
 
@@ -447,25 +484,72 @@ Two templates (Brianna's choice): a **shop inventory tracker** and a **quiz game
 
 **Toy: Logbook.** Commits as pages.
 
-**Open issues.** GAP: installing git on macOS and creating a GitHub account/repository are not yet sourced; cover them only after the scout reads GitHub's docs.
+**Install and set up.**
+- On macOS the easiest way to get Git is probably the Xcode Command Line Tools: run `git --version` in Terminal, and if Git is missing you will be asked to install it [py-208]. ◇ Learners who installed Homebrew already have these tools (A1).
+- Linux: `sudo apt install git-all` on Debian and Ubuntu, `sudo dnf install git-all` on Fedora [py-209]. Windows: download Git for Windows, a separate project, from git-scm.com/download/win [py-210].
+- First, set your name and email with `git config --global user.name` and `git config --global user.email`, because every commit uses them [py-211].
+- `git init` inside a project folder creates a `.git` subdirectory; nothing is tracked yet [py-212].
+
+**Sharing on GitHub.**
+- GitHub asks you to verify your email during sign up. Without a verified email you cannot create a repository, and GitHub strongly recommends two-factor authentication (2FA) [py-215].
+- GitHub's quickstart names a new repository with a short, memorable name such as hello-world. It describes a commit as a snapshot of all the files in a project at one point in time [py-216].
+- `git remote add <shortname> <url>` adds a remote under a short name [py-213]. `git push <remote> <branch>` sends your commits. It works only with write access and when nobody has pushed in the meantime; otherwise fetch their work first [py-214].
+
+**Open issues.** Sign-up screens change often. Link to GitHub's page and keep the book to the facts above. Authentication for push (HTTPS token or SSH key) is not in the ledger yet (GAP). Show it only by linking to GitHub's docs.
 
 ---
 
 ## Time machine (history timeline)
 
-Only these facts are sourced so far:
+A clickable timeline in the shop's back room. Each card shows one dated event and its citation. Only the facts below may appear; the dates are as the sources state them.
 
-- Python was created in the early 1990s by Guido van Rossum at CWI in the Netherlands, as a successor to ABC [py-150]. The Python Software Foundation was formed in 2001 [py-151].
-- The Zen of Python (PEP 20, Tim Peters) lists aphorisms such as "Readability counts", and `import this` prints them [py-152].
-- IBM says Fortran, led by John Backus, was created in 1954 and released commercially in 1957 [py-153].
-- Turtle graphics implements Logo's drawing tools from 1967 [py-071].
+- *1906 to 1992.* Grace Hopper (1906-1992) came up with the idea of machine-independent programming languages and imagined a language based on English [py-220].
+- *1954 to 1957.* IBM says Fortran, led by John Backus, was created in 1954 and released commercially in 1957 [py-153].
+- *1967.* Turtle graphics implements drawing tools introduced in Logo in 1967 [py-071].
+- *1989.* Guido van Rossum started Python during the 1989 Christmas holidays [py-217]. The docs place its creation at CWI in the Netherlands, as a successor to a language called ABC [py-150].
+- *1991.* He posted Python to USENET in February 1991 [py-217]. Its first release was Version 0.9.0, in 1991 [py-219].
+- *The name.* Python is named after Monty Python's Flying Circus, a BBC comedy series from the 1970s, because van Rossum wanted a short, unique and slightly mysterious name [py-218].
+- *2001.* The Python Software Foundation was formed [py-151].
+- *2005.* Git was born when the Linux kernel community lost free use of BitKeeper and built its own tool [py-221].
+- *Any year.* The Zen of Python (PEP 20, Tim Peters) lists aphorisms such as "Readability counts", and `import this` prints them [py-152].
 
-GAP: general computing history (early machines, first languages beyond Fortran) needs more sources. Machine-learning history is in Module B.
+Pending cards (researched, NOT citable yet; their sources could not be checked as raw text, so the checker blocks them): Ada Lovelace's 1843 translation and Notes (chm-lovelace, mactutor-lovelace), ENIAC in operation in 1946 (ethw-eniac), Grace Hopper's A-0 compiler and COBOL (yale-hopper). Run `python3 tools/verify_facts.py --pending` on a networked machine, read the `--audit` output, and only then mark those sources verified. Until then, leave these cards out.
+
+## Troubleshooting
+
+One page, linked from every level. Each entry gives the symptom, the cause and the fix, with citations. ◇ marks our own advice.
+
+**Setup**
+- *Command not found (macOS or Linux).* The shell looks for commands in the folders listed in `$PATH`, and `which` shows which file a command runs [py-006]. After installing Homebrew you add it to your shell with a `brew shellenv` line [py-018].
+- *The wrong Python runs.* macOS ships an older `/usr/bin/python3` for Apple's developer tools; leave it alone [py-012]. Check with `which python3` [py-006] and `python3 --version` [py-165].
+- *Windows: `python` opens the Store or is not found.* Check that the install manager is installed and that the Python (default) aliases are on under Manage app execution aliases [py-179].
+- *Windows: `python3` behaves oddly.* That command exists only to catch POSIX habits and is not recommended; type `python` [py-177].
+- *Windows: "running scripts is disabled on this system" when activating a venv.* The default PowerShell execution policy is Restricted [py-181]. Microsoft's guide switches to `RemoteSigned` with `Set-ExecutionPolicy`, after reading about_Execution_Policies [py-182]. In cmd.exe, `activate.bat` is the other way in [py-180].
+- *"externally-managed-environment" from pip.* Homebrew's Python is marked externally managed, and its message points to a virtual environment [py-033] [py-155].
+- ◇ Fix: make and activate a venv (A13). Never run pip with sudo.
+- *`import turtle` fails mentioning `_tkinter`.* Install the Tk interface from whoever provided your Python [py-068].
+
+**Errors in your program**
+- *Reading any error.* The last line names the exception type and what happened [py-092]. The message also gives the line number, and the caret (^) marks where Python noticed the problem, sometimes a line or two after the real mistake [py-194].
+- *`SyntaxError: invalid syntax`.* Python could not parse the line [py-091].
+- *`IndentationError: unexpected indent`.* A stray space or Tab at the start of a line [py-196]. A `TabError` means tabs and spaces are mixed [py-197].
+- *`NameError`.* A name is used before it has a value [py-045].
+- *`TypeError: can only concatenate str (not "int") to str`.* Joining text and a number with `+` [py-093].
+- *`KeyError`.* The key is not in the dictionary; the tutorial's `get` returns `None` instead [py-079].
+- *`IndexError` or `ValueError`.* An index is out of range, or a value has the right type but an unsuitable value [py-201].
+- *`RecursionError`.* A recursion never reached its base case [py-141].
+
+**Files, folders and permissions**
+- *`FileNotFoundError`.* The file or folder does not exist where Python looked [py-199]. ◇ Usually the terminal is in a different folder: check with `pwd` and `ls` [py-003].
+- *`ModuleNotFoundError`.* `import` could not locate the module [py-200]. ◇ Usually the venv is not active, or the package was installed into another Python.
+- *`PermissionError`.* The operation needs access rights you do not have, for example filesystem permissions [py-198].
+- *"Permission denied" in the terminal.* `ls -l` shows the read, write and execute permissions (`rwx`) for the owner, the group and everyone else [py-202]. A script run as `./semester` fails without the execute bit, while `sh semester` works, and `chmod` changes the bits [py-204]. The lecture says this error often means a task needs root through `sudo`, and to double-check that you really want that [py-203].
+- ◇ Our advice: run your programs as `python3 file.py`, which needs no execute bit, and avoid `sudo` for anything in this book.
 
 ## Cross-cutting pages
 
 - **Glossary** terms and definitions come from the Python glossary where it defines them: REPL [py-030], interpreted [py-031], bytecode [py-032], argument and parameter [py-090], module and package [py-124], dictionary [py-082], immutable [py-049].
-- **Troubleshooting** page (ten problems): command not found and PATH [py-006] [py-018]; wrong `python3` [py-012]; tkinter missing for turtle [py-068]; "externally managed environment" [py-033] [py-155]; SyntaxError [py-091]; NameError [py-045]; TypeError [py-093]; KeyError [py-079]; RecursionError [py-141]; wrong folder [py-003]. GAP: "permission denied" and "IndentationError" have no source yet.
+- **Troubleshooting** page: see the Troubleshooting section above.
 - **Terminal cheat sheet** from [py-003] [py-004] [py-005] [py-006] [py-007] [py-008].
 
 ## Exercise and trace rules

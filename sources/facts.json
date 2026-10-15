@@ -2770,6 +2770,1061 @@
     "python3 --version"
    ],
    "mod": "py"
+  },
+  {
+   "id": "py-166",
+   "src": "ms-ps101-ch1",
+   "anchor": "#what-is-powershell",
+   "claim": "Microsoft describes Windows PowerShell as a command-line shell and scripting environment that is preinstalled on all modern versions of Windows.",
+   "check": [
+    "command-line shell and scripting environment",
+    "preinstalled on all modern versions of the Windows operating system"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-167",
+   "src": "ms-ps101-ch1",
+   "anchor": "#where-to-find-powershell",
+   "claim": "Microsoft says the easiest way to find PowerShell on Windows 11 is to type PowerShell into the search bar.",
+   "check": [
+    "The easiest way to find PowerShell on Windows 11",
+    "into the search bar"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-168",
+   "src": "ms-ps-aliases",
+   "anchor": "#compatibility-aliases-in-windows",
+   "claim": "PowerShell on Windows has compatibility aliases so that Unix and cmd.exe users can type familiar commands: cd runs Set-Location, ls and dir run Get-ChildItem, pwd runs Get-Location, cp runs Copy-Item and mv runs Move-Item.",
+   "check": [
+    "users to use familiar commands in",
+    "Set-Location",
+    "Get-ChildItem",
+    "Get-Location",
+    "Copy-Item",
+    "Move-Item"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-169",
+   "src": "ms-ps-aliases",
+   "anchor": "#compatibility-aliases-in-windows",
+   "claim": "Microsoft's alias table pairs the Unix command mkdir and the cmd.exe command md with the PowerShell cmdlet New-Item.",
+   "check": [
+    "New-Item",
+    "mkdir"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-170",
+   "src": "ms-ps-aliases",
+   "anchor": "#compatibility-aliases-in-windows",
+   "claim": "Microsoft notes that these aliases are Windows-specific; for example, ls is not a PowerShell alias on macOS or Linux, so the native command runs there.",
+   "check": [
+    "The aliases in this table are Windows-specific",
+    "isn't defined as a PowerShell alias on macOS or Linux"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-171",
+   "src": "missing-semester-shell",
+   "anchor": "#navigating-in-the-shell",
+   "claim": "Paths separate directories with / on Linux and macOS and with \\ on Windows, and Windows has one root for each disk partition, such as C:\\.",
+   "check": [
+    "on Linux and macOS and",
+    "one root for each disk partition"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-172",
+   "src": "py-docs-windows",
+   "anchor": "#using-python-on-windows",
+   "claim": "The Windows documentation says that, unlike most Unix systems, Windows does not include a system supported installation of Python.",
+   "check": [
+    "Windows does not include a system supported installation of Python"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-173",
+   "src": "py-docs-windows",
+   "anchor": "#using-python-on-windows",
+   "claim": "To get Python from the CPython team on Windows, the documentation says to use the Python Install Manager, downloaded from python.org/downloads or through the Microsoft Store app.",
+   "check": [
+    "To obtain Python from the CPython team, use the Python Install Manager",
+    "Microsoft Store app"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-174",
+   "src": "py-docs-windows",
+   "anchor": "#installation",
+   "claim": "To install through the Store you click Install and then open a terminal and type python; the file from python.org is installed by double-clicking it and selecting Install.",
+   "check": [
+    "To install through the Store, simply click",
+    "open a terminal and type",
+    "either double-click and select"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-175",
+   "src": "py-docs-windows",
+   "anchor": "#installation",
+   "claim": "After installation the python, py and pymanager commands should be available; if you already have other Python installs or a changed PATH, you may need to remove or undo them.",
+   "check": [
+    "py, and pymanager commands should be available",
+    "you may need to remove them or undo the"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-176",
+   "src": "py-docs-windows",
+   "anchor": "#using-python-on-windows",
+   "claim": "Once the install manager is installed, the global python command launches your current latest version of Python, and py list shows which version is current.",
+   "check": [
+    "the global python command can be used from any terminal",
+    "py list command will show which is current"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-177",
+   "src": "py-docs-windows",
+   "anchor": "#basic-use",
+   "claim": "The install manager also includes a python3 command, meant to catch accidental uses of the usual POSIX command on Windows; the documentation says it is not meant to be widely used or recommended.",
+   "check": [
+    "catch accidental uses of the typical POSIX command on Windows",
+    "not meant to be widely used or recommended"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-178",
+   "src": "py-docs-windows",
+   "anchor": "#using-python-on-windows",
+   "claim": "The Windows documentation recommends a virtual environment for each project, created with python -m venv <env path> and used by running <env>\\Scripts\\Activate.",
+   "check": [
+    "virtual environment",
+    "for each project and run",
+    "Scripts\\Activate",
+    "python -m venv <env path>"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-179",
+   "src": "py-docs-windows",
+   "anchor": "#pymanager-troubleshoot",
+   "claim": "If python gives a command not found error or opens the Store app, the troubleshooting table says to check that the install manager is installed and, under Manage app execution aliases, that the Python (default) aliases are enabled.",
+   "check": [
+    "opens the Store app",
+    "Manage app execution aliases",
+    "Python (default)"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-180",
+   "src": "py-docs-venv",
+   "anchor": "#how-venvs-work",
+   "claim": "A virtual environment's scripts live in bin on POSIX and Scripts on Windows; on Windows you activate one with <venv>\\Scripts\\activate.bat in cmd.exe or <venv>\\Scripts\\Activate.ps1 in PowerShell.",
+   "check": [
+    "bin on POSIX; Scripts on Windows",
+    "activate.bat",
+    "Activate.ps1"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-181",
+   "src": "ms-ps101-ch1",
+   "anchor": "#execution-policy",
+   "claim": "Microsoft says the default PowerShell execution policy on Windows 10 and Windows 11 is Restricted, under which you can't run PowerShell scripts, and the error says running scripts is disabled on this system; commands typed interactively still run.",
+   "check": [
+    "can't run PowerShell scripts using the",
+    "Restricted",
+    "running scripts is disabled on this system",
+    "you can run any PowerShell command interactively"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-182",
+   "src": "ms-ps101-ch1",
+   "anchor": "#execution-policy",
+   "claim": "Microsoft's chapter changes the policy with Set-ExecutionPolicy and recommends RemoteSigned unless you sign your scripts; it says to read the about_Execution_Policies article first, and that changing the policy for the local machine needs an administrator PowerShell.",
+   "check": [
+    "Set-ExecutionPolicy",
+    "Unless you're signing your scripts, I recommend using the",
+    "RemoteSigned",
+    "about_Execution_Policies",
+    "You must run PowerShell elevated as an administrator to change the execution policy for the local machine"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-183",
+   "src": "pypa-linux-tools",
+   "anchor": "#debian-ubuntu-and-derivatives",
+   "claim": "On Debian, Ubuntu and derivatives the Packaging User Guide runs sudo apt update and then sudo apt install python3-venv python3-pip.",
+   "check": [
+    "sudo apt update",
+    "sudo apt install python3-venv python3-pip"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-184",
+   "src": "pypa-linux-tools",
+   "anchor": "#fedora",
+   "claim": "On Fedora the Packaging User Guide installs pip with sudo dnf install python3-pip python3-wheel.",
+   "check": [
+    "sudo dnf install python3-pip python3-wheel"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-185",
+   "src": "pypa-linux-tools",
+   "anchor": "Page header",
+   "claim": "The Linux package-manager page of the Packaging User Guide is marked Incomplete and was last reviewed on 2021-07-26.",
+   "check": [
+    "Incomplete",
+    "2021-07-26"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-186",
+   "src": "py-docs-unix",
+   "anchor": "#installing-idle",
+   "claim": "If IDLE is missing on Linux, the Unix documentation installs it with sudo apt install idle on Debian and Ubuntu and sudo dnf install python3-idle on Fedora, RHEL and CentOS.",
+   "check": [
+    "sudo apt install idle",
+    "sudo dnf install python3-idle"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-187",
+   "src": "openstax-py-1-1",
+   "anchor": "Computer programs",
+   "claim": "OpenStax defines a computer as an electronic device that stores and processes information, and a program as a sequence of instructions that a computer can run.",
+   "check": [
+    "A computer is an electronic device that stores and processes information",
+    "a program is a sequence of instructions that a computer can run"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-188",
+   "src": "openstax-py-1-1",
+   "anchor": "The Python language",
+   "claim": "OpenStax defines a library as a collection of code that can be used in other programs, and says the syntax of a language defines how code must be structured.",
+   "check": [
+    "A library is a collection of code that can be used in other programs",
+    "The syntax of a language defines how code must be structured"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-189",
+   "src": "runestone-pythonds-cs",
+   "anchor": "1.3 What is computer science?",
+   "claim": "Miller and Ranum define an algorithm as a step-by-step list of instructions for solving any instance of a problem, and say a problem is computable if an algorithm exists for solving it.",
+   "check": [
+    "a step-by-step list of instructions for solving any instance of the",
+    "We say that a problem is computable if an algorithm exists for solving it"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-190",
+   "src": "openstax-py-2-1",
+   "anchor": "The interpreter",
+   "claim": "OpenStax says Python is a high-level language, meaning its source code is intended for humans to understand, while computers understand only low-level machine code made of 1s and 0s.",
+   "check": [
+    "meaning that the source code is intended for humans to understand",
+    "low-level machine code made up of 1"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-191",
+   "src": "openstax-py-2-1",
+   "anchor": "The arrow keys",
+   "claim": "In most Python shells the up arrow shows the previous line you typed and the down arrow the next one, so you can repeat a line without retyping it.",
+   "check": [
+    "The up arrow displays the previous line; the down arrow displays the next line"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-192",
+   "src": "py-docs-tutorial-intro",
+   "anchor": "#numbers",
+   "claim": "In the tutorial, integer numbers such as 2, 4 and 20 have type int, and numbers with a fractional part such as 5.0 and 1.6 have type float.",
+   "check": [
+    "The integer numbers (e.g.",
+    "the ones with a fractional part (e.g.",
+    "We will see more about numeric types later in the tutorial"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-193",
+   "src": "openstax-py-1-5",
+   "anchor": "Numeric data types",
+   "claim": "OpenStax says Python supports two basic number formats, integer and floating-point; an integer represents a whole number, a floating-point format represents a decimal number, and the format used to represent data is called a data type.",
+   "check": [
+    "Python supports two basic number formats, integer and floating-point",
+    "An integer represents a whole number",
+    "is called a data type"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-194",
+   "src": "openstax-py-1-6",
+   "anchor": "How to read errors",
+   "claim": "OpenStax says a Python error message shows the line number, the type of error and additional details; the caret (^) shows where Python found the error, which may be a line or two after the real mistake.",
+   "check": [
+    "The line number of the error",
+    "The type of error",
+    "The caret character",
+    "one or two lines before where the caret symbol is shown"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-195",
+   "src": "openstax-py-1-6",
+   "anchor": "How to read errors",
+   "claim": "OpenStax describes a traceback as a Python report of the location and type of error.",
+   "check": [
+    "Traceback is a Python report of the location and type of error"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-196",
+   "src": "openstax-py-1-6",
+   "anchor": "Common types of errors",
+   "claim": "In OpenStax's table, an accidental space or Tab at the start of a line gives IndentationError: unexpected indent.",
+   "check": [
+    "IndentationError: unexpected indent",
+    "typed a space at the start of the line",
+    "pressed the Tab key at the start of the line"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-197",
+   "src": "py-docs-exceptions",
+   "anchor": "#IndentationError",
+   "claim": "IndentationError is the base class for syntax errors related to incorrect indentation and is a subclass of SyntaxError; TabError is raised when indentation mixes tabs and spaces inconsistently.",
+   "check": [
+    "Base class for syntax errors related to incorrect indentation",
+    "inconsistent use of tabs and spaces"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-198",
+   "src": "py-docs-exceptions",
+   "anchor": "#PermissionError",
+   "claim": "PermissionError is raised when an operation runs without adequate access rights, for example filesystem permissions.",
+   "check": [
+    "Raised when trying to run an operation without the adequate access",
+    "for example filesystem permissions"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-199",
+   "src": "py-docs-exceptions",
+   "anchor": "#FileNotFoundError",
+   "claim": "FileNotFoundError is raised when a file or directory is requested but doesn't exist.",
+   "check": [
+    "Raised when a file or directory is requested but doesn't exist"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-200",
+   "src": "py-docs-exceptions",
+   "anchor": "#ModuleNotFoundError",
+   "claim": "ModuleNotFoundError is raised by import when a module could not be located.",
+   "check": [
+    "when a module could not be located"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-201",
+   "src": "py-docs-exceptions",
+   "anchor": "#IndexError",
+   "claim": "IndexError is raised when a sequence subscript is out of range, and ValueError when an argument has the right type but an inappropriate value.",
+   "check": [
+    "Raised when a sequence subscript is out of range",
+    "right type but an inappropriate value"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-202",
+   "src": "missing-semester-shell",
+   "anchor": "#navigating-in-the-shell",
+   "claim": "ls -l shows three groups of three characters (rwx) giving the permissions of the file's owner, its group and everyone else, and a - means that permission is missing.",
+   "check": [
+    "three groups of three characters",
+    "A - indicates that the given principal does"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-203",
+   "src": "missing-semester-shell",
+   "anchor": "#a-versatile-and-powerful-tool",
+   "claim": "The lecture says permission denied errors usually mean you need to do something as root (with sudo), and tells you to double-check that you really wanted to do it that way.",
+   "check": [
+    "When you get permission denied errors, it is usually because you need to",
+    "double-check that you"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-204",
+   "src": "missing-semester-shell",
+   "anchor": "#exercises",
+   "claim": "In the lecture's exercise, running a new script as ./semester does not work, the hint is the file's permission bits, sh semester does work, and chmod is the program that changes the bits.",
+   "check": [
+    "look at the permission bits",
+    "sh semester",
+    "Use chmod to make it possible to run the command"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-205",
+   "src": "pypi-texttable",
+   "anchor": "Release 1.7.1",
+   "claim": "texttable 1.7.1, a module to create simple ASCII tables, was uploaded to PyPI on 2026-10-12 under the MIT license; its one wheel file is texttable-1.7.1-py2.py3-none-any.whl.",
+   "check": [
+    "module to create simple ASCII tables",
+    "texttable-1.7.1-py2.py3-none-any.whl",
+    "\"upload_time\": \"2026-10-12",
+    "License :: OSI Approved :: MIT License"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-206",
+   "src": "pypi-texttable",
+   "anchor": "Dependencies",
+   "claim": "texttable lists no required dependencies; its description says it uses cjkwrap and wcwidth only if they are available.",
+   "check": [
+    "\"requires_dist\": null",
+    "If available"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-207",
+   "src": "pypi-colorama",
+   "anchor": "Release 0.4.6",
+   "claim": "colorama 0.4.6 makes ANSI escape sequences for colored terminal text work under MS Windows, does nothing on other platforms, and needs nothing beyond the standard library.",
+   "check": [
+    "work under MS Windows",
+    "Colorama does nothing",
+    "No requirements other than the standard library"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-208",
+   "src": "progit-installing",
+   "anchor": "#_installing_on_macos",
+   "claim": "Pro Git says the easiest way to get Git on macOS is probably the Xcode Command Line Tools: run git --version in Terminal, and if Git is missing you will be prompted to install it.",
+   "check": [
+    "The easiest is probably to install the Xcode Command Line Tools",
+    "trying to run git from the Terminal the very first time",
+    "git --version",
+    "it will prompt you to install it"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-209",
+   "src": "progit-installing",
+   "anchor": "#_installing_on_linux",
+   "claim": "Pro Git installs Git on Fedora with sudo dnf install git-all and on Debian-based systems such as Ubuntu with sudo apt install git-all.",
+   "check": [
+    "sudo dnf install git-all",
+    "sudo apt install git-all"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-210",
+   "src": "progit-installing",
+   "anchor": "#_installing_on_windows",
+   "claim": "Pro Git says the most official Windows build is downloaded from git-scm.com/download/win, and that this Git for Windows project is separate from Git itself.",
+   "check": [
+    "git-scm.com/download/win",
+    "Git for Windows, which is separate from Git itself"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-211",
+   "src": "progit-first-time-setup",
+   "anchor": "#_your_identity",
+   "claim": "The first thing to do after installing Git is to set your user name and email address with git config --global user.name and git config --global user.email, because every commit uses this information.",
+   "check": [
+    "The first thing you should do when you install Git is to set your user name and email address",
+    "every Git commit uses this information",
+    "git config --global user.name",
+    "git config --global user.email"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-212",
+   "src": "progit-getting-repo",
+   "anchor": "#_initializing_a_repository_in_an_existing_directory",
+   "claim": "git init, run inside a project folder, creates a .git subdirectory holding the repository files; at that point nothing in the project is tracked yet.",
+   "check": [
+    "This creates a new subdirectory named .git",
+    "nothing in your project is tracked yet"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-213",
+   "src": "progit-remotes",
+   "anchor": "#_adding_remote_repositories",
+   "claim": "git remote add <shortname> <url> adds a remote repository under a short name.",
+   "check": [
+    "git remote add <shortname> <url>"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-214",
+   "src": "progit-remotes",
+   "anchor": "#_pushing_remotes",
+   "claim": "git push <remote> <branch> sends your commits to a remote; it works only if you have write access and nobody has pushed in the meantime, otherwise you fetch their work first.",
+   "check": [
+    "git push <remote> <branch>",
+    "if nobody has pushed in the meantime",
+    "fetch their work first"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-215",
+   "src": "gh-docs-account",
+   "anchor": "#signing-up-for-a-new-personal-account",
+   "claim": "GitHub asks you to verify your email address during sign up, and without a verified email you can't do some basic tasks such as creating a repository; GitHub strongly recommends turning on two-factor authentication (2FA).",
+   "check": [
+    "During sign up, you'll be asked to verify your email address",
+    "such as creating a repository",
+    "We strongly recommend that you configure 2FA"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-216",
+   "src": "gh-docs-repo-quickstart",
+   "anchor": "#create-a-repository",
+   "claim": "GitHub's quickstart creates a repository by typing a short, memorable name such as hello-world, and describes a commit as like a snapshot of all the files in a project at a point in time.",
+   "check": [
+    "Type a short, memorable name for your repository",
+    "hello-world",
+    "A commit is like a snapshot of all the files in your project at a particular point in time"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-217",
+   "src": "py-docs-faq-general",
+   "anchor": "#why-was-python-created-in-the-first-place",
+   "claim": "In the Python FAQ, Guido van Rossum says he started Python during the 1989 Christmas holidays and first posted it to USENET in February 1991.",
+   "check": [
+    "During the 1989 Christmas holidays",
+    "In February 1991, after just over a year of development"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-218",
+   "src": "py-docs-faq-general",
+   "anchor": "#why-is-it-called-python",
+   "claim": "The FAQ says Python is named after Monty Python's Flying Circus, a BBC comedy series from the 1970s, because van Rossum wanted a name that was short, unique and slightly mysterious.",
+   "check": [
+    "Monty Python's Flying Circus",
+    "a BBC comedy series from the 1970s",
+    "short, unique, and slightly mysterious"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-219",
+   "src": "openstax-py-1-8",
+   "anchor": "Historical background",
+   "claim": "OpenStax says Python's first release, Version 0.9.0, appeared in 1991.",
+   "check": [
+    "Version 0.9.0, appeared in 1991"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-220",
+   "src": "openstax-py-3-1",
+   "anchor": "Hopper quote",
+   "claim": "OpenStax says Grace Hopper (1906-1992) came up with the idea of machine-independent programming languages and envisioned a programming language based on English.",
+   "check": [
+    "Grace Hopper (1906",
+    "machine-independent programming languages",
+    "She envisioned a programming language based on English"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-221",
+   "src": "progit-history",
+   "anchor": "A short history of Git",
+   "claim": "Pro Git says Git was born in 2005, when the Linux kernel community lost free use of the BitKeeper tool and Linus Torvalds and others built their own.",
+   "check": [
+    "In 2005, the relationship between the community that developed the Linux kernel",
+    "BitKeeper",
+    "Linus Torvalds",
+    "Since its birth in 2005"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-222",
+   "src": "chm-lovelace",
+   "anchor": "Ada Lovelace",
+   "claim": "The Computer History Museum says that in 1843 Ada Lovelace published a translation from the French of an article on the Analytical Engine, and that her Notes included the first published description of a stepwise sequence of operations.",
+   "check": [
+    "In 1843 she published a translation from the French",
+    "first published description of a stepwise sequence of operations"
+   ],
+   "mod": "py",
+   "pending": true
+  },
+  {
+   "id": "py-223",
+   "src": "mactutor-lovelace",
+   "anchor": "Biography",
+   "claim": "MacTutor quotes that Lovelace's notes extend to about three times the length of the original memoir.",
+   "check": [
+    "about three times the length of the original memoir"
+   ],
+   "mod": "py",
+   "pending": true
+  },
+  {
+   "id": "py-224",
+   "src": "ethw-eniac",
+   "anchor": "Plaque citation",
+   "claim": "The IEEE milestone plaque says engineers put ENIAC into operation at the University of Pennsylvania in 1946, after it was designed and built at the Moore School of Electrical Engineering under a U.S. Army contract during World War II.",
+   "check": [
+    "University of Pennsylvania in 1946",
+    "Moore School of Electrical Engineering"
+   ],
+   "mod": "py",
+   "pending": true
+  },
+  {
+   "id": "py-225",
+   "src": "yale-hopper",
+   "anchor": "Biography",
+   "claim": "Yale's biography says Grace Hopper earned a Yale doctorate in mathematics in 1934, worked on the Harvard Mark I, developed the first compiler, called A-0, in 1952, and took part in creating COBOL.",
+   "check": [
+    "1934",
+    "MARK I",
+    "A-0",
+    "1952",
+    "COBOL"
+   ],
+   "mod": "py",
+   "pending": true
+  },
+  {
+   "id": "py-226",
+   "src": "cs50-notes-0",
+   "anchor": "#algorithms",
+   "claim": "The CS50 notes define an algorithm as a step-by-step set of instructions to solve a problem, and pseudocode as human-readable instructions that often describe an algorithm's steps.",
+   "check": [
+    "step-by-step set of instructions to solve a problem",
+    "Pseudocode is human-readable instructions"
+   ],
+   "mod": "py",
+   "pending": true
+  },
+  {
+   "id": "ml-108",
+   "src": "pypi-scikit-learn",
+   "anchor": "Release 1.9.1",
+   "claim": "PyPI lists scikit-learn 1.9.1 as requiring Python 3.11 or newer, and it publishes a CPython 3.15 wheel for Apple silicon Macs.",
+   "check": [
+    "\"requires_python\": \">=3.11\"",
+    "scikit_learn-1.9.1-cp315-cp315-macosx_12_0_arm64.whl"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-109",
+   "src": "pypi-numpy",
+   "anchor": "Release 2.5.4",
+   "claim": "PyPI lists NumPy 2.5.4 as requiring Python 3.12 or newer, and it publishes a CPython 3.15 wheel for Apple silicon Macs.",
+   "check": [
+    "\"requires_python\": \">=3.12\"",
+    "numpy-2.5.4-cp315-cp315-macosx_11_0_arm64.whl"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-110",
+   "src": "pypi-pandas",
+   "anchor": "Release 3.0.6",
+   "claim": "PyPI lists pandas 3.0.6 as requiring Python 3.11 or newer, with a CPython 3.15 wheel for Apple silicon Macs.",
+   "check": [
+    "\"requires_python\": \">=3.11\"",
+    "pandas-3.0.6-cp315-cp315-macosx_11_0_arm64.whl"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-111",
+   "src": "pypi-matplotlib",
+   "anchor": "Release 3.11.2",
+   "claim": "PyPI lists Matplotlib 3.11.2 as requiring Python 3.11 or newer, with a CPython 3.15 wheel for Apple silicon Macs.",
+   "check": [
+    "\"requires_python\": \">=3.11\"",
+    "matplotlib-3.11.2-cp315-cp315-macosx_11_0_arm64.whl"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-112",
+   "src": "mpl-savefig",
+   "anchor": "savefig",
+   "claim": "Figure.savefig saves the current figure as an image or vector graphic file; if no format is given, the format is inferred from the file name's extension, and dpi sets the resolution in dots per inch.",
+   "check": [
+    "Save the current figure as an image or vector graphic to a file",
+    "then the format is inferred from the",
+    "extension of fname",
+    "The resolution in dots per inch"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-113",
+   "src": "sk-glossary",
+   "anchor": "#term-classifier",
+   "claim": "scikit-learn's glossary defines a classifier as a supervised (or semi-supervised) predictor with a finite set of discrete possible output values, and a regressor as one with continuous output values.",
+   "check": [
+    "predictor with a finite set of discrete possible output values",
+    "with continuous output values"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-114",
+   "src": "d2l-linreg",
+   "anchor": "3.1.1.4 Minibatch stochastic gradient descent",
+   "claim": "Dive into Deep Learning multiplies the gradient by a predetermined small positive value called the learning rate; tunable values like the learning rate that are not updated in the training loop are called hyperparameters.",
+   "check": [
+    "called the learning rate",
+    "Such tunable parameters that are not updated",
+    "in the training loop are called hyperparameters"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-115",
+   "src": "sk-sgd",
+   "anchor": "#mathematical-formulation",
+   "claim": "scikit-learn says the learning rate controls the step size in the parameter space and can be constant or gradually decaying.",
+   "check": [
+    "the learning rate which controls the step-size in",
+    "can be either constant or gradually decaying"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-116",
+   "src": "sk-grid-search",
+   "anchor": "Tuning the hyper-parameters",
+   "claim": "scikit-learn says hyper-parameters are parameters that are not directly learnt within estimators, are passed to the estimator's constructor, and are best chosen by searching for the best cross validation score.",
+   "check": [
+    "Hyper-parameters are parameters that are not directly learnt within estimators",
+    "passed as arguments to the constructor",
+    "best cross validation score"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-117",
+   "src": "mlcc-hyperparameters",
+   "anchor": "Hyperparameters",
+   "claim": "Google says hyperparameters are variables that control different aspects of training, and that the learning rate is a number you set that influences how quickly the model converges.",
+   "check": [
+    "Hyperparameters are variables that control different aspects of training",
+    "influences how quickly the model converges"
+   ],
+   "mod": "ml",
+   "pending": true
+  },
+  {
+   "id": "ml-118",
+   "src": "sk-metrics",
+   "anchor": "#dummy-estimators",
+   "claim": "scikit-learn calls comparing your model against simple rules of thumb a sanity check; DummyClassifier's most_frequent strategy always predicts the most frequent label in the training set, and its predictions ignore the input data.",
+   "check": [
+    "a simple sanity check consists of comparing",
+    "always predicts the most frequent label in the training set",
+    "completely ignores"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-119",
+   "src": "sk-ensemble",
+   "anchor": "#ensemble",
+   "claim": "scikit-learn says ensemble methods combine the predictions of several base estimators to improve generalizability or robustness over a single estimator, and names gradient-boosted trees and random forests as famous examples.",
+   "check": [
+    "combine the predictions of several",
+    "generalizability / robustness over a single estimator",
+    "Two very famous examples of ensemble methods"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-120",
+   "src": "sk-ensemble",
+   "anchor": "#random-forests",
+   "claim": "In a random forest each tree is built from a bootstrap sample (drawn with replacement) of the training set, and a random subset of the features is considered while building each tree.",
+   "check": [
+    "each tree in the ensemble is built from a sample drawn with replacement",
+    "a random subset of the features is considered"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-121",
+   "src": "sk-ensemble",
+   "anchor": "#random-forests",
+   "claim": "scikit-learn says single decision trees typically have high variance and tend to overfit, and averaging many diverse trees lets some errors cancel out; its forests average the trees' probability predictions instead of taking a vote.",
+   "check": [
+    "individual decision trees typically exhibit high variance and tend to overfit",
+    "some errors can cancel out",
+    "instead of letting each classifier vote for a single class"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-122",
+   "src": "sk-svm",
+   "anchor": "#support-vector-machines",
+   "claim": "Support vector machines are supervised learning methods for classification, regression and outlier detection, and their decision function uses a subset of the training points called support vectors.",
+   "check": [
+    "are a set of supervised learning",
+    "called support vectors"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-123",
+   "src": "sk-svm",
+   "anchor": "#mathematical-formulation",
+   "claim": "scikit-learn says that, intuitively, a support vector machine separates classes best with the hyperplane that has the largest distance to the nearest training points of any class (the margin).",
+   "check": [
+    "has the largest distance",
+    "to the nearest training data points of any class"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-124",
+   "src": "sk-svm",
+   "anchor": "#support-vector-machines",
+   "claim": "scikit-learn notes that SVMs do not directly provide probability estimates.",
+   "check": [
+    "SVMs do not directly provide probability estimates"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-125",
+   "src": "d2l-backprop",
+   "anchor": "5.3.3 Backpropagation",
+   "claim": "Dive into Deep Learning says backpropagation calculates the gradient of a neural network's parameters by going through the network in reverse order, from the output to the input layer, according to the chain rule from calculus.",
+   "check": [
+    "refers to the method of calculating",
+    "the method traverses the network in reverse order",
+    "chain rule"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-126",
+   "src": "d2l-backprop",
+   "anchor": "5.3.4 Training neural networks",
+   "claim": "Dive into Deep Learning says training requires significantly more memory than plain prediction.",
+   "check": [
+    "requires significantly more memory than plain prediction"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-127",
+   "src": "sk-mlp",
+   "anchor": "#classification",
+   "claim": "scikit-learn's multi-layer perceptron trains with a form of gradient descent, and the gradients are calculated using backpropagation.",
+   "check": [
+    "trains using some form of",
+    "the gradients are calculated using Backpropagation"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-128",
+   "src": "d2l-word2vec",
+   "anchor": "15.1 Word embedding",
+   "claim": "Dive into Deep Learning says word vectors are vectors that represent words, and the technique of mapping words to real vectors is called word embedding.",
+   "check": [
+    "vectors used to represent words",
+    "The technique of mapping words to real vectors"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-129",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.1 One-hot vectors are a bad choice",
+   "claim": "One-hot word vectors cannot express similarity between words: the cosine similarity of the one-hot vectors of any two different words is 0. Cosine similarity is the cosine of the angle between two vectors.",
+   "check": [
+    "cannot accurately express the similarity between different words",
+    "cosine similarity between one-hot vectors of any two different words is 0",
+    "their cosine similarity is the cosine of the angle between them"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-130",
+   "src": "d2l-pretraining",
+   "anchor": "11.9 Large-scale pretraining with transformers",
+   "claim": "Transformers can be used in three modes, encoder-only, encoder-decoder and decoder-only, and decoder-only transformers are the de facto architecture for large-scale language modeling, learning from unlabeled text through self-supervised learning.",
+   "check": [
+    "encoder-only",
+    "decoder-only",
+    "de facto",
+    "via self-supervised learning"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-131",
+   "src": "d2l-pretraining",
+   "anchor": "11.9.3.1 GPT and GPT-2",
+   "claim": "In GPT-style pretraining the target sequence is the input sequence shifted by one token.",
+   "check": [
+    "The target sequence is the input sequence shifted by one token"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-132",
+   "src": "d2l-pretraining",
+   "anchor": "11.9.3.2 GPT-3 and beyond",
+   "claim": "In-context learning means a pretrained language model produces a task's output without any parameter update, from a task description, examples and a prompt; it comes in zero-shot, one-shot and few-shot forms.",
+   "check": [
+    "without parameter update",
+    "in-context learning",
+    "zero-shot",
+    "few-shot"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-133",
+   "src": "mlcc-embeddings",
+   "anchor": "Embeddings",
+   "claim": "Google describes embeddings as lower-dimensional representations of sparse data.",
+   "check": [
+    "lower-dimensional representations of sparse data"
+   ],
+   "mod": "ml",
+   "pending": true
+  },
+  {
+   "id": "ml-134",
+   "src": "mlcc-llm",
+   "anchor": "Introduction to LLMs",
+   "claim": "Google says a language model estimates the probability of a token or sequence of tokens occurring within a longer sequence of tokens.",
+   "check": [
+    "A language model estimates the probability of a token or sequence of tokens"
+   ],
+   "mod": "ml",
+   "pending": true
+  },
+  {
+   "id": "ml-135",
+   "src": "sk-semi-supervised",
+   "anchor": "#semi-supervised-learning",
+   "claim": "scikit-learn describes semi-supervised learning as training data in which some samples are not labeled; its estimators use the unlabeled data to better capture the shape of the data, and can do well with very few labeled and many unlabeled points.",
+   "check": [
+    "some of the samples are not labeled",
+    "make use of this additional unlabeled data",
+    "labeled points and a large amount of unlabeled points"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-136",
+   "src": "sk-semi-supervised",
+   "anchor": "#semi-supervised-learning",
+   "claim": "scikit-learn's semi-supervised estimators mark unlabeled points with the integer -1 in y.",
+   "check": [
+    "The identifier that this implementation uses is the integer value"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "py-227",
+   "src": "vscode-python",
+   "anchor": "Install a Python interpreter",
+   "claim": "On Windows the VS Code tutorial verifies the install by running py -3 --version in a command prompt.",
+   "check": [
+    "Windows: open a command prompt and run the following command",
+    "py -3 --version"
+   ],
+   "mod": "py"
+  },
+  {
+   "id": "py-228",
+   "src": "vscode-python",
+   "anchor": "Run Python code",
+   "claim": "VS Code's Run Python File button runs python3 hello.py on macOS and Linux and python hello.py on Windows.",
+   "check": [
+    "or python hello.py (Windows)"
+   ],
+   "mod": "py"
   }
  ]
 }

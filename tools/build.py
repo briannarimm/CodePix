@@ -96,6 +96,8 @@ def main():
             fail(f"unknown fact {fid} cited in src/js or exercises")
         f = facts[fid]
         s = sources.get(f["src"])
+        if f.get("pending"):
+            fail(f"fact {fid} is pending (not verified against raw text) and cannot be cited")
         if not s or s["status"] != "verified":
             fail(f"fact {fid} rests on source {f['src']} which is not verified")
         data_facts[fid] = {"c": f["claim"], "s": f["src"], "a": f["anchor"]}

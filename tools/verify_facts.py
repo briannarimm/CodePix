@@ -15,6 +15,20 @@ Usage:
     python3 tools/verify_facts.py --list-sources  print each source id, status and URL
 
 PDF sources use "url" with "pdf": true; plain-text sources use "text": true.
+
+Mirrors: a source may name "mirror", the raw URL of the publisher's own source file for the same page
+(for example the .rst file in python/cpython that docs.python.org is built from). The mirror is read only
+when the page itself cannot be fetched (dead host, or a network policy that blocks it). Light markup
+(reStructuredText roles, Markdown links, AsciiDoc links, notebook JSON) is stripped first. Results read
+through a mirror are marked "mirror" in the status line, so a human can see which text was checked.
+"prefer_mirror": true reads the mirror first (for pages that serve a bot challenge instead of text,
+such as PyPI project pages, whose JSON API is the machine-readable form of the same page).
+
+Pending facts: a fact with "pending": true, or any fact whose source status is not "verified", was read
+only through a page summary or could not be fetched as raw text. It is listed as PENDING and skipped, and
+tools/check_lessons.py refuses to let a lesson cite it. On a machine that can reach the source, run
+`--pending` to check those facts too; if they pass and the --audit read-through agrees, mark the source
+verified (or drop the pending flag) in sources/build_*.py.
 Needs pypdf only when a PDF source is present (pip install pypdf).
 """
 import argparse, hashlib, html, json, pathlib, re, subprocess, sys, tempfile, time
@@ -98,8 +112,45 @@ def context(display: str, needle: str, width: int = 170) -> str:
     return display[max(0, m.start() - width): m.end() + width]
 
 
+def strip_markup(raw: str, url: str) -> str:
+    """Reduce rst / Markdown / AsciiDoc / notebook / XML source to roughly the text a reader sees."""
+    if url.endswith("/json"):
+        return raw                                                              # PyPI JSON: match as is
+    if url.endswith(".asc"):
+        raw = re.sub(r"\(\(\([^()]*\)\)\)", "", raw)                          # AsciiDoc index terms
+    if url.endswith(".md"):
+        raw = re.sub(r"\{%-?[^%]*%\}", " ", raw)                              # Liquid tags
+        raw = re.sub(r"(?m)^[ \t]*>[ \t]?", "", raw)                            # blockquote markers
+    if url.endswith(".ipynb"):
+        try:
+            nb = json.loads(raw)
+            raw = "\n".join("".join(c.get("source", [])) for c in nb.get("cells", []))
+        except ValueError:
+            pass
+    raw = re.sub(r"(?s)<!--.*?-->", " ", raw)
+    raw = re.sub(r":[\w.+-]+(?::[\w.+-]+)*:`([^`<]*?)(?:\s*<[^`>]*>)?`", r"`\1`", raw)  # :role:`x <t>` -> `x`
+    raw = re.sub(r"`([^`<>]*?)\s*<[^`>]*>`_{1,2}", r"\1", raw)                   # `text <url>`_ -> text
+    raw = re.sub(r"`[~!]", "`", raw)
+    raw = re.sub(r"!?\[([^\]\n]*)\]\([^)\n]*\)", r"\1", raw)                    # [text](url) -> text
+    raw = re.sub(r"(https?://[^\s\[\]\"'<>]+)\[\^?\]", r"\1", raw)              # url[^] -> url
+    raw = re.sub(r"(?:link:|xref:|https?://)[^\s\[\]\"'<>]*\[([^\]\n]*)\]", r"\1", raw)  # link:url[text] -> text
+    raw = re.sub(r"\*\*([A-Za-z][^*\n]*?[A-Za-z.])\*\*", r"\1", raw)   # **bold** (not the ** operator)
+    raw = raw.replace("``", "").replace("`", "")
+    raw = re.sub(r"\{(<[^{}<>\n]*>)\}", r"\1", raw) if url.endswith(".rst") else raw    # :samp:`{var}`
+    raw = re.sub(r"(?<![\w*])\*(?=\S)([^*\n]+?)(?<=\S)\*(?![\w*])", r"\1", raw)   # *emphasis*
+    if url.endswith((".asc", ".md")):
+        raw = re.sub(r"(?<!\w)_(?=\S)([^_\n]+?)(?<=\S)_(?!\w)", r"\1", raw)      # _emphasis_
+    if url.endswith((".html", ".htm", ".cnxml", ".xml")):
+        raw = strip_html(raw)
+    return raw
+
+
 def load_source(src: dict, fresh: bool):
-    """Return (status_code, normalized_text). Also writes <key>.disp with readable text for --audit."""
+    """Return (status_code, normalized_text). Also writes <key>.disp with readable text for --audit.
+
+    If the page cannot be fetched and the source names a mirror, the mirror is read instead and the
+    returned status is negative (for example -200) so callers can say "mirror".
+    """
     CACHE.mkdir(exist_ok=True)
     url = src["url"].split("#")[0]
     key = CACHE / hashlib.sha1(url.encode()).hexdigest()
@@ -109,7 +160,15 @@ def load_source(src: dict, fresh: bool):
         return int(meta.read_text()), txt.read_text()
     raw = key.with_suffix(".raw")
     time.sleep(0.4)
-    code = curl(url, raw)
+    code = 0 if src.get("prefer_mirror") and src.get("mirror") else curl(url, raw)
+    if (code >= 400 or code == 0 or not raw.exists()) and src.get("mirror"):
+        mcode = curl(src["mirror"], raw)
+        if 200 <= mcode < 400 and raw.exists():
+            raw_text = strip_markup(raw.read_bytes().decode("utf-8", errors="replace"), src["mirror"])
+            key.with_suffix(".disp").write_text(collapse(raw_text))
+            meta.write_text(str(-mcode))
+            txt.write_text(norm(raw_text))
+            return -mcode, norm(raw_text)
     if code >= 400 or code == 0 or not raw.exists():
         meta.write_text(str(code))
         txt.write_text("")
@@ -133,6 +192,7 @@ def main() -> int:
     ap.add_argument("--src")
     ap.add_argument("--list-sources", action="store_true")
     ap.add_argument("--audit", action="store_true", help="print each claim with the source text around its longest check string")
+    ap.add_argument("--pending", action="store_true", help="also check pending facts (needs network access to their sources)")
     a = ap.parse_args()
 
     sources = {s["id"]: s for s in json.loads(REGISTRY.read_text())["sources"]}
@@ -143,9 +203,13 @@ def main() -> int:
     facts = json.loads(FACTS.read_text())["facts"]
     if a.src:
         facts = [f for f in facts if f["src"] == a.src]
+    pending = [f for f in facts if f.get("pending") or sources.get(f["src"], {}).get("status") != "verified"]
+    if not a.pending:
+        pend_ids = {f["id"] for f in pending}
+        facts = [f for f in facts if f["id"] not in pend_ids]
 
     needed = sorted({f["src"] for f in facts})
-    texts, bad_src, skipped = {}, [], set()
+    texts, bad_src, skipped, via_mirror = {}, [], set(), set()
     for sid in needed:
         s = sources.get(sid)
         if not s:
@@ -155,7 +219,10 @@ def main() -> int:
         code, text = load_source(s, a.fresh)
         texts[sid] = text
         flag = "ok " if text else "BAD"
-        print(f"{flag} {code:>3}  {sid}")
+        via = "  (read via mirror: " + s["mirror"] + ")" if code < 0 else ""
+        if code < 0:
+            via_mirror.add(sid)
+        print(f"{flag} {abs(code):>3}  {sid}{via}")
         if not text:
             bad_src.append(sid)
 
@@ -178,8 +245,14 @@ def main() -> int:
         if f["src"] in bad_src or missing:
             failed += 1
             why = "source unreadable" if f["src"] in bad_src else "missing: " + "; ".join(repr(m) for m in missing)
+            if f["src"] in via_mirror and missing:
+                why += "  [checked against the mirror only; the live page may render this text differently]"
             print(f'FAILED  {f["id"]}  ({f["src"]})  {why}')
-    print(f"\n{len(facts) - failed - n_skipped} of {len(facts)} facts verified; {n_skipped} skipped; {failed} failed; {len(bad_src)} unreadable sources")
+    if not a.pending:
+        for f in pending:
+            why = "fact marked pending" if f.get("pending") else "source status is " + sources.get(f["src"], {}).get("status", "missing")
+            print(f'PENDING {f["id"]}  ({f["src"]})  {why}; not citable until checked with --pending')
+    print(f"\n{len(facts) - failed - n_skipped} of {len(facts)} facts verified; {n_skipped} skipped; {failed} failed; {len(bad_src)} unreadable sources; {0 if a.pending else len(pending)} pending (not checked, not citable)")
     return 1 if failed or bad_src else 0
 
 

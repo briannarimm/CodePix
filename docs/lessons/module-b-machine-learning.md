@@ -1,6 +1,6 @@
 # Module B: Intro to Machine Learning (lesson plan)
 
-Status: research draft, 2026-10-14. Content and accuracy first; no code has been written for the app.
+Status: research draft, 2026-10-14; gaps closed 2026-10-15 (library Python requirements, savefig, regression versus classification, learning rate, baselines, random forests, SVMs, backpropagation, embeddings, LLMs, semi-supervised learning). Content and accuracy first.
 
 Unlocked by finishing Module A (A17 certificate). The reading conventions are the same as in Module A:
 
@@ -19,13 +19,16 @@ Unlocked by finishing Module A (A17 certificate). The reading conventions are th
 | Google, Machine Learning Crash Course and intro course (CC BY 4.0) | Definitions, loss, gradient descent, metrics, overfitting, fairness | Attribute Google. Some numbers shown on the page only as images were not used. |
 | scikit-learn documentation (BSD) | Install, estimators, cross-validation, metrics, clustering, trees, neighbors, naive Bayes | Version drift: install page lists requirements only through 1.7. |
 | NumPy, pandas, Matplotlib docs (BSD-style) | Tools | |
+| PyPI release metadata (scikit-learn 1.9.1, NumPy 2.5.4, pandas 3.0.6, Matplotlib 3.11.2) | Which Python each library needs | Facts only. Re-read before each release of the book. |
+| Dive into Deep Learning, sections 3.1, 5.3, 11.9, 15.1 (CC BY-SA 4.0) | Learning rate, backpropagation, word embeddings, pretrained transformers | ShareAlike: cite and paraphrase only. Site shows version 1.0.3. |
 | Samuel (1959), Rosenblatt (1958) | History | Cite abstract and title only. |
 
-Not used because it could not be read or verified: Turing (1950) itself (no open full text found); Runestone (HTTP 403); Dive into Deep Learning (landing page only). Marked `unverified` or `rejected` in the registry.
+Not used because it could not be read or verified: Turing (1950) itself (no open full text found). Google's crash-course pages on hyperparameters, embeddings and LLMs were opened on 2026-10-15 but could not be checked as raw text, so their facts are pending and not citable. The Dive into Deep Learning landing-page entry stays `unverified`; the four chapter entries above are verified.
 
 ## Decisions that shape this module (see research summary)
 
-1. **Python 3.10 or newer.** scikit-learn's install page says version 1.7 requires Python 3.10 or newer [ml-016]. (The page does not list a rule for the current 1.9.x. Re-read it before B1.) Python 3.9 is already end-of-life [py-010], so this module never targets it.
+1. **Which Python.** scikit-learn's install page says version 1.7 requires Python 3.10 or newer [ml-016], but its list stops there. PyPI lists scikit-learn 1.9.1 as requiring Python 3.11 or newer, with a CPython 3.15 wheel for Apple silicon Macs [ml-108]. NumPy 2.5.4 requires Python 3.12 or newer [ml-109]; pandas 3.0.6 and Matplotlib 3.11.2 require 3.11 or newer [ml-110] [ml-111]. Python 3.9 is already end-of-life [py-010], so this module never targets it.
+   - ◇ Recommendation (needs Brianna's decision): Module B asks for the current release and states a floor of 3.12, the lowest version on which all four current libraries install at their latest versions.
 2. **Virtual environment first.** All installs go into a venv [ml-015], which also avoids the "externally managed" block on Homebrew Python [py-155].
 3. **Split proportions.** Google says a two-way training/test split is not optimal and adds a validation set [ml-045]. GAP: no sourced rule of thumb for percentages remains, so the book teaches the three roles (train, validate, test) and gives no fixed ratio.
 4. **Honesty labels.** Every number comes from running code on fictional data (⚙). Source numbers are shown only as source numbers, with the page named.
@@ -88,7 +91,9 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 **On your machine.** `python3 -m venv .venv`, activate, `pip install numpy pandas matplotlib scikit-learn`, run a script that imports each and prints its version. ⚙ Confirm the exact commands against the live pages on the day of writing.
 
-**Open issues.** GAP: confirm which Python the current scikit-learn requires; the install page text we read ends at 1.7.
+- Current releases: scikit-learn 1.9.1 needs Python 3.11 or newer [ml-108]; NumPy 2.5.4 needs 3.12 or newer [ml-109]; pandas 3.0.6 and Matplotlib 3.11.2 need 3.11 or newer [ml-110] [ml-111]. Each publishes a CPython 3.15 wheel for Apple silicon Macs.
+
+**Open issues.** Re-read the four PyPI pages on the day the book is built; requirements move with each release.
 
 ---
 
@@ -118,7 +123,9 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 **On your machine.** ⚙ Scatter plot hours against cost; histogram of ticket costs; save the image.
 
-**Open issues.** GAP: saving a figure (`savefig`) is not on the page we read; fetch the API page before teaching it.
+- `savefig` saves the current figure as an image or vector graphic file. Without a format, the format comes from the file name's extension, and `dpi` sets the resolution in dots per inch [ml-112].
+
+**On your machine (saving).** ⚙ Save the scatter plot as `costs.png`, then open it from Finder.
 
 ---
 
@@ -128,7 +135,8 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 **Concept points.**
 - Google's model is y' = b + w1 x1: predicted label, bias, weight, feature [ml-027]. Its car example has bias 34 and weight -4.6, so a 4,000-pound car is predicted at 15.6 miles per gallon [ml-028].
-- GAP: a sourced definition of regression versus classification, and a worked line-fit example with a published answer, are not available now. Our own shop data replaces them. ⚙
+- Regression versus classification: scikit-learn's glossary calls a classifier a supervised predictor with a finite set of discrete outputs, and a regressor one with continuous outputs [ml-113]. A repair cost is continuous, so B4 is regression; "needs a part: yes or no" is classification (B6). ◇ (The examples are ours.)
+- GAP: a worked line-fit example with a published answer is not available. Our own shop data replaces it. ⚙
 - scikit-learn's `LinearRegression` minimizes the residual sum of squares [ml-032].
 - ◇ Our own shop data replaces the book examples. ⚙ All numbers come from running the code.
 
@@ -144,7 +152,10 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 **Concept points.**
 - Gradient descent repeats: compute the loss, decide which direction lowers it, move the weight and bias a small amount, repeat until the loss stops improving [ml-033]. In Google's worked example the loss (MSE) is 303.71 at iteration 1 and 42.17 after six iterations [ml-034]. A model has converged when more iterations no longer reduce the loss meaningfully, and linear models have a convex loss surface [ml-035].
-- ◇ The step size is a setting you choose. (GAP: the crash course names it the learning rate on its hyperparameters page, which we have not read; add before using the term.)
+- The step size is the learning rate. Dive into Deep Learning multiplies the gradient by a small positive value called the learning rate [ml-114]. scikit-learn says the learning rate controls the step size and can stay constant or slowly decay [ml-115].
+- Settings like the learning rate, which training does not update, are hyperparameters [ml-114]. scikit-learn passes them to an estimator's constructor and suggests searching for the best cross validation score [ml-116].
+- ◇ Toy idea: rerun Downhill with a tiny, a good and a too-large step. ⚙ Record the real loss values.
+- Pending: Google's hyperparameters page says the same in its own words (mlcc-hyperparameters); it is not citable until checked as raw text.
 
 **Analogy.** Walking downhill in fog by feeling the slope. ◇
 
@@ -195,7 +206,9 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - When one class is rare accuracy misleads: Google's 1%-positives example scores 99% by always predicting negative [ml-055]; J&M's pie-tweet example reaches 99.99% while finding nothing [ml-056]. ⚙ Recomputed.
 - J&M define precision and recall as above in words [ml-057]. In a three-class example, macroaveraged precision is .60 and microaveraged .73; microaveraging is dominated by the frequent class [ml-058]. ⚙ Recomputed.
 - scikit-learn's confusion matrix entry (i, j) counts observations actually in group i but predicted in group j; for two classes `ravel()` gives tn, fp, fn, tp [ml-059]. Precision, recall and the F-measure (weighted harmonic mean) [ml-060]; its example prints F1 as 0.66..., the truncated form of 2/3 [ml-061]. ⚙
-- The F-measure is a weighted harmonic mean of precision and recall (see above, [ml-060]). GAP: no sourced statement about majority-class baselines or human ceilings remains; the baseline step in the exercises is our own teaching. ◇
+- The F-measure is a weighted harmonic mean of precision and recall (see above, [ml-060]).
+- Baselines: scikit-learn calls comparing your model with simple rules of thumb a sanity check. Its `DummyClassifier` with the `most_frequent` strategy always predicts the most frequent training label and ignores the input [ml-118].
+- GAP: human ceilings (how well people do on the same task) are not sourced.
 
 **Analogy.** A smoke alarm: catching every fire (recall) versus never crying wolf (precision). ◇
 
@@ -211,7 +224,10 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - k-nearest neighbors stores the training data and gives a query point the class of the majority of its k nearest neighbors; the best k is highly data-dependent [ml-064].
 - Decision trees learn if-then-else rules, are simple to interpret and can be visualized, but can overfit; `max_depth` and `min_samples_leaf` limit size [ml-065]; `export_text` prints the rules [ml-066].
 - Naive Bayes uses Bayes' theorem with a naive independence assumption [ml-067]; it works well for document classification and spam filtering but its probabilities should not be trusted [ml-068].
-- GAP: random forests and support vector machines are only named by sources [ml-008]; no explanation yet, so the book only names them.
+- Ensembles combine the predictions of several base estimators to be more robust than one; gradient-boosted trees and random forests are famous examples [ml-119].
+- In a random forest each tree trains on a bootstrap sample (drawn with replacement), and each tree considers a random subset of the features [ml-120]. Single trees tend to overfit; averaging many different trees lets some errors cancel out. scikit-learn averages the trees' probabilities instead of taking a vote [ml-121].
+- Support vector machines are supervised methods for classification, regression and outlier detection. Their decision function uses a subset of training points called support vectors [ml-122]. Intuitively, the best separating line (a hyperplane) has the largest distance to the nearest training points of any class [ml-123]. SVMs do not directly give probabilities [ml-124].
+- ◇ Toy idea: Three Judges grows to five, with a forest and an SVM. ⚙
 
 **Toy: Three Judges.** The same ticket goes to three models; compare answers. ⚙
 
@@ -248,7 +264,8 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - A neural unit is a weighted sum of inputs plus a bias, passed through a non-linear activation such as sigmoid, tanh or ReLU [ml-082]. J&M's worked unit gives z = 0.87 and output about .70 [ml-083]. ⚙ Recomputed. ReLU is max(z, 0) [ml-085].
 - Google: hidden-layer nodes are neurons; a network of only linear nodes cannot learn nonlinearities [ml-081].
 - A single perceptron cannot compute XOR because XOR is not linearly separable [ml-084].
-- In language-model pretraining the parameters are trained via error backpropagation with gradient descent [ml-107]; backpropagation became widespread with Rumelhart et al. (1986) [ml-093]. GAP: the mechanics of backpropagation are not yet sourced (J&M3 section 6.6 not read). The book will only show the idea.
+- In language-model pretraining the parameters are trained via error backpropagation with gradient descent [ml-107]; backpropagation became widespread with Rumelhart et al. (1986) [ml-093]. Backpropagation calculates the gradient of a network's parameters by working backward, from the output layer to the input layer, using the chain rule from calculus [ml-125]. That is one reason training needs much more memory than prediction [ml-126]. scikit-learn's multi-layer perceptron uses a form of gradient descent with gradients from backpropagation [ml-127].
+- ◇ The book shows the backward pass as arrows on Wire a Brain, with no calculus required.
 
 **Toy: Wire a Brain.** Build AND and OR from one unit; fail at XOR; solve with two layers. JS demo, labeled as not Python.
 
@@ -262,7 +279,11 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - The transformer chapter covers attention, transformer blocks, token and position embeddings, the language modeling head and decoding [ml-090]; decoding choices include greedy decoding, random sampling, temperature sampling and top-k and top-p sampling [ml-091].
 - Pretraining is self-supervised because the text supplies its own labels [ml-013]. GeeksforGeeks gives BERT and GPT as examples [ml-011].
 - Dates: n-gram language models from Jelinek's IBM group, 1975 to 1985 [ml-089]; transformer 2017 and prompting 2019 [ml-092].
-- GAP: Google's embeddings and LLM pages were not read; add before teaching cosine similarity or attention details.
+- Word vectors are vectors that represent words, and mapping words to real vectors is called word embedding [ml-128]. One-hot vectors cannot show that two words are similar: the cosine similarity of the one-hot vectors of two different words is 0. Cosine similarity is the cosine of the angle between two vectors [ml-129].
+- Transformers come in encoder-only, encoder-decoder and decoder-only forms. Decoder-only transformers are the de facto architecture for large language models, which learn from unlabeled text through self-supervised learning [ml-130].
+- In GPT-style pretraining the target is the input shifted by one token [ml-131]. ◇ That is next-word prediction, the same game as the n-gram toy.
+- In-context learning: a pretrained model produces a task's output from a description, examples and a prompt, with no parameter update. It comes in zero-shot, one-shot and few-shot forms [ml-132].
+- Pending: Google's embeddings and LLM pages (mlcc-embeddings, mlcc-llm) are researched but not citable until checked as raw text. GAP: attention mechanics.
 
 **Toy: Next Word.** Predict the next word from counts, then from a tiny model. ⚙
 
@@ -272,8 +293,8 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 **Concept points.**
 - Reinforcement learning: rewards and penalties, producing a policy [ml-004]; GeeksforGeeks lists Q-learning and SARSA [ml-010].
-- Semi-supervised: single-sourced in GeeksforGeeks [ml-007]; self-supervised: [ml-011] and [ml-013].
-- GAP: no independent source for semi-supervised learning. Keep to one sentence.
+- Semi-supervised learning means some training samples have no label; scikit-learn's estimators use the unlabeled data to capture the shape of the data better, and can do well with very few labeled and many unlabeled points [ml-135]. They mark an unlabeled point with -1 in `y` [ml-136]. GeeksforGeeks lists it too [ml-007].
+- Self-supervised: [ml-011] and [ml-013]; large language models learn this way [ml-130].
 
 ---
 
@@ -298,17 +319,18 @@ Build a "Quote Machine": load fictional repair tickets, split properly [ml-103],
 
 - 1958: Rosenblatt's article on the perceptron [ml-098].
 - 1959: Samuel reports a computer learning to play checkers better than its programmer, in about 8 or 10 hours of play [ml-097].
+- 1975 to 1985: Jelinek's group at IBM develops n-gram language models and coins the term [ml-089].
 - 1986: backpropagation widespread [ml-093]. 2017: transformer. 2019: prompting [ml-092].
 
 All dates and claims come from the cited facts; nothing else goes on the timeline.
 
 ## Cross-cutting pages
 
-- **Glossary:** model, feature, label, loss [ml-001] [ml-005] [ml-006]; overfitting [ml-047]; precision, recall [ml-057]; centroid and inertia [ml-071]; language model [ml-087].
+- **Glossary:** model, feature, label, loss [ml-001] [ml-005] [ml-006]; overfitting [ml-047]; precision, recall [ml-057]; centroid and inertia [ml-071]; language model [ml-087]; classifier and regressor [ml-113]; learning rate and hyperparameter [ml-114]; backpropagation [ml-125]; word embedding [ml-128]; support vectors [ml-122].
 - **Cheat sheet:** formulas from [ml-054] [ml-037] [ml-060].
 
 ## Exercise and trace rules
 
-- Python 3.10 or newer [ml-016]; all outputs from real runs; seeds fixed, and the book says seeds may give different numbers on another Python version [py-122].
+- Python: the current release, with the floor set by the libraries' PyPI requirements [ml-108] [ml-109]; all outputs from real runs; seeds fixed, and the book says seeds may give different numbers on another Python version [py-122].
 - scikit-learn version printed in every exercise so differences are visible.
 - All data fictional and generated or hand-written in `content/`.
