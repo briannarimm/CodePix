@@ -26,6 +26,8 @@ button,a,[role=button],label,select,summary{cursor:var(--cursor)}
 a{color:var(--teal-d)}
 img,svg{max-width:100%}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--lemon)}
+pre{font-family:var(--f-code)}
+code,kbd,samp{font-family:var(--f-code);font-size:.9em}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Chunky glossy buttons with hard shadows */
@@ -34,10 +36,10 @@ img,svg{max-width:100%}
   box-shadow:3px 3px 0 var(--ink);text-decoration:none;line-height:1.2;min-height:44px;transition:transform .08s}
 .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
 .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+.btn[disabled],.btn[aria-disabled=true]{opacity:.5;cursor:not-allowed;transform:none}
 .btn.small{min-height:34px;padding:.2em .8em;font-size:.9em;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
 .btn.lemon{--c:var(--lemon)} .btn.tang{--c:var(--tang)} .btn.teal{--c:var(--teal);color:#fff} .btn.lime{--c:var(--lime)} .btn.sky{--c:var(--sky)}
-.btn.pink{--c:var(--pink)} .btn.grape{--c:var(--grape);color:#fff} .btn.plain{--c:#fff}
+.btn.pink{--c:var(--pink)} .btn.grape{--c:var(--grape)} .btn.plain{--c:#fff}
 .chip{display:inline-block;padding:.05em .55em;border:2px solid var(--ink);border-radius:999px;background:var(--c,#fff);font-size:.8em;font-weight:700;white-space:nowrap}
 .ok-mark::before{content:"\2714\FE0E  "} .no-mark::before{content:"\2718\FE0E  "}
 

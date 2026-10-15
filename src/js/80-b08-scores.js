@@ -127,7 +127,7 @@ LEVEL({
     { predict: { program: "b08_confusion", q: "Byte's answers drop into the four boxes. What do the scores come out as?", choices: ["tp 4 fp 0 fn 0 tn 8\naccuracy 1.0 precision 1.0\nrecall 1.0 f1 1.0", "tp 3 fp 2 fn 1 tn 6\naccuracy 0.75 precision 0.6\nrecall 0.75 f1 0.67", "tp 3 fp 1 fn 2 tn 6\naccuracy 0.75 precision 0.75\nrecall 0.6 f1 0.67"], answer: 1,
       why: "Three urgent tickets caught, one missed, two false alarms. Precision divides by everything flagged (3 + 2); recall divides by everything truly urgent (3 + 1)." } },
     say("nib", "Google's definitions: accuracy is (TP+TN) over everything, recall is TP/(TP+FN), and precision is TP/(TP+FP) [ml-054]. Think of a smoke alarm. Recall catches every fire. Precision stays quiet for toast.", "think"),
-    { ask: { q: "Ms. Gridlock hates false alarms most of all. Which score should she watch?", choices: ["Recall", "Precision", "Accuracy"], answer: 1,
+    { ask: { q: "Ms. Gridlock hates false alarms most of all. Which score is the one to watch?", choices: ["Recall", "Precision", "Accuracy"], answer: 1,
       why: "Precision is TP/(TP+FP) [ml-054]. Every false alarm adds to FP and pulls precision down." } },
     say("byte", "Two numbers is one too many for my display. BEEP?"),
     say("nib", "Then use the [[F1 score]]: the harmonic mean of precision and recall, weighting them equally [ml-060]. scikit-learn's own example prints 0.66..., which is two thirds cut short [ml-061]. Our rerun agrees."),

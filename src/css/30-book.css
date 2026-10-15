@@ -10,7 +10,7 @@
 .page{font-family:var(--f-book);font-size:18px;line-height:1.65}
 .page h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.15;margin:0 0 4px;color:var(--teal-d)}
 .page h3{font-family:var(--f-story);font-size:21px;margin:22px 0 6px}
-.page .kicker{font-family:var(--f-read);font-size:20px;color:var(--tang-d);margin:0}
+.page .kicker{font-family:var(--f-read);font-size:20px;color:#a84a08;margin:0}
 .page p{margin:0 0 12px;max-width:44em}
 .page ul,.page ol{max-width:42em;padding-left:1.4em}
 .page li{margin:4px 0}

@@ -219,7 +219,7 @@ TOY("logbook", {
 
 LEVEL({
   id: "abonus", title: "Save Your Work", job: "Keep a logbook of every working version.",
-  color: "#1a8a8a", scene: "office", cast: ["nib"], toy: "logbook",
+  color: "#33a3a3", scene: "office", cast: ["nib"], toy: "logbook",
   sticker: { title: "Logbook Keeper", glyph: "git", color: "#1a8a8a" },
   goals: ["Say what a commit is", "Name the three states of a file", "Start a repository and write a .gitignore", "Know the steps to share on GitHub"],
   beats: [

@@ -90,7 +90,7 @@ const HINT = {
 
 function sparkle(x, y) {
   if (reducedMotion()) return;
-  const s = el("div.sparkle", { html: `<svg viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="${["#ffe45c", "#ff6fae", "#5cc8ff", "#9be34a"][Math.floor(Math.random() * 4)]}" stroke="#141414" stroke-width="1.5"/></svg>` });
+  const s = el("div.sparkle", { "aria-hidden": "true", html: `<svg viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="${["#ffe45c", "#ff6fae", "#5cc8ff", "#9be34a"][Math.floor(Math.random() * 4)]}" stroke="#141414" stroke-width="1.5"/></svg>` });
   s.style.left = x + "px"; s.style.top = y + "px";
   document.body.append(s);
   setTimeout(() => s.remove(), 700);
@@ -100,8 +100,9 @@ document.addEventListener("click", e => {
 });
 
 function toast(msg, ms = 2600) {
-  const t = el("div.toast", { role: "status" }, msg);
+  const t = el("div.toast", { role: "status" });
   document.body.append(t);
+  setTimeout(() => (t.textContent = msg), 30); // fill after insertion so screen readers announce it
   setTimeout(() => t.remove(), ms);
 }
 
