@@ -30,7 +30,9 @@ function rich(text, used) {
       if (!f) return `<span class="cite">[missing ${id}]</span>`;
       return `<button type="button" class="cite" data-fact="${id}" data-hint="Show the source behind this sentence">${esc(SRC[f.s].cite)}</button>`;
     });
-    return ` <span class="cites">(${parts.join("; ")})</span>`;
+    // keep "(" with the first citation and ")" with the last, so a parenthesis never sits alone at a line end
+    parts[0] = "(" + parts[0]; parts[parts.length - 1] += ")";
+    return ` <span class="cites">${parts.map(p => `<span class="nowrap">${p}</span>`).join("; ")}</span>`;
   });
   h = h.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, t, shown) =>
     `<button type="button" class="gl" data-term="${esc(t.toLowerCase())}" data-hint="Glossary: what does ${esc(t)} mean?">${shown || t}</button>`);

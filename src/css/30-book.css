@@ -29,6 +29,7 @@
 .page .refs h4{font-family:var(--f-story);margin:0 0 6px}
 .page .refs p{margin:0 0 6px;padding-left:2em;text-indent:-2em;word-break:break-word}
 .page .pnav{display:flex;justify-content:space-between;gap:8px;margin-top:20px;flex-wrap:wrap}
+.cites .nowrap{white-space:nowrap}
 .cite{border:0;background:none;padding:0;color:var(--teal-d);text-decoration:underline dotted;font:inherit;font-size:.9em}
 .gl{border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline wavy var(--tang);text-underline-offset:3px}
 .page table{border-collapse:collapse;margin:12px 0;font-size:.92em;display:block;overflow-x:auto;max-width:100%}
