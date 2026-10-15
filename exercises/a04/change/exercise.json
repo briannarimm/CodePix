@@ -1,0 +1,22 @@
+{
+  "id": "a04-change",
+  "level": "a04",
+  "title": "Count the change",
+  "file": "change.py",
+  "kind": "test",
+  "prompt": "A customer pays 2000 cents (20 dollars) for a repair that costs 1375 cents. The program already works out `change` in cents. Fill in `dollars` and `cents` so the last line prints the change as whole dollars and leftover cents.\n\nWhen it works, `python3 change.py` prints `Change: 6 dollars and 25 cents`. The tests also try other prices.",
+  "run_command": "python3 -m unittest test_change.py",
+  "expected_output": "Change: 6 dollars and 25 cents",
+  "hints": [
+    "625 cents is how many whole dollars? Which operator throws away the part after the decimal point?",
+    "`//` gives the whole dollars and `%` gives what is left over.",
+    "`dollars = change // 100` and `cents = change % 100`."
+  ],
+  "explain_after": "`//` is floor division and `%` gives the remainder [py-046]. Together they split 625 into 6 hundreds with 25 left over. Keeping money in whole cents also keeps the numbers whole, which is why many shop programs do it.",
+  "concepts": [
+    "operators",
+    "floor division",
+    "remainder",
+    "f-strings"
+  ]
+}

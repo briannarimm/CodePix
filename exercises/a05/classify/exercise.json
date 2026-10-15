@@ -1,0 +1,20 @@
+{
+  "id": "a05-classify",
+  "level": "a05",
+  "title": "Negative, zero or positive",
+  "file": "classify.py",
+  "kind": "test",
+  "prompt": "The shop's thermometer gadget needs to say whether a reading is `negative`, `zero` or `positive`. The program handles negative numbers already. Add an `elif` and an `else` so it prints exactly one word for any number.\n\nTry it with `number = 0` and `number = 12` too. The tests do.",
+  "run_command": "python3 -m unittest test_classify.py",
+  "expected_output": "negative",
+  "hints": [
+    "Three outcomes need three branches: `if`, `elif` and `else`.",
+    "Testing whether two things are equal uses `==`, two equals signs.",
+    "Add `elif number == 0:` with `print(\"zero\")` under it, then `else:` with `print(\"positive\")`. Indent the prints."
+  ],
+  "explain_after": "`==` asks whether two values are equal [py-158]. `elif` is short for else if [py-058]. Python checks the branches from the top and runs the first one whose condition is true; `else` catches everything left over, so exactly one word prints.",
+  "concepts": [
+    "comparisons",
+    "if/elif/else"
+  ]
+}

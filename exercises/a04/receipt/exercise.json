@@ -1,0 +1,21 @@
+{
+  "id": "a04-receipt",
+  "level": "a04",
+  "title": "A receipt line",
+  "file": "receipt.py",
+  "kind": "test",
+  "prompt": "Ms. Gridlock wants receipt lines that look the same every time. Set `line` with an f-string so the program prints `washer: 4 x 0.35 = 1.40`.\n\nUse the names `item`, `qty` and `each` inside the braces. The tests change those values, so typing the words and numbers in by hand will not pass.",
+  "run_command": "python3 -m unittest test_receipt.py",
+  "expected_output": "washer: 4 x 0.35 = 1.40",
+  "hints": [
+    "An f-string starts with `f` before the quote, and each `{...}` holds a name or a calculation.",
+    "Inside the braces, `:.2f` after a value shows it with two decimal places, as in `{each:.2f}`.",
+    "`line = f\"{item}: {qty} x {each:.2f} = {qty * each:.2f}\"`"
+  ],
+  "explain_after": "An f-string puts expressions in braces and accepts a format such as `.2f` after a colon [py-055]. The braces can hold a whole calculation, so `{qty * each:.2f}` works out the total and formats it in one go.",
+  "concepts": [
+    "f-strings",
+    "string formatting",
+    "expressions"
+  ]
+}

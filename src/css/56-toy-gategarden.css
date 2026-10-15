@@ -1,0 +1,23 @@
+/* Gate Garden toy (A5) */
+.toy-gategarden .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toy-gategarden .agebox{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--f-code);font-weight:700}
+.toy-gategarden .agebox .readout{display:inline-block;min-width:2.2em;font-family:var(--f-read);font-size:28px}
+.toy-gategarden .btn[aria-pressed]{font-family:var(--f-code)}
+.toy-gategarden .board{max-width:440px;margin:8px auto;border:3px solid var(--ink);border-radius:12px;background:#f4ffe6;box-shadow:3px 3px 0 var(--ink)}
+.toy-gategarden .board svg{display:block;width:100%;height:auto}
+.toy-gategarden .road{fill:none;stroke:var(--hole);stroke-width:14;stroke-linecap:round}
+.toy-gategarden .tag{font-family:var(--f-story);font-size:13px;font-weight:700;fill:var(--ink2)}
+.toy-gategarden .start{fill:#fff;stroke:var(--ink);stroke-width:3;stroke-dasharray:4 3}
+.toy-gategarden .gate path{fill:var(--lemon);stroke:var(--ink);stroke-width:3}
+.toy-gategarden .gate.yes path{fill:var(--lime)}
+.toy-gategarden .gate.no path{fill:var(--pink)}
+.toy-gategarden .gate text{font-family:var(--f-code);font-variant-ligatures:none;font-size:14px;font-weight:700;text-anchor:middle;fill:var(--ink)}
+.toy-gategarden .verdict{font-family:var(--f-story);font-size:12px;font-weight:700;fill:var(--ink)}
+.toy-gategarden .bin rect{fill:#fff;stroke:var(--ink);stroke-width:3}
+.toy-gategarden .bin.hit rect{fill:var(--sky)}
+.toy-gategarden .bin text{font-family:var(--f-code);font-size:14px;font-weight:700;text-anchor:middle;fill:var(--ink)}
+.toy-gategarden .bin .count{font-family:var(--f-story);font-size:11px;font-weight:400}
+.toy-gategarden .token{fill:var(--tang);stroke:var(--ink);stroke-width:3;transition:cx .35s ease-in-out,cy .35s ease-in-out}
+.toy-gategarden .log{margin:6px 0;padding-left:1.4em;font-size:15px}
+.toy-gategarden .log code{font-family:var(--f-code);font-size:.9em}
+.toy-gategarden .own{font-size:14px;color:var(--ink2);margin:8px 0 0}
