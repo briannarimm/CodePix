@@ -1,15 +1,13 @@
 /* A15. Find It Fast: linear and binary search, Big O, sorting, timing.
    Toys: racetrack (search race) and sortdance (sorting with counters). Both are JavaScript demos. */
 
-// TODO(research): a source for insertion sort (what it is and how its work grows). The Sort Dance shows it
-// only as a description of the demo's own code; the book does not name its Big O.
-
 PAGES("a15", [
   {
     h: "Two ways to find a part",
     body: [
       "Saturday morning, a customer asks for part 640. The stockroom has hundreds of drawers. How do you find the right one, and how long will it take?",
       "The plain way is a [[linear search]]. The CS50 notes picture a row of doors: you open them from left to right, and you stop with a yes as soon as the number is behind one, or end with a no when none of them has it [py-131].",
+      "The CS50 notes define an [[algorithm]] as a step-by-step set of instructions to solve a problem, and [[pseudocode]] as human-readable instructions that often describe an algorithm's steps [py-226]. The row of doors above is pseudocode in plain English. Python turns it into something a computer can run.",
       "Here is a linear search in Python. It also counts its looks, so we can measure the work.",
       { code: "a15_linear", out: true },
       "Each answer is a pair: where the part was, and how many bins the search opened. The zipper is not on the shelf, so the search had to open every bin before it could say no.",
@@ -43,6 +41,15 @@ PAGES("a15", [
       "Bubble sort walks along the shelf and swaps neighbors that are in the wrong order, so the larger items bubble toward the end. It quits when a whole pass makes no swaps [py-135].",
       { code: "a15_bubble", out: true },
       { trace: "a15_bubble", label: "🔍 Watch the prices bubble" },
+      { h3: "Insertion sort" },
+      "[[Insertion sort]] keeps a sorted part at the low end of the list and inserts each new item into it, so the sorted part grows by one item each time [py-253]. On each pass it checks the current item against the sorted part. Items greater than it shift one place to the right, until it meets a smaller item or the end of the sorted part [py-254].",
+      { analogy: "Picture sorting a stack of invoices into a neat pile on your left. Pick up the next invoice, slide it into the pile at the right spot, pick up the next. The pile on the left is always in order. It just keeps getting taller." },
+      { code: "a15_insertion", out: true },
+      { trace: "a15_insertion", label: "🔍 Watch each price slide into place" },
+      "How much work is that? It depends on the shelf. The most comparisons insertion sort can need is the sum of the first n-1 integers, which is O(n^2). The best case is a list that is already sorted: one comparison on each pass [py-255].",
+      { code: "a15_insertion_growth", out: true },
+      "The *in order* column is the best case: one less than the shelf size, one comparison per pass. The *reverse order* column makes every price slide all the way to the front. For 100 items that is 1 + 2 + ... + 99, which is 4,950. Double the shelf from 1,000 to 2,000 and the reverse count roughly quadruples. That is O(n^2) in action.",
+      { honest: "These counts were recorded from real Python when the site was built. A comparison count is the same on every machine, so you will get the same numbers." },
       { h3: "Merge sort" },
       "Merge sort splits the numbers down the middle, sorts each half, and then merges the two sorted halves. It runs in O(n log n) [py-136], which beats O(n^2) by a wide margin on a big pile.",
       "The merge step is the clever part. Two sorted piles become one: look at the top of each pile and take the smaller one, again and again.",
@@ -76,7 +83,9 @@ PAGES("a15", [
 ]);
 
 GLOSS({
-  algorithm: "A step-by-step method for a job, written so exactly that a very literal helper can follow it.",
+  algorithm: "A step-by-step set of instructions to solve a problem [py-226]. Written exactly enough, a very literal helper can follow it.",
+  pseudocode: "Human-readable instructions that often describe an algorithm's steps [py-226].",
+  "insertion sort": "A sort that keeps a sorted part at the low end of the list and inserts each new item into it [py-253]. At most O(n^2) comparisons; one per pass on a list that is already sorted [py-255].",
   "linear search": "Checking items one at a time from the start until you find the one you want or run out [py-131]. It is O(n) [py-133].",
   "binary search": "Looking at the middle item and then searching only the left or right half. It needs sorted data [py-132] and is O(log n) [py-133].",
   sorting: "Putting items in order, such as smallest to largest. Python's `sorted()` returns a new sorted list [py-107].",
@@ -203,7 +212,7 @@ TOY("sortdance", {
     const bars = $(".sd-bars", root), about = $(".sd-about", root), log = $(".sd-log", root), cmpB = $(".sd-cmp", root), mvB = $(".sd-mv", root), play = $(".sd-play", root);
     const ABOUT = {
       bubble: "Bubble sort walks along the shelf, swapping neighbors that are in the wrong order, and stops after a pass with no swaps [py-135].",
-      insertion: "Insertion, as this demo does it: take the next price and slide it left past every bigger one, so the left end of the shelf is always in order.",
+      insertion: "Insertion sort keeps a sorted part at the left end and inserts each new price into it, so the sorted part grows by one each time [py-253]. This demo slides the price left with swaps, one bigger neighbor at a time.",
       merge: "Merge sort splits the shelf down the middle, sorts each half the same way, and merges the sorted halves [py-136]. It copies prices into place, so it counts moves instead of swaps.",
     };
     let algo = "bubble", start = [], arr = [], ev = [], at = 0, cmp = 0, mv = 0, timer = null, done = {};
@@ -311,7 +320,7 @@ LEVEL({
   beats: [
     nar("Saturday. The shop opens early for the weekend rush, and the bell over the door has not stopped ringing."),
     say("gridlock", "{{you}}! A customer wants part 640, another wants a zipper pull, and the stockroom has a few hundred drawers. Can the helper find things faster than I can?", "think"),
-    { show: ["gridlock", "nib"], ...say("nib", "Today's question is how much work a search takes. Every method for a job like this is an [[algorithm]]: steps a very literal helper can follow.") },
+    { show: ["gridlock", "nib"], ...say("nib", "Today's question is how much work a search takes. Every method for a job like this is an [[algorithm]]: a step-by-step set of instructions to solve a problem [py-226].") },
     say("nib", "The plain way is a [[linear search]]: open the drawers from left to right and stop when you find it, or say no when none has it [py-131]."),
     { predict: { program: "a15_linear", q: "This search counts its looks. Each line prints a pair: (where it was, how many looks). What will it print?",
       choices: ["(4, 5)\n(-1, 6)", "(5, 5)\n(-1, 0)", "(4, 4)\n(-1, 6)"], answer: 0,
@@ -339,6 +348,12 @@ LEVEL({
       choices: ["[1, 2, 4, 5] comparisons: 12 swaps: 5", "[1, 2, 4, 5] comparisons: 6 swaps: 5", "[5, 4, 2, 1] comparisons: 12 swaps: 5"], answer: 0,
       why: "Each pass makes three comparisons, and it takes four passes: three that swap and one final pass that checks and finds nothing to swap." } },
     { trace: { program: "a15_bubble", note: "Watch `swapped`. The loop only stops after a whole pass leaves it `False`." } },
+    say("nib", "[[Insertion sort]] works like tidying a pile of invoices: keep a sorted part at the low end, and insert each new item into it [py-253]. Bigger items shift right to make room [py-254]."),
+    { predict: { program: "a15_insertion", q: "Insertion sort on the same shelf, [5, 2, 4, 1], counting comparisons. What will it print?",
+      choices: ["[1, 2, 4, 5] comparisons: 6", "[1, 2, 4, 5] comparisons: 12", "[1, 2, 4, 5] comparisons: 3"], answer: 0,
+      why: "The 2 needs one comparison, the 4 needs two (it passes 5 and stops at 2), and the 1 needs three, sliding all the way to the front. That is 6, half of bubble sort's 12 on this shelf." } },
+    { ask: { q: "When does insertion sort do the least work?", choices: ["When the list is already sorted", "When the list is in reverse order", "It always does the same amount"], answer: 0,
+      why: "On a list that is already sorted it needs only one comparison on each pass. Its worst case is O(n^2) [py-255]." } },
     say("nib", "Merge sort splits the pile, sorts each half and merges them, in O(n log n) [py-136]. Try all three in the Sort Dance and compare the counts."),
     { toy: "sortdance", goal: "Sort the shelf with two different dances and compare their counts." },
     { ask: { q: "`tidy = sorted(parts)`. What is in `parts` afterwards?", choices: ["The same items, in the same order as before", "The items in sorted order", "Nothing; sorted() empties it"], answer: 0,

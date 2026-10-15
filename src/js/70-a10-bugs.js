@@ -1,9 +1,8 @@
 /* A10. Bug Hunt: kinds of errors, reading the last line of a traceback, print debugging, try/except,
    assert, and running tests with unittest. Toy: "bugboard", real recorded tracebacks plus a pattern-matching
    decoder (a JavaScript helper; it never runs pasted text).
-   TODO(research): no source yet walks through a multi-frame traceback from top to bottom (lesson plan GAP).
-   The book explains the last line [py-092] and the line number and caret [py-194], and leaves the frames
-   to the Bug Board's highlighting. */
+   The book explains the last line [py-092], the line number and caret [py-194], and how to read the stack
+   of function entries in a longer traceback [py-249] [py-250], with the recorded a10_kettle program. */
 
 PAGES("a10", [
   {
@@ -36,8 +35,21 @@ PAGES("a10", [
       { code: "a10_value", out: true },
       "A cousin: `ValueError` means an argument has the right type but an inappropriate value [py-201]. `int` happily takes a string, so the type is fine. The string `'ten'` just is not a number `int` can read.",
       { h3: "When the bug is inside a function" },
-      { code: "a10_deep", out: true },
-      "This traceback is longer, because the error happened inside `price_each`, which `quote` called, which the main program called. Each `File ..., line N` entry names a line of the program. The last line still says what happened: a division by zero [py-092].",
+      "Back to the kettle. Its morning report calls `announce`, which calls `average`. Kettle B logged no readings at all.",
+      { code: "a10_kettle", out: true },
+      "This traceback is longer, and it has a shape. It starts with the header `Traceback (most recent call last):`. Then come the stack entries, and the exception type and value print after them [py-250].",
+      "The entries list the function that was running when the error happened, the function that called it, and so on. They come in the same order as the frames in a stack diagram, with the running function at the bottom [py-249].",
+      { table: { head: ["Entry", "What it says"], rows: [
+        ["`line 16, in <module>`", "The main program called `morning_report`."],
+        ["`line 14, in morning_report`", "`morning_report` called `announce`, for Kettle B."],
+        ["`line 9, in announce`", "`announce` called `average`."],
+        ["`line 3, in average`", "`average` was running. It divided by `len(readings)`, which was 0."],
+        ["`ZeroDivisionError: division by zero`", "What happened, and the exception type [py-092]."],
+      ] } },
+      { honest: "The right-hand column is our own reading of the recorded traceback above." },
+      { analogy: "A traceback is a snapshot of the tower of recipe cards in progress at the moment things went wrong. It lists the cards from the first one you picked up down to the one you were holding. The bug is often on the last card, or in what an earlier card handed it." },
+      "Here the last card, `average`, did the dividing. The real mistake sits higher up: nobody checked for an empty list before calling it. Read the whole stack before you pick a line to fix.",
+      { trace: "a10_kettle", label: "🔍 Watch the tower of recipe cards build up, then stop" },
       { honest: "We recorded these tracebacks with the Python version named under each box. When we ran the same programs with Python 3.9, the pointer marks (`^^^` and `~~~`) and the *Did you mean* hint were missing. The last lines matched." },
       { toy: "bugboard", label: "Open the Bug Board" },
     ],
@@ -86,7 +98,7 @@ PAGES("a10", [
 
 GLOSS({
   exception: "An error found while a program runs [py-092]. Unless something catches it, the program stops and prints a traceback.",
-  traceback: "Python's report of the location and type of an error [py-195]. Its last line says what happened and names the exception type [py-092].",
+  traceback: "Python's report of the location and type of an error [py-195]. It starts with `Traceback (most recent call last):` [py-250]. It lists the function that was running and the functions that called it, with the running one at the bottom [py-249]. Its last line names the exception type [py-092].",
   test: "A small program that calls your code and checks the result. With `unittest`, tests are methods whose names start with `test` [py-099].",
   assertion: "A check that a value is what you expect. `assert` raises `AssertionError` when its check fails [py-097]; `assertEqual` is the unittest version [py-099].",
 }, "a10");
@@ -128,7 +140,7 @@ TOY("bugboard", {
     </div>
     <div class="bb-result" role="status" aria-live="polite"></div>`,
   init(root, ctx) {
-    const BUGS = [["a10_typo", "Typo"], ["a10_zero", "No jobs"], ["a10_type", "Text plus number"], ["a10_index", "Too far"], ["a10_value", "Words for numbers"], ["a05_indent", "Stray space"], ["a11_lost", "Lost letter"], ["a08_missing", "Missing key"], ["a10_deep", "Deep inside"], ["a10_assert", "Failed check"]]
+    const BUGS = [["a10_typo", "Typo"], ["a10_zero", "No jobs"], ["a10_type", "Text plus number"], ["a10_index", "Too far"], ["a10_value", "Words for numbers"], ["a05_indent", "Stray space"], ["a11_lost", "Lost letter"], ["a08_missing", "Missing key"], ["a10_deep", "Deep inside"], ["a10_kettle", "Kettle report"],["a10_assert", "Failed check"]]
       .filter(([p]) => DATA.programs[p] && DATA.programs[p].err);
     const pins = $(".bb-pins", root), box = $(".bb-case", root), ta = $(".bb-paste", root), res = $(".bb-result", root);
     let current = BUGS.length ? BUGS[0][0] : null;
@@ -212,6 +224,10 @@ LEVEL({
     { predict: { program: "a10_zero", q: "Zero jobs today. What prints before the program stops? (Show the last line of the error too.)",
       choices: ["Minutes: 0\nAverage: 0", "Minutes: 0\nZeroDivisionError: division by zero", "ZeroDivisionError: division by zero"], answer: 1,
       why: "The first `print` ran normally. The second divided by zero, and the program stopped with a `ZeroDivisionError` [py-092]." } },
+    say("nib", "When the error happens inside a function, the traceback lists the function that was running, the one that called it, and so on. The running function is at the bottom [py-249].", "think"),
+    { trace: { program: "a10_kettle", note: "Watch the calls pile up: `morning_report`, then `announce`, then `average`. Kettle B's empty list stops the tower." } },
+    { ask: { q: "A traceback lists four `File ..., line N` entries. Which one names the function that was running when the error happened?", choices: ["the first entry", "the last entry", "the one with the longest line"], answer: 1,
+      why: "The entries follow the order of a stack diagram, with the running function at the bottom [py-249]. The exception type and value print after them [py-250]." } },
     say("nib", "Here is one from the tutorial itself, in shop clothes. Joining text and a number with `+` raises a `TypeError` [py-093]."),
     { toy: "bugboard", goal: "Decode a traceback: pin a recorded one, or paste one from your own machine." },
     say("gridlock", "Fine, it crashes less. But it says the average brew takes 5 minutes. It takes 30.", "think"),
