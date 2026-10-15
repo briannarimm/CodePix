@@ -192,11 +192,11 @@ const ENGINE = {
     const nxt = UI.nextLevel(L.id);
     d.body.append(el("div.line", { html: rich(first ? `Nice work, {{you}}. **${L.title}** is finished.` : `**${L.title}** is finished again.`) }));
     if (L.id === "a17" && first) d.body.append(el("div.line", { html: rich("Module B, Intro to Machine Learning, is now open. Your certificate is in the toolbox.") }));
-    d.acts.append(
+    d.acts.append(...[
       el("button.btn.plain.small", { type: "button", "data-hint": "Play this level again from the start", onclick: () => this.start(L.id, 0) }, "Replay"),
       el("button.btn.sky", { type: "button", "data-hint": "Back to the shop map", onclick: () => UI.hub() }, "Map"),
-      nxt && UI.unlocked(nxt) ? el("button.btn.tang", { type: "button", "data-hint": "Start the next job", onclick: () => this.start(nxt.id, 0) }, "Next job ▶") : null
-    );
+      nxt && UI.unlocked(nxt) ? el("button.btn.tang", { type: "button", "data-hint": "Start the next job", onclick: () => this.start(nxt.id, 0) }, "Next job ▶") : null,
+    ].filter(Boolean));
   },
 };
 
