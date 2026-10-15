@@ -1,0 +1,23 @@
+{
+  "id": "b04-line",
+  "level": "b04",
+  "title": "Score a guessed line",
+  "file": "line.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Finish two functions. `predict(b, w, x)` returns the line's guess, `b + w * x`. `squared_error(b, w, xs, ys)` adds up the squared mistake for every ticket.\n\nWhen both work, `python3 line.py` prints the score of two guessed lines for four fictional tickets. The smaller score is the better line.",
+  "run_command": "python3 -m unittest test_line.py",
+  "expected_output": "guess A: 1113.0\nguess B: 168.0",
+  "hints": [
+    "`predict` is one line: `return b + w * x`.",
+    "In `squared_error`, loop over `zip(xs, ys)`. The mistake for one ticket is `y - predict(b, w, x)`.",
+    "Square each mistake (`error * error`), add it to a running `total` that starts at 0, and return `total` after the loop."
+  ],
+  "explain_after": "Your `predict` is Google's linear model, y' = b + w1x1, with one feature [ml-027]. Squaring each mistake makes every error count as positive and makes big misses count a lot. scikit-learn's `LinearRegression` picks the line that makes this sum of squares as small as possible [ml-032].",
+  "concepts": [
+    "linear regression",
+    "weight",
+    "bias",
+    "squared error"
+  ]
+}

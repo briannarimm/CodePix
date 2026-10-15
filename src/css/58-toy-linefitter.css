@@ -1,0 +1,7 @@
+/* Line Fitter (B4) */
+.toy-linefitter .lf-board svg{display:block;max-width:560px;margin:0 auto}
+.toy-linefitter .lf-ctrl{margin-top:10px}
+.toy-linefitter .lf-s{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:4px 0;font-weight:700}
+.toy-linefitter .lf-s b{min-width:3em;font-family:var(--f-code)}
+.toy-linefitter .lf-s input{flex:1 1 140px;min-height:34px}
+.toy-linefitter .lf-score{margin:8px 0;font-size:22px}

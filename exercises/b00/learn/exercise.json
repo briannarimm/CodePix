@@ -1,0 +1,22 @@
+{
+  "id": "b00-learn",
+  "level": "b00",
+  "title": "Learn a rule from examples",
+  "file": "learn.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Ms. Gridlock's hand-written rules keep breaking. Let the examples write the rule instead.\n\nFinish `learn(examples)`. It gets a list of `(sound, size)` pairs and returns a dictionary that maps each sound to the size seen most often for that sound. When it works, `python3 learn.py` prints the learned rule.",
+  "run_command": "python3 -m unittest test_learn.py",
+  "expected_output": "{'grinding': 'big', 'quiet': 'quick', 'humming': 'big'}",
+  "hints": [
+    "First count. For each sound, keep a small tally dictionary such as `{\"big\": 0, \"quick\": 0}` and add 1 to the right size.",
+    "Then pick. For each sound, the winner is the size with the bigger count. `max(tally, key=tally.get)` gives the key with the largest value.",
+    "Two loops do it: one over `examples` to fill `counts[sound][size]`, one over `counts` to fill `rule[sound] = max(counts[sound], key=counts[sound].get)`."
+  ],
+  "explain_after": "Your program did not contain a single rule about grinding or humming. It worked the rule out from labeled examples. Jurafsky and Martin call that approach supervised machine learning: a labeled training set plus a learning algorithm [ml-012]. Yours is a very small learning algorithm, and it is a real one.",
+  "concepts": [
+    "examples",
+    "supervised learning",
+    "dictionaries"
+  ]
+}
