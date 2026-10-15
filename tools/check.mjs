@@ -9,15 +9,19 @@ import path from "node:path";
 const DIST = process.argv[2], SHOTS = process.argv[3] || "";
 const only = (process.argv[4] || "").split(",").filter(Boolean);
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".json": "application/json", ".css": "text/css", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".py": "text/plain", ".zip": "application/zip", ".txt": "text/plain", ".csv": "text/plain", ".png": "image/png" };
+// Served under /CodePix/ (case-sensitive), like GitHub Pages, so an absolute URL in the app shows up as a 404.
+const PREFIX = "/CodePix/";
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split("?")[0].split("#")[0]);
+  if (!p.startsWith(PREFIX)) { res.writeHead(404); res.end("outside /CodePix/"); return; }
+  p = "/" + p.slice(PREFIX.length);
   if (p.endsWith("/")) p += "index.html";
   const f = path.join(DIST, p);
   if (!f.startsWith(DIST) || !fs.existsSync(f)) { res.writeHead(404); res.end("nope"); return; }
   res.writeHead(200, { "content-type": TYPES[path.extname(f)] || "application/octet-stream" });
   fs.createReadStream(f).pipe(res);
 }).listen(0);
-const base = `http://127.0.0.1:${server.address().port}/`;
+const base = `http://127.0.0.1:${server.address().port}${PREFIX}`;
 const problems = [];
 const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 
