@@ -305,7 +305,6 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - Google's fairness module defines reporting, historical, automation, selection (coverage, non-response, sampling), group attribution, implicit and confirmation bias [ml-099].
 - J&M say ML systems can replicate and even amplify the biases in their training data, and recommend documenting a model with a model card [ml-100]. They cite a study of 200 sentiment systems in which most gave lower sentiment to African American first names [ml-101].
 - Test-set reuse and leakage [ml-046] [ml-050] are fairness-of-evaluation problems too.
-- Nyamawe and colleagues' open beginner textbook emphasizes integrating responsible and explainable AI into models as a priority instead of an afterthought [ml-188].
 
 **Toy: Bias Spotter.** Fictional datasets with built-in problems; find them. ⚙
 

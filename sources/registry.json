@@ -3064,7 +3064,7 @@
   },
   {
    "id": "nyamawe-2025-pml",
-   "status": "verified",
+   "status": "unverified",
    "title": "Practical machine learning: A beginner's guide with ethical insights",
    "author": "Nyamawe, A. S., Mjahidi, M. M., Nnko, N. E., Diwani, S. A., Minja, G. G., & Malyango, K.",
    "site": "Chapman and Hall/CRC (Taylor & Francis)",
@@ -3079,7 +3079,8 @@
     -1
    ],
    "notes": "Open access monograph (published Feb. 7, 2025). The citation link is the OAPEN Library record (plain HTML), which carries the book's own description; ml-188 comes from that description only. Rc-gaps pass (2026-10-15): the record page was read with WebFetch and the check strings found verbatim. The OAPEN bitstream PDF is robots-disallowed for the fetch tool and the Taylor & Francis PDF endpoint returned an error, so no claim is taken from the chapters.",
-   "doi": "https://doi.org/10.1201/9781003486817"
+   "doi": "https://doi.org/10.1201/9781003486817",
+   "note_ci": "CI (2026-10-15) could not read the OAPEN record page, so ml-188 stays pending."
   },
   {
    "id": "zhao-2025-procs",
