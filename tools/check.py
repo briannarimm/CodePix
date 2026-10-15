@@ -39,7 +39,8 @@ def main():
             os.symlink(src, local)
     ok = True
     if not a.skip_exercises:
-        ok = subprocess.run([sys.executable, str(ROOT / "tools/exercises_check.py")]).returncode == 0 and ok
+        pys = [os.environ.get("CODEPIX_PYTHON", sys.executable)] + [p for p in ["python3.9"] if shutil.which(p)]
+        ok = subprocess.run([sys.executable, str(ROOT / "tools/exercises_check.py"), "--python", *pys]).returncode == 0 and ok
     r = subprocess.run(["node", str(ROOT / "tools/check.mjs"), str(pathlib.Path(dist).resolve()), a.shots, a.only], env=env)
     ok = r.returncode == 0 and ok
     if not ok:
