@@ -2,6 +2,8 @@
 
 Source notes for the "About: how Code Pix teaches" page. The leads came from Brianna's CSV of CS-education papers. Only papers with a free full text are used. Fact IDs point into `sources/facts.json`; the page may say no more than those facts say.
 
+**Status 2026-10-15:** the networked source check could not read either paper (the IPB PDF came back truncated and Swarthmore Works answered 403), so both sources are `unverified` and py-269 to py-276 are pending and not citable. The About page makes no research claims until an open copy that CI can read is found.
+
 ## Gomes et al. (2026), introductory programming at top universities
 
 Journal of Computer Languages, 86, 101384. https://doi.org/10.1016/j.cola.2025.101384. Open access, CC BY 4.0. Read from the open copy in the IPB repository (registry id `gomes-2026-intro-programming`).

@@ -2254,7 +2254,7 @@
   },
   {
    "id": "ethw-eniac",
-   "status": "verified",
+   "status": "unverified",
    "title": "Milestones: Electronic Numerical Integrator and Computer, 1946",
    "author": "IEEE History Center",
    "site": "Engineering and Technology History Wiki",
@@ -2267,7 +2267,8 @@
    "levels": [
     -1
    ],
-   "notes": "Read with WebFetch on 2026-10-15; the check strings of its facts were confirmed verbatim in the fetched text (raw text not downloadable from the sandbox). Plaque dedicated by the IEEE Philadelphia Section in September 1987."
+   "notes": "Read with WebFetch on 2026-10-15; the check strings of its facts were confirmed verbatim in the fetched text (raw text not downloadable from the sandbox). Plaque dedicated by the IEEE Philadelphia Section in September 1987.",
+   "note_ci": "The GitHub source check could not read this page (2026-10-15: bot block or unreadable PDF). Checked only through WebFetch, so its facts stay pending."
   },
   {
    "id": "yale-hopper",
@@ -2685,7 +2686,7 @@
   },
   {
    "id": "gomes-2026-intro-programming",
-   "status": "verified",
+   "status": "unverified",
    "title": "Teaching introductory programming in top universities: A global study of languages, paradigms, assessment, and AI",
    "author": "Gomes, J. P., Monteiro, R., Moreira, A. S., Mendonca, V., Pinho, A., & Cunha, C. R.",
    "site": "Journal of Computer Languages, 86, 101384",
@@ -2700,11 +2701,12 @@
    ],
    "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Open copy of the published article in the IPB repository (Biblioteca Digital do IPB); the PDF states it is an open access article under the CC BY license. DOI: https://doi.org/10.1016/j.cola.2025.101384 (doi.org rate-limited the fetch tool).",
    "pdf": true,
-   "doi": "https://doi.org/10.1016/j.cola.2025.101384"
+   "doi": "https://doi.org/10.1016/j.cola.2025.101384",
+   "note_ci": "The GitHub source check could not read this page (2026-10-15: bot block or unreadable PDF). Checked only through WebFetch, so its facts stay pending."
   },
   {
    "id": "newhall-2025-cs31",
-   "status": "verified",
+   "status": "unverified",
    "title": "An introductory-level undergraduate CS course that introduces parallel computing",
    "author": "Newhall, T., Webb, K. C., Chaganti, V., & Danner, A.",
    "site": "Journal of Parallel and Distributed Computing, 199, 105044",
@@ -2719,7 +2721,8 @@
    ],
    "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Open copy in Swarthmore Works (landing page https://works.swarthmore.edu/fac-comp-sci/137). DOI: https://doi.org/10.1016/j.jpdc.2025.105044.",
    "pdf": true,
-   "doi": "https://doi.org/10.1016/j.jpdc.2025.105044"
+   "doi": "https://doi.org/10.1016/j.jpdc.2025.105044",
+   "note_ci": "The GitHub source check could not read this page (2026-10-15: bot block or unreadable PDF). Checked only through WebFetch, so its facts stay pending."
   },
   {
    "id": "tsc-2024-unplugged",
