@@ -1,0 +1,21 @@
+{
+  "id": "a09-tray",
+  "level": "a09",
+  "title": "Fix the shared parts tray",
+  "file": "tray.py",
+  "kind": "test",
+  "prompt": "Byte wrote `add_part`, which puts a part on a tray and returns the tray. Each call without a tray should start a fresh, empty tray. Instead, every call piles onto the same tray.\n\nRun `python3 tray.py` to see the bug, then fix the function so the program prints `['gear']`, then `['fuse']`.",
+  "run_command": "python3 -m unittest test_tray.py",
+  "expected_output": "['gear']\n['fuse']",
+  "hints": [
+    "The default `tray=[]` is made once, when Python reads the `def` line, and then every call shares it.",
+    "Use `None` as the default instead, and make the new list inside the function.",
+    "`def add_part(part, tray=None):` then `if tray is None:` and `tray = []` as the first lines of the body."
+  ],
+  "explain_after": "A default value is evaluated only once, so a list default is shared between calls [py-086]. The fix is the one the Python tutorial gives: default to `None` and make the list inside the function [py-087].",
+  "concepts": [
+    "functions",
+    "default values",
+    "mutable"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "a10-sale",
+  "level": "a10",
+  "title": "Make the failing test pass",
+  "file": "sale.py",
+  "kind": "test",
+  "prompt": "`sale.py` has a function `sale_price(price, percent)` that should take `percent` percent off a price. It runs without any error, but one of the tests in `test_sale.py` fails.\n\nRun the tests, read which one fails and what it expected, and fix the function. Do not change the test file.",
+  "run_command": "python3 -m unittest test_sale.py",
+  "hints": [
+    "Run the tests. The failure report shows the value your function returned and the value the test expected.",
+    "Try it by hand: 25 percent off 80 should be 60. What does the starter compute instead? Add a `print` inside the function if it helps.",
+    "The function subtracts `percent` itself. It should subtract `price * percent / 100`."
+  ],
+  "explain_after": "This bug raised no exception: the program ran and gave a wrong answer. Think Python calls that a semantic error [py-096]. A test caught it, because `assertEqual` compared the real answer with the expected one [py-099].",
+  "concepts": [
+    "unittest",
+    "semantic errors",
+    "debugging"
+  ]
+}

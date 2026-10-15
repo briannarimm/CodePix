@@ -1,0 +1,21 @@
+{
+  "id": "a07-dedupe",
+  "level": "a07",
+  "title": "Cross out the repeats",
+  "file": "dedupe.py",
+  "kind": "test",
+  "prompt": "The order sheet lists some parts twice. Build a list named `unique` that keeps each part once, in the order it first appears.\n\nWhen it works, `python3 dedupe.py` prints `['gear', 'fuse', 'spring', 'bolt']`.",
+  "run_command": "python3 -m unittest test_dedupe.py",
+  "expected_output": "['gear', 'fuse', 'spring', 'bolt']",
+  "hints": [
+    "Go through `orders` one part at a time. For each part, ask: is it already on my new list?",
+    "`part in unique` is `True` when the part is already on the list, and `not in` asks the opposite.",
+    "Inside the loop: `if part not in unique:` then `unique.append(part)`."
+  ],
+  "explain_after": "You checked each part against the list you were building and appended only new ones. `append` adds to the end, so first appearances keep their order [py-073].\n\nThe next job, the Filing Cabinet, shows a set: a collection with no duplicates at all [py-080].",
+  "concepts": [
+    "lists",
+    "append",
+    "in"
+  ]
+}

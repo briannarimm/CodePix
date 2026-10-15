@@ -1,0 +1,29 @@
+/* Bug Board toy (A10) */
+.toy-bugboard .bb-pins .btn[aria-pressed=true]{--c:var(--pink)}
+.toy-bugboard .bb-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}
+.toy-bugboard .bb-grid > div{min-width:0}
+.toy-bugboard .bb-grid .code{margin:0}
+.toy-bugboard .bb-tbwrap{border:3px solid var(--ink);border-radius:10px;background:#fff;box-shadow:3px 3px 0 var(--ink);overflow:hidden}
+.toy-bugboard .bb-bar{padding:3px 10px;border-bottom:2px solid var(--ink);background:var(--pink);font-weight:700;font-size:14px}
+.toy-bugboard .bb-tb{margin:0;padding:8px 0;overflow-x:auto;font-family:var(--f-code);font-size:14px;line-height:1.5}
+.toy-bugboard .bb-l{display:block;padding:0 10px;white-space:pre;min-height:1.5em}
+.toy-bugboard .bb-l.head{color:var(--ink2)}
+.toy-bugboard .bb-l.where{background:#5cc8ff33;box-shadow:inset 5px 0 0 var(--sky)}
+.toy-bugboard .bb-l.marks{color:var(--silver-d)}
+.toy-bugboard .bb-l.clue{background:#ff6fae44;box-shadow:inset 5px 0 0 var(--pink);font-weight:700}
+.toy-bugboard .bb-l.out{color:var(--teal-d)}
+.toy-bugboard .bb-note{padding:0 10px 6px;font-size:12px;color:var(--ink2)}
+.toy-bugboard .bb-legend{margin:10px 0;padding-left:0;list-style:none;font-size:15px}
+.toy-bugboard .bb-legend li{margin:4px 0}
+.toy-bugboard .bb-key{display:inline-block;min-width:3.6em;margin-right:6px;padding:0 6px;border:2px solid var(--ink);border-radius:6px;font-size:13px;font-weight:700;text-align:center}
+.toy-bugboard .bb-key.clue{background:var(--pink)}
+.toy-bugboard .bb-key.where{background:var(--sky)}
+.toy-bugboard .bb-key.out{background:#fff}
+.toy-bugboard .bb-h{margin:16px 0 4px;font-family:var(--f-display);font-size:18px;font-weight:400}
+.toy-bugboard .bb-small{margin:0 0 6px;font-size:15px}
+.toy-bugboard .bb-paste{width:100%;min-height:7em;padding:8px;border:3px solid var(--ink);border-radius:10px;font-family:var(--f-code);font-size:14px;background:#fff;resize:vertical}
+.toy-bugboard .bb-card{padding:10px 12px;border:3px solid var(--ink);border-radius:12px;background:#fff;box-shadow:3px 3px 0 var(--ink);overflow-wrap:anywhere}
+.toy-bugboard .bb-card p{margin:0 0 8px}
+.toy-bugboard .bb-where{margin:0;padding-left:1.2em}
+.toy-bugboard .bb-none{padding:8px 10px;border:2px dashed var(--ink);border-radius:10px;background:var(--paper2)}
+@media (max-width:760px){.toy-bugboard .bb-grid{grid-template-columns:minmax(0,1fr)}}

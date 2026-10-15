@@ -1,0 +1,24 @@
+/* Filing Cabinet toy (A8) */
+.toy-cabinet .cab-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}
+.toy-cabinet .cab{display:flex;flex-direction:column;gap:8px;padding:10px;border:3px solid var(--ink);border-radius:12px;background:var(--silver);box-shadow:3px 3px 0 var(--ink);min-width:0}
+.toy-cabinet .drawer{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 8px;border:3px solid var(--ink);border-radius:8px;background:linear-gradient(var(--silver-l),var(--silver-d));transition:transform .2s;min-width:0}
+.toy-cabinet .drawer .tab{flex:0 0 auto;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 8px;border:2px solid var(--ink);border-radius:6px 6px 0 0;background:var(--lemon);font-weight:700;font-size:15px}
+.toy-cabinet .drawer .paper{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--f-code);font-size:15px;opacity:.35}
+.toy-cabinet .drawer.open{transform:translateX(10px);background:linear-gradient(#fff,var(--tang-l))}
+.toy-cabinet .drawer.open .paper{opacity:1;font-weight:700}
+.toy-cabinet .cab-ctl{min-width:0}
+.toy-cabinet .cab-lab{display:block;font-weight:700;margin:4px 0 2px}
+.toy-cabinet .cab-in{width:100%;min-height:40px;padding:4px 8px;border:3px solid var(--ink);border-radius:8px;font-family:var(--f-code);background:#fff}
+.toy-cabinet .cab-chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.toy-cabinet .cab-chips .btn{font-size:13px;min-height:30px}
+.toy-cabinet .row .btn{font-family:var(--f-code);font-size:14px}
+.toy-cabinet .cab-out{margin-top:12px;padding:10px;border:3px solid var(--ink);border-radius:12px;background:var(--code-bg);color:var(--code-fg);font-family:var(--f-code);box-shadow:3px 3px 0 var(--ink);min-height:4em;overflow-wrap:anywhere}
+.toy-cabinet .cab-line code{color:#ffe45c}
+.toy-cabinet .cab-line code::before{content:"\25B8  ";color:#7dff8a}
+.toy-cabinet .cab-res{margin-top:4px;font-size:17px}
+.toy-cabinet .cab-res.good{color:#b7f171}
+.toy-cabinet .cab-res.bad{color:#ff9db8;font-weight:700}
+.toy-cabinet .cab-note{margin:6px 0 0;font-family:var(--f-story);font-size:15px;color:#e8e6dc}
+.toy-cabinet .cab-note .cite{color:inherit}
+@media (max-width:640px){.toy-cabinet .cab-wrap{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.toy-cabinet .drawer{transition:none}}
