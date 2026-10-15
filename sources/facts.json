@@ -3582,8 +3582,7 @@
     "Hyperparameters are variables that control different aspects of training",
     "influences how quickly the model converges"
    ],
-   "mod": "ml",
-   "pending": true
+   "mod": "ml"
   },
   {
    "id": "ml-118",
@@ -3764,8 +3763,7 @@
    "check": [
     "lower-dimensional representations of sparse data"
    ],
-   "mod": "ml",
-   "pending": true
+   "mod": "ml"
   },
   {
    "id": "ml-134",
@@ -3775,8 +3773,7 @@
    "check": [
     "A language model estimates the probability of a token or sequence of tokens"
    ],
-   "mod": "ml",
-   "pending": true
+   "mod": "ml"
   },
   {
    "id": "ml-135",
@@ -4367,6 +4364,617 @@
     "substantial change in preparedness, knowledge, and comfort"
    ],
    "mod": "py"
+  },
+  {
+   "id": "ml-137",
+   "src": "numpy-install",
+   "anchor": "Introduction",
+   "claim": "NumPy's install page says the only prerequisite for installing NumPy is Python itself.",
+   "check": [
+    "The only prerequisite for installing NumPy is Python itself"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-138",
+   "src": "numpy-install",
+   "anchor": "Environment based: Pip",
+   "claim": "NumPy's install page gives pip install numpy, and its tip recommends a virtual environment: python -m venv my-env, then source my-env/bin/activate on macOS and Linux (my-env\\Scripts\\activate on Windows), then pip install numpy.",
+   "check": [
+    "pip install numpy",
+    "Use a virtual environment for better dependency management",
+    "python -m venv my-env",
+    "source my-env/bin/activate"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-139",
+   "src": "pandas-install",
+   "anchor": "#installing-with-pip",
+   "claim": "pandas can be installed from PyPI with pip install pandas, and the pandas documentation recommends installing and running pandas from a virtual environment, for example one made with the standard library's venv.",
+   "check": [
+    "pip install pandas",
+    "it is recommended to install and run pandas from a virtual environment, for example",
+    "using the Python standard library's"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-140",
+   "src": "mpl-install",
+   "anchor": "#install-an-official-release",
+   "claim": "Matplotlib publishes wheel packages for macOS, Windows and Linux on PyPI, and its install page installs it with python -m pip install -U pip followed by python -m pip install -U matplotlib.",
+   "check": [
+    "available as wheel packages for macOS, Windows and",
+    "python -m pip install -U pip",
+    "python -m pip install -U matplotlib"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-141",
+   "src": "pandas-read-write",
+   "anchor": "How do I read and write tabular data?",
+   "claim": "pandas provides the read_csv function to read data stored as a CSV file into a DataFrame; its readers for other formats (such as Excel, SQL, JSON and parquet) all start with read_.",
+   "check": [
+    "to read data stored as a csv",
+    "file into a pandas",
+    "each of them with the prefix"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-142",
+   "src": "pandas-read-write",
+   "anchor": "How do I read and write tabular data?",
+   "claim": "When a DataFrame is displayed, pandas shows the first and last 5 rows by default; the head method shows the first N rows (for example head(8)), and tail shows the last N.",
+   "check": [
+    "the first and last 5 rows will be",
+    "To see the first N rows of a",
+    "titanic.tail(10)"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-143",
+   "src": "pandas-read-write",
+   "anchor": "REMEMBER",
+   "claim": "The pandas tutorial says to always check the data after reading it in, and calls head, tail, info and the dtypes attribute convenient for a first check.",
+   "check": [
+    "Make sure to always have a check on the data after reading in the",
+    "are convenient for a first check"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-144",
+   "src": "sk-linear",
+   "anchor": "#ordinary-least-squares",
+   "claim": "scikit-learn's LinearRegression takes X and y in its fit method and stores the learned coefficients in its coef_ and intercept_ attributes; in the documentation's example, fitting [[0, 0], [1, 1], [2, 2]] to [0, 1, 2] gives coef_ array([0.5, 0.5]) and intercept_ 0.0.",
+   "check": [
+    "coef_ and intercept_ attributes",
+    "reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])",
+    "array([0.5, 0.5])"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-145",
+   "src": "sk-linreg-api",
+   "anchor": "Attributes",
+   "claim": "On LinearRegression, coef_ holds the estimated coefficients for the linear regression problem (a 1D array with one value per feature when there is one target), and intercept_ is the independent term in the linear model, set to 0.0 when fit_intercept is False.",
+   "check": [
+    "Estimated coefficients for the linear regression problem",
+    "one target is passed, this is a 1D array of length n_features",
+    "Independent term in the linear model"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-146",
+   "src": "openstax-stats-12-3",
+   "anchor": "Least squares criteria for best fit",
+   "claim": "OpenStax says the best-fit line is the one that minimizes the sum of the squared errors (SSE); any other line would have a higher SSE, and this line is called the least-squares regression line.",
+   "check": [
+    "the sum of the squared errors (SSE) is minimized",
+    "Any other line you might choose would have a higher SSE than the best fit line",
+    "least-squares regression line"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-147",
+   "src": "openstax-stats-12-3",
+   "anchor": "Least squares criteria for best fit",
+   "claim": "OpenStax says calculus gives the a and b that make the SSE smallest: for the line y-hat = a + bx, the slope b is the sum of (x - x-bar)(y - y-bar) divided by the sum of (x - x-bar) squared, and a = y-bar - b times x-bar. The line always passes through the point (x-bar, y-bar).",
+   "check": [
+    "Using calculus, you can determine the values of a and b that make the SSE a minimum",
+    "Σ ( x − x ¯ ) ( y − y ¯ ) Σ ( x − x ¯ ) 2",
+    "The best fit line always passes through the point"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-148",
+   "src": "sk-metrics",
+   "anchor": "#mean-squared-error",
+   "claim": "scikit-learn defines mean squared error as the average, over the samples, of the squared difference between each true value and its prediction; its example with y_true [3, -0.5, 2, 7] and y_pred [2.5, 0.0, 2, 8] returns 0.375.",
+   "check": [
+    "computes mean squared error",
+    "the expected value of the squared (quadratic) error",
+    "y_pred = [2.5, 0.0, 2, 8]",
+    "0.375"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-149",
+   "src": "mlcc-loss",
+   "anchor": "Loss",
+   "claim": "Google defines loss as a numerical metric that describes how wrong a model's predictions are, and says the goal of training is to minimize the loss.",
+   "check": [
+    "Loss is a numerical metric that describes how wrong a model's predictions are",
+    "The goal of training a model is to minimize the loss"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-150",
+   "src": "mlcc-loss",
+   "anchor": "Types of loss",
+   "claim": "Google defines L2 loss as the sum of the squared differences between predicted and actual values, and mean squared error (MSE) as the average of L2 losses across a set of N examples.",
+   "check": [
+    "The sum of the squared difference between the predicted values and the actual values",
+    "The average of L2 losses across a set of"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-151",
+   "src": "mlcc-loss",
+   "anchor": "Choosing a loss",
+   "claim": "Squaring makes a large difference between prediction and label even larger, so L2 loss penalizes an outlier much more than L1 loss, and MSE moves the model more toward outliers than MAE does.",
+   "check": [
+    "squaring makes the loss even larger",
+    "L2 loss incurs a much higher penalty for an outlier than L1 loss",
+    "MSE moves the model more toward the outliers"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-152",
+   "src": "mlcc-splits",
+   "anchor": "Dividing the original dataset",
+   "claim": "Google's example divides data into training and test sets with an 80-20 split, and says a better approach than two sets is three subsets, adding a validation set that does the initial testing while the model is being trained.",
+   "check": [
+    "with an 80-20 split",
+    "a better approach is to divide the dataset into three subsets",
+    "A validation set performs the initial testing on the model as it is being trained"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-153",
+   "src": "mlcc-splits",
+   "anchor": "Dividing the original dataset",
+   "claim": "Google says the training set usually has more examples than the validation or test set, but there are no percentage requirements for the different sets.",
+   "check": [
+    "is usually greater than the number of examples in the validation set or test set",
+    "there are no percentage requirements for the different sets"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-154",
+   "src": "mlcc-splits",
+   "anchor": "Dividing the original dataset",
+   "claim": "Google says that in theory the validation set and the test set should contain the same number of examples, or nearly so.",
+   "check": [
+    "should contain the same number of examples or nearly so"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-155",
+   "src": "mlcc-splits",
+   "anchor": "Additional problems with test sets",
+   "claim": "Google lists what a good test set needs: large enough for statistically significant results, representative of the dataset as a whole and of the real-world data the model will meet, and zero examples duplicated in the training set.",
+   "check": [
+    "Large enough to yield statistically significant testing results",
+    "Representative of the dataset as a whole",
+    "Zero examples duplicated in the training set"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-156",
+   "src": "sk-train-test-split",
+   "anchor": "test_size",
+   "claim": "In scikit-learn's train_test_split, test_size is the proportion (or number) of samples for the test split; if neither test_size nor train_size is given, the test size is set to 0.25.",
+   "check": [
+    "represent the proportion of the dataset to include in the test split",
+    "If train_size is also None, it will be set to 0.25"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-157",
+   "src": "sk-text-features",
+   "anchor": "The Bag of Words representation",
+   "claim": "scikit-learn says most machine learning algorithms expect numerical feature vectors of a fixed size, so raw text of variable length cannot be fed to them directly.",
+   "check": [
+    "cannot be fed directly to the algorithms themselves",
+    "numerical feature vectors with a fixed size"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-158",
+   "src": "sk-text-features",
+   "anchor": "The Bag of Words representation",
+   "claim": "To turn text into numbers, scikit-learn tokenizes strings and gives each possible token an integer id (for instance using white space and punctuation as separators), counts the occurrences of tokens in each document, and can normalize and weight the counts.",
+   "check": [
+    "giving an integer id for each possible token",
+    "using white-spaces and punctuation as token separators",
+    "the occurrences of tokens in each document"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-159",
+   "src": "sk-text-features",
+   "anchor": "The Bag of Words representation",
+   "claim": "This strategy (tokenization, counting and normalization) is called the Bag of Words or Bag of n-grams representation: a corpus becomes a matrix with one row per document and one column per token, and the relative position of the words is ignored completely.",
+   "check": [
+    "is called the Bag of Words",
+    "one row per document and one column per token",
+    "completely ignoring the relative position information"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-160",
+   "src": "sk-text-features",
+   "anchor": "Sparsity",
+   "claim": "Because each document uses only a small subset of the corpus's words, a bag-of-words matrix is mostly zeros, typically more than 99% of its values.",
+   "check": [
+    "(typically more than 99% of them)"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-161",
+   "src": "jm3-ch3",
+   "anchor": "3.6 Smoothing, interpolation, and backoff",
+   "claim": "Jurafsky and Martin say any finite training corpus will be missing some perfectly acceptable word sequences, so an n-gram can appear in the test set without ever occurring in training (their example is the phrase ruby slippers).",
+   "check": [
+    "any finite training corpus will be missing some perfectly acceptable",
+    "ruby slippers"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-162",
+   "src": "jm3-ch3",
+   "anchor": "3.6 Smoothing, interpolation, and backoff",
+   "claim": "Jurafsky and Martin call such unseen sequences zeros and say that if the probability of any word in the test set is 0, the probability of the whole test set is 0.",
+   "check": [
+    "the probability of the whole test set is 0"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-163",
+   "src": "jm3-ch3",
+   "anchor": "3.6.1 Laplace smoothing",
+   "claim": "Laplace smoothing adds one to each count, which is why it is also called add-one smoothing.",
+   "check": [
+    "Laplace smoothing merely adds one to each count",
+    "add-one smoothing"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-164",
+   "src": "d2l-language-model",
+   "anchor": "9.3.1.2 Word frequency",
+   "claim": "Dive into Deep Learning says many plausible three-word combinations will never appear in a dataset, and unless they are given a nonzero count they cannot be used in a language model.",
+   "check": [
+    "There will be many plausible three-word combinations that we likely will not see in our dataset",
+    "Unless we provide some solution to assign such word combinations a nonzero count"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-165",
+   "src": "d2l-language-model",
+   "anchor": "9.3.1.3 Laplace smoothing",
+   "claim": "Dive into Deep Learning describes Laplace smoothing as adding a small constant to all counts, and says it suits language modeling poorly because many n-grams occur very rarely.",
+   "check": [
+    "A common strategy is to perform some form of",
+    "The solution is to add a small constant to all counts",
+    "making Laplace smoothing rather unsuitable for language modeling"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-166",
+   "src": "d2l-text-sequence",
+   "anchor": "9.2.2 Tokenization",
+   "claim": "Dive into Deep Learning says tokens are the atomic (indivisible) units of text, and what counts as a token (for example a word or a character) is a design choice.",
+   "check": [
+    "are the atomic (indivisible) units of text",
+    "what precisely constitutes a token is a design choice"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-167",
+   "src": "d2l-text-sequence",
+   "anchor": "9.2.3 Vocabulary",
+   "claim": "Because model inputs must be numbers, a vocabulary gives each distinct token a unique index; a token never seen in training, or dropped as rare, is represented by a special unknown token written <unk>.",
+   "check": [
+    "the inputs to our models must ultimately consist of numerical inputs",
+    "associate each distinct token value with a unique index",
+    "signifying that this is an"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-168",
+   "src": "mlcc-llm",
+   "anchor": "Introduction to LLMs",
+   "claim": "Google says a token could be a word, a subword (a subset of a word) or a single character, and that tokens are the smallest unit of language modeling.",
+   "check": [
+    "A token could be a word, a subword (a subset of a word), or even a single character",
+    "Tokens are the atomic unit or smallest unit of language modeling"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-169",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.2 Self-supervised word2vec",
+   "claim": "The word2vec tool has two models, skip-gram and continuous bag of words (CBOW); skip-gram assumes a word can be used to generate the words around it, and CBOW assumes a center word is generated from its surrounding context words.",
+   "check": [
+    "The word2vec tool contains two models",
+    "assumes that a word can be used to generate its surrounding words",
+    "assumes that a center word is generated based on its surrounding context words"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-170",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.2 Self-supervised word2vec",
+   "claim": "word2vec training predicts some words from the words around them in a corpus; because that supervision comes from data without labels, skip-gram and CBOW are self-supervised models.",
+   "check": [
+    "predicting some words using some of their surrounding words",
+    "Since supervision comes from the data without labels"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-171",
+   "src": "d2l-word2vec",
+   "anchor": "15.1.3.1 Training",
+   "claim": "Skip-gram learns a center-word vector and a context-word vector for each word by maximizing the likelihood (maximum likelihood estimation), and the center-word vectors are typically used as the word representations.",
+   "check": [
+    "In training, we learn the model parameters by maximizing the likelihood function",
+    "the center word vectors of the skip-gram model are typically used as the word representations"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-172",
+   "src": "mlcc-obtaining-embeddings",
+   "anchor": "Training an embedding as part of a neural network",
+   "claim": "Google says you can create an embedding while training a neural network for your task: the network learns weights for the first hidden layer so that the embedding vectors for similar examples end up closer to each other.",
+   "check": [
+    "You can create an embedding while training a neural network for your target task",
+    "the neural network model will learn the optimal weights for the nodes in the first hidden layer",
+    "so that the embedding vectors for similar examples are closer to each other"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-173",
+   "src": "d2l-qkv",
+   "anchor": "11.1 Queries, keys, and values",
+   "claim": "Dive into Deep Learning defines attention over a set of key-value pairs as a weighted sum of the values, with scalar attention weights computed from a query and each key; the name comes from paying particular attention to the terms whose weight is large.",
+   "check": [
+    "are scalar attention weights",
+    "The name attention derives from the fact that the operation pays particular attention to the terms"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-174",
+   "src": "d2l-qkv",
+   "anchor": "11.1 Queries, keys, and values",
+   "claim": "The most common setting is weights that are nonnegative and sum to 1, which a softmax can produce; Dive into Deep Learning warns that reading large weights as the model selecting relevant parts is only an intuition.",
+   "check": [
+    "This is the most common setting in deep learning",
+    "apply the softmax operation",
+    "it is important to remember that it is just that, an"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-175",
+   "src": "mlcc-transformers",
+   "anchor": "Self-attention",
+   "claim": "Google says transformers rely heavily on self-attention, which asks, for each input token, how much each other token affects its interpretation; in The animal didn't cross the street because it was too tired, animal matters more than street to the pronoun it.",
+   "check": [
+    "Transformers rely heavily on a concept called self-attention",
+    "How much does each other token of input affect the interpretation of this token?",
+    "animal is more important than street to the pronoun"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-176",
+   "src": "mlcc-bias",
+   "anchor": "Reporting bias",
+   "claim": "Reporting bias occurs when how often events, properties or outcomes appear in a dataset does not accurately reflect their real-world frequency.",
+   "check": [
+    "occurs when the frequency of events, properties, and/or outcomes captured in a dataset does not accurately reflect",
+    "their real-world frequency"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-177",
+   "src": "mlcc-bias",
+   "anchor": "Historical bias",
+   "claim": "Historical bias occurs when historical data reflects inequities that existed in the world at that time.",
+   "check": [
+    "Historical bias occurs when historical data reflects inequities that existed in the world at that time"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-178",
+   "src": "mlcc-bias",
+   "anchor": "Automation bias",
+   "claim": "Automation bias is a tendency to favor results from automated systems over those from non-automated systems, whatever the error rates of each.",
+   "check": [
+    "Automation bias is a tendency to favor results generated by automated systems over those generated by non-automated",
+    "irrespective of the error rates of each"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-179",
+   "src": "mlcc-bias",
+   "anchor": "Selection bias",
+   "claim": "Selection bias occurs if a dataset's examples are chosen in a way that does not reflect their real-world distribution; coverage bias means data not selected in a representative way, non-response (participation) bias means participation gaps in data collection, and sampling bias means no proper randomization.",
+   "check": [
+    "Selection bias occurs if a dataset's examples are chosen in a way that is not reflective of their real-world distribution",
+    "Coverage bias occurs if data is not selected in a representative fashion",
+    "due to participation gaps in the data-collection process",
+    "Sampling bias occurs if proper randomization is not used during data collection"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-180",
+   "src": "mlcc-bias",
+   "anchor": "Group attribution bias",
+   "claim": "Group attribution bias is a tendency to generalize what is true of individuals to their whole group; in-group bias prefers members of your own group, and out-group homogeneity bias stereotypes members of a group you do not belong to or sees them as more uniform.",
+   "check": [
+    "Group attribution bias is a tendency to generalize what is true of individuals to the entire group to which they belong",
+    "In-group bias is a preference for members of your own group",
+    "Out-group homogeneity bias is a tendency to stereotype individual members of a group to which you do not belong",
+    "or to see their characteristics as more uniform"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-181",
+   "src": "mlcc-bias",
+   "anchor": "Implicit bias",
+   "claim": "Implicit bias occurs when assumptions come from one's own model of thinking and personal experiences that don't necessarily apply more generally.",
+   "check": [
+    "Implicit bias occurs when assumptions are made based on one's own model of thinking and personal experiences",
+    "necessarily apply more generally"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-182",
+   "src": "mlcc-bias",
+   "anchor": "Confirmation bias",
+   "claim": "Confirmation bias occurs when model builders unconsciously process data in ways that affirm pre-existing beliefs and hypotheses; experimenter's bias occurs when a model builder keeps training until the result matches their original hypothesis.",
+   "check": [
+    "Confirmation bias occurs when model builders unconsciously process data in ways that affirm pre-existing beliefs",
+    "Experimenter's bias occurs when a model builder keeps training a model until it produces a result that aligns with",
+    "their original hypothesis"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-183",
+   "src": "mlcc-evaluating-bias",
+   "anchor": "Evaluating for bias",
+   "claim": "Google warns that metrics calculated on a whole test or validation set don't always give an accurate picture, because great performance overall can mask poor performance on a minority subset of examples.",
+   "check": [
+    "metrics calculated against an entire test or validation set don't always give an accurate picture",
+    "may mask poor performance on a minority subset of examples"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-184",
+   "src": "mlcc-demographic-parity",
+   "anchor": "Demographic parity",
+   "claim": "In Google's admissions example, the model's predictions show demographic parity if the admission rates for the two groups are equal, so a student's chance of admission doesn't vary by demographic group.",
+   "check": [
+    "then the model's predictions exhibit demographic parity",
+    "doesn't vary by demographic group"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-185",
+   "src": "mlcc-demographic-parity",
+   "anchor": "Demographic parity",
+   "claim": "Google says demographic parity has a significant drawback: it does not take the distribution of predictions into account, so it may not be the best metric for evaluating fairness.",
+   "check": [
+    "demographic parity has one significant drawback",
+    "it does not take the distribution of predictions",
+    "may not be the optimal metric to choose for evaluating fairness"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-186",
+   "src": "mlcc-equal-opportunity",
+   "anchor": "Equality of opportunity",
+   "claim": "A model shows equality of opportunity if qualified members of each group have an equal chance of acceptance, whichever demographic group they belong to; the ratio of positive to negative predictions may still differ between groups.",
+   "check": [
+    "If the acceptance rates for qualified students in both groups are equal, the model exhibits equality of opportunity",
+    "irrespective of which demographic group they belong to",
+    "ratio of positive to negative predictions"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-187",
+   "src": "mlcc-equal-opportunity",
+   "anchor": "Equality of opportunity",
+   "claim": "Google notes two drawbacks of equality of opportunity: it needs a clear-cut preferred label, and it compares error rates in aggregate for demographic groups, which may not always be feasible.",
+   "check": [
+    "it is designed for use cases where there is a clear-cut preferred label",
+    "comparing error rates in aggregate",
+    "which may not always be feasible"
+   ],
+   "mod": "ml"
+  },
+  {
+   "id": "ml-188",
+   "src": "nyamawe-2025-pml",
+   "anchor": "Book description",
+   "claim": "Nyamawe and colleagues' open beginner textbook says it puts responsible and explainable AI into machine learning models from the start, as a priority instead of an afterthought.",
+   "check": [
+    "emphasizes the importance of integrating responsible and explainable AI into machine learning models",
+    "rather than treated as an afterthought"
+   ],
+   "mod": "ml",
+   "pending": true
+  },
+  {
+   "id": "ml-189",
+   "src": "turing-archive-amt-b-19",
+   "anchor": "Catalogue entry",
+   "claim": "The Turing Digital Archive at King's College, Cambridge holds an off-print of Turing's Computing machinery and intelligence from Mind, Vol. LIX, No. 236, October 1950, reproduced with the permission of Oxford University Press.",
+   "check": [
+    "Computing machinery and intelligence",
+    "Oct. 1950",
+    "with the permission of Oxford University Press"
+   ],
+   "mod": "ml"
   }
  ]
 }
