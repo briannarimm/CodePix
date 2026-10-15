@@ -3527,7 +3527,7 @@
    "check": [
     "Save the current figure as an image or vector graphic to a file",
     "then the format is inferred from the",
-    "extension of fname",
+    "if there is one",
     "The resolution in dots per inch"
    ],
    "mod": "ml"
