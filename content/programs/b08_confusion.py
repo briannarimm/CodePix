@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Score a fictional "is it urgent?" machine on 12 tickets. 1 means urgent.
 actual    = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0]
 predicted = [1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0]

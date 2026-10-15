@@ -39,3 +39,7 @@ The `codepix.briannaimm.com` subdomain from the first attempt is no longer used.
 - Links must work under the path `/CodePix/`. The page uses no root-absolute links except the 404 page's link back to `/CodePix/`. Note that the repo name is case-sensitive in the address.
 - `robots.txt` has no effect on a project path (crawlers read only the domain root). The page's `<meta name="robots" content="noindex">` does the work.
 - Do not add a `CNAME` file to `site/`: publishing it would set a custom domain on this repo again and override the user-site domain.
+
+## Release candidates
+
+Every pull request opened from a branch of this repo builds a release candidate and publishes it to the `rc/` folder of the `pages` branch, so it appears at https://briannarimm.github.io/CodePix/rc/ (and at www.briannaimm.com/CodePix/rc/ once the domain is set up). The release candidate says so on its title screen and in About, and keeps its progress separate from the live site. Run through it, then merge the pull request: the push to `main` publishes the same build to the live site and leaves `rc/` in place. The version number lives in the `VERSION` file.

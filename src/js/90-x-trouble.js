@@ -1,8 +1,7 @@
 /* Reference: Troubleshooting. The most common beginner problems, each fix tied to a verified fact.
    The setup fixes are shared with the Setup Checklist toy (SETUP_FIXES in 70-a01-bench.js). */
 
-// TODO(research): VS Code picking a different Python than the terminal (the interpreter picker) is a GAP.
-// TODO(research): the `code` command not found on macOS (Shell Command: Install 'code' command in PATH) needs a source.
+// The `code` command [py-236] and the VS Code interpreter picker [py-267] [py-268] fixes live in SETUP_FIXES.
 
 const X_TROUBLE_OS = { mac: "macOS", win: "Windows", all: "Any computer" };
 
@@ -27,12 +26,14 @@ PAGES("x-trouble", [
       { h3: "SyntaxError: invalid syntax" },
       "Python could not even read the line. The tutorial calls these parsing errors, and its example is `while True print('Hello world')` [py-091]. Look at the line the error points to, and the line just above it, for a missing colon, bracket or quote.",
       { h3: "IndentationError: unexpected indent" },
-      "An accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. `IndentationError` is the base class for syntax errors about indentation, and it is a kind of `SyntaxError`. Its relative `TabError` means the indentation mixes tabs and spaces inconsistently [py-197].",
+      "Python groups statements by indentation, and each line within a basic block must be indented by the same amount [py-241]. An accidental space or Tab at the start of a line gives `IndentationError: unexpected indent` [py-196]. `IndentationError` is the base class for syntax errors about indentation, and it is a kind of `SyntaxError`. Its relative `TabError` means the indentation mixes tabs and spaces inconsistently [py-197].",
       { code: "xt_indent", out: true },
-      "Line 2 starts with one stray space. The recording shows that even line 1 printed nothing: Python could not read the file, so it ran none of it. Delete the space and every line runs.",
+      "Line 2 starts with one stray space. The recording shows that even line 1 printed nothing: Python could not read the file, so it ran none of it. Delete the space and every line runs. The tutorial's style advice is 4 spaces and no tabs [py-243], which keeps `TabError` away too.",
       { analogy: "Indentation is like the shelf a box sits on. Push a box half a step off its shelf and the very literal helper refuses to guess which shelf you meant." },
       { h3: "TypeError: can only concatenate str (not \"int\") to str" },
       "You tried to add text and a number, as in `'2' + 2` [py-093]. Decide whether you meant text or a number, and make both sides the same kind.",
+      { h3: "KeyboardInterrupt" },
+      "Python raises `KeyboardInterrupt` when the user hits the interrupt key, normally Control-C or Delete [py-245]. If you pressed Control-C to stop a program, this is the expected ending [py-244]. If you did not, check for a loop that never stops (A6).",
       { h3: "The program runs, but prints the wrong thing" },
       "Python found nothing wrong, so there is no error message. Use the Magnifier on a recorded example, or add a `print` line to show what a value really is at that moment. A10 is all about hunting these bugs.",
     ],
@@ -75,7 +76,8 @@ PAGES("x-trouble", [
       { h3: "Text from a file looks garbled" },
       "The file was probably read with a different encoding from the one it was saved in. The Python 3.15 tutorial says the default for text files is UTF-8 [py-104], while in the Python 3.9 documentation the default depends on the platform [py-154]. Name the encoding every time you open a text file: `open(\"parts.txt\", encoding=\"utf-8\")`.",
       { h3: "`import turtle` fails with an error that mentions _tkinter" },
-      "The turtle module needs tkinter, which is built on Tk. If the import fails with an error that mentions `_tkinter`, install the Tk interface package [py-068]. Homebrew has one, the `python-tk@3.14` formula [py-072]. IDLE needs it too [py-021].",
+      "The turtle module needs tkinter, which is built on Tk. If the import fails with an error that mentions `_tkinter`, install the Tk interface package [py-068]. Running `python -m tkinter` should open a small Tk window when tkinter is installed [py-247].",
+      "The python.org installers for Windows and macOS include tkinter, but some Linux distributions package it separately; on Linux, look for documentation from whoever provided your Python [py-246]. Homebrew's Python needs the separate `python-tk@3.14` formula [py-072], which IDLE needs too [py-021]. The older full Windows installer installs Tcl/Tk with its `Include_tcltk` option [py-248]. A6b has the steps.",
       { h3: "`pip install` refuses (externally managed)" },
       "See the setup page: Homebrew's Python asks you to install libraries in a virtual environment [py-155]. A13 shows how.",
       { h3: "Windows: \"running scripts is disabled on this system\"" },

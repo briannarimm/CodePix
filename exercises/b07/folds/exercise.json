@@ -4,7 +4,7 @@
   "title": "Deal the folds",
   "file": "folds.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Dr. Nib wants every ticket to take one turn as the validation set. Write `folds(items, k)`. It cuts `items` into `k` equal parts, in order, and returns one round per part. Each round is a pair: the part that sits out (validate) and everything else (train).\n\nWhen it works, `python3 folds.py` prints three rounds, and no ticket ever appears on both sides of the same line.",
   "run_command": "python3 -m unittest test_folds.py",
   "expected_output": "validate ['T1', 'T2'] train ['T3', 'T4', 'T5', 'T6']\nvalidate ['T3', 'T4'] train ['T1', 'T2', 'T5', 'T6']\nvalidate ['T5', 'T6'] train ['T1', 'T2', 'T3', 'T4']",

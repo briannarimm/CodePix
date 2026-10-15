@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,sklearn
 # Let scikit-learn find if-then rules for the same fictional gadgets.

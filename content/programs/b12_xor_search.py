@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # Try 729 different settings for ONE step unit and keep the best score on XOR.
 def unit(w1, w2, b, x1, x2):

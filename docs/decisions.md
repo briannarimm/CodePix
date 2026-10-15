@@ -38,3 +38,7 @@ Answers Brianna gave to the open questions in `handoff.md` section 12, on 2026-1
 |---|---|---|
 | Address | `https://www.briannaimm.com/CodePix/` | Replaces `codepix.briannaimm.com`. Needs the user-site repo named `briannarimm.github.io`; see docs/deploy.md. |
 | Repository visibility | Public, private use only | Needed for free Pages. |
+
+## Decided 2026-10-15: Python versions
+
+Brianna said to choose the Python that makes sense. The book asks learners to install the current release. Module A examples keep running on 3.9 as well, because they are basic and the check costs little. Module B's floor is 3.12, the strictest requirement among the current releases of its libraries (NumPy 2.5.4 [ml-109]).

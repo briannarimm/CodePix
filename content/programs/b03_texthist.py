@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # A histogram drawn with text: how many tickets cost $0-39, $40-79, and so on (fictional).
 costs = [42, 48, 78, 86, 30, 118, 55, 172, 120, 74, 136, 65]
 width = 40

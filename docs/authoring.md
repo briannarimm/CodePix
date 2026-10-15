@@ -39,7 +39,7 @@ A chapter is 3 to 6 pages. Each page: short paragraphs, cited sentences, at leas
 - Every program and every output comes from `content/programs/` and is recorded by real Python at build time. Never type an output by hand. `predict` choices are checked against the real output by `tools/check.py`.
 - `{snippet}` is only for fragments that are not whole programs (a syntax shape, a line of a config). Prefer a real program.
 - Install steps and version numbers only from facts. If a topic is a GAP in the lesson plan, leave it out or say plainly that it is not covered yet; add `// TODO(research): <what is missing>` in the level file.
-- Every `open()` names `encoding="utf-8"`. Module A programs must run on Python 3.9 (no `match`, no `X | Y` types, no other post-3.9 syntax). Module B programs start with `# codepix: py=3.10` and usually `# codepix: output-only` and `# codepix: needs=numpy,sklearn`.
+- Every `open()` names `encoding="utf-8"`. Module A programs must run on Python 3.9 (no `match`, no `X | Y` types, no other post-3.9 syntax). Module B programs start with `# codepix: py=3.12` and usually `# codepix: output-only` and `# codepix: needs=numpy,sklearn`.
 
 ## Copy rules (enforced by `tools/lint-copy.py`)
 
@@ -47,7 +47,7 @@ No em dashes. No "not X but Y". Active voice, short sentences, no stock phrases.
 
 ## Exercises
 
-`exercises/<level>/<slug>/` holds `exercise.json`, `starter.py`, `solution.py`, `test_<slug>.py` and any data files. `exercise.json` fields: `id` (`a06-fizz`), `level`, `title`, `file` (the name the learner saves, e.g. `fizz.py`), `kind` (`test` | `predict` | `explore`), `prompt` (rich text, paragraphs split by a blank line), `run_command` (`python3 -m unittest test_fizz.py`; `pytest` only from a13), `expected_output` (or omit), `hints` (three steps, nudge to near-solution), `explain_after` (rich text, cited where it states facts), `concepts`, optional `py` ("3.10" for Module B).
+`exercises/<level>/<slug>/` holds `exercise.json`, `starter.py`, `solution.py`, `test_<slug>.py` and any data files. `exercise.json` fields: `id` (`a06-fizz`), `level`, `title`, `file` (the name the learner saves, e.g. `fizz.py`), `kind` (`test` | `predict` | `explore`), `prompt` (rich text, paragraphs split by a blank line), `run_command` (`python3 -m unittest test_fizz.py`; `pytest` only from a13), `expected_output` (or omit), `hints` (three steps, nudge to near-solution), `explain_after` (rich text, cited where it states facts), `concepts`, optional `py` ("3.12" for Module B).
 
 Tests import or exec the learner's file by its `file` name. Starters must fail at least one test; solutions must pass. Keep early programs under about 15 lines.
 

@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=pandas,sklearn
 # The Quote Machine with pandas and scikit-learn, plus a short model card.

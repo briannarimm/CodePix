@@ -4,7 +4,7 @@
   "title": "Score a guessed line",
   "file": "line.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Finish two functions. `predict(b, w, x)` returns the line's guess, `b + w * x`. `squared_error(b, w, xs, ys)` adds up the squared mistake for every ticket.\n\nWhen both work, `python3 line.py` prints the score of two guessed lines for four fictional tickets. The smaller score is the better line.",
   "run_command": "python3 -m unittest test_line.py",
   "expected_output": "guess A: 1113.0\nguess B: 168.0",

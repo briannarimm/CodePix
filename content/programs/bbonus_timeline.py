@@ -1,10 +1,11 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # A time line of learning machines, sorted by year. Each event comes from a cited source.
 events = [
     (2017, "transformer architecture"),
     (1959, "Samuel's checkers player"),
     (1986, "backpropagation becomes widespread"),
     (1958, "Rosenblatt's perceptron article"),
+    (1950, "Turing's Computing machinery and intelligence"),
     (2019, "the rise of prompting"),
 ]
 

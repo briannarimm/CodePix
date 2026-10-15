@@ -35,7 +35,10 @@ const store = {
   del(k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } },
 };
 
-const SAVE_KEY = "codepix-save";
+// The release candidate (DATA.channel "rc", served at /CodePix/rc/) shares the live site's origin, so it saves under its own key.
+const SAVE_KEY = DATA.channel === "rc" ? "codepix-save-rc" : "codepix-save";
+const VERSION_TEXT = DATA.channel === "rc" ? `Release candidate ${DATA.version}${DATA.buildId ? " (build " + DATA.buildId + ")" : ""}` : `Version ${DATA.version}`;
+if (DATA.channel === "rc") document.title = "RC: " + document.title;
 const FRESH = () => ({ v: 1, name: "", done: {}, beat: {}, stickers: {}, ran: {}, hints: {}, sol: {}, quiz: {}, toys: {}, seen: {}, cur: null,
   settings: { sound: true, motion: "auto", unlockAll: false, os: "mac" } });
 let S = Object.assign(FRESH(), store.get(SAVE_KEY, {}));
@@ -87,7 +90,7 @@ const HINT = {
 
 function sparkle(x, y) {
   if (reducedMotion()) return;
-  const s = el("div.sparkle", { html: `<svg viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="${["#ffe45c", "#ff6fae", "#5cc8ff", "#9be34a"][Math.floor(Math.random() * 4)]}" stroke="#141414" stroke-width="1.5"/></svg>` });
+  const s = el("div.sparkle", { "aria-hidden": "true", html: `<svg viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="${["#ffe45c", "#ff6fae", "#5cc8ff", "#9be34a"][Math.floor(Math.random() * 4)]}" stroke="#141414" stroke-width="1.5"/></svg>` });
   s.style.left = x + "px"; s.style.top = y + "px";
   document.body.append(s);
   setTimeout(() => s.remove(), 700);
@@ -97,8 +100,9 @@ document.addEventListener("click", e => {
 });
 
 function toast(msg, ms = 2600) {
-  const t = el("div.toast", { role: "status" }, msg);
+  const t = el("div.toast", { role: "status" });
   document.body.append(t);
+  setTimeout(() => (t.textContent = msg), 30); // fill after insertion so screen readers announce it
   setTimeout(() => t.remove(), ms);
 }
 

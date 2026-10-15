@@ -4,7 +4,7 @@
   "title": "Wire an XOR network",
   "file": "xor.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "One unit cannot compute XOR. Two layers can. The starter has the wiring with every weight and bias set to 0. Change the numbers so that `xor(x1, x2)` gives 1 when exactly one input is 1, and 0 otherwise.\n\nThe test also reads your code: no `if`, no `^` and no `!=` inside `xor()`. Units only.",
   "run_command": "python3 -m unittest test_xor.py",
   "expected_output": "0 0 -> 0\n0 1 -> 1\n1 0 -> 1\n1 1 -> 0",

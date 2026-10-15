@@ -114,12 +114,16 @@ const TRACE = {
       timer = setInterval(() => { if (i >= t.steps.length - 1) toggle(); else go(i + 1); }, reducedMotion() ? 1200 : 700);
     };
     slider.oninput = () => go(+slider.value);
-    w.el.addEventListener("keydown", e => {
-      if (e.target.tagName === "INPUT" && e.target.type !== "range") return;
+    // a trace toy can mount several recordings in one window: drop the previous one's keys and timer
+    if (w.stopTrace) w.stopTrace();
+    const keys = e => {
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) && e.target.type !== "range") return;
       if (e.key === "ArrowRight") { e.preventDefault(); go(i + 1); }
       if (e.key === "ArrowLeft") { e.preventDefault(); go(i - 1); }
-    });
-    w.onclose = () => timer && clearInterval(timer);
+    };
+    w.el.addEventListener("keydown", keys);
+    w.stopTrace = () => { if (timer) clearInterval(timer); timer = null; w.el.removeEventListener("keydown", keys); };
+    w.onclose = w.stopTrace;
     go(0);
   },
 };

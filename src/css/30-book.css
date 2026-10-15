@@ -10,7 +10,7 @@
 .page{font-family:var(--f-book);font-size:18px;line-height:1.65}
 .page h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.15;margin:0 0 4px;color:var(--teal-d)}
 .page h3{font-family:var(--f-story);font-size:21px;margin:22px 0 6px}
-.page .kicker{font-family:var(--f-read);font-size:20px;color:var(--tang-d);margin:0}
+.page .kicker{font-family:var(--f-read);font-size:20px;color:#a84a08;margin:0}
 .page p{margin:0 0 12px;max-width:44em}
 .page ul,.page ol{max-width:42em;padding-left:1.4em}
 .page li{margin:4px 0}
@@ -29,6 +29,7 @@
 .page .refs h4{font-family:var(--f-story);margin:0 0 6px}
 .page .refs p{margin:0 0 6px;padding-left:2em;text-indent:-2em;word-break:break-word}
 .page .pnav{display:flex;justify-content:space-between;gap:8px;margin-top:20px;flex-wrap:wrap}
+.cites .nowrap{white-space:nowrap}
 .cite{border:0;background:none;padding:0;color:var(--teal-d);text-decoration:underline dotted;font:inherit;font-size:.9em}
 .gl{border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline wavy var(--tang);text-underline-offset:3px}
 .page table{border-collapse:collapse;margin:12px 0;font-size:.92em;display:block;overflow-x:auto;max-width:100%}

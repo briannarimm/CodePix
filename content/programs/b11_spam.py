@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,sklearn
 # Sort the shop inbox: real repair jobs or junk? All messages are fictional.

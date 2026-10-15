@@ -23,7 +23,7 @@ Unlocked by finishing Module A (A17 certificate). The reading conventions are th
 | Dive into Deep Learning, sections 3.1, 5.3, 11.9, 15.1 (CC BY-SA 4.0) | Learning rate, backpropagation, word embeddings, pretrained transformers | ShareAlike: cite and paraphrase only. Site shows version 1.0.3. |
 | Samuel (1959), Rosenblatt (1958) | History | Cite abstract and title only. |
 
-Not used because it could not be read or verified: Turing (1950) itself (no open full text found). Google's crash-course pages on hyperparameters, embeddings and LLMs were opened on 2026-10-15 but could not be checked as raw text, so their facts are pending and not citable. The Dive into Deep Learning landing-page entry stays `unverified`; the four chapter entries above are verified.
+Not used because it could not be read or verified: Turing (1950) itself (no open full text found; the B-Bonus section cites an encyclopedia entry for what it proposes). Google's crash-course pages on hyperparameters, embeddings and LLMs were opened on 2026-10-15 but could not be checked as raw text, so their facts are pending and not citable. The Dive into Deep Learning landing-page entry stays `unverified`; the four chapter entries above are verified.
 
 ## Decisions that shape this module (see research summary)
 
@@ -208,7 +208,8 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - scikit-learn's confusion matrix entry (i, j) counts observations actually in group i but predicted in group j; for two classes `ravel()` gives tn, fp, fn, tp [ml-059]. Precision, recall and the F-measure (weighted harmonic mean) [ml-060]; its example prints F1 as 0.66..., the truncated form of 2/3 [ml-061]. ⚙
 - The F-measure is a weighted harmonic mean of precision and recall (see above, [ml-060]).
 - Baselines: scikit-learn calls comparing your model with simple rules of thumb a sanity check. Its `DummyClassifier` with the `most_frequent` strategy always predicts the most frequent training label and ignores the input [ml-118].
-- GAP: human ceilings (how well people do on the same task) are not sourced.
+- People as a yardstick: Cowley and colleagues say comparisons between algorithm and human performance provide a baseline for evaluating the algorithm, and that a fair human study is hard to design [ml-190]. Their principles: the same task, matched trials, attention to how human and algorithm cognition differ, and good psychology-study practice [ml-191].
+- GAP: human performance as a ceiling (an upper bound) is not sourced.
 
 **Analogy.** A smoke alarm: catching every fire (recall) versus never crying wolf (precision). ◇
 
@@ -317,6 +318,7 @@ Build a "Quote Machine": load fictional repair tickets, split properly [ml-103],
 
 ## B-Bonus. Time machine (history)
 
+- 1950: Turing's paper in Mind [ml-189]. He sets aside whether machines can think as too meaningless to discuss and asks whether a digital computer can do well in a game [ml-192]: an interrogator must tell the hidden person from the hidden machine [ml-193]. His prediction about fifty years ahead [ml-194].
 - 1958: Rosenblatt's article on the perceptron [ml-098].
 - 1959: Samuel reports a computer learning to play checkers better than its programmer, in about 8 or 10 hours of play [ml-097].
 - 1975 to 1985: Jelinek's group at IBM develops n-gram language models and coins the term [ml-089].

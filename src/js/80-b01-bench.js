@@ -1,5 +1,5 @@
 /* B1. The Machine Bench: a virtual environment and the four tools.
-   TODO(research): official install lines for NumPy, pandas and Matplotlib (we reuse the Packaging guide's pip command shape).
+   Install lines: each library's own install page [ml-015] [ml-138] [ml-139] [ml-140].
    Python floor: the current releases on PyPI [ml-108] to [ml-111]; ml-016 stays as the history of 1.7.
    Windows venv steps: py-178, py-180 to py-182, py-227. */
 
@@ -12,11 +12,11 @@ PAGES("b01", [
       "So for the current releases of all four tools, you need Python 3.12 or newer. The newest Python is fine too: each of the four publishes a CPython 3.15 wheel for Apple silicon Macs [ml-108] [ml-109] [ml-110] [ml-111]. Check yours:",
       { term: [["python3 --version", "Shows which Python you have [py-165]. You need 3.12 or newer for the current tools."]] },
       { nerd: "Why do older notes say 3.10?", body: [
-        "The floor moves. scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. PyPI lists version 1.9.1 as requiring 3.11 or newer [ml-108]. The numbers on this page are the current releases when this beta was built. If a later release asks for more, follow the release, not this page.",
+        "The floor moves. scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. PyPI lists version 1.9.1 as requiring 3.11 or newer [ml-108]. The numbers on this page are the current releases when this version of Code Pix was built. If a later release asks for more, follow the release, not this page.",
       ] },
       "Second, where the libraries go. A virtual environment is created on top of a base Python and by default is isolated from the packages in the base environment [py-112]. That keeps this module's tools in one box that you can throw away and rebuild.",
       "On a Mac with Homebrew there is one more reason. Homebrew's Python is marked as externally managed, and its error text says a library that is not in Homebrew should be installed in a virtual environment [py-155]. So a plain `pip install` outside an environment stops with an error. That is expected.",
-      { analogy: "A virtual environment is a separate toolbox drawer for one project. The machine learning tools go in this drawer, and the rest of your computer never notices them." },
+      { analogy: "A virtual environment is your own bench for one project, as in A13. The machine learning tools get clamped to this bench, and the rest of your computer never notices them." },
     ],
   },
   {
@@ -45,13 +45,20 @@ PAGES("b01", [
   {
     h: "Install the four tools",
     body: [
-      "With the environment active, install the tools. scikit-learn's own install page runs `pip install -U scikit-learn` inside its environment [ml-015]. The Packaging guide installs a package with `python3 -m pip install requests` [py-117]; our second line uses that same command shape with this module's three other package names.",
+      "With the environment active, install the tools. Each line below comes from that library's own install page. NumPy's page says the only prerequisite is Python itself [ml-137].",
       { term: [
         ["pip install -U scikit-learn", "Install scikit-learn, as its install page does [ml-015]."],
-        ["python3 -m pip install numpy pandas matplotlib", "Install the other three tools into the same environment."],
+        ["pip install numpy", "Install NumPy, as its install page does [ml-138]."],
+        ["pip install pandas", "Install pandas from PyPI, as its install page does [ml-139]."],
+        ["python -m pip install -U pip", "Update pip first, as Matplotlib's install page does [ml-140]."],
+        ["python -m pip install -U matplotlib", "Then install Matplotlib [ml-140]."],
         ["python -m pip show scikit-learn", "Check the install, as scikit-learn's page does [ml-017]."],
       ], title: "Terminal, with the environment active" },
-      { honest: "The second command is our own, built from the Packaging guide's pattern. The install pages for NumPy, pandas and Matplotlib are not in our sources yet." },
+      "The pages agree about the drawer, too. NumPy's install tip recommends a virtual environment made with `python -m venv` [ml-138]. The pandas documentation recommends installing and running pandas from a virtual environment, for example one made with venv [ml-139].",
+      { nerd: "Why do the lines look a little different?", body: [
+        "Four projects wrote four install pages, so the spelling varies. Some write `pip install`, and Matplotlib writes `python -m pip install` [ml-140]. The second form says exactly which Python runs pip. With the environment active, `python` runs the environment's interpreter [py-115], so the package lands in your drawer.",
+        "Matplotlib publishes ready-built wheel packages for macOS, Windows and Linux on PyPI [ml-140], so pip does not have to build anything on your machine.",
+      ] },
       { nerd: "If pip says \"externally managed\"", body: [
         "That message means the environment is not active, so pip is talking to Homebrew's Python [py-155]. Run `source .venv/bin/activate` in this window and try again.",
       ] },
@@ -94,7 +101,11 @@ LEVEL({
     { book: 1, text: "The book walks through the commands. Read the page, then come back." },
     { ask: { q: "You open a brand-new terminal window. What do you run before working on Module B?", choices: ["`python3 -m venv .venv` again", "`source .venv/bin/activate`", "`pip install -U scikit-learn` again"], answer: 1,
       why: "The environment already exists, so there is nothing to create or install. You only switch it on again with the `source` line [py-116]." } },
-    say("nib", "Then the installs. scikit-learn's page uses `pip install -U scikit-learn` inside the environment [ml-015], and checks it with `python -m pip show scikit-learn` [ml-017]."),
+    say("nib", "Then the installs. Each tool's own page gives the line. scikit-learn uses `pip install -U scikit-learn` [ml-015]. NumPy uses `pip install numpy` [ml-138], and pandas uses `pip install pandas` [ml-139]."),
+    say("byte", "And Matplotlib? It is the one that draws. I want it most."),
+    say("nib", "Matplotlib's page updates pip first, then runs `python -m pip install -U matplotlib` [ml-140]. Afterwards, `python -m pip show scikit-learn` checks the install [ml-017]."),
+    { ask: { q: "NumPy's and pandas's install pages both mention something you should have before you install. What is it?", choices: ["An administrator password", "A virtual environment", "A second copy of Python"], answer: 1,
+      why: "NumPy's install tip recommends a virtual environment made with `python -m venv` [ml-138], and the pandas documentation recommends installing pandas in one [ml-139]. That is the drawer you just built." } },
     { book: 2, text: "Here are the install commands, with a note on what to do if pip complains." },
     say("byte", "And then a program that imports all four tools and says hello. I wrote one. It is very polite."),
     { predict: { program: "b01_check", q: "This program imports the four tools and prints their versions. Your numbers may differ. What does the build computer print?" } },

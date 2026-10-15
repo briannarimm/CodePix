@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Ms. Gridlock's hand-written rules for sorting repair tickets (fictional).
 tickets = [
     ("fridge", "humming", "big"),

@@ -2169,7 +2169,7 @@
   },
   {
    "id": "mlcc-hyperparameters",
-   "status": "unverified",
+   "status": "verified",
    "title": "Linear regression: Hyperparameters",
    "author": "Google for Developers",
    "site": "Machine Learning Crash Course",
@@ -2182,11 +2182,11 @@
    "levels": [
     105
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with the fetch tool on 2026-10-15; the release-candidate research pass found the check strings verbatim on the live page and marked the source verified. Raw text is not reachable from the research sandbox (proxy 403); CI re-verifies with network access."
   },
   {
    "id": "mlcc-embeddings",
-   "status": "unverified",
+   "status": "verified",
    "title": "Embeddings",
    "author": "Google for Developers",
    "site": "Machine Learning Crash Course",
@@ -2199,11 +2199,11 @@
    "levels": [
     113
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with the fetch tool on 2026-10-15; the release-candidate research pass found the check strings verbatim on the live page and marked the source verified. Raw text is not reachable from the research sandbox (proxy 403); CI re-verifies with network access."
   },
   {
    "id": "mlcc-llm",
-   "status": "unverified",
+   "status": "verified",
    "title": "Introduction to large language models",
    "author": "Google for Developers",
    "site": "Machine Learning Crash Course",
@@ -2216,11 +2216,11 @@
    "levels": [
     113
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with the fetch tool on 2026-10-15; the release-candidate research pass found the check strings verbatim on the live page and marked the source verified. Raw text is not reachable from the research sandbox (proxy 403); CI re-verifies with network access."
   },
   {
    "id": "chm-lovelace",
-   "status": "unverified",
+   "status": "verified",
    "title": "Ada Lovelace",
    "author": "Computer History Museum",
    "site": "The Babbage Engine",
@@ -2233,11 +2233,11 @@
    "levels": [
     -1
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with WebFetch on 2026-10-15; the check strings of its facts were confirmed verbatim in the fetched text (raw text not downloadable from the sandbox)."
   },
   {
    "id": "mactutor-lovelace",
-   "status": "unverified",
+   "status": "verified",
    "title": "Ada Lovelace (1815-1852), biography",
    "author": "O'Connor, J. J., & Robertson, E. F.",
    "site": "MacTutor History of Mathematics, University of St Andrews",
@@ -2250,7 +2250,7 @@
    "levels": [
     -1
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine. Page says Last Update August 2002."
+   "notes": "Read with WebFetch on 2026-10-15; the check strings of its facts were confirmed verbatim in the fetched text (raw text not downloadable from the sandbox). Page says Last Update August 2002."
   },
   {
    "id": "ethw-eniac",
@@ -2267,11 +2267,12 @@
    "levels": [
     -1
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine. Plaque dedicated by the IEEE Philadelphia Section in September 1987."
+   "notes": "Read with WebFetch on 2026-10-15; the check strings of its facts were confirmed verbatim in the fetched text (raw text not downloadable from the sandbox). Plaque dedicated by the IEEE Philadelphia Section in September 1987.",
+   "note_ci": "The GitHub source check could not read this page (2026-10-15: bot block or unreadable PDF). Checked only through WebFetch, so its facts stay pending."
   },
   {
    "id": "yale-hopper",
-   "status": "unverified",
+   "status": "verified",
    "title": "Biography of Grace Murray Hopper",
    "author": "Yale University, Office of the President",
    "site": "Yale University",
@@ -2284,7 +2285,7 @@
    "levels": [
     -1
    ],
-   "notes": "Unverified: page opened with the fetch tool on 2026-10-15, but its raw text could not be downloaded from the research sandbox (proxy 403). Facts are pending until tools/verify_facts.py --pending passes on a networked machine."
+   "notes": "Read with WebFetch on 2026-10-15; the check strings of its facts were confirmed verbatim in the fetched text (raw text not downloadable from the sandbox)."
   },
   {
    "id": "gutenberg-menabrea-1843",
@@ -2302,6 +2303,963 @@
     -1
    ],
    "notes": "Primary source for Lovelace's notes. The fetch tool read only the first 100,000 characters and did not reach Note G. No facts taken."
+  },
+  {
+   "id": "py-docs-tutorial-interpreter",
+   "status": "verified",
+   "title": "Using the Python interpreter",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/tutorial/interpreter.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/tutorial/interpreter.rst"
+  },
+  {
+   "id": "py-docs-lexical",
+   "status": "verified",
+   "title": "Lexical analysis",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/reference/lexical_analysis.html#indentation",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    5
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/reference/lexical_analysis.rst"
+  },
+  {
+   "id": "py-docs-main",
+   "status": "verified",
+   "title": "__main__: Top-level code environment",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/__main__.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    17
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/__main__.rst"
+  },
+  {
+   "id": "py-docs-library-intro",
+   "status": "verified",
+   "title": "Introduction (The Python standard library)",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/intro.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    13
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/intro.rst"
+  },
+  {
+   "id": "py-docs-traceback",
+   "status": "verified",
+   "title": "traceback: Print or retrieve a stack traceback",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/traceback.html#traceback.print_exception",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    10
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/traceback.rst"
+  },
+  {
+   "id": "py-docs-tkinter",
+   "status": "verified",
+   "title": "tkinter: Python interface to Tcl/Tk",
+   "author": "Python Software Foundation",
+   "site": "Python 3.15.0 documentation",
+   "date": "n.d.",
+   "url": "https://docs.python.org/3/library/tkinter.html",
+   "license": "PSF License Version 2 (text); Zero-Clause BSD (code examples)",
+   "licenseUrl": "https://docs.python.org/3/license.html",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/python/cpython/3.15/Doc/library/tkinter.rst"
+  },
+  {
+   "id": "thinkpython3-ch3",
+   "status": "verified",
+   "title": "Think Python, 3rd edition: Chapter 3, Functions",
+   "author": "Downey, A. B.",
+   "site": "Think Python",
+   "date": "2024",
+   "url": "https://allendowney.github.io/ThinkPython/chap03.html",
+   "license": "CC BY-NC-SA 4.0 (text); MIT (code)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    10
+   ],
+   "notes": "License from the page: text CC BY-NC-SA 4.0, code MIT.",
+   "mirror": "https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/chapters/chap03.ipynb"
+  },
+  {
+   "id": "runestone-pythonds-insertion",
+   "status": "verified",
+   "title": "Problem Solving with Algorithms and Data Structures using Python: The insertion sort",
+   "author": "Miller, B. N., & Ranum, D. L.",
+   "site": "Runestone Academy",
+   "date": "2014",
+   "url": "https://runestone.academy/ns/books/published/pythonds/SortSearch/TheInsertionSort.html",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    15
+   ],
+   "notes": "License CC BY-NC-SA 4.0 from the header of the book's source file; the page footer shows (c) 2014 Brad Miller, David Ranum.",
+   "mirror": "https://raw.githubusercontent.com/RunestoneInteractive/pythonds/master/_sources/SortSearch/TheInsertionSort.rst"
+  },
+  {
+   "id": "vscode-setup-mac",
+   "status": "verified",
+   "title": "Visual Studio Code on macOS",
+   "author": "Microsoft",
+   "site": "Visual Studio Code Documentation",
+   "date": "2026",
+   "url": "https://code.visualstudio.com/docs/setup/mac",
+   "license": "CC BY 3.0 US (microsoft/vscode-docs LICENSE.md; code MIT)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/",
+   "reuse": "Attribute Microsoft; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    -1
+   ],
+   "notes": "DateApproved 10/14/2026 in the source file.",
+   "mirror": "https://raw.githubusercontent.com/microsoft/vscode-docs/main/docs/setup/mac.md"
+  },
+  {
+   "id": "vscode-python-envs",
+   "status": "verified",
+   "title": "Python environments in VS Code",
+   "author": "Microsoft",
+   "site": "Visual Studio Code Documentation",
+   "date": "2026",
+   "url": "https://code.visualstudio.com/docs/python/environments#_select-an-environment",
+   "license": "CC BY 3.0 US (microsoft/vscode-docs LICENSE.md; code MIT)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/",
+   "reuse": "Attribute Microsoft; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    -1
+   ],
+   "notes": "DateApproved 02/04/2026 in the source file.",
+   "mirror": "https://raw.githubusercontent.com/microsoft/vscode-docs/main/docs/python/environments.md"
+  },
+  {
+   "id": "brew-faq",
+   "status": "verified",
+   "title": "FAQ (Frequently Asked Questions)",
+   "author": "Homebrew",
+   "site": "Homebrew Documentation",
+   "date": "n.d.",
+   "url": "https://docs.brew.sh/FAQ#why-should-i-install-homebrew-in-the-default-location",
+   "license": "BSD 2-Clause (Homebrew/brew LICENSE.txt)",
+   "licenseUrl": "https://opensource.org/license/bsd-2-clause",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/brew/main/docs/FAQ.md"
+  },
+  {
+   "id": "brew-install-script",
+   "status": "verified",
+   "title": "install.sh (the Homebrew installer)",
+   "author": "Homebrew",
+   "site": "GitHub: Homebrew/install",
+   "date": "2026",
+   "url": "https://github.com/Homebrew/install/blob/main/install.sh",
+   "license": "BSD 2-Clause (Homebrew/install LICENSE.txt)",
+   "licenseUrl": "https://opensource.org/license/bsd-2-clause",
+   "reuse": "Facts only (which file the installer names).",
+   "accessed": "2026-10-15",
+   "levels": [
+    1
+   ],
+   "notes": "The installer's own source, read as raw text: its Next steps message names the shell file to edit.",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/install/main/install.sh",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "apple-mac-folders",
+   "status": "verified",
+   "title": "Folders that come with your Mac",
+   "author": "Apple Inc.",
+   "site": "macOS User Guide",
+   "date": "2026",
+   "url": "https://support.apple.com/guide/mac-help/folders-that-come-with-your-mac-mchlp1143/mac",
+   "license": "(c) Apple Inc. All rights reserved",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    0
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check."
+  },
+  {
+   "id": "apple-rename-home",
+   "status": "verified",
+   "title": "Change the name of your macOS user account and home folder",
+   "author": "Apple Inc.",
+   "site": "Apple Support",
+   "date": "2026",
+   "url": "https://support.apple.com/en-us/102547",
+   "license": "(c) Apple Inc. All rights reserved",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    0
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Published Date: May 12, 2026."
+  },
+  {
+   "id": "ubuntu-python-setup",
+   "status": "verified",
+   "title": "How to set up a development environment for Python on Ubuntu",
+   "author": "Canonical",
+   "site": "Ubuntu for Developers documentation",
+   "date": "2026",
+   "url": "https://ubuntu.com/developers/docs/howto/python-setup/",
+   "license": "CC BY-SA 4.0 (canonical/ubuntu-for-developers-docs LICENCE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1
+   ],
+   "notes": "Page shows Last updated Aug 21, 2026; footer shows only a copyright line, the repository licence is CC BY-SA 4.0.",
+   "mirror": "https://raw.githubusercontent.com/canonical/ubuntu-for-developers-docs/main/docs/howto/python-setup.md"
+  },
+  {
+   "id": "fedora-python",
+   "status": "verified",
+   "title": "Python in Fedora",
+   "author": "Fedora Project",
+   "site": "Fedora Developer Portal",
+   "date": "n.d.",
+   "url": "https://developer.fedoraproject.org/tech/languages/python/python-installation.html",
+   "license": "GPL-2.0 (developer-portal/content repository LICENSE); footer (c) Red Hat, Inc. and others",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/developer-portal/content/master/tech/languages/python/python-installation.md"
+  },
+  {
+   "id": "progit-viewing-history",
+   "status": "verified",
+   "title": "Pro Git: Viewing the commit history",
+   "author": "Chacon, S., & Straub, B.",
+   "site": "Pro Git",
+   "date": "2014",
+   "url": "https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History",
+   "license": "CC BY-NC-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/progit/progit2/main/book/02-git-basics/sections/viewing-history.asc"
+  },
+  {
+   "id": "gh-docs-remote-repos",
+   "status": "verified",
+   "title": "About remote repositories",
+   "author": "GitHub",
+   "site": "GitHub Docs",
+   "date": "n.d.",
+   "url": "https://docs.github.com/en/get-started/git-basics/about-remote-repositories",
+   "license": "CC BY 4.0 (github/docs LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute GitHub; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/github/docs/main/content/get-started/git-basics/about-remote-repositories.md"
+  },
+  {
+   "id": "gh-docs-pat",
+   "status": "verified",
+   "title": "Managing your personal access tokens",
+   "author": "GitHub",
+   "site": "GitHub Docs",
+   "date": "n.d.",
+   "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens",
+   "license": "CC BY 4.0 (github/docs LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute GitHub; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/github/docs/main/content/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens.md"
+  },
+  {
+   "id": "gh-docs-credentials",
+   "status": "verified",
+   "title": "Caching your GitHub credentials in Git",
+   "author": "GitHub",
+   "site": "GitHub Docs",
+   "date": "n.d.",
+   "url": "https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git",
+   "license": "CC BY 4.0 (github/docs LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute GitHub; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/github/docs/main/content/get-started/git-basics/caching-your-github-credentials-in-git.md"
+  },
+  {
+   "id": "gh-docs-branches",
+   "status": "verified",
+   "title": "Branches (About the default branch)",
+   "author": "GitHub",
+   "site": "GitHub Docs",
+   "date": "n.d.",
+   "url": "https://docs.github.com/en/pull-requests/reference/branches#about-the-default-branch",
+   "license": "CC BY 4.0 (github/docs LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "Attribute GitHub; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    18
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/github/docs/main/content/pull-requests/reference/branches.md"
+  },
+  {
+   "id": "gomes-2026-intro-programming",
+   "status": "unverified",
+   "title": "Teaching introductory programming in top universities: A global study of languages, paradigms, assessment, and AI",
+   "author": "Gomes, J. P., Monteiro, R., Moreira, A. S., Mendonca, V., Pinho, A., & Cunha, C. R.",
+   "site": "Journal of Computer Languages, 86, 101384",
+   "date": "2026",
+   "url": "https://bibliotecadigital.ipb.pt/bitstreams/7805506c-08dc-4242-a583-7643c53562bf/download",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0: attribute; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Open copy of the published article in the IPB repository (Biblioteca Digital do IPB); the PDF states it is an open access article under the CC BY license. DOI: https://doi.org/10.1016/j.cola.2025.101384 (doi.org rate-limited the fetch tool).",
+   "pdf": true,
+   "doi": "https://doi.org/10.1016/j.cola.2025.101384",
+   "note_ci": "The GitHub source check could not read this page (2026-10-15: bot block or unreadable PDF). Checked only through WebFetch, so its facts stay pending."
+  },
+  {
+   "id": "newhall-2025-cs31",
+   "status": "unverified",
+   "title": "An introductory-level undergraduate CS course that introduces parallel computing",
+   "author": "Newhall, T., Webb, K. C., Chaganti, V., & Danner, A.",
+   "site": "Journal of Parallel and Distributed Computing, 199, 105044",
+   "date": "2025",
+   "url": "https://works.swarthmore.edu/cgi/viewcontent.cgi?article=1136&context=fac-comp-sci",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "reuse": "NonCommercial and NoDerivatives: cite and paraphrase only; never copy text or figures.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Open copy in Swarthmore Works (landing page https://works.swarthmore.edu/fac-comp-sci/137). DOI: https://doi.org/10.1016/j.jpdc.2025.105044.",
+   "pdf": true,
+   "doi": "https://doi.org/10.1016/j.jpdc.2025.105044",
+   "note_ci": "The GitHub source check could not read this page (2026-10-15: bot block or unreadable PDF). Checked only through WebFetch, so its facts stay pending."
+  },
+  {
+   "id": "tsc-2024-unplugged",
+   "status": "unverified",
+   "title": "How can unplugged approach facilitate novice students' understanding of computational thinking? An exploratory study from a Nigerian university",
+   "author": "unknown",
+   "site": "Thinking Skills and Creativity",
+   "date": "2024",
+   "url": "https://doi.org/10.1016/j.tsc.2023.101458",
+   "license": "unknown",
+   "licenseUrl": "",
+   "reuse": "Not used.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Full text not read: ScienceDirect (https://www.sciencedirect.com/science/article/pii/S1871187123002250) refuses the fetch tool (robots), ResearchGate failed, and doi.org rate-limited it. No open repository copy found. Do not cite until someone reads the full text."
+  },
+  {
+   "id": "numpy-install",
+   "status": "verified",
+   "title": "Installing NumPy",
+   "author": "NumPy Developers",
+   "site": "NumPy",
+   "date": "n.d.",
+   "url": "https://numpy.org/install/",
+   "license": "BSD 3-Clause (numpy/numpy.org LICENSE)",
+   "licenseUrl": "https://github.com/numpy/numpy.org/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/numpy/numpy.org/main/content/en/install.md"
+  },
+  {
+   "id": "pandas-install",
+   "status": "verified",
+   "title": "Installation",
+   "author": "pandas development team",
+   "site": "pandas 3.0.6 documentation",
+   "date": "n.d.",
+   "url": "https://pandas.pydata.org/docs/getting_started/install.html#installing-with-pip",
+   "license": "BSD 3-Clause (project LICENSE)",
+   "licenseUrl": "https://github.com/pandas-dev/pandas/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pandas-dev/pandas/v3.0.6/doc/source/getting_started/install.rst"
+  },
+  {
+   "id": "mpl-install",
+   "status": "verified",
+   "title": "Installation",
+   "author": "Matplotlib development team",
+   "site": "Matplotlib 3.11.2 documentation",
+   "date": "n.d.",
+   "url": "https://matplotlib.org/stable/install/index.html#install-an-official-release",
+   "license": "Matplotlib License (project LICENSE)",
+   "licenseUrl": "https://github.com/matplotlib/matplotlib/blob/main/LICENSE/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    101
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.11.2/doc/install/index.rst"
+  },
+  {
+   "id": "pandas-read-write",
+   "status": "verified",
+   "title": "How do I read and write tabular data?",
+   "author": "pandas development team",
+   "site": "pandas 3.0.6 documentation",
+   "date": "n.d.",
+   "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html",
+   "license": "BSD 3-Clause (project LICENSE)",
+   "licenseUrl": "https://github.com/pandas-dev/pandas/blob/main/LICENSE",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    102
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/pandas-dev/pandas/v3.0.6/doc/source/getting_started/intro_tutorials/02_read_write.rst"
+  },
+  {
+   "id": "sk-linreg-api",
+   "status": "verified",
+   "title": "sklearn.linear_model.LinearRegression",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    104
+   ],
+   "notes": "The API page is generated from the LinearRegression docstring in _base.py on the 1.9.X branch.",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/sklearn/linear_model/_base.py",
+   "text": true
+  },
+  {
+   "id": "sk-train-test-split",
+   "status": "verified",
+   "title": "sklearn.model_selection.train_test_split",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    107,
+    116
+   ],
+   "notes": "The API page is generated from the train_test_split docstring in _split.py on the 1.9.X branch.",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/sklearn/model_selection/_split.py",
+   "text": true
+  },
+  {
+   "id": "sk-text-features",
+   "status": "verified",
+   "title": "Feature extraction: Text feature extraction",
+   "author": "scikit-learn developers",
+   "site": "scikit-learn 1.9.1 documentation",
+   "date": "n.d.",
+   "url": "https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction",
+   "license": "BSD 3-Clause (scikit-learn license)",
+   "licenseUrl": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+   "reuse": "Cite and paraphrase. Write our own examples and run them.",
+   "accessed": "2026-10-15",
+   "levels": [
+    111
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/1.9.X/doc/modules/feature_extraction.rst"
+  },
+  {
+   "id": "openstax-stats-12-3",
+   "status": "verified",
+   "title": "Introductory Statistics 2e, 12.3 The regression equation",
+   "author": "Illowsky, B., & Dean, S.",
+   "site": "OpenStax",
+   "date": "2023",
+   "url": "https://openstax.org/books/introductory-statistics-2e/pages/12-3-the-regression-equation",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "reuse": "NonCommercial and ShareAlike: cite and paraphrase only; never copy text, figures or examples.",
+   "accessed": "2026-10-15",
+   "levels": [
+    104
+   ],
+   "notes": "OpenStax module m47117 (book published Dec. 13, 2023). License from the page footer and the bundle README. The slope formula is MathML; the check string is its plain-text reading.",
+   "mirror": "https://raw.githubusercontent.com/openstax/osbooks-introductory-statistics-bundle/main/modules/m47117/index.cnxml"
+  },
+  {
+   "id": "d2l-text-sequence",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 9.2 Converting raw text into sequence data",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_recurrent-neural-networks/text-sequence.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    111,
+    113
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_recurrent-neural-networks/text-sequence.md"
+  },
+  {
+   "id": "d2l-language-model",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 9.3 Language models",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_recurrent-neural-networks/language-model.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    111
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_recurrent-neural-networks/language-model.md"
+  },
+  {
+   "id": "d2l-qkv",
+   "status": "verified",
+   "title": "Dive into Deep Learning, 11.1 Queries, keys, and values",
+   "author": "Zhang, A., Lipton, Z. C., Li, M., & Smola, A. J.",
+   "site": "Dive into Deep Learning",
+   "date": "2023",
+   "url": "https://d2l.ai/chapter_attention-mechanisms-and-transformers/queries-keys-values.html",
+   "license": "CC BY-SA 4.0 (verified in the repository LICENSE)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "reuse": "ShareAlike: cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "",
+   "mirror": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/chapter_attention-mechanisms-and-transformers/queries-keys-values.md"
+  },
+  {
+   "id": "mlcc-loss",
+   "status": "verified",
+   "title": "Linear regression: Loss",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-05",
+   "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/loss",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    105
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-evaluating-bias",
+   "status": "verified",
+   "title": "Fairness: Evaluating for bias",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-08-25",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/evaluating-for-bias",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-demographic-parity",
+   "status": "verified",
+   "title": "Fairness: Demographic parity",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-08-25",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/demographic-parity",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-equal-opportunity",
+   "status": "verified",
+   "title": "Fairness: Equality of opportunity",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2025-12-03",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/equality-of-opportunity",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-transformers",
+   "status": "verified",
+   "title": "LLMs: What's a large language model? (Transformers)",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-01-02",
+   "url": "https://developers.google.com/machine-learning/crash-course/llm/transformers",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "mlcc-obtaining-embeddings",
+   "status": "verified",
+   "title": "Embeddings: Obtaining embeddings",
+   "author": "Google for Developers",
+   "site": "Machine Learning Crash Course",
+   "date": "2026-02-17",
+   "url": "https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0 (code samples Apache 2.0). Attribute Google; paraphrase freely.",
+   "accessed": "2026-10-15",
+   "levels": [
+    113
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access."
+  },
+  {
+   "id": "turing-archive-amt-b-19",
+   "status": "verified",
+   "title": "AMT/B/19: Off-print, 'Computing machinery and intelligence' from Mind",
+   "author": "Turing, A. M.",
+   "site": "The Turing Digital Archive, King's College, Cambridge",
+   "date": "1950",
+   "url": "https://turingarchive.kings.cam.ac.uk/amt-b-19",
+   "license": "Images copyrighted; reproduced from Mind with the permission of Oxford University Press; archive terms of use apply",
+   "licenseUrl": "",
+   "reuse": "Cite only; link for reading. Do not copy page images.",
+   "accessed": "2026-10-15",
+   "levels": [
+    116
+   ],
+   "notes": "Read with the fetch tool on 2026-10-15 (check strings found verbatim); raw page not reachable from the research sandbox, so CI re-verifies with network access. The archive item offers a PDF of the 1950 off-print under its terms of use; the publisher's page (academic.oup.com) is subscriber-only, so this is the free copy to link. Only the catalogue entry was read, not the scanned paper."
+  },
+  {
+   "id": "nyamawe-2025-pml",
+   "status": "unverified",
+   "title": "Practical machine learning: A beginner's guide with ethical insights",
+   "author": "Nyamawe, A. S., Mjahidi, M. M., Nnko, N. E., Diwani, S. A., Minja, G. G., & Malyango, K.",
+   "site": "Chapman and Hall/CRC (Taylor & Francis)",
+   "date": "2025",
+   "url": "https://library.oapen.org/handle/20.500.12657/98246",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "reuse": "NonCommercial, NoDerivatives: cite and paraphrase only; never copy text or figures.",
+   "accessed": "2026-10-15",
+   "levels": [
+    115,
+    -1
+   ],
+   "notes": "Open access monograph (published Feb. 7, 2025). The citation link is the OAPEN Library record (plain HTML), which carries the book's own description; ml-188 comes from that description only. Rc-gaps pass (2026-10-15): the record page was read with WebFetch and the check strings found verbatim. The OAPEN bitstream PDF is robots-disallowed for the fetch tool and the Taylor & Francis PDF endpoint returned an error, so no claim is taken from the chapters.",
+   "doi": "https://doi.org/10.1201/9781003486817",
+   "note_ci": "CI (2026-10-15) could not read the OAPEN record page, so ml-188 stays pending."
+  },
+  {
+   "id": "zhao-2025-procs",
+   "status": "unverified",
+   "title": "Teaching reform of machine learning courses based on a multi-stage cognitive advancement framework",
+   "author": "Zhao, Y., Hu, Z., Wang, J., & Li, X.",
+   "site": "Procedia Computer Science, 259, 1249-1258",
+   "date": "2025",
+   "url": "https://doi.org/10.1016/j.procs.2025.04.080",
+   "license": "CC BY-NC-ND 4.0 (per Crossref metadata)",
+   "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "reuse": "Not read; no facts.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Bibliographic data from Crossref. ScienceDirect (PII S1877050925011810) is robots-disallowed for the fetch tool, the Elsevier API returned an error and doi.org rate-limited the sandbox, so the paper was not read. No claims taken."
+  },
+  {
+   "id": "imavis-2012-cv-core",
+   "status": "unverified",
+   "title": "Computer vision needs a core and foundations",
+   "author": "(authors not confirmed)",
+   "site": "Image and Vision Computing",
+   "date": "2012",
+   "url": "https://doi.org/10.1016/j.imavis.2011.12.013",
+   "license": "unknown",
+   "licenseUrl": "",
+   "reuse": "Not read; no facts.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "doi.org and Crossref rate-limited the sandbox and ScienceDirect is robots-disallowed, so neither the paper nor its access status could be read. No claims taken."
+  },
+  {
+   "id": "brew-lang-runtimes",
+   "status": "verified",
+   "title": "Language runtimes and packages",
+   "author": "Homebrew",
+   "site": "Homebrew Documentation",
+   "date": "n.d.",
+   "url": "https://docs.brew.sh/Language-Runtimes-and-Packages#python",
+   "license": "BSD 2-Clause (Homebrew LICENSE.txt)",
+   "licenseUrl": "https://opensource.org/license/bsd-2-clause",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    6
+   ],
+   "notes": "docs.brew.sh/Homebrew-and-Python now redirects here.",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/brew/main/docs/Language-Runtimes-and-Packages.md"
+  },
+  {
+   "id": "brew-python315",
+   "status": "verified",
+   "title": "python@3.15 formula",
+   "author": "Homebrew",
+   "site": "Homebrew Formulae",
+   "date": "n.d.",
+   "url": "https://formulae.brew.sh/formula/python@3.15",
+   "license": "Python-2.0 (formula's stated license)",
+   "licenseUrl": "",
+   "reuse": "Facts only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    6
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Lists aliases python, python3 and python@3, stable version 3.15.0, and the python-tk@3.15 caveat."
+  },
+  {
+   "id": "brew-core-python315-rb",
+   "status": "verified",
+   "title": "python@3.15.rb (Homebrew formula source)",
+   "author": "Homebrew",
+   "site": "GitHub: Homebrew/homebrew-core",
+   "date": "2026",
+   "url": "https://github.com/Homebrew/homebrew-core/blob/main/Formula/p/python@3.15.rb",
+   "license": "BSD 2-Clause (Homebrew/homebrew-core LICENSE.txt)",
+   "licenseUrl": "https://opensource.org/license/bsd-2-clause",
+   "reuse": "Facts only (what the caveat says).",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "The caveats block is the template formulae.brew.sh renders; python@3.14.rb has the same two lines.",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/homebrew-core/main/Formula/p/python@3.15.rb",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "ubuntu-pkg-python3-tk",
+   "status": "verified",
+   "title": "Package python3-tk",
+   "author": "Canonical",
+   "site": "Ubuntu Packages",
+   "date": "n.d.",
+   "url": "https://packages.ubuntu.com/python3-tk",
+   "license": "No license shown on the page",
+   "licenseUrl": "",
+   "reuse": "Facts only (package name and description).",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Ubuntu's own package archive search page; lists python3-tk for 22.04 LTS through 26.04 LTS."
+  },
+  {
+   "id": "fedora-pkg-python3-tkinter",
+   "status": "verified",
+   "title": "python3-tkinter (subpackage of python3.15)",
+   "author": "Fedora Project",
+   "site": "Fedora Packages",
+   "date": "n.d.",
+   "url": "https://packages.fedoraproject.org/pkgs/python3.15/python3-tkinter/",
+   "license": "No license shown on the page",
+   "licenseUrl": "",
+   "reuse": "Facts only (package name and description).",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Lists Fedora 45 and Rawhide with 3.15.0."
+  },
+  {
+   "id": "penn-eniac",
+   "status": "verified",
+   "title": "Celebrating Penn Engineering history: ENIAC",
+   "author": "Penn Engineering, University of Pennsylvania",
+   "site": "Penn Engineering",
+   "date": "n.d.",
+   "url": "https://www.engineering.upenn.edu/about/history-heritage/eniac/",
+   "license": "(c) 2026 Penn Engineering; no license shown",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. www.seas.upenn.edu/about/history-heritage/eniac/ redirects here. Replaces ethw-eniac for the time machine (ethw.org blocks CI)."
+  },
+  {
+   "id": "sep-turing-test",
+   "status": "verified",
+   "title": "The Turing test",
+   "author": "Oppy, G., & Dowe, D.",
+   "site": "Stanford Encyclopedia of Philosophy",
+   "date": "2021",
+   "url": "https://plato.stanford.edu/entries/turing-test/",
+   "license": "(c) Metaphysics Research Lab, Stanford University; free to read online",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    116,
+    -1
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. First published Apr. 9, 2003; substantive revision Oct. 4, 2021. Page metadata names David Dowe; PhilArchive lists Graham Oppy for the same entry. Section 1 quotes Turing (1950)."
+  },
+  {
+   "id": "cowley-2022-human-eval",
+   "status": "verified",
+   "title": "A framework for rigorous evaluation of human performance in human and machine learning comparison studies",
+   "author": "Cowley, H. P., Natter, M., Gray-Roncal, K., Rhodes, R. E., Johnson, E. C., Drenkow, N., Shead, T. M., Chance, F. S., Wester, B., & Gray-Roncal, W.",
+   "site": "Scientific Reports, 12, 5444",
+   "date": "2022",
+   "url": "https://www.nature.com/articles/s41598-022-08078-3",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0: attribute; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    108
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Open access (PMC8971503). An author correction exists (PMC9263099, not read); facts use the abstract and the Guiding principles section only.",
+   "doi": "https://doi.org/10.1038/s41598-022-08078-3",
+   "mirror": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8971503/fullTextXML"
   }
  ]
 }

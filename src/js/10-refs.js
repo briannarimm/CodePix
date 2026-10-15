@@ -10,7 +10,7 @@
 const FACT = DATA.facts, SRC = DATA.sources;
 
 function apaHTML(s) {
-  return esc(s.apa).replace(/\*([^*]+)\*/g, "<i>$1</i>").replace(/(https?:\/\/[^\s<]+)/g, u => `<a href="${u}" target="_blank" rel="noopener noreferrer">${u}</a>`);
+  return esc(s.apa).replace(/\*([^*]+)\*/g, "<i>$1</i>").replace(/(https?:\/\/[^\s<]+)/g, u => `<a href="${u}" target="_blank" rel="noopener noreferrer" data-hint="Opens the source in a new tab">${u}</a>`);
 }
 function factURL(id) {
   const f = FACT[id], s = SRC[f.s];
@@ -30,7 +30,9 @@ function rich(text, used) {
       if (!f) return `<span class="cite">[missing ${id}]</span>`;
       return `<button type="button" class="cite" data-fact="${id}" data-hint="Show the source behind this sentence">${esc(SRC[f.s].cite)}</button>`;
     });
-    return ` <span class="cites">(${parts.join("; ")})</span>`;
+    // keep "(" with the first citation and ")" with the last, so a parenthesis never sits alone at a line end
+    parts[0] = "(" + parts[0]; parts[parts.length - 1] += ")";
+    return ` <span class="cites">${parts.map(p => `<span class="nowrap">${p}</span>`).join("; ")}</span>`;
   });
   h = h.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, t, shown) =>
     `<button type="button" class="gl" data-term="${esc(t.toLowerCase())}" data-hint="Glossary: what does ${esc(t)} mean?">${shown || t}</button>`);
@@ -49,7 +51,7 @@ function refList(used) {
 
 /* Popovers for citations and glossary words */
 const POP = {
-  node: null,
+  node: null, anchor: null,
   close() { if (this.node) { this.node.remove(); this.node = null; } },
   show(anchor, html) {
     this.close();
@@ -60,7 +62,7 @@ const POP = {
     if (y + hgt > innerHeight - 12) y = Math.max(12, r.top - hgt - 8);
     p.style.left = x + "px"; p.style.top = y + "px";
     $(".closepop", p).onclick = () => { this.close(); anchor.focus(); };
-    this.node = p;
+    this.node = p; this.anchor = anchor;
     $(".closepop", p).focus({ preventScroll: true });
   },
 };
@@ -70,11 +72,14 @@ document.addEventListener("click", e => {
   if (c) {
     const f = FACT[c.dataset.fact], s = SRC[f.s];
     POP.show(c, `<div class="ttl">Source</div><div class="apa">${apaHTML(s)}</div>
-      <div class="lic">License: ${s.licenseUrl ? `<a href="${esc(s.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(s.license)}</a>` : esc(s.license)}. Read on ${esc(s.accessed)}.</div>
-      <div class="claim"><b>What this source supports:</b> ${esc(f.c)} <a href="${esc(factURL(c.dataset.fact))}" target="_blank" rel="noopener noreferrer">Open the page</a> (section: ${esc(f.a)})</div>`);
+      <div class="lic">License: ${s.licenseUrl ? `<a href="${esc(s.licenseUrl)}" target="_blank" rel="noopener noreferrer" data-hint="Opens the license in a new tab">${esc(s.license)}</a>` : esc(s.license)}. Read on ${esc(s.accessed)}.</div>
+      <div class="claim"><b>What this source supports:</b> ${esc(f.c)} <a href="${esc(factURL(c.dataset.fact))}" target="_blank" rel="noopener noreferrer" data-hint="Opens the source page in a new tab">Open the page</a> (section: ${esc(f.a)})</div>`);
   } else if (g) {
     const t = GLOSSARY[g.dataset.term];
     POP.show(g, t ? `<div class="ttl">${esc(t.term)}</div><div>${rich(t.def)}</div>` : `<div>No glossary entry yet for ${esc(g.dataset.term)}.</div>`);
   } else if (POP.node && !POP.node.contains(e.target)) POP.close();
 });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && POP.node) POP.close(); });
+document.addEventListener("keydown", e => {
+  // Escape closes only the note (not the window under it) and puts focus back on the word that opened it
+  if (e.key === "Escape" && POP.node) { e.preventDefault(); e.stopImmediatePropagation(); const a = POP.anchor; POP.close(); if (a && a.isConnected) a.focus({ preventScroll: true }); }
+});

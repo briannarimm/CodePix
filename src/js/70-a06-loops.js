@@ -1,8 +1,7 @@
 /* A6. The Conveyor Belt: for, range, while, break/continue, loop else, accumulator, off-by-one.
    Toy: Loop Belt (loopbelt), trace-driven. */
 
-// TODO(research): no source yet for stopping a runaway loop with Ctrl+C (KeyboardInterrupt); the book only warns
-// that a while loop whose condition never turns false keeps going.
+// Stopping a runaway loop: Control-C raises KeyboardInterrupt [py-244] [py-245]. No recording: it needs a real key press.
 
 PAGES("a06", [
   {
@@ -44,6 +43,9 @@ PAGES("a06", [
       "Line 2 fills two boxes at once: `a` gets 0 and `b` gets 1. Line 5 does the same trick to move both numbers along. The `end=\" \"` from A4 keeps the numbers on one line.",
       { nerd: "Loops that never stop", body: [
         "If a `while` condition never turns false, the loop keeps going. Before you run a `while` loop, check that something in the body moves the condition toward false. In `a06_charge`, line 4 raises `charge` on every pass.",
+        "If one runs away anyway, you can stop it. The tutorial says you can interrupt a program with Control-C (or whatever your operating system supports), and Python signals the interruption by raising [[KeyboardInterrupt]] [py-244]. The library reference names the usual interrupt keys as Control-C or Delete [py-245].",
+        "To press it, click into the terminal where the program runs, hold Control and press C.",
+        "So a `KeyboardInterrupt` at the bottom of a traceback is no bug in your logic. It means someone pressed the interrupt key. Usually that someone was you.",
       ] },
     ],
   },
@@ -67,6 +69,7 @@ GLOSS({
   loop: "Code that runs a block of lines again and again: once per item with `for`, or while a condition stays true with `while`. (Our own definition.)",
   iteration: "One trip through a loop's body. `for` iterates over the items of a sequence in order. [py-063]",
   accumulator: "A box that starts empty or at zero before a loop and collects something on every iteration, such as a running total. (Our own term for the pattern.)",
+  KeyboardInterrupt: "The exception Python raises when you press the interrupt key, normally Control-C, to stop a running program. [py-244] [py-245]",
   range: "`range()` hands out a run of whole numbers and never includes its end point: `list(range(5, 10))` is `[5, 6, 7, 8, 9]`. [py-064]",
 }, "a06");
 
@@ -111,6 +114,10 @@ LEVEL({
       choices: ["Charging: 50\nCharging: 80\nCharging: 110\nDone at 110", "Charging: 50\nCharging: 80\nDone at 80", "Charging: 50\nCharging: 80\nCharging: 100\nDone at 100"], answer: 0,
       why: "At 80 the condition `charge < 100` is still true, so the loop runs once more and overshoots to 110." } },
     { trace: { program: "a06_charge", note: "The condition is checked at the top, before each pass." } },
+    { show: ["nib", "byte"], ...say("byte", "BEEP. What if the condition never turns false? Do I charge forever?", "wow") },
+    say("nib", "You would, until someone presses Control-C in the terminal. That interrupts the program, and Python raises [[KeyboardInterrupt]] [py-244]. Every programmer presses it eventually.", "think"),
+    { ask: { q: "A `while` loop will not stop. What do you press in its terminal?", choices: ["Control-C", "Return", "The up arrow"], answer: 0,
+      why: "Control-C interrupts the program, and Python signals it by raising `KeyboardInterrupt` [py-244]." } },
     say("reader", "When I hit `break`, I jump straight out of the loop. When I hit `continue`, I run back to the top for the next item.", "happy"),
     say("nib", "Right: `break` leaves the innermost loop and `continue` moves to the next iteration [py-065]. And a loop's `else` runs only if the loop never hit `break` [py-066]."),
     { predict: { program: "a06_find", q: "The belt holds a toaster, a radio and a kettle. What does the search print?" } },

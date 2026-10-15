@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # Byte looks for a spare fuse on one of three shelves. Finding one earns a reward of 1.
 # Byte keeps an average reward per shelf and usually picks the best one so far.

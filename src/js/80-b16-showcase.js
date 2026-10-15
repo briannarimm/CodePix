@@ -1,6 +1,6 @@
 /* B16. Saturday Showcase (Module B capstone): a model report on fictional repair data. Toy: modelreport (Card Maker).
    Finishing b16 shows the Learning Bench Certificate (40-ui.js). */
-// TODO(research): no sourced rule of thumb for split percentages (GAP in the lesson plan); the library program
+// Split sizes are cited as examples, never a rule [ml-152] [ml-153] [ml-155] [ml-156]; the library program
 // copies scikit-learn's own example (test_size=0.4, random_state=0) [ml-103] and the book says so.
 
 PAGES("b16", [
@@ -24,6 +24,7 @@ PAGES("b16", [
     h: "Plain Python first",
     body: [
       "The first Quote Machine has one rule: *big job if hours is at least some cutoff*. Training means trying every cutoff on the first 60 tickets and keeping the one with the best accuracy. The last 20 tickets are the test set.",
+      "Why 60 and 20? It is one reasonable choice among many. Google says there are no percentage requirements for the sets, only that training usually gets the most [ml-153]. Google's own example splits 80-20 [ml-152]. Our 20 of 80 is a quarter, the same share scikit-learn's `train_test_split` holds out when you give it no size [ml-156].",
       { code: "b16_plain", out: true },
       "Google defines accuracy as (TP+TN)/(TP+TN+FP+FN), recall as TP/(TP+FN) and precision as TP/(TP+FP) [ml-054]. Here *positive* means *big job*.",
       "Now look at the baseline's line. A machine that always says *not big* scores a respectable accuracy and finds no big jobs at all, so its recall is 0. Google makes the same point: a model that always predicts negative on a dataset with 1% positives would score 99% accuracy yet be useless [ml-055].",
@@ -33,7 +34,8 @@ PAGES("b16", [
   {
     h: "The same job with the library",
     body: [
-      "The library version uses three features at once: age, parts and hours. scikit-learn's guide says to hold out part of the data as a test set, and its own example uses `train_test_split(X, y, test_size=0.4, random_state=0)` to hold out 40% [ml-103]. We copy that call exactly.",
+      "The library version uses three features at once: age, parts and hours. scikit-learn's guide says to hold out part of the data as a test set, and its own example uses `train_test_split(X, y, test_size=0.4, random_state=0)` to hold out 40% [ml-103]. We copy that call exactly. A different share than the plain-Python version, and that is allowed: no percentage is required [ml-153].",
+      "Whatever the size, Google lists what a good test set needs: large enough for statistically significant results, representative of the data and of the real-world tickets the model will meet, and zero examples duplicated in the training set [ml-155]. Thirty-two fictional tickets make a small test set, and the model card below calls the whole data set tiny.",
       "Every scikit-learn model is fitted with `fit(X, y)` and used with `predict` [ml-026]. That makes swapping models easy. The program runs the same loop twice: once for a baseline, once for logistic regression.",
       "scikit-learn calls comparing your model against simple rules of thumb a sanity check. Its `DummyClassifier` with the `most_frequent` strategy always predicts the most frequent label in the training set, and its predictions ignore the input data [ml-118]. That is the laziest apprentice, built into the library.",
       { code: "b16_report", out: true },
@@ -157,6 +159,8 @@ LEVEL({
       why: "Recall is TP/(TP+FN) [ml-054]. The baseline flags nothing, so it finds none of the big jobs." } },
     say("nib", "Accuracy alone can fool you. Google's example: always predicting negative on data with 1% positives scores 99% accuracy and is useless [ml-055].", "think"),
     say("nib", "Step three: the library. Three features, scikit-learn's own split from its guide, and a baseline run through the very same code [ml-103] [ml-026]."),
+    say("byte", "Wait. Plain Python tested on a quarter, and the library tests on 40%. Which one is the rule? BEEP?", "think"),
+    say("nib", "Neither. Google says there are no percentage requirements [ml-153]. Its example uses 80-20 [ml-152]. Pick a size, say which, and keep the test tickets out of training."),
     say("nib", "The library even ships the lazy apprentice. `DummyClassifier` with `most_frequent` always predicts the most common training label and ignores the input. scikit-learn calls comparing against rules like that a sanity check [ml-118].", "think"),
     { predict: { program: "b16_report", q: "Both models get the same split. Which one do you expect to have the higher recall, and what will its precision look like?" } },
     { ask: { q: "A precision of 0.80 would mean:", choices: ["80% of the big jobs were found", "80% of the tickets it flagged really were big", "80% of all tickets were right"], answer: 1,

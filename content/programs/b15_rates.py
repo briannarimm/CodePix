@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Twenty fictional tickets: how each customer booked, the real answer (1 = big job) and the model's guess.
 tickets = [
     ("online", 1, 1), ("online", 0, 0), ("online", 0, 0), ("online", 1, 1),

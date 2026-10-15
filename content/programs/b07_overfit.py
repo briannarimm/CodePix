@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,sklearn
 # Fit curves of rising degree to 20 fictional repair tickets.

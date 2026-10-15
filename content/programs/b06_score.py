@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Does a gadget need a new part? A hand-made yes-or-no machine.
 # The weights and the bias are our own guesses. Nothing is learned yet.
 import math

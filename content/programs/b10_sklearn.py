@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,sklearn
 # The same idea with scikit-learn, on nine fictional screws and three piles.

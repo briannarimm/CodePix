@@ -1,5 +1,5 @@
 /* B7. Train, Validate, Test: splits, overfitting, cross-validation, leakage. */
-// TODO(research): no sourced rule of thumb for split percentages (lesson plan decision 3). The book teaches the three roles and gives no ratio.
+// Split sizes are cited as examples, never as a rule: [ml-152] to [ml-156] (lesson plan decision 3).
 
 PAGES("b07", [
   {
@@ -16,7 +16,24 @@ PAGES("b07", [
       ] } },
       "Here is a three-way split in plain Python. Shuffling first matters: if the tickets were sorted by date, an unshuffled split would test only on the newest ones.",
       { code: "b07_split", out: true },
-      { honest: "The seed makes the shuffle repeatable on this Python. The `random` module's algorithms can change between Python versions, so a seed does not promise the same order everywhere [py-122]. The sources we have checked give no rule for how big each pile should be, so this book does not give one either." },
+      { honest: "The seed makes the shuffle repeatable on this Python. The `random` module's algorithms can change between Python versions, so a seed does not promise the same order everywhere [py-122]." },
+    ],
+  },
+  {
+    h: "How big is each pile?",
+    body: [
+      "There is no single right answer, and the sources say so. Google says the training set usually has more examples than the validation or test set, but there are no percentage requirements for the different sets [ml-153]. So treat every ratio below as an example, never a rule.",
+      { table: { head: ["Who", "Their example"], rows: [
+        ["Google", "Splits training and test 80-20 in its example [ml-152]"],
+        ["scikit-learn's tutorial", "Holds out 40% for testing [ml-103]"],
+        ["scikit-learn's `train_test_split`", "Uses a test size of 0.25 if you give no size [ml-156]"],
+      ] } },
+      "Google adds that, in theory, the validation set and the test set should hold the same number of examples, or nearly so [ml-154]. Byte's split above deals two and two.",
+      "In `train_test_split`, `test_size` is the proportion (or number) of samples for the test split. If you give neither `test_size` nor `train_size`, the test size is 0.25 [ml-156]. Here it is on twenty fictional tickets, first with no size and then with Google's 80-20 example:",
+      { code: "b07_default", out: true },
+      "A quarter of twenty is five, and a fifth is four. Same tickets, two piles of different sizes, and neither one is wrong.",
+      "The size is only one question. Google lists what a good test set needs. It must be large enough for statistically significant results. It must represent the data set as a whole and the real-world data the model will meet. And it must have zero examples duplicated in the training set [ml-155].",
+      { analogy: "A duplicated ticket is the memorized exam question all over again. If the same repair sits in both piles, the test asks something the machine has already seen." },
     ],
   },
   {
@@ -132,7 +149,7 @@ TOY("overfit", {
 
 LEVEL({
   id: "b07", title: "Train, Validate, Test", job: "Prove the Quote Machine works on tickets it has never seen.",
-  color: "#1a8a8a", scene: "bench", cast: ["gridlock"], toy: "overfit",
+  color: "#33a3a3", scene: "bench", cast: ["gridlock"], toy: "overfit",
   sticker: { title: "Fair Examiner", glyph: "3/3", color: "#5cc8ff" },
   goals: ["Split tickets into training, validation and test piles", "Spot overfitting", "Run cross-validation without leaks"],
   beats: [
@@ -144,6 +161,12 @@ LEVEL({
     say("nib", "Only if a new ticket comes in. Picture a student who memorized last year's test. Perfect on the old paper, lost on the new one. We need a fair exam."),
     say("nib", "So we deal the tickets into piles. A [[training set]] to learn from, a [[validation set]] to choose settings with, and a [[test set]] locked away for the end. Google says two piles are not enough and recommends the validation pile [ml-045]."),
     { predict: { program: "b07_split", q: "Byte shuffles ten tickets with a fixed seed and deals six, two and two. Which ticket numbers land in the test pile? (Any guess is fine; this is about seeing a real shuffle.)" } },
+    { show: ["gridlock", "nib"], ...say("gridlock", "Six, two and two. Is that the official recipe?", "think") },
+    say("nib", "There is no official recipe. Google says there are no percentage requirements for the piles [ml-153]. Its own example uses 80-20 [ml-152], and scikit-learn holds out 0.25 if you give no size [ml-156]."),
+    { predict: { program: "b07_default", q: "Twenty tickets go through `train_test_split`, once with no size and once with `test_size=0.2`. How many land in each test pile?" } },
+    { ask: { q: "A ticket for the same fridge repair was filed twice, and one copy lands in training while the other lands in the test pile. Why is that a problem?", choices: ["A good test set has zero examples duplicated in the training set", "Fridges are too expensive to test", "The test pile must hold exactly 25%"], answer: 0,
+      why: "Google lists zero duplicates of training examples as one need of a good test set [ml-155]. A duplicate is a question the machine has already memorized." } },
+    { show: ["nib", "byte"], ...say("byte", "So I shuffle, then deal. Why shuffle first?", "think") },
     { ask: { q: "Why shuffle before dealing the piles?", choices: ["So the piles do not depend on the order the tickets were filed in", "Because Python refuses to slice a list that is in order", "So the test pile is always the newest tickets"], answer: 0,
       why: "If the tickets were filed by date, slicing the end off would test only on the newest ones. Shuffling mixes them first. (That reasoning is our own.)" } },
     { show: ["nib", "byte"], ...say("nib", "Now the real danger. Google calls it [[overfitting]]: a model that matches its training tickets so closely that it fails on new ones. An overly complex model is one cause [ml-047].", "think") },
@@ -161,7 +184,7 @@ LEVEL({
     { ask: { q: "You scale all twenty tickets first, then cross-validate. What went wrong?", choices: ["Nothing; scaling never matters", "The scaler saw the held-out tickets, so information leaked into training", "Cross-validation cannot handle scaled numbers"], answer: 1,
       why: "That is [[data leakage]]. Preprocessing should be learnt from the training part only, and a Pipeline does that inside cross-validation [ml-050]." } },
     say("nib", "One last leak, and it is us. Google warns that reusing the same test set again and again makes the model fit it [ml-046]. Open the test drawer once.", "think"),
-    { book: 0, text: "The chapter covers all three piles, the overfitting experiment, folds and leaks." },
+    { book: 1, text: "The chapter covers all three piles, how big each one can be, the overfitting experiment, folds and leaks." },
     say("gridlock", "Fine. The Quote Machine stays in the back until it passes a fair exam. {{you}}, go deal some folds."),
     { machine: ["b07-folds", "b07-degrees"] },
     say("byte", "I have unmemorized everything. Please test me on something new. BEEP BOOP."),

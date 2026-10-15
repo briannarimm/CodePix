@@ -4,7 +4,7 @@
   "title": "Tickets into rows",
   "file": "rows.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Each fictional ticket is `[ticket_id, hours, parts, cost]`. Finish `split_tickets(tickets)` so it returns two lists: `X`, one `[hours, parts]` row per ticket, and `y`, the costs in the same order.\n\nWhen it works, `python3 rows.py` prints the two lists.",
   "run_command": "python3 -m unittest test_rows.py",
   "expected_output": "X = [[0.5, 1], [1.0, 0], [1.5, 2]]\ny = [42, 48, 78]",

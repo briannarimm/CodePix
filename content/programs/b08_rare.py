@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # A lazy machine that always answers "no". How good does accuracy say it is?
 
 

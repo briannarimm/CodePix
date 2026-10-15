@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Three kinds of message reach the shop inbox (fictional counts).
 # For each kind: how many the sorter labeled correctly (tp) and wrongly (fp).
 kinds = {"urgent": (3, 7), "normal": (40, 10), "junk": (150, 15)}

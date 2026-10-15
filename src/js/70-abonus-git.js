@@ -1,10 +1,8 @@
 /* A-Bonus. Save Your Work: Git basics (snapshots, the three states, status, add, commit, .gitignore).
    Pro Git is cited and paraphrased only. Toy: logbook (commits as pages in a logbook, JS demo). */
 
-// TODO(research): reading history (git log), with a source.
-// TODO(research): how a push authenticates to GitHub (HTTPS token or SSH key), and the default branch name
-//   that git init gives, so the push command can name a real branch instead of <branch>.
-// TODO(research): a fact that git add also stages changes to tracked files (Pro Git, "Staging Modified Files").
+// Reading history [py-258] [py-259], git add on tracked files [py-260], signing in for a push [py-261] to [py-264]
+// and the branch name [py-265] [py-266] come from the 2026-10-15 research. Branches themselves stay out of scope.
 
 PAGES("abonus", [
   {
@@ -53,6 +51,12 @@ PAGES("abonus", [
         ["git config --global user.name \"Your Name\"", "Your name, as it will appear on every logbook page [py-211]."],
         ["git config --global user.email \"you@example.com\"", "Your email address, for the same reason [py-211]."],
       ], title: "Terminal (once per computer)" },
+      { h3: "Name the first branch" },
+      "Branches are a bigger topic than this chapter, but the push command at the end needs your first [[branch]]'s name [py-214]. By default, `git init` creates a branch called `master`. From Git 2.28 on, you can set a different initial name, for example with `git config --global init.defaultBranch main` [py-266].",
+      "GitHub names the default branch `main` in any new repository [py-265]. Setting `main` on your own computer too means both ends use one name, and the push command later in this chapter can say `main`.",
+      { term: [
+        ["git config --global init.defaultBranch main", "Every new logbook starts on a branch named main. This works from Git 2.28 on [py-266]; `git --version` shows yours."],
+      ], title: "Terminal (once per computer, before git init)" },
       { h3: "Start a logbook" },
       "In the terminal, go into your project folder and run `git init`. It creates a `.git` subdirectory that holds the repository files. At that point nothing in the project is tracked yet [py-212]. Tracking starts with `git add`, on the next page.",
       { term: [
@@ -68,10 +72,20 @@ PAGES("abonus", [
       "Three commands do most of the daily work. They run in the terminal, inside your project folder.",
       { term: [
         ["git status", "Shows which files are untracked, modified or staged [py-147]."],
-        ["git add tracker.py", "Begins tracking a new file [py-148]."],
+        ["git add tracker.py", "Begins tracking a new file [py-148]. Run it again after you change a tracked file, to stage the change [py-260]."],
         ["git commit -m \"Add the low stock report\"", "Records a commit, with the message written right there on the command line [py-148]."],
       ], title: "Terminal" },
       "Write the message for the person who reads the logbook later. That person is usually you. \"Add the low stock report\" will help you more than \"stuff\".",
+      { h3: "The next change" },
+      "Say you edit `tracker.py` again after the first commit. It is a tracked file now, so `git status` lists it under *Changes not staged for commit*. You stage it with the same `git add`. Pro Git calls `git add` a multipurpose command: it begins tracking new files, and it also stages files [py-260].",
+      { analogy: "`git add` is the one hand that moves pages into the tray. A brand-new page or a rewritten old one, it goes in the same way." },
+      { h3: "Read the logbook" },
+      { term: [
+        ["git log", "Lists the commits, most recent first. Each one shows its SHA-1 checksum, the author's name and email, the date and the message [py-258]."],
+        ["git log --oneline", "The short version: each commit on a single line [py-259]."],
+      ], title: "Terminal" },
+      "`git log --oneline` is shorthand for `--pretty=oneline --abbrev-commit` [py-259]. It is the quick way to count the pages in your logbook and read their messages.",
+      { honest: "Code Pix shows no recorded `git log` output, because every logbook is different. Run it in your own project and read your own pages." },
       { h3: "Things to leave out" },
       "Some files do not belong in the logbook. A `.gitignore` file lists patterns for files Git should ignore. Blank lines and lines starting with `#` are ignored [py-149]. Here is a short one for the showcase project:",
       { snippet: "# Leave the virtual environment out of the logbook\n.venv\n\n# Scratch notes nobody else needs\nscratch.txt", lang: "text", file: ".gitignore" },
@@ -91,10 +105,20 @@ PAGES("abonus", [
       { h3: "Connect and push" },
       { term: [
         ["git remote add origin <url>", "Adds a [[remote]] repository under a short name [py-213]. Here the short name is `origin`, and `<url>` is the address of your new GitHub repository."],
-        ["git push origin <branch>", "Sends your commits to the remote [py-214]. Replace `<branch>` with your branch's name."],
+        ["git push origin main", "Sends your commits on the branch `main` to the remote [py-214]."],
       ], title: "Terminal, inside your project folder" },
+      { alt: "My branch is called master", body: [
+        "If you ran `git init` before setting `init.defaultBranch`, your first branch is called `master`, the default [py-266]. Push it by its own name: `git push origin master` [py-214].",
+      ] },
       "A push works only if you have write access to the remote and nobody has pushed in the meantime. Otherwise, you fetch their work first [py-214]. On your own new repository, you are the only one pushing.",
-      { honest: "Code Pix does not cover branches, or how GitHub checks that a push really comes from you, yet. If a push asks you to sign in, follow the steps GitHub shows." },
+      { h3: "Signing in when you push" },
+      "GitHub has to know the push really comes from you. The `<url>` you gave `git remote add` is either an HTTPS URL or an SSH URL, and each kind signs in its own way.",
+      { table: { head: ["URL", "How you sign in"], rows: [
+        ["HTTPS", "When you push to a private repository over an HTTPS URL, Git asks for your GitHub username and password [py-261]. GitHub says a [[personal access token]] is an alternative to a password for authenticating on the command line [py-263]."],
+        ["SSH", "To use SSH URLs, you generate an [[SSH key]] pair on your computer and add the public key to your GitHub account [py-262]. Then you authenticate with that key [py-264]."],
+      ] } },
+      "For HTTPS, GitHub recommends GitHub CLI or Git Credential Manager (GCM) to remember your credentials, so you do not type them every time [py-264].",
+      { honest: "GitHub says to treat access tokens like passwords [py-263]. Never paste one into a file in your project, or it may end up on a logbook page. The exact sign-in screens change, so follow the steps GitHub shows you." },
     ],
   },
 ]);
@@ -105,6 +129,9 @@ GLOSS({
   commit: "One snapshot in Git's history. `git commit -m` records one with a message [py-148].",
   repository: "A project that Git keeps a history for. Pro Git calls the place that history lives the Git directory [py-145]. `git init` creates one in a `.git` subdirectory [py-212].",
   remote: "A copy of your repository somewhere else, such as GitHub. `git remote add` adds one under a short name [py-213].",
+  branch: "In this chapter, the name you give `git push` after the remote: `git push <remote> <branch>` [py-214]. `git init` names the first one `master` by default [py-266]; GitHub names a new repository's default branch `main` [py-265].",
+  "personal access token": "An alternative to a password for authenticating to GitHub on the command line or with the API. Treat it like a password [py-263].",
+  "ssh key": "A keypair you generate on your computer. You add the public key to your GitHub account to use SSH URLs [py-262].",
 }, "abonus");
 
 /* ---------- Toy: Logbook (commits as pages) ---------- */
@@ -192,7 +219,7 @@ TOY("logbook", {
 
 LEVEL({
   id: "abonus", title: "Save Your Work", job: "Keep a logbook of every working version.",
-  color: "#1a8a8a", scene: "office", cast: ["nib"], toy: "logbook",
+  color: "#33a3a3", scene: "office", cast: ["nib"], toy: "logbook",
   sticker: { title: "Logbook Keeper", glyph: "git", color: "#1a8a8a" },
   goals: ["Say what a commit is", "Name the three states of a file", "Start a repository and write a .gitignore", "Know the steps to share on GitHub"],
   beats: [
@@ -215,11 +242,17 @@ LEVEL({
     { ask: { q: "You just ran `git init` in a folder with three files. How many of them does Git track?", choices: ["none yet", "all three", "only the Python files"], answer: 0,
       why: "`git init` creates the `.git` subdirectory, and at that point nothing in the project is tracked yet [py-212]. `git add` starts tracking a file [py-148]." } },
     say("nib", "`git status` tells you what is untracked, modified or staged [py-147]. `git add` begins tracking a new file, and `git commit -m` records a commit with a message [py-148]."),
+    { ask: { q: "You committed `tracker.py` yesterday. Today you changed it, and `git status` lists it under *Changes not staged for commit*. What stages the change?", choices: ["`git add tracker.py`", "`git init` again", "Nothing; Git stages it on its own"], answer: 0,
+      why: "A changed tracked file shows under *Changes not staged for commit*, and you stage it with `git add`. It both begins tracking new files and stages files [py-260]." } },
+    say("nib", "To read the logbook, `git log` lists the commits, most recent first, with author, date and message [py-258]. `git log --oneline` prints each one on a single line [py-259].", "think"),
     { ask: { q: "You made a virtual environment in `.venv`. How do you keep it out of the logbook?", choices: ["Delete it before each commit", "List it in a `.gitignore` file", "Name it with capital letters"], answer: 1,
       why: "A `.gitignore` file lists patterns for files Git should ignore [py-149]." } },
     say("nib", "Most of this works with no network at all. You commit on your own machine and push to a shared copy later [py-146]. GitHub can hold that copy: `git remote add` names it, and `git push` sends your commits there [py-213] [py-214]."),
     { show: ["nib", "byte"], ...say("byte", "BEEP. GitHub wants me to verify my email. Do robots have email?", "think") },
     say("nib", "Yours does now. GitHub asks every new account to verify its email, and you can't create a repository without that. It also strongly recommends two-factor authentication [py-215]."),
+    say("nib", "One naming detail. GitHub calls a new repository's default branch `main` [py-265], and `git init` says `master` unless you set `init.defaultBranch` [py-266]. Set it to `main`, and you push with `git push origin main`."),
+    { ask: { q: "You push over an HTTPS URL and Git asks for a password. What does GitHub offer as an alternative to your password on the command line?", choices: ["A personal access token", "Your email address", "The repository's name"], answer: 0,
+      why: "A personal access token is an alternative to a password on the command line, and GitHub says to treat it like a password [py-263]. With SSH URLs you use an SSH key instead [py-264]." } },
     { book: 2, text: "The book has the install steps for macOS, Windows and Linux, then the everyday commands, a sample `.gitignore`, and GitHub on the last page." },
     { machine: ["abonus-ignore"] },
     say("byte", "Page saved. Nothing lost. Dr. Nib's line is safe forever. BEEP BOOP."),

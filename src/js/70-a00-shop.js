@@ -1,6 +1,6 @@
 /* A0. Open the Shop: the cast, the terminal, folders and paths. Monday morning. */
 
-// TODO(research): no source yet for "~" meaning the home folder, or for the macOS folder layout (/Users/...). The toy uses a fictional tree.
+// The Folder Map toy uses a fictional tree; the book cites the real macOS home folder layout [py-230] [py-231] and ~ [py-229].
 // TODO(research): Windows output for pwd and ls (lesson plan asks to record it on a real Windows machine); the book shows commands only.
 
 PAGES("a00", [
@@ -10,7 +10,7 @@ PAGES("a00", [
       "Gadget Gulch Repair & Tinker Shop fixes talking appliances. Its helpers are computers. OpenStax defines a [[computer]] as an electronic device that stores and processes information, and a [[program]] as a sequence of instructions that a computer can run [py-187].",
       "In this book a computer is a very literal helper. It does exactly what it is told, in exactly the order it is told, and it never guesses what you meant. A program is the numbered list of instructions it follows. Here is a three-line program the office computer runs every morning.",
       { code: "a00_sign", out: true },
-      { analogy: "Picture a recipe card that a very careful cook follows to the letter. If the card says *add salt*, the cook adds salt. If the card says *add slat*, the cook stops and asks what a slat is. Programs work the same way." },
+      { analogy: "Picture the shop's very literal helper with a job sheet. If the sheet says *tighten the bolt*, the helper tightens the bolt. If the sheet says *tighten the blot*, the helper stops and asks what a blot is. Programs work the same way." },
       { trace: "a00_sign", label: "🔍 Watch Reader read it, one line at a time" },
       "You will write programs like this from A1 on. First, you need a way to talk to the computer by typing.",
     ],
@@ -37,6 +37,11 @@ PAGES("a00", [
       "The shell is always standing in one folder, the [[working directory]]. Three commands move you around: `pwd` prints the working directory, `cd` changes it, and `ls` lists a directory's contents [py-003].",
       { term: [["pwd", "Where am I?"], ["ls", "What is in here?"], ["cd codepix", "Walk into the folder named codepix."], ["cd ..", "Walk back up to the folder above."]] },
       { analogy: "The computer is a big workshop with labeled rooms. `pwd` reads the sign on the door of the room you are in. `ls` looks around the room. `cd` walks through a door." },
+      { h3: "Your home folder, and ~" },
+      "Every person who uses a Mac has a room of their own. Apple says the Users folder holds the home folders of everyone set up as a user on the Mac. Your [[home folder]] is named with your user name, and it has folders for desktop files, downloads, pictures, documents, movies, music and public files [py-230].",
+      "In Apple's example, a user whose user name is johnappleseed has the home directory `/Users/johnappleseed` [py-231]. Yours has your own user name in place of johnappleseed.",
+      "The shell has a nickname for that folder. In a lecture's example prompt, `missing:~$`, the working directory shows as `~`, which is short for home [py-229]. So if your prompt shows a `~`, read it as \"home\".",
+      { analogy: "`~` is the shell's way of writing *home sweet home* in one keystroke. It saves typing `/Users/` and your whole name every time." },
       { toy: "foldermap", label: "Open the Folder Map" },
     ],
   },
@@ -82,6 +87,7 @@ GLOSS({
   computer: "An electronic device that stores and processes information (OpenStax's definition). In this book, a very literal helper. [py-187]",
   program: "A sequence of instructions that a computer can run (OpenStax's definition). [py-187]",
   path: "Directions to a file or folder. A path that starts with `/` is absolute; any other path is relative to the working directory. [py-005]",
+  "home folder": "Your own folder on the computer, named with your user name. On a Mac it sits inside the Users folder, as in Apple's example `/Users/johnappleseed`. The shell can show it as `~`. [py-230] [py-231] [py-229]",
   "PATH variable": "The list of folders the shell searches when you type a command. `which` shows the file a command runs. [py-006]",
 }, "a00");
 
@@ -191,6 +197,9 @@ LEVEL({
       why: "The shell is a textual interface for giving the computer commands [py-002]. Terminal is the app that shows it to you." } },
     say("nib", "The computer keeps files in folders, also called [[directory|directories]]. The shell always stands in one of them. That folder is the [[working directory]]."),
     say("byte", "Three magic words. `pwd` prints the working directory. `ls` lists what is in it. `cd` changes it [py-003]. BEEP. I said them in order of how much I like them."),
+    say("nib", "Your own Mac has a [[home folder]] with your user name on it. In Apple's example, user johnappleseed lives at `/Users/johnappleseed` [py-231]. The shell often writes that folder as `~`, short for home [py-229]."),
+    { ask: { q: "Your prompt ends in `~$`. Where is the shell standing?", choices: ["In your home folder", "At the very top folder, `/`", "Nowhere yet"], answer: 0,
+      why: "`~` is short for home [py-229]. On a Mac the home folder sits inside the Users folder and carries your user name [py-230]." } },
     { toy: "foldermap", goal: "Make a folder named `codepix` inside `apprentice`, then walk into it." },
     say("nib", "A [[path]] is directions to a folder. In a path, `.` means the folder you are in and `..` means the folder above it [py-004]."),
     { ask: { q: "You are in `/office/apprentice`. What does `cd ..` do?", choices: ["Moves you up to `/office`", "Moves you into a folder named `..`", "Goes back to the last command"], answer: 0,

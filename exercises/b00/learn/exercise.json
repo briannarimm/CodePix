@@ -4,7 +4,7 @@
   "title": "Learn a rule from examples",
   "file": "learn.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Ms. Gridlock's hand-written rules keep breaking. Let the examples write the rule instead.\n\nFinish `learn(examples)`. It gets a list of `(sound, size)` pairs and returns a dictionary that maps each sound to the size seen most often for that sound. When it works, `python3 learn.py` prints the learned rule.",
   "run_command": "python3 -m unittest test_learn.py",
   "expected_output": "{'grinding': 'big', 'quiet': 'quick', 'humming': 'big'}",

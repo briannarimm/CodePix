@@ -4,7 +4,7 @@
   "title": "Count the bins",
   "file": "bins.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Before drawing a histogram, count it. Finish `count_bins(costs, width)` so it returns a dictionary from each bin's starting value to how many costs fall in that bin. A cost of 42 with width 40 goes in the bin that starts at 40.\n\nWhen it works, `python3 bins.py` prints the counts for the twelve fictional tickets.",
   "run_command": "python3 -m unittest test_bins.py",
   "expected_output": "{0: 1, 40: 6, 80: 2, 120: 2, 160: 1}",

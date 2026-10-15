@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # A hand-wired network: two hidden units (ReLU) and one output unit. It computes XOR.
 def relu(z):
     return max(z, 0)

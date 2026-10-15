@@ -2,8 +2,6 @@
    Toy: workshop (project board: pick a template, work a checklist, ship it). Finishing A17 unlocks Module B
    and the certificate (handled by the engine and UI). */
 
-// TODO(research): a fact for `if __name__ == "__main__":`. Both templates use it; the book does not explain it yet.
-
 PAGES("a17", [
   {
     h: "Saturday Showcase",
@@ -25,6 +23,14 @@ PAGES("a17", [
       "Opening a file with mode `'w'` writes and erases, and mode `'r'` reads [py-101]. The `with` block closes the file automatically, even if an error happens [py-102]. Following this book's house rule, every `open()` names its encoding.",
       { trace: "a17_inventory", label: "🔍 Watch the stock book go out to a file and come back" },
       "The template splits this into functions: `load_stock`, `save_stock`, `add`, `remove` and `low_stock`. The first two already work. You finish the other three.",
+      { h3: "The odd line at the bottom" },
+      "Both templates end with a block that starts `if __name__ == \"__main__\":`. Here is the same idea in a small program.",
+      { code: "a17_main", out: true },
+      "Python gives every module a variable called `__name__`. When you import a module, `__name__` is set to the module's name, usually the file name without `.py`. When the file runs as the program itself, `__name__` is the string `'__main__'` [py-256]. You ran this one as the program, so the output says `'__main__'`.",
+      "Code inside the `if __name__ == \"__main__\":` block runs only when the file runs as the program. Importing the module, for example to unit test it, does not run that code [py-257].",
+      "That is exactly what your test file does. `test_tracker.py` starts with `from tracker import add, load_stock, low_stock, remove, save_stock`. The tests get the recipe cards, and the stock file stays untouched until you run `python3 tracker.py` yourself.",
+      { analogy: "The functions are recipe cards in a toolbox drawer. The `__main__` block is a sticky note on the drawer: *if you opened this drawer to cook tonight, start here*. Someone who borrows one card ignores the note." },
+      { trace: "a17_main", label: "🔍 Watch Python check __name__" },
       { machine: ["a17-tracker"], label: "Go to your machine: the stock tracker" },
     ],
   },
@@ -61,8 +67,7 @@ PAGES("a17", [
 ]);
 
 GLOSS({
-  capstone: "A final project that pulls a whole course together. Module A's capstone is the Saturday Showcase.",
-}, "a17");
+  capstone: "A final project that pulls a whole course together. Module A's capstone is the Saturday Showcase.",}, "a17");
 
 /* ---------- Toy: Workshop Board (pick a template, work the checklist, ship it) ---------- */
 const WORKSHOP = {
@@ -164,6 +169,10 @@ LEVEL({
     { trace: { program: "a17_inventory", note: "Watch `stock` go out to the file and come back as a new dictionary named `loaded`." } },
     { ask: { q: "Why does the tracker keep its stock book in a JSON file?", choices: ["So the counts survive after the program stops", "Because dictionaries cannot hold numbers", "Because Python needs a file to run"], answer: 0,
       why: "A dictionary lives only while the program runs. Writing it with `json.dump` and reading it with `json.load` [py-105] carries it over to the next run." } },
+    { show: ["nib", "reader"], ...say("reader", "Before I start any file, I set `__name__`. Run as the program, it is `'__main__'`. Imported by another file, it is the module's name [py-256].", "think") },
+    say("nib", "So the block under `if __name__ == \"__main__\":` runs only when you run the file itself. When the tests import it, that block stays quiet [py-257]."),
+    { ask: { q: "`test_tracker.py` imports `tracker.py`. Does the code under `if __name__ == \"__main__\":` in `tracker.py` run?", choices: ["No; importing the module does not run that block", "Yes, every time", "Only if the tests fail"], answer: 0,
+      why: "That block runs only when the module is executed in the top-level environment. Importing it, for example to unit test it, does not run that code [py-257]." } },
     { show: ["nib", "gridlock"], ...say("gridlock", "And the quiz? I want to stump the regulars.", "think") },
     { predict: { program: "a17_quiz", q: "Two questions. Code Pix typed the replies `gear` and `4` for this run. What does the quiz print?",
       choices: ["What turns a clock's hands? Right!\nHow many legs does the shop stool have? The answer was 3\nScore: 1/2", "What turns a clock's hands? Right!\nHow many legs does the shop stool have? Right!\nScore: 2/2", "Score: 1/2"], answer: 0,

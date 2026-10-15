@@ -4,7 +4,7 @@
   "title": "See the dots",
   "file": "plot_tickets.py",
   "kind": "explore",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Time to see the data on your own screen. Run `plot_tickets.py` inside your virtual environment. A window opens with a scatter plot of hours against cost for the twelve fictional tickets. Close the window to end the program.\n\nThen try the second picture: change `ax.scatter(hours, costs)` to `ax.hist(costs)` and run it again.\n\nLast, keep a copy: add `fig.savefig(\"tickets.png\")` on the line before `plt.show()`, run it once more, and look for `tickets.png` in your folder.",
   "run_command": "python3 plot_tickets.py",
   "hints": [

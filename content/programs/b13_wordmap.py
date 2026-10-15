@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # Shop words as points on a map. We invented these numbers for the demo; no model made them.
 import math

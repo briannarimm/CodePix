@@ -4,7 +4,7 @@
   "title": "Run the Overfit Lab yourself",
   "file": "degrees.py",
   "kind": "explore",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "This is the program behind the Overfit Lab, with the same 20 fictional tickets in `repair_times.csv`. Run it inside your activated venv with NumPy and scikit-learn installed.\n\nRead the table. Find the degree where the test error is lowest, and the degree where the training error reaches zero. Then try the three experiments at the bottom of the file, one at a time.",
   "run_command": "python3 degrees.py",
   "hints": [

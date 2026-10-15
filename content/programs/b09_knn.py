@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # Fix it or replace it? Ask the three most similar past gadgets (fictional).
 import math
 

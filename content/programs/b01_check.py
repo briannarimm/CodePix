@@ -1,4 +1,4 @@
-# codepix: py=3.10
+# codepix: py=3.12
 # codepix: output-only
 # codepix: needs=numpy,pandas,matplotlib,sklearn
 # Bench check: import each tool and print its version.

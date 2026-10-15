@@ -4,7 +4,7 @@
 
 /* Boot screen */
 .boot{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:#0d1a1a;color:var(--term-fg);font-family:var(--f-read);font-size:24px}
-.boot pre{margin:0;padding:16px;white-space:pre-wrap;max-width:640px;width:100%}
+.boot pre{margin:0;font-family:inherit;padding:16px;white-space:pre-wrap;max-width:640px;width:100%}
 .boot .cur{animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 
@@ -86,6 +86,16 @@
 
 .sparkle{position:fixed;z-index:99;pointer-events:none;width:22px;height:22px;margin:-11px 0 0 -11px;animation:spark .6s ease-out forwards}
 @keyframes spark{from{transform:scale(.3) rotate(0);opacity:1}to{transform:scale(1.4) rotate(90deg);opacity:0}}
+
+/* Short laptop screens: a tighter dialogue box so quick checks fit without their own scrollbar */
+@media (min-width:761px) and (max-height:820px){
+  .dialog{max-height:70%;padding:8px 14px}
+  .dialog .line{font-size:18px;line-height:1.4}
+  .dialog .choices{gap:6px;margin-top:6px}
+  .dialog .choices .btn{min-height:36px;padding:.25em .9em}
+  .dialog .acts{margin-top:6px}
+  .dialog .acts .btn{min-height:38px}
+}
 
 /* Narrow screens: toolbox becomes a strip, dialogue sits under the stage */
 @media (max-width:760px){

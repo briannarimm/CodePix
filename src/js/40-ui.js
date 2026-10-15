@@ -10,7 +10,7 @@ const UI = {
 
   unlocked(L) { return L.mod !== "B" || S.settings.unlockAll || !!S.done.a17; },
   nextLevel(id) { const k = LEVELS.findIndex(l => l.id === id); return LEVELS[k + 1] || null; },
-  label(L) { return L.id.toUpperCase().replace(/^([AB])0?(\d)/, "$1$2"); },
+  label(L) { return /bonus$/.test(L.id) ? L.id[0].toUpperCase() + "-Bonus" : L.id.toUpperCase().replace(/^([AB])0?(\d)/, "$1$2").replace(/B$/, "b"); },
 
   /* ---------- Title screen ---------- */
   title() {
@@ -18,7 +18,7 @@ const UI = {
     this.root.innerHTML = "";
     const name = el("input#pname", { type: "text", maxlength: 24, value: S.name, autocomplete: "off", "data-hint": "Type the name the cast will call you", "aria-label": "Your name" });
     const go = () => { S.name = name.value.trim().slice(0, 24) || "Apprentice"; save(); this.app(); };
-    name.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+    name.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); go(); } });
     const started = Object.keys(S.done).length || Object.keys(S.beat).length;
     const card = el("main.title-card", {},
       el("div", { html: logoSVG() }),
@@ -28,7 +28,7 @@ const UI = {
       el("div.row", {},
         el("button.btn.tang", { type: "button", "data-hint": started ? "Pick up where you left off" : "Start your first day at the shop", onclick: go }, started ? "Continue ▶" : "Start ▶"),
         started ? el("button.btn.plain", { type: "button", "data-hint": "Open settings, where you can reset your progress", onclick: () => this.settings() }, "Settings") : null),
-      el("p.fine", {}, `Beta v0.1. Everything shown as Python output was recorded from real Python ${DATA.python || ""}. No Python runs in this page. All shops, people and data are fictional. Progress saves in this browser only.`));
+      el("p.fine", {}, `${VERSION_TEXT}. Everything shown as Python output was recorded from real Python ${DATA.python || ""}. No Python runs in this page. All shops, people and data are fictional. Progress saves in this browser only.`));
     this.root.append(el("div.title.checker", {}, card));
     name.focus();
   },
@@ -46,7 +46,7 @@ const UI = {
     this.toolbox = el("nav.toolbox", { "aria-label": "Toolbox" }, tbin);
     this.wrap = el("div.stagewrap");
     this.pal = el("footer.palette", { "aria-label": "Jobs" });
-    const hint = el("div.hintbar", { role: "status" });
+    const hint = el("div.hintbar", { "aria-hidden": "true" });
     this.root.append(el("div.app.pegboard", {}, top, this.toolbox, this.wrap, this.pal, hint));
     HINT.init(hint);
     this.palette();
@@ -62,7 +62,7 @@ const UI = {
       if (mod && L.mod !== mod) this.pal.append(el("span.sep"));
       mod = L.mod;
       const b = el("button", { type: "button", style: { "--c": L.color || "#fff" }, "data-hint": `${this.label(L)}: ${L.title}${this.unlocked(L) ? "" : " (locked)"}`,
-        "aria-label": `${this.label(L)} ${L.title}`, onclick: () => ENGINE.start(L.id) }, this.label(L));
+        "aria-label": `${this.label(L)} ${L.title}${S.done[L.id] ? ", done" : ""}${this.unlocked(L) ? "" : ", locked"}`, onclick: () => ENGINE.start(L.id) }, this.label(L));
       if (S.done[L.id]) b.classList.add("done");
       if (!this.unlocked(L)) b.classList.add("locked");
       if (ENGINE.lvl === L) b.setAttribute("aria-current", "true");
@@ -107,7 +107,7 @@ const UI = {
       const tiles = el("div.tiles");
       ls.forEach(L => {
         const st = S.done[L.id] ? "Done" : S.beat[L.id] ? "In progress" : this.unlocked(L) ? "Not started" : "Locked";
-        const t = el("button.tile", { type: "button", style: { "--c": L.color || "#fff" }, "data-hint": this.unlocked(L) ? `${L.title}: ${L.job || ""}` : "Locked until A17 is finished",
+        const t = el("button.tile", { type: "button", "aria-label": `${this.label(L)}: ${L.title}. ${st}`, style: { "--c": L.color || "#fff" }, "data-hint": this.unlocked(L) ? `${L.title}: ${L.job || ""}` : "Locked until A17 is finished",
           onclick: () => ENGINE.start(L.id) },
           el("span.n", {}, this.label(L)), el("span.t", {}, L.title), el("span.s", {}, st));
         if (S.done[L.id]) t.classList.add("done");
@@ -120,6 +120,8 @@ const UI = {
     const cont = LEVELS.find(l => S.beat[l.id] && !S.done[l.id] && this.unlocked(l)) || LEVELS.find(l => !S.done[l.id] && this.unlocked(l));
     if (cont) hub.prepend(el("p", {}, el("button.btn.tang", { type: "button", "data-hint": "Continue with " + cont.title, onclick: () => ENGINE.start(cont.id) }, `Continue: ${this.label(cont)} ${cont.title} ▶`)));
     this.wrap.append(el("div.stage.hub-stage", {}, hub));
+    // keyboard users land on the map's first button instead of the page body
+    if (!document.activeElement || document.activeElement === document.body || !document.activeElement.isConnected) { const f = $("button", hub); if (f) f.focus({ preventScroll: true }); }
     this.palette();
   },
 
@@ -135,6 +137,15 @@ const UI = {
       el("header", {}, el("h2", {}, title), x), b, f);
     const layer = el("div.winlayer", {}, w);
     layer.addEventListener("mousedown", e => { if (e.target === layer) api.close(); });
+    // keep Tab inside the window (a citation note opened from it may hold focus too)
+    layer.addEventListener("keydown", e => {
+      if (e.key !== "Tab") return;
+      const f = $$("button,a[href],input,select,textarea,summary,[tabindex]:not([tabindex='-1'])", w).filter(n => !n.disabled && n.offsetParent !== null);
+      if (!f.length) return;
+      const a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    });
     document.body.append(layer);
     if (body) b.append(body);
     if (foot) f.append(foot); else f.hidden = true;
@@ -154,7 +165,7 @@ const UI = {
   /* ---------- Toys ---------- */
   openToy(id, opts = {}) {
     const T = TOYS[id];
-    if (!T) { toast("That toy is not built yet."); return null; }
+    if (!T) { toast("Could not find that toy."); return null; }
     const root = el("div.toy.toy-" + id);
     const goal = opts.goal || T.goal;
     const g = goal ? el("p.goal", { role: "status", html: rich("Goal: " + goal) }) : null;
@@ -209,15 +220,15 @@ const UI = {
     const reset = el("button.btn.pink", { type: "button", "data-hint": "Erase all progress in this browser (asks twice)" }, "Reset progress");
     reset.onclick = () => {
       if (!armed) { armed = true; reset.textContent = "Press again to erase everything"; return; }
-      resetSave(); toast("Progress erased."); this.closeAll(); this.title();
+      resetSave(); try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* file:// */ } toast("Progress erased."); this.closeAll(); this.title();
     };
     box.append(
       el("div.field", {}, el("b", {}, "Your name"), name),
       el("div.field", {}, el("b", {}, "Your computer"), os),
       el("div.field", {}, sw("Sounds", "Little beeps on clicks and answers", S.settings.sound, v => (S.settings.sound = v))),
       el("div.field", {}, el("b", {}, "Motion"), motion),
-      el("div.field", {}, sw("Beta: open every level, including Module B", "Testing switch for the beta. Normally Module B opens after A17.", S.settings.unlockAll, v => { S.settings.unlockAll = v; this.palette(); })),
-      el("p.honest", {}, "Progress is saved in this browser only, under the name codepix-save. Private windows may not keep it."),
+      el("div.field", {}, sw("Open every level, including Module B", "Normally Module B opens after you finish A17. Turn this on to explore in any order.", S.settings.unlockAll, v => { S.settings.unlockAll = v; this.palette(); })),
+      el("p.honest", {}, `Progress is saved in this browser only, under the name ${SAVE_KEY}. Private windows may not keep it.`),
       el("div.field", {}, reset));
     const w = this.win({ title: "Settings", body: box, cls: "narrow", color: "var(--silver-d)", color2: "#6d7891" });
     w.onclose = () => { if (this.wrap && !ENGINE.lvl) this.hub(); };
@@ -226,12 +237,13 @@ const UI = {
   glossary() {
     const list = el("div");
     const q = el("input", { type: "text", placeholder: "Search the glossary", "data-hint": "Type to filter the glossary", "aria-label": "Search" });
-    const draw = () => {
-      list.innerHTML = "";
-      Object.values(GLOSSARY).sort((a, b) => a.term.localeCompare(b.term)).filter(g => !q.value || (g.term + " " + g.def).toLowerCase().includes(q.value.toLowerCase()))
-        .forEach(g => list.append(el("p", { html: `<b>${esc(g.term)}</b>${g.level && LV[g.level] ? ` <span class="chip" style="--c:${LV[g.level].color}">${UI.label(LV[g.level])}</span>` : ""}: ${rich(g.def)}` })));
-    };
-    q.oninput = draw; draw();
+    // render every entry once; typing only hides and shows them
+    const rows = Object.values(GLOSSARY).sort((a, b) => a.term.localeCompare(b.term)).map(g => {
+      const p = el("p", { html: `<b>${esc(g.term)}</b>${g.level && LV[g.level] ? ` <span class="chip" style="--c:${LV[g.level].color}">${UI.label(LV[g.level])}</span>` : ""}: ${rich(g.def)}` });
+      list.append(p);
+      return [(g.term + " " + g.def).toLowerCase(), p];
+    });
+    q.oninput = () => { const v = q.value.toLowerCase(); rows.forEach(([t, p]) => (p.hidden = !!v && !t.includes(v))); };
     this.win({ title: "Glossary", body: el("div.page", {}, el("div.field", {}, q), list), color: "var(--teal)", color2: "var(--teal-d)" });
   },
 
@@ -308,7 +320,7 @@ const UI = {
     } else {
       const ran = Object.keys(S.ran).length;
       box.append(el("div.cert", {}, el("div", { html: logoSVG() }), el("h3", {}, "Certificate of Tinkering"), el("p", {}, "Gadget Gulch Repair & Tinker Shop (fictional) certifies that"),
-        el("div.nm", {}, you()), el("p", {}, `finished Module A, Intro to CS and Python, and reports running ${ran} programs on their own machine.`),
+        el("div.nm", {}, you()), el("p", {}, ran ? `finished Module A, Intro to CS and Python, and reports running ${ran} program${ran === 1 ? "" : "s"} on their own machine.` : "finished Module A, Intro to CS and Python."),
         el("p", {}, "Signed: Dr. Nib, Byte, Reader and Ms. Gridlock"), el("p.own", {}, "Progress is self-reported. Code Pix never sees your code.")));
       if (S.done.b16) box.append(el("div.cert", { style: { marginTop: "16px" } }, el("h3", {}, "Learning Bench Certificate"), el("div.nm", {}, you()), el("p", {}, "finished Module B, Intro to Machine Learning.")));
     }
@@ -326,8 +338,10 @@ const UI = {
       el("p", { html: rich("Site text: CC BY 4.0. Code: MIT. Fonts (self-hosted): Bungee, Comic Neue, VT323, Lora and JetBrains Mono, all under the SIL Open Font License 1.1. Characters and art are drawn in code for this project.") }),
       el("h3", {}, "Fictional"),
       el("p", {}, "Gadget Gulch Repair & Tinker Shop, its staff, customers, inventory and data files are invented. Any resemblance to a real shop is a coincidence."),
-      el("h3", {}, "Beta"),
-      el("p", {}, "This is beta v0.1. Some toys are simple and some pages will grow. Settings has a switch that opens every level for testing."));
+      el("h3", {}, "Version"),
+      el("p", {}, DATA.channel === "rc"
+        ? `${VERSION_TEXT}, built ${DATA.built}. This copy is for checking before release. Its progress is saved separately from the live site.`
+        : `${VERSION_TEXT}, built ${DATA.built}. Settings has a switch that opens every level, if you want to explore in any order.`));
     this.win({ title: "About, credits and licenses", body: box, color: "var(--teal)", color2: "var(--teal-d)" });
   },
 };

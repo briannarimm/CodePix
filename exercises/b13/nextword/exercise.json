@@ -4,7 +4,7 @@
   "title": "A next-word machine",
   "file": "nextword.py",
   "kind": "test",
-  "py": "3.10",
+  "py": "3.12",
   "prompt": "Build the counting part of a next-word machine.\n\n`count_pairs(notes)` returns a dictionary of dictionaries: for each word, how many times each other word came right after it. `most_likely(counts, word)` returns the most common next word, or `None` when the word never had a next word.\n\nWhen it works, `python3 nextword.py` guesses that *rattles* comes after *fan*.",
   "run_command": "python3 -m unittest test_nextword.py",
   "expected_output": "after 'the': {'fan': 3, 'lamp': 1}\nbest guess after 'fan': rattles",

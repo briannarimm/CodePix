@@ -1,9 +1,6 @@
 /* A1. Set Up Your Bench: install Python with Homebrew, check which python3, VS Code, hello.py, the REPL. Monday midday. */
 
-// TODO(research): how to start and leave the REPL (typing python3 alone, the >>> prompt, exit()) has no fact yet. The book says so plainly.
-// TODO(research): installing VS Code on macOS, and setting up the `code` command for `code .`, are not sourced. The book links the VS Code tutorial.
-// TODO(research): the name of the shell configuration file (for example .zprofile) and Homebrew's prefix on Intel Macs are not sourced.
-// TODO(research): Linux sources cover pip, venv and IDLE packages only; a per-distribution command that installs Python itself is not sourced.
+// TODO(research): Linux: Ubuntu [py-240] and Fedora [py-234] are covered; other distributions are not.
 // TODO(research): real `which python3` and `python3 --version` output from a clean macOS account (lesson plan asks for it).
 
 /* Fixes for the setup troubleshooter. Used by the Setup Checklist toy and by the Troubleshooting page (90-x-trouble.js). */
@@ -13,12 +10,13 @@ const SETUP_FIXES = [
     "Homebrew says `brew install python3` puts its `python3` on your PATH [py-157]. That works once Homebrew itself is set up in your shell, with the `brew shellenv` line from Homebrew's instructions [py-018]. Do both, then run `which python3` again.",
   ] },
   { id: "nobrew", q: "Terminal says it cannot find `brew`.", os: "mac", a: [
-    "Homebrew's instructions have you add a line of the form `eval \"$(<prefix>/bin/brew shellenv)\"` to your shell configuration file after it installs [py-018]. On Apple silicon the prefix is `/opt/homebrew` [py-017].",
-    "If you skipped that step, copy the exact line from [Homebrew's installation page](https://docs.brew.sh/Installation) and add it.",
+    "When Homebrew installs, it prints directions for updating your shell's config file. Homebrew will not work if you skip them, and which file to edit depends on your shell [py-238].",
+    "The line has the form `eval \"$(<prefix>/bin/brew shellenv)\"` [py-018]. The prefix is `/opt/homebrew` on Apple silicon and `/usr/local` on Intel Macs [py-237]. Homebrew's installer adds it to `~/.zprofile` for zsh and to `~/.bash_profile` for bash [py-239].",
+    "If you skipped that step, copy the exact line from [Homebrew's installation page](https://docs.brew.sh/Installation) and add it. Then close Terminal and open it again.",
   ] },
   { id: "system", q: "`which python3` prints `/usr/bin/python3`.", os: "mac", a: [
     "That is the Python that comes with macOS: an older, incomplete Python meant for Apple's development tools. The Python docs say never to modify or delete it [py-012]. Leave it alone and use Homebrew's.",
-    "On Apple silicon, Homebrew lives under `/opt/homebrew` [py-017], so its `python3` has a path that starts there. If you see `/usr/bin/python3`, check that you ran `brew install python3` [py-157] and that Homebrew's `brew shellenv` line is in your shell setup [py-018].",
+    "Homebrew lives under `/opt/homebrew` on Apple silicon and under `/usr/local` on Intel Macs [py-237], so its `python3` has a path that starts there. If you see `/usr/bin/python3`, check that you ran `brew install python3` [py-157] and that Homebrew's `brew shellenv` line is in your shell setup [py-018].",
   ] },
   { id: "win", q: "Windows: `python3` is not recognized, or behaves oddly.", os: "win", a: [
     "On Windows the recommended command for launching Python is `python` [py-026]. The `py` command also starts Python, and it can pick between versions [py-027]. Wherever Code Pix says `python3`, type `python`.",
@@ -31,6 +29,14 @@ const SETUP_FIXES = [
   { id: "nofile", q: "`python3 hello.py` says it cannot open the file.", os: "all", a: [
     "`hello.py` is a relative path, so Python looks for it in your working directory [py-005]. You are probably standing in a different folder.",
     "Run `pwd` to see where you are and `ls` to see what is there, then `cd` into the folder that holds `hello.py` [py-003].",
+  ] },
+  { id: "code", q: "Terminal says it cannot find `code`.", os: "mac", a: [
+    "The `code` command is not set up yet. Open VS Code, open the Command Palette, and run **Shell Command: Install 'code' command in PATH**. Then restart the terminal [py-236].",
+    "After that, `code .` opens the current folder in VS Code [py-236].",
+  ] },
+  { id: "vscodepy", q: "VS Code runs a different Python from the one in my terminal.", os: "all", a: [
+    "VS Code keeps its own choice of Python. Pick it from the Status Bar, or run **Python: Select Interpreter** in the Command Palette. VS Code uses the selected environment for running code, debugging and IntelliSense [py-267].",
+    "Then open a fresh terminal inside VS Code. The Python extension activates your selected environment there, so `python` and `pip` use the right interpreter [py-268].",
   ] },
   { id: "pip", q: "`pip install` refuses, with a message about an externally managed environment.", os: "mac", a: [
     "Homebrew's Python does this on purpose. Its formula writes an EXTERNALLY-MANAGED file, and the message says a library that is not in Homebrew should go in a virtual environment [py-155]. The rule comes from PEP 668: outside a virtual environment, the installer should stop with an error [py-033].",
@@ -61,12 +67,20 @@ PAGES("a01", [
           { term: [["xcode-select --install", "Homebrew needs the Xcode Command Line Tools when it builds from source, and this command installs them [py-016]."]] },
           { h3: "2. Homebrew" },
           "Homebrew's home page gives a one-line install command that runs `install.sh` with `/bin/bash` [py-019]. Copy that command from [brew.sh](https://brew.sh/) itself, so you always get the current one, and paste it into Terminal.",
-          "After it installs, Homebrew's instructions have you add a line of the form `eval \"$(<prefix>/bin/brew shellenv)\"` to your shell configuration file [py-018]. On Apple silicon the prefix is `/opt/homebrew` [py-017]. Copy the exact line from [Homebrew's installation page](https://docs.brew.sh/Installation).",
+          "When it finishes, Homebrew prints directions for updating your shell's config file. Do not skip them: Homebrew will not work without them [py-238]. The line has the form `eval \"$(<prefix>/bin/brew shellenv)\"` [py-018].",
+          { table: { head: ["Your Mac", "Homebrew's prefix"], rows: [
+            ["Apple silicon", "`/opt/homebrew` [py-237]"],
+            ["Intel", "`/usr/local`, which Homebrew labels legacy with Tier 3 support [py-237]"],
+          ] } },
+          "The file depends on your shell [py-238]. For zsh on macOS the installer's next steps add the line to `~/.zprofile`, and for bash to `~/.bash_profile` [py-239]. The `~` means your home folder (A0). Copy the exact commands Homebrew printed, or the ones on [Homebrew's installation page](https://docs.brew.sh/Installation).",
           { h3: "3. Python" },
           { term: [["brew install python3", "The VS Code tutorial gives this command for installing Python with Homebrew [py-156]. Homebrew says it keeps Homebrew's python3 on your PATH [py-157]."]] },
           { h3: "4. Check it" },
           { term: [["python3 --version", "Print the version. The VS Code tutorial checks the install this way [py-165]."], ["which python3", "Show which file runs when you type python3 [py-006]."]] },
           { honest: "We do not show sample answers here because they depend on your machine. The next page explains how to read yours." },
+          { h3: "5. VS Code" },
+          "Download VS Code, open the downloaded `.dmg` file, drag the app to the Applications folder, and open it from there [py-235]. Then add its Python extension, as the [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial) shows [py-022].",
+          "To open folders from Terminal with `code`, open the Command Palette in VS Code and run **Shell Command: Install 'code' command in PATH**. Restart the terminal. After that, `code .` opens the current folder [py-236].",
         ],
         win: [
           "Unlike most Unix systems, Windows does not include a system supported installation of Python [py-172]. So there is no old Python to leave alone, and you install one yourself.",
@@ -88,6 +102,11 @@ PAGES("a01", [
         linux: [
           "Python comes preinstalled on most Linux distributions and is available as a package on all the others [py-028]. Check what you have:",
           { term: [["python3 --version", "Print the version [py-165]."], ["which python3", "Show which file runs [py-006]."]] },
+          { h3: "Ubuntu" },
+          "Canonical's Ubuntu guide says the `python3` package is part of the default system installation and must not be removed. The same guide adds the complete class library, venv support and IDLE with one command [py-240]:",
+          { term: [["sudo apt install -y python3-full", "Install the full set: the class library, venv support and IDLE [py-240]."]], title: "Ubuntu" },
+          { h3: "Fedora" },
+          "Fedora's developer portal says Python 3 is already installed on Fedora. There, `python3` and `python` are equivalent commands [py-234].",
           { h3: "pip and venv (needed from A13)" },
           "On Debian, Ubuntu and their relatives, the Python Packaging User Guide installs these with two commands [py-183]:",
           { term: [["sudo apt update", "Refresh the package lists."], ["sudo apt install python3-venv python3-pip", "Install the venv and pip packages [py-183]."]], title: "Debian and Ubuntu" },
@@ -110,6 +129,7 @@ PAGES("a01", [
       { table: { head: ["If `which python3` prints a path that starts with...", "You are running"], rows: [
         ["`/usr/bin/`", "Apple's Python for its developer tools [py-012]. Fix your setup; see the troubleshooter."],
         ["`/opt/homebrew/`", "Homebrew's Python on Apple silicon [py-017] [py-157]. This is the one you want."],
+        ["`/usr/local/`", "Homebrew's default prefix on Intel Macs [py-237]. If you installed with Homebrew on an Intel Mac, this is yours."],
       ] } },
       { nerd: "What Homebrew actually installs", body: [
         "Homebrew's `python@3.14` formula installs the interpreter as `$HOMEBREW_PREFIX/bin/python3.14`, with unversioned `python3` and `pip` links in its `libexec/bin` folder [py-020].",
@@ -120,7 +140,8 @@ PAGES("a01", [
   {
     h: "Your editor and your first program",
     body: [
-      "You will write programs in VS Code. Its Python tutorial needs three things: Python 3, VS Code and the Python extension [py-022]. Install VS Code and its Python extension by following the [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).",
+      "You will write programs in VS Code. Its Python tutorial needs three things: Python 3, VS Code and the Python extension [py-022]. Install VS Code and its Python extension by following the [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial). On a Mac, you open the downloaded `.dmg` file and drag the app to the Applications folder [py-235].",
+      "The `code` command needs one setup step on a Mac. In VS Code, open the Command Palette and run **Shell Command: Install 'code' command in PATH**, then restart the terminal [py-236].",
       "The tutorial makes a folder with `mkdir hello`, moves into it with `cd hello`, and opens VS Code on it with `code .` [py-025]. Do it inside your `codepix` folder.",
       { term: [["cd codepix", "Go into your Code Pix folder from A0."], ["mkdir hello", "Make a folder for this job."], ["cd hello", "Walk into it."], ["code .", "Open VS Code on this folder. The dot means here."]] },
       "In VS Code, make a new file named `hello.py` and type one line:",
@@ -129,6 +150,8 @@ PAGES("a01", [
       { nerd: "Another editor that is already there", body: [
         "IDLE is the development environment that comes as a standard part of official Python distributions [py-015]. With Homebrew's Python, IDLE needs tkinter from a separate formula, `python-tk@3.14` [py-021]. Code Pix uses VS Code, so you can skip this.",
       ] },
+      { h3: "Which Python does VS Code use?" },
+      "VS Code keeps its own choice of Python. You pick it from the Status Bar, or with **Python: Select Interpreter** in the Command Palette, and VS Code then uses it for running code, debugging and IntelliSense [py-267]. When you open a terminal in VS Code, the Python extension activates the environment you selected [py-268]. If VS Code and Terminal disagree about your Python, pick the Homebrew one here.",
       { machine: ["a01-hello"], label: "Go to your machine: say hello" },
     ],
   },
@@ -145,8 +168,21 @@ PAGES("a01", [
       { h3: "The REPL" },
       "Python can also take one line at a time, straight from you. The glossary calls this the [[REPL]], short for read-eval-print loop: another name for the interactive interpreter shell [py-030]. You type a line, Python reads it, works it out, prints the answer and waits for the next one.",
       { code: "a01_sums", out: true },
+      "In interactive mode Python first prints a welcome message with its version number. Then it shows the [[prompt|primary prompt]], usually three greater-than signs, `>>>`. When a line needs more lines to finish it, the prompt turns into three dots, `...` [py-232].",
+      { analogy: "`>>>` is Reader tapping the clipboard: *your turn, give me a line*. `...` is Reader saying *keep going, I am listening*." },
+      "To leave, type an end-of-file character at the `>>>` prompt: Control-D on Unix, Control-Z on Windows. If that does not work, type `quit()` [py-233].",
       "A handy trick: in most Python shells, the up arrow brings back the previous line you typed and the down arrow the next one, so you can repeat a line without retyping it [py-191].",
-      { honest: "The exact steps for opening the REPL on your machine are still being checked against a source for this beta. Until then, every REPL example in this book is also a program file you can run with `python3`." },
+      "So how do you get to `>>>`? Leave off the file name. The tutorial says the interpreter works a bit like the shell. Started from a terminal with no file, it reads and executes commands interactively. Given a file name, it runs that file as a script [py-277].",
+      "The macOS docs say that in a Terminal window you can invoke `python3`, optionally followed by command line options [py-279]. Type it alone and press Return:",
+      { term: [["python3", "No file name, so Python starts the REPL and waits at `>>>` [py-277] [py-279]."], ["quit()", "Leave the REPL. Control-D works too [py-233]."]], title: "Terminal (Mac)" },
+      { analogy: "`python3 hello.py` hands Reader a finished clipboard to work through. `python3` alone hands Reader a blank one, and you fill it a line at a time." },
+      { alt: "Windows and Linux", body: [
+        "On Windows the recommended command for launching Python is `python` [py-026]. The tutorial adds that with the `py.exe` launcher installed you can use `py` [py-278]. Type either one with no file name.",
+        { term: [["python", "Start the REPL on Windows [py-026]. Leave with Control-Z or `quit()` [py-233]."]], title: "Windows terminal" },
+        "Fedora's developer portal says you start Python by typing `python` in a terminal and leave it with Ctrl + D [py-234]:",
+        { term: [["python", "Start the interactive interpreter on Fedora [py-234]. Leave with Ctrl + D."]], title: "Fedora" },
+        "Whatever command starts Python on your system, run it from a terminal with no file name and the interpreter reads your commands interactively [py-277].",
+      ] },
     ],
   },
 ]);
@@ -155,6 +191,7 @@ GLOSS({
   Homebrew: "A package manager for macOS that installs tools such as Python. The Python docs list it as an alternative distribution that the core Python team does not maintain. [py-014]",
   interpreter: "The program that reads your Python code and carries it out. Python is an interpreted language, so source files can be run directly. [py-031]",
   "high-level language": "A language whose source code is meant for humans to understand. Computers understand only low-level machine code made of 1s and 0s. Python is high-level. [py-190]",
+  prompt: "The text a tool prints when it waits for you to type. Python's interactive prompt is usually `>>>`, and `...` for continuation lines. [py-232]",
   REPL: "Short for read-eval-print loop: the interactive interpreter shell, where you type one line and see the answer. [py-030]",
 }, "a01");
 
@@ -174,10 +211,11 @@ TOY("setup", {
         "Open Terminal from Spotlight or from Applications, Utilities [py-001].",
         "Run `xcode-select --install` for the Command Line Tools [py-016].",
         "Install Homebrew with the one-line command from [brew.sh](https://brew.sh/) [py-019].",
-        "Add Homebrew's `brew shellenv` line to your shell configuration file [py-018].",
+        "Follow Homebrew's printed directions to add its `brew shellenv` line to your shell's config file, such as `~/.zprofile` for zsh [py-238] [py-239].",
         "Run `brew install python3` [py-156].",
         "Run `python3 --version` [py-165] and `which python3` [py-006].",
-        "Install VS Code and its Python extension [py-022].",
+        "Install VS Code from its `.dmg` file into Applications [py-235], then add the Python extension [py-022].",
+        "In VS Code, run Shell Command: Install 'code' command in PATH, then restart the terminal [py-236].",
         "Run `hello.py` from the terminal and with Run Python File [py-024].",
       ],
       win: [
@@ -190,6 +228,7 @@ TOY("setup", {
       linux: [
         "Check for Python with `python3 --version` [py-165]. Most distributions include it [py-028].",
         "Check which one runs with `which python3` [py-006].",
+        "Ubuntu: `sudo apt install -y python3-full` adds the full class library, venv support and IDLE [py-240].",
         "Debian or Ubuntu: `sudo apt update`, then `sudo apt install python3-venv python3-pip` [py-183]. Fedora: `sudo dnf install python3-pip python3-wheel` [py-184].",
         "Install VS Code and its Python extension [py-022].",
         "Run `hello.py` from the terminal and with Run Python File [py-024].",
@@ -245,12 +284,13 @@ LEVEL({
     { ask: { q: "Your Mac has `/usr/bin/python3`. What should you do with it?", choices: ["Delete it to avoid confusion", "Leave it alone and install your own Python", "Update it in place"], answer: 1,
       why: "The docs say never to modify or delete it, because Apple's tools use it [py-012]." } },
     say("byte", "Steps! First `xcode-select --install`, because Homebrew needs the Command Line Tools [py-016]. Then Homebrew. Then `brew install python3` [py-156]. I love a numbered list."),
-    say("nib", "Copy Homebrew's install command from its own home page [py-019], so you always get the current one. Then add Homebrew's `brew shellenv` line to your shell setup [py-018].", "think"),
+    say("nib", "Copy Homebrew's install command from its own home page [py-019], so you always get the current one. Then follow the directions it prints for your shell's config file. Skip them and Homebrew will not work [py-238].", "think"),
     { toy: "setup", goal: "Pick a problem in the troubleshooter and read its fix." },
     say("nib", "Now the big question: which `python3` runs when you type it? `which python3` shows the file [py-006], and `python3 --version` shows the version [py-165]."),
     { ask: { q: "`which python3` prints `/usr/bin/python3`. Whose Python is that?", choices: ["Homebrew's", "Apple's, for its developer tools", "VS Code's"], answer: 1,
       why: "`/usr/bin/python3` is the one that comes with macOS [py-012]. On Apple silicon, Homebrew's lives under `/opt/homebrew` [py-017]." } },
     say("nib", "Next, the editor. VS Code's Python tutorial needs Python 3, VS Code and the Python extension [py-022]. It opens a folder with `code .` [py-025]."),
+    say("byte", "On a Mac, `code` needs one setup step. In VS Code's Command Palette, run Shell Command: Install 'code' command in PATH, then restart the terminal [py-236]. BEEP. Now `code .` works.", "think"),
     say("byte", "Windows bench? Windows has no system Python [py-172]. Get the Python Install Manager [py-173], then type `python` where I say `python3` [py-026]. BEEP. Two fewer keystrokes."),
     say("nib", "One more idea before Reader takes over. Python is a [[high-level language]]: its code is meant for humans to read. Computers understand only machine code made of 1s and 0s [py-190].", "think"),
     { show: ["nib", "byte", "reader"], ...say("reader", "My turn. When you run a program, I am the one who reads it. Officially I am the [[interpreter]]. Python source files can be run directly [py-031].") },
@@ -261,6 +301,9 @@ LEVEL({
     { ask: { q: "A program has an error on line 3. What happens to lines 1 and 2?", choices: ["They still ran, before Reader reached line 3", "Nothing runs at all", "Python skips line 3 and keeps going"], answer: 0,
       why: "Reader reads from the top, one line at a time. The recording shows lines 1 and 2 printing before line 3 stops the program." } },
     say("nib", "Python can also take one line at a time, straight from you. That is the [[REPL]], the read-eval-print loop [py-030]."),
+    say("reader", "In the REPL I greet you with my version number, then wait at `>>>`. If your line needs more lines, I show `...` and keep listening [py-232].", "happy"),
+    { ask: { q: "You are at the `>>>` prompt and want to leave. What works?", choices: ["Control-D on Unix (Control-Z on Windows), or `quit()`", "Typing `stop`", "Closing your eyes"], answer: 0,
+      why: "An end-of-file character at the primary prompt exits the interpreter: Control-D on Unix, Control-Z on Windows. If that fails, `quit()` does it [py-233]." } },
     { predict: { program: "a01_sums", q: "If you typed these three lines into the REPL, one at a time, what would you see?", choices: ["2 + 2\n12 * 3\nbolt + s", "4\n36\nbolts", "4\n36\nbolt s"], answer: 1,
       why: "Python works out each line before printing it. With text, `+` joins the pieces [py-054]." } },
     { book: 1, text: "The book has the full setup steps for macOS, Windows and Linux, with links to each source." },
