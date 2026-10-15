@@ -192,7 +192,6 @@ Every row is a fact a lesson may cite. The ID is the citation key used in `docs/
 | ml-011 | GeeksforGeeks gives BERT and GPT as examples of self-supervised models that predict masked words from context. | gfg-types-ml | Self-Supervised |
 | ml-012 | Jurafsky and Martin say handwritten classification rules can be fragile, and that the most common approach is supervised machine learning with a labeled training set and a learning algorithm. | jm3-ch4 | 4.1 |
 | ml-013 | Jurafsky and Martin call language-model pretraining self-supervised because the natural sequence of words supplies its own labels. | jm3-ch7 | 7.7 |
-| ml-014 | The 2007 Jurafsky and Martin draft lists decision trees, support vector machines, Gaussian mixture models and logistic regression as common classifiers, and stresses separate training and test sets and cross-validation. | jm2-2007 | 1.3 |
 | ml-015 | scikit-learn's install page creates a virtual environment, activates it, and runs pip install -U scikit-learn (macOS and Linux use source sklearn-env/bin/activate). | sk-install | Installing the latest release |
 | ml-016 | scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer. | sk-install | Installing the latest release |
 | ml-017 | scikit-learn's install page checks an install with python -m pip show scikit-learn. | sk-install | Installing the latest release |
@@ -207,22 +206,15 @@ Every row is a fact a lesson may cite. The ID is the citation key used in `docs/
 | ml-026 | In scikit-learn, estimators are fitted with fit(X, y) and used with predict; X has shape (n_samples, n_features). | sk-getting-started | #fitting-and-predicting-estimator-basics |
 | ml-027 | Google's linear regression model is y' = b + w1x1, where y' is the predicted label, b the bias, w1 the weight and x1 the feature. | mlcc-linear-regression | Linear regression |
 | ml-028 | In Google's car example the learned bias is 34 and the weight is -4.6, so a 4,000-pound car is predicted at 15.6 miles per gallon. | mlcc-linear-regression | Example |
-| ml-029 | Jurafsky and Martin (2007) use the word regression when the output is a real number and classification when it is one of a set of classes. | jm2-2007 | 6.6.1 |
-| ml-030 | In the 2007 draft's made-up housing data the best-fit line is y = -4900x + 16550. | jm2-2007 | 6.6.1 Fig. 6.17-6.18 |
-| ml-031 | The 2007 draft describes the weights of a linear model as being multiplied by features, and writes the prediction as a dot product of weights and features. | jm2-2007 | 6.6.1 |
 | ml-032 | scikit-learn's LinearRegression fits its coefficients by minimizing the residual sum of squares. | sk-linear | 1.1.1 |
 | ml-033 | Google describes gradient descent as repeating four steps: compute the loss, decide which direction lowers it, move the weight and bias a small amount that way, and repeat until the loss stops improving. | mlcc-gradient-descent | Gradient descent |
 | ml-034 | In Google's worked example the loss (MSE) is 303.71 at iteration 1, and after six iterations it reaches 42.17. | mlcc-gradient-descent | Example |
 | ml-035 | Google says a model has converged when more iterations no longer reduce the loss meaningfully, and that linear models have a convex loss surface. | mlcc-gradient-descent | Convergence |
-| ml-036 | The 2007 draft chooses linear-regression weights to minimize the sum-squared error between predicted and observed values. | jm2-2007 | 6.6.1 |
 | ml-037 | Google computes a probability by first calculating z = b + w1x1 + ... + wnxn and then passing z through the sigmoid, y' = 1 / (1 + e^-z). | mlcc-sigmoid | Sigmoid function |
 | ml-038 | In Google's sigmoid table z = -2 gives 0.119, z = 0 gives 0.50, z = 1 gives 0.731 and z = 2 gives 0.881. | mlcc-sigmoid | Sigmoid table |
 | ml-039 | At test time a logistic regression classifier computes the probability of each class and returns the higher-probability label. | jm3-ch4 | 4.1 |
 | ml-040 | Jurafsky and Martin say logistic regression learns a weight for each feature plus a bias term, and passes the weighted sum z through the sigmoid, also called the logistic function. | jm3-ch4 | 4.2 |
-| ml-041 | The 2007 draft defines odds as the probability of being in a class divided by the probability of not being in it, and gives the example that probabilities .75 and .25 make odds of 3. | jm2-2007 | 6.6.2 |
 | ml-042 | scikit-learn says logistic regression is implemented as a linear model for classification rather than regression, in terms of its nomenclature. | sk-linear | 1.1.11 |
-| ml-043 | The 2007 draft says to train on a training set and measure on a separate test set, and warns that training on the test set makes probabilities look too high. | jm2-2007 | 4.3 |
-| ml-044 | The 2007 draft describes a held-out set and a development test set (devset), and says that in practice data is often divided 80% training, 10% development and 10% test. | jm2-2007 | 4.3 |
 | ml-045 | Google says splitting the data into only a training set and a test set is not an optimal split, and recommends adding a validation set. | mlcc-splits | Training, validation, and test sets |
 | ml-046 | Google warns that the more often you reuse the same test set, the more likely the model fits that test set. | mlcc-splits | Additional problems with test sets |
 | ml-047 | Google says overfitting means creating a model that matches (memorizes) the training set so closely that it fails to make correct predictions on new data, and lists an overly complex model as a cause. | mlcc-overfitting | Overfitting |
@@ -230,7 +222,6 @@ Every row is a fact a lesson may cite. The ID is the citation key used in `docs/
 | ml-049 | In k-fold cross-validation the training set is split into k parts, the model is trained on k-1 of them and validated on the last, and the reported score is the average over the k runs. | sk-cv | k-fold |
 | ml-050 | scikit-learn says preprocessing such as standardization should be learnt from a training set and applied to held-out data, and that a Pipeline can do this inside cross-validation. | sk-cv | Data transformation with held-out data |
 | ml-051 | In scikit-learn's example a degree-1 polynomial underfits a noisy cosine, degree 4 fits well and degree 15 overfits, learning the noise of the training data. | sk-overfit-example | Underfitting vs. overfitting |
-| ml-052 | The 2007 draft describes 10-fold cross-validation: repeat random training/test splits 10 times and average the error rates. | jm2-2007 | 5.7 |
 | ml-053 | Jurafsky and Martin show that higher-order n-gram models copy their training text more closely, and a 4-gram model trained on Shakespeare reproduces a line from King John. | jm3-ch3 | 3.5 |
 | ml-054 | Google defines accuracy as (TP+TN)/(TP+TN+FP+FN), recall as TP/(TP+FN) and precision as TP/(TP+FP). | mlcc-metrics | Accuracy, recall, precision |
 | ml-055 | Google says a model that always predicts negative on a dataset with 1% positives would score 99% accuracy yet be useless. | mlcc-metrics | Class imbalance |
@@ -240,23 +231,15 @@ Every row is a fact a lesson may cite. The ID is the citation key used in `docs/
 | ml-059 | In scikit-learn's confusion matrix, entry (i, j) counts observations actually in group i but predicted to be in group j, and for two classes ravel() gives tn, fp, fn, tp. | sk-metrics | #confusion-matrix |
 | ml-060 | scikit-learn defines precision as tp/(tp+fp), recall as tp/(tp+fn), and the F-measure as their weighted harmonic mean, with F1 weighting them equally. | sk-metrics | #precision-recall-and-f-measures |
 | ml-061 | scikit-learn's example with y_true [0, 1, 0, 1] and y_pred [0, 1, 0, 0] shows precision 1.0, recall 0.5 and an F1 printed as 0.66..., which is the truncated form of 2/3 (0.667). | sk-metrics | #precision-recall-and-f-measures |
-| ml-062 | The 2007 draft says to compare a classifier with a most-frequent-class baseline and a human ceiling; human taggers agreed on about 96-97% of Penn Treebank tags. | jm2-2007 | 5.7 |
-| ml-063 | The 2007 draft defines the F-measure as F1 = 2PR/(P+R), derived from a weighted harmonic mean of precision and recall. | jm2-2007 | 13 (chunking) |
 | ml-064 | scikit-learn describes nearest-neighbors classification as storing the training instances and assigning a query point the class with the most representatives among its k nearest neighbors, and says the best k is highly data-dependent. | sk-neighbors | 1.6.2 |
 | ml-065 | scikit-learn says decision trees learn if-then-else decision rules, are simple to understand and interpret, and can be visualized, but can overfit; max_depth and min_samples_leaf help control that. | sk-tree | Advantages / Disadvantages |
 | ml-066 | scikit-learn's export_text prints a fitted tree as indented text rules. | sk-tree | Visualization |
 | ml-067 | Naive Bayes applies Bayes' theorem with the naive assumption that features are conditionally independent given the class. | sk-nb | #naive-bayes |
 | ml-068 | scikit-learn says naive Bayes has worked well for document classification and spam filtering, and is a decent classifier but a bad estimator of probabilities. | sk-nb | #naive-bayes |
-| ml-069 | The 2007 draft's naive Bayes classifier for word sense disambiguation picks the most probable sense given the feature vector, and naively assumes that the features are independent of one another. | jm2-2007 | 20.2.2 |
-| ml-070 | The 2007 draft says two classes of features are extracted from a target word's neighboring context, collocational features and bag-of-words features, and uses the word bass as its example. | jm2-2007 | 20.2.1 |
 | ml-071 | scikit-learn's KMeans separates samples into groups of equal variance by minimizing the inertia (within-cluster sum-of-squares), and requires the number of clusters to be specified. | sk-clustering | #k-means |
 | ml-072 | scikit-learn says K-means may converge to a local minimum that depends highly on how the centroids are initialized, and that the k-means++ initialization (init='k-means++') helps. | sk-clustering | #k-means |
 | ml-073 | scikit-learn warns that K-means assumes convex, similarly shaped clusters and does poorly on elongated or irregular ones. | sk-clustering | #k-means |
 | ml-074 | scikit-learn describes clustering as working on unlabeled data. | sk-clustering | #clustering |
-| ml-075 | The 2007 draft says largely unsupervised approaches received renewed attention near the end of 2000 to 2007, helped by the cost and difficulty of producing reliably annotated corpora, which limited supervised approaches. | jm2-2007 | 1.6.6 |
-| ml-076 | The 2007 draft's Berkeley restaurant corpus has 9,332 sentences and a vocabulary of 1,446 words, and the bigram probability of 'i want english food' is about .000031. | jm2-2007 | 4.2 |
-| ml-077 | The 2007 draft's Laplace (add-one) smoothing adds one to every count: P(w_i) = (c_i + 1) / (N + V). | jm2-2007 | 4.5.1 |
-| ml-078 | The 2007 draft says smoothing is needed because a test n-gram never seen in training would otherwise get probability zero. | jm2-2007 | 4.5 |
 | ml-079 | scikit-learn's MultinomialNB is a classic text classifier whose inputs are word-count vectors, with smoothing parameter alpha (alpha = 1 is Laplace smoothing). | sk-nb | #multinomial-naive-bayes |
 | ml-080 | Jurafsky and Martin's sentiment example uses words such as awesome and love as informative features for a classifier. | jm3-ch4 | 4.3.1 |
 | ml-081 | Google says the nodes in hidden layers are called neurons, that a neuron's value is calculated the same way as the output of a linear model, and that a network of only linear nodes cannot learn nonlinearities. | mlcc-nn-nodes | Nodes and hidden layers |
@@ -272,9 +255,6 @@ Every row is a fact a lesson may cite. The ID is the citation key used in `docs/
 | ml-091 | Decoding choices described include greedy decoding, random sampling, temperature sampling and top-k and top-p sampling. | jm3-ch7 | 7.6 |
 | ml-092 | Jurafsky and Martin date the transformer architecture to 2017 (Vaswani et al.) and the rise of prompting to 2019. | jm3-ch1 | 1.4 |
 | ml-093 | Jurafsky and Martin say neural network training based on error backpropagation became widespread with Rumelhart et al. (1986). | jm3-ch1 | 1.4 |
-| ml-094 | The 2007 draft says that in the summer of 1956 McCarthy, Minsky, Shannon and Rochester organized a two-month workshop on what they called artificial intelligence. | jm2-2007 | 1.6.2 |
-| ml-095 | The 2007 draft says that from 1983 to 1993 probabilistic, data-driven models returned, with a new focus on evaluating models on held-out data. | jm2-2007 | 1.6.4 |
-| ml-096 | The 2007 draft names 2000 to 2007 the rise of machine learning, driven by available annotated data, closer ties to the machine learning community, and faster computers. | jm2-2007 | 1.6.6 |
 | ml-097 | Samuel's 1959 paper reports that a computer can be programmed to learn to play checkers better than the person who wrote the program, in about 8 or 10 hours of machine-playing time. | samuel-1959 | Abstract |
 | ml-098 | Rosenblatt's 1958 Psychological Review article is titled The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain. | rosenblatt-1958 | Title page |
 | ml-099 | Google's fairness module defines reporting bias, historical bias, automation bias, selection bias (with coverage, non-response and sampling bias), group attribution bias, implicit bias and confirmation bias. | mlcc-bias | Types of bias |
@@ -283,6 +263,4 @@ Every row is a fact a lesson may cite. The ID is the citation key used in `docs/
 | ml-102 | Matplotlib draws on a Figure that can contain one or more Axes, and Axes methods include plot, scatter and hist. | matplotlib-quick | Parts of a figure |
 | ml-103 | scikit-learn says to hold out part of the available data as a test set, and its example uses train_test_split(X, y, test_size=0.4, random_state=0) to hold out 40% of the data. | sk-cv | train_test_split |
 | ml-104 | scikit-learn's cross_validate helper performs a 5-fold cross-validation by default. | sk-getting-started | #model-evaluation |
-| ml-105 | The 2007 draft says Alan Turing (1950) introduced what is known as the Turing Test, a game in which an interrogator must work out which of two other participants is the machine. | jm2-2007 | 1.4 |
-| ml-106 | The 2007 draft says ELIZA (Weizenbaum, 1966) was a very simple program that used pattern matching, and that many people who used it came to believe it really understood them. | jm2-2007 | 1.4 |
 | ml-107 | In language-model pretraining, Jurafsky and Martin say the model's parameters are trained via error backpropagation with gradient descent. | jm3-ch7 | 7.7 |

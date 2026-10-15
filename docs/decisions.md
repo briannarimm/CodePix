@@ -28,7 +28,7 @@ Answers Brianna gave to the open questions in `handoff.md` section 12, on 2026-1
 |---|---|---|
 | Structure | Two modules. Module A (Intro to CS and Python) unlocks Module B (Intro to Machine Learning). | Unlock rule still to be confirmed (see research-summary.md). |
 | Research first | Content and accuracy work comes before the app build. | Lesson plans cite fact IDs from the verified ledger. |
-| Sources for Module B | Brianna's J&M 2007 PDF and the GeeksforGeeks page, plus Google's course, scikit-learn docs, J&M 3rd-edition draft and others found by research. | GeeksforGeeks is for private use only and is cross-checked. |
+| Sources for Module B | The GeeksforGeeks page Brianna supplied, plus Google's course, scikit-learn docs, J&M 3rd-edition draft and others found by research. | GeeksforGeeks is for private use only and is cross-checked. |
 | Private use | The app is for private use only (Brianna, 2026-10-14). | Public-launch decisions in the handoff (license, sources) are on hold; revisit before any public release. |
 | Sibling project path | `~/Documents/Programming/ai-pix-explorer/` | Moved out of Google Drive. |
 
@@ -37,4 +37,4 @@ Answers Brianna gave to the open questions in `handoff.md` section 12, on 2026-1
 | Topic | Decision | Notes |
 |---|---|---|
 | Address | `https://www.briannaimm.com/CodePix/` | Replaces `codepix.briannaimm.com`. Needs the user-site repo named `briannarimm.github.io`; see docs/deploy.md. |
-| Repository visibility | Public, private use only | Needed for free Pages. Citation limits in sources are not a concern for Brianna's private use. |
+| Repository visibility | Public, private use only | Needed for free Pages. |

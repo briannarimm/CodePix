@@ -26,9 +26,8 @@ Rules for lessons: uncited text must be our own explanation or analogy (marked w
 Recording these so the same traps are avoided later.
 
 1. **Page summaries invented details.** The fetch tool's page summaries are written by a small model. Several "facts" in them were not on the page: a 70/15/15 data split from the Google crash course (the text has no percentages), `tel.get` wording, a `ms-python.python` extension ID, and "six iterations" attached to the wrong number. All were removed or reworded against the raw text.
-2. **A check string can match the wrong place.** Two J&M 2007 facts first matched only in the bibliography, and several matched only in navigation menus. The audit mode exposed this; those facts now use phrases that occur only in the right passage.
+2. **A check string can match the wrong place.** Several facts first matched only in a bibliography or in navigation menus. The audit mode exposed this; those facts now use phrases that occur only in the right passage.
 3. **scikit-learn prints F1 as `0.66...`.** The true value is 2/3 (0.667). The page's doctest truncates. The claim says so.
-4. **J&M's multi-feature housing example is nonsense.** With the draft's weights it predicts a negative price (-24,500). We do not reuse it. The single-feature example (slope -4900, intercept 16550) is correct.
 5. **Automate the Boring Stuff does not explain how to read a traceback.** The Python tutorial explains the last line, so that is the source.
 6. **My earlier memory of Python's origin was wrong.** The Python docs say it was created "in the early 1990s" at CWI, not the late 1980s.
 7. **The default text encoding differs by version.** The 3.15 tutorial says UTF-8; the 3.9 docs say it was platform dependent. Every `open()` in the book will name its encoding.
@@ -45,8 +44,7 @@ Recording these so the same traps are avoided later.
 1. **Python version floor for Module A.** Options: (a) examples run on 3.9 and the current release (what the handoff says; costs little and covers anyone with Apple's built-in Python); (b) floor at 3.11, the oldest still supported. I recommend (a) for A, because the examples are basic. Module B floor is 3.10 or newer regardless.
 2. **How Module B unlocks.** My proposal: finishing the A17 capstone (certificate) unlocks B. Alternatives: unlock after A13 (once venv and pip are learned), or a soft lock (B visible, with a warning). Which?
 3. **Module B scope.** I planned 17 levels (B0 to B16) plus a history level. Cut candidates if you want it shorter: B9 (kNN, trees, naive Bayes), B11 (text features), B14 (other kinds of learning). Keep or cut?
-4. **Using the GeeksforGeeks page.** You said it is for private use, and I treated it that way: it appears in only five facts, each cross-checked against Google's course. If the site ever goes public, GfG's terms say "all rights reserved", so those five facts would need to be re-based on the other sources. Is that acceptable?
-5. **Use of the 2007 J&M draft.** It is the oldest source and predates neural networks. I used it for classical ideas (regression, odds, n-grams, naive Bayes, evaluation, history) and used the 2026 third-edition draft for modern ideas. OK?
+4. **Using the GeeksforGeeks page.** It appears in only five facts, each cross-checked against Google's course, and its terms say "all rights reserved", so we cite and paraphrase it only.
 7. **Is the site still public?** You said the app is for private use only. The handoff planned a public GitHub Pages site at codepix.briannaimm.com. I have not changed the build plan, but the public repo, domain, CC BY license and the GfG question all depend on this. Public, or private (for example a private repo or a local build)?
 6. **Story frame for Module B.** I proposed a "Learning Bench" and a "Quote Machine" in the shop, with the same cast. Want a new character for the learning machine, or keep the cast as is?
 
@@ -74,7 +72,6 @@ Machine learning module:
 - 82 sources are in the registry: 79 `verified`, 2 `unverified` (Turing 1950, Dive into Deep Learning) and 1 `rejected` (Runestone, HTTP 403). No fact rests on an unverified or rejected source. See [source-candidates.md](source-candidates.md).
 - Licenses that restrict reuse: Missing Semester, CS50 notes, Think Python, Automate the Boring Stuff, Pro Git are **NonCommercial and ShareAlike**. We only cite and paraphrase them, never copy text or examples. Google's content is CC BY 4.0 (attribute Google). scikit-learn, NumPy, pandas are BSD.
 - `tools/check_links.py` is still to be written (handoff section 9.4); `verify_facts.py` already reports each source's HTTP status.
-- The 2007 J&M PDF was moved out of Downloads during the session. Its extracted text is kept in `sources/local/jm2-2007.txt`, which is git-ignored because the book is copyrighted. Do not commit it.
 
 ## Environment note
 

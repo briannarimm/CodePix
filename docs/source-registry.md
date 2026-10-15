@@ -25,6 +25,6 @@ Facts drawn from each source live in `docs/source-notes.md` (fact, source id, lo
 
 ## Current files (supersedes the field list above where they differ)
 
-- `sources/build_registry.py` writes `sources/registry.json`. Extra fields: `file` and `textFallback` (a book supplied locally and where its saved text lives), `pdf` / `text` (how to read the URL), `localOnly`.
+- `sources/build_registry.py` writes `sources/registry.json`. Extra fields: `pdf` / `text` (how to read the URL).
 - `sources/build_facts.py` writes `sources/facts.json`. Each fact: `id` (py-001, ml-001, ...), `src`, `anchor`, `claim` (our paraphrase, the only thing a lesson may say), `check` (strings that must appear in the source), `mod`.
 - `tools/verify_facts.py`, `tools/check_numbers.py`, `tools/check_lessons.py` check them. `docs/source-notes.md` and `docs/source-candidates.md` are generated and must not be edited by hand.

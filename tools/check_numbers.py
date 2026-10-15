@@ -12,12 +12,6 @@ def check(name, quoted, actual, tol=0.0):
     results.append(ok)
     print(("ok   " if ok else "FAIL ") + f"{name}: source says {quoted}, Python gives {actual}")
 
-# Jurafsky and Martin (2007), 6.6.1: housing data and best-fit line
-xs, ys = [4, 3, 2, 2, 1, 0], [0, 1000, 1500, 6000, 14000, 18000]
-n = len(xs); mx, my = sum(xs) / n, sum(ys) / n
-w = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs)
-b = my - w * mx
-check("JM2007 slope", -4900, w, 1e-6); check("JM2007 intercept", 16550, b, 1e-6)
 # Google linear regression example: bias 34, weight -4.6, 4,000 pounds (feature in thousands)
 check("MLCC car mpg", 15.6, 34 + -4.6 * 4, 1e-9)
 # Google sigmoid table and exercise
@@ -25,12 +19,6 @@ sig = lambda z: 1 / (1 + math.exp(-z))
 check("MLCC sigmoid(-2)", 0.119, round(sig(-2), 3)); check("MLCC sigmoid(0)", 0.5, sig(0)); check("MLCC sigmoid(2)", 0.881, round(sig(2), 3))
 z = 1 + 2 * 0 + -1 * 10 + 5 * 2
 check("MLCC exercise z", 1, z); check("MLCC exercise probability", 0.731, round(sig(z), 3))
-# J&M (2007), odds example
-check("JM2007 odds .75/.25", 3, 0.75 / 0.25)
-# J&M (2007), 4.2: probability of "i want english food"
-p = .25 * .33 * .0011 * .5 * .68
-check("JM2007 sentence probability (.000031)", 0.000031, round(p, 6), 1e-9)
-check("JM2007 P(want|i)=827/2533 shown as .33", 0.33, round(827 / 2533, 2))
 # J&M (3rd ed.), 6.1: neural unit
 zz = .5 * .2 + .6 * .3 + .1 * .9 + .5
 check("JM3 unit z", 0.87, round(zz, 2)); check("JM3 unit output", 0.70, round(sig(zz), 2))

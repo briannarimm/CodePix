@@ -856,42 +856,15 @@
    "site": "GeeksforGeeks",
    "date": "2026",
    "url": "https://www.geeksforgeeks.org/machine-learning/types-of-machine-learning/",
-   "license": "© GeeksforGeeks, all rights reserved (Brianna: private use)",
+   "license": "© GeeksforGeeks, all rights reserved",
    "licenseUrl": "",
-   "reuse": "Supplied by Brianna for private use. Cite and paraphrase only; cross-check with an independent source.",
+   "reuse": "Cite and paraphrase only; cross-check with an independent source.",
    "accessed": "2026-10-14",
    "levels": [
     100,
     114
    ],
    "notes": "Page shows Last Updated 19 Jan, 2026 and no author."
-  },
-  {
-   "id": "jm2-2007",
-   "status": "verified",
-   "title": "Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition (Draft)",
-   "author": "Jurafsky, D., & Martin, J. H.",
-   "site": "Draft PDF supplied by Brianna",
-   "date": "2007",
-   "url": "file:///Users/bri/Downloads/Jurafsky, Martin.-Speech and Language Processing_ An Introduction to Natural Language Processing (2007).pdf",
-   "license": "© authors; draft supplied by Brianna for private use",
-   "licenseUrl": "",
-   "reuse": "Private use. Cite by chapter and section (the draft restarts page numbers in each chapter). Paraphrase only.",
-   "accessed": "2026-10-14",
-   "levels": [
-    100,
-    101,
-    106,
-    107,
-    108,
-    111,
-    112,
-    113
-   ],
-   "notes": "This is a 2007 draft of the 2nd edition (1,044 PDF pages). It predates neural networks and transformers, so use it for classical ideas only.",
-   "file": "/Users/bri/Downloads/Jurafsky, Martin.-Speech and Language Processing_ An Introduction to Natural Language Processing (2007).pdf",
-   "localOnly": true,
-   "textFallback": "sources/local/jm2-2007.txt"
   },
   {
    "id": "jm3-ch1",
@@ -1449,7 +1422,7 @@
    "levels": [
     116
    ],
-   "notes": "No openly accessible full text was found. Do not cite the paper itself. J&M (2007, Section 1.4) describes the Turing test and cites the paper; cite J&M for that description."
+   "notes": "No openly accessible full text was found. Do not cite the paper itself."
   }
  ]
 }

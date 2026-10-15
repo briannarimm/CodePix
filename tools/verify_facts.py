@@ -14,7 +14,7 @@ Usage:
     python3 tools/verify_facts.py --src py-docs-venv   only facts from one source
     python3 tools/verify_facts.py --list-sources  print each source id, status and URL
 
-PDF sources use "file" (a local path, for books supplied by Brianna) or "url" with "pdf": true.
+PDF sources use "url" with "pdf": true; plain-text sources use "text": true.
 Needs pypdf only when a PDF source is present (pip install pypdf).
 """
 import argparse, hashlib, html, json, pathlib, re, subprocess, sys, tempfile, time
@@ -101,26 +101,6 @@ def context(display: str, needle: str, width: int = 170) -> str:
 def load_source(src: dict, fresh: bool):
     """Return (status_code, normalized_text). Also writes <key>.disp with readable text for --audit."""
     CACHE.mkdir(exist_ok=True)
-    if src.get("file"):
-        p = pathlib.Path(src["file"]).expanduser()
-        if not p.exists() and src.get("textFallback"):
-            fb = ROOT / src["textFallback"]
-            if fb.exists():
-                raw_text = fb.read_text(encoding="utf-8", errors="replace")
-                key = CACHE / (hashlib.sha1(str(fb).encode()).hexdigest() + ".txt")
-                key.with_suffix(".disp").write_text(collapse(raw_text))
-                print(f"note      {src['id']}: PDF not found, using saved text {src['textFallback']}")
-                return 200, norm(raw_text)
-        if not p.exists():
-            return -1, ""
-        key = CACHE / (hashlib.sha1(str(p).encode()).hexdigest() + ".txt")
-        if key.exists() and not fresh:
-            return 200, key.read_text()
-        raw_text = pdf_text(p)
-        text = norm(raw_text)
-        key.write_text(text)
-        key.with_suffix(".disp").write_text(collapse(raw_text))
-        return 200, text
     url = src["url"].split("#")[0]
     key = CACHE / hashlib.sha1(url.encode()).hexdigest()
     meta = key.with_suffix(".meta")
@@ -174,10 +154,6 @@ def main() -> int:
             continue
         code, text = load_source(s, a.fresh)
         texts[sid] = text
-        if code == -1 and s.get("localOnly"):
-            print(f"skip      {sid}: local file not on this machine; its facts are not checked here")
-            skipped.add(sid)
-            continue
         flag = "ok " if text else "BAD"
         print(f"{flag} {code:>3}  {sid}")
         if not text:
@@ -186,13 +162,7 @@ def main() -> int:
     if a.audit:
         for f in facts:
             sdef = sources.get(f["src"], {})
-            if sdef.get("file"):
-                fp = pathlib.Path(sdef["file"]).expanduser()
-                if not fp.exists() and sdef.get("textFallback"):
-                    fp = ROOT / sdef["textFallback"]
-                key = (CACHE / hashlib.sha1(str(fp).encode()).hexdigest()).with_suffix(".disp")
-            else:
-                key = (CACHE / hashlib.sha1(sdef["url"].split("#")[0].encode()).hexdigest()).with_suffix(".disp")
+            key = (CACHE / hashlib.sha1(sdef["url"].split("#")[0].encode()).hexdigest()).with_suffix(".disp")
             disp = key.read_text() if key.exists() else ""
             best = max(f["check"], key=len)
             print(f'### {f["id"]} [{f["src"]}] {f["anchor"]}\nCLAIM: {f["claim"]}\nCHECK: {f["check"]}\nSOURCE: ...{context(disp, best)}...\n')
@@ -209,7 +179,7 @@ def main() -> int:
             failed += 1
             why = "source unreadable" if f["src"] in bad_src else "missing: " + "; ".join(repr(m) for m in missing)
             print(f'FAILED  {f["id"]}  ({f["src"]})  {why}')
-    print(f"\n{len(facts) - failed - n_skipped} of {len(facts)} facts verified; {n_skipped} skipped (local-only source); {failed} failed; {len(bad_src)} unreadable sources")
+    print(f"\n{len(facts) - failed - n_skipped} of {len(facts)} facts verified; {n_skipped} skipped; {failed} failed; {len(bad_src)} unreadable sources")
     return 1 if failed or bad_src else 0
 
 

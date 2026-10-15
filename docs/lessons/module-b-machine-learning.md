@@ -14,21 +14,20 @@ Unlocked by finishing Module A (A17 certificate). The reading conventions are th
 
 | Source | Role | Caution |
 |---|---|---|
-| GeeksforGeeks, *Types of machine learning* (supplied by Brianna) | Overview of the five types and example algorithms | Commercial site, no author shown, "all rights reserved". Brianna said private use only. Every claim from it is cross-checked against an independent source below. |
-| Jurafsky and Martin, *Speech and Language Processing*, 2007 draft (PDF supplied by Brianna) | Classical ideas: regression, logistic regression, n-grams, naive Bayes, evaluation, history | A 2007 draft of the 2nd edition. It predates neural networks and transformers. Cited by chapter and section (the draft restarts page numbers each chapter). |
+| GeeksforGeeks, *Types of machine learning* | Overview of the five types and example algorithms | Commercial site, no author shown, "all rights reserved". Every claim from it is cross-checked against an independent source below. |
 | Jurafsky and Martin, 3rd edition draft of 2026-08-19, chapters 1, 3, 4, 5, 6, 7 | Modern logistic regression, neural units, embeddings, transformers, LLM history | Draft; "feel free to use the draft chapters in your classes." Paraphrase only. |
 | Google, Machine Learning Crash Course and intro course (CC BY 4.0) | Definitions, loss, gradient descent, metrics, overfitting, fairness | Attribute Google. Some numbers shown on the page only as images were not used. |
 | scikit-learn documentation (BSD) | Install, estimators, cross-validation, metrics, clustering, trees, neighbors, naive Bayes | Version drift: install page lists requirements only through 1.7. |
 | NumPy, pandas, Matplotlib docs (BSD-style) | Tools | |
 | Samuel (1959), Rosenblatt (1958) | History | Cite abstract and title only. |
 
-Not used because it could not be read or verified: Turing (1950) itself (no open full text found; the draft J&M describe it, and that is what we cite [ml-105]); Runestone (HTTP 403); Dive into Deep Learning (landing page only). Marked `unverified` or `rejected` in the registry.
+Not used because it could not be read or verified: Turing (1950) itself (no open full text found); Runestone (HTTP 403); Dive into Deep Learning (landing page only). Marked `unverified` or `rejected` in the registry.
 
 ## Decisions that shape this module (see research summary)
 
 1. **Python 3.10 or newer.** scikit-learn's install page says version 1.7 requires Python 3.10 or newer [ml-016]. (The page does not list a rule for the current 1.9.x. Re-read it before B1.) Python 3.9 is already end-of-life [py-010], so this module never targets it.
 2. **Virtual environment first.** All installs go into a venv [ml-015], which also avoids the "externally managed" block on Homebrew Python [py-155].
-3. **Two accounts of data splits, taught side by side.** J&M (2007) say that in practice data is often split 80% training, 10% development and 10% test [ml-044]; Google says a two-way training/test split is not optimal and adds a validation set [ml-045]. There is no single rule, and the book says so.
+3. **Split proportions.** Google says a two-way training/test split is not optimal and adds a validation set [ml-045]. GAP: no sourced rule of thumb for percentages remains, so the book teaches the three roles (train, validate, test) and gives no fixed ratio.
 4. **Honesty labels.** Every number comes from running code on fictional data (⚙). Source numbers are shown only as source numbers, with the page named.
 5. **Plain Python first, libraries second.** Each idea is hand-built in plain Python (lists, loops) and then repeated with scikit-learn, so the learner sees what the library does.
 
@@ -129,8 +128,7 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 **Concept points.**
 - Google's model is y' = b + w1 x1: predicted label, bias, weight, feature [ml-027]. Its car example has bias 34 and weight -4.6, so a 4,000-pound car is predicted at 15.6 miles per gallon [ml-028].
-- J&M (2007): regression is when the output is a real number, classification when it is one of a set of classes [ml-029]. Their made-up housing data gives the best-fit line y = -4900x + 16550 [ml-030]. ⚙ Recomputed in Python: slope -4900 and intercept 16550 (`tools/check_numbers.py`).
-- A prediction is a dot product of weights and features [ml-031].
+- GAP: a sourced definition of regression versus classification, and a worked line-fit example with a published answer, are not available now. Our own shop data replaces them. ⚙
 - scikit-learn's `LinearRegression` minimizes the residual sum of squares [ml-032].
 - ◇ Our own shop data replaces the book examples. ⚙ All numbers come from running the code.
 
@@ -145,7 +143,6 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 ## B5. Measuring Mistakes
 
 **Concept points.**
-- J&M (2007) minimize the sum-squared error between predicted and observed values [ml-036].
 - Gradient descent repeats: compute the loss, decide which direction lowers it, move the weight and bias a small amount, repeat until the loss stops improving [ml-033]. In Google's worked example the loss (MSE) is 303.71 at iteration 1 and 42.17 after six iterations [ml-034]. A model has converged when more iterations no longer reduce the loss meaningfully, and linear models have a convex loss surface [ml-035].
 - ◇ The step size is a setting you choose. (GAP: the crash course names it the learning rate on its hyperparameters page, which we have not read; add before using the term.)
 
@@ -160,9 +157,8 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 ## B6. Yes or No Machines
 
 **Concept points.**
-- Classification maps features to one of a set of classes [ml-029]. Logistic regression learns a weight per feature plus a bias term, and passes the weighted sum through the sigmoid (the logistic function) [ml-040].
+- Logistic regression learns a weight per feature plus a bias term, and passes the weighted sum through the sigmoid (the logistic function) [ml-040].
 - Google: first z = b + w1x1 + ... + wnxn, then the sigmoid y' = 1 / (1 + e^-z) [ml-037]. Table values: z = -2 gives 0.119, z = 0 gives 0.50, z = 1 gives 0.731, z = 2 gives 0.881 [ml-038]. ⚙ Recomputed.
-- J&M (2007) define odds as P(class) divided by P(not class); probabilities .75 and .25 give odds of 3 [ml-041]. ⚙ Recomputed.
 - At test time the classifier computes a probability for each class and returns the higher-probability label [ml-039].
 - scikit-learn says `LogisticRegression` is implemented as a classifier despite its name [ml-042].
 
@@ -177,11 +173,10 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 ## B7. Train, Validate, Test
 
 **Concept points.**
-- Train on a training set and measure on a separate test set; training on the test set makes results look too good [ml-043].
-- J&M (2007): a held-out set and a development test set (devset) exist, and data is often divided 80/10/10 [ml-044]. Google: two-way splits are not optimal, so add a validation set [ml-045]; reusing a test set makes the model fit it [ml-046].
+- Google: two-way splits are not optimal, so add a validation set [ml-045]; reusing a test set makes the model fit it [ml-046].
 - scikit-learn says to hold out part of the data as a test set, with `train_test_split(X, y, test_size=0.4, random_state=0)` in its example [ml-103].
 - Overfitting is a model that memorizes the training set so closely that it fails on new data; causes include an overly complex model [ml-047]. Evaluating on training data is a methodological mistake [ml-048].
-- k-fold cross-validation trains on k-1 parts, validates on the last, and averages [ml-049]; `cross_validate` defaults to 5 folds [ml-104]; J&M (2007) describe a 10-fold version [ml-052].
+- k-fold cross-validation trains on k-1 parts, validates on the last, and averages [ml-049]; `cross_validate` defaults to 5 folds [ml-104].
 - Preprocessing such as scaling should be learnt from the training set only; a Pipeline helps [ml-050]. (This is data leakage; the book names it.)
 - scikit-learn's example: a degree-1 polynomial underfits, degree 4 fits well, degree 15 overfits [ml-051]. n-gram models show the same effect: a 4-gram model trained on Shakespeare reproduces a line from *King John* [ml-053].
 
@@ -200,7 +195,7 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - When one class is rare accuracy misleads: Google's 1%-positives example scores 99% by always predicting negative [ml-055]; J&M's pie-tweet example reaches 99.99% while finding nothing [ml-056]. ⚙ Recomputed.
 - J&M define precision and recall as above in words [ml-057]. In a three-class example, macroaveraged precision is .60 and microaveraged .73; microaveraging is dominated by the frequent class [ml-058]. ⚙ Recomputed.
 - scikit-learn's confusion matrix entry (i, j) counts observations actually in group i but predicted in group j; for two classes `ravel()` gives tn, fp, fn, tp [ml-059]. Precision, recall and the F-measure (weighted harmonic mean) [ml-060]; its example prints F1 as 0.66..., the truncated form of 2/3 [ml-061]. ⚙
-- J&M (2007): compare against a most-frequent-class baseline and a human ceiling; human taggers agreed on about 96-97% [ml-062]. F1 = 2PR/(P+R) [ml-063].
+- The F-measure is a weighted harmonic mean of precision and recall (see above, [ml-060]). GAP: no sourced statement about majority-class baselines or human ceilings remains; the baseline step in the exercises is our own teaching. ◇
 
 **Analogy.** A smoke alarm: catching every fire (recall) versus never crying wolf (precision). ◇
 
@@ -215,8 +210,8 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 **Concept points.**
 - k-nearest neighbors stores the training data and gives a query point the class of the majority of its k nearest neighbors; the best k is highly data-dependent [ml-064].
 - Decision trees learn if-then-else rules, are simple to interpret and can be visualized, but can overfit; `max_depth` and `min_samples_leaf` limit size [ml-065]; `export_text` prints the rules [ml-066].
-- Naive Bayes uses Bayes' theorem with a naive independence assumption [ml-067]; it works well for document classification and spam filtering but its probabilities should not be trusted [ml-068]. J&M (2007) apply it to word sense disambiguation [ml-069] with collocational and bag-of-words features [ml-070].
-- GAP: random forests and support vector machines are only named by sources [ml-008] [ml-014]; no explanation yet, so the book only names them.
+- Naive Bayes uses Bayes' theorem with a naive independence assumption [ml-067]; it works well for document classification and spam filtering but its probabilities should not be trusted [ml-068].
+- GAP: random forests and support vector machines are only named by sources [ml-008]; no explanation yet, so the book only names them.
 
 **Toy: Three Judges.** The same ticket goes to three models; compare answers. ⚙
 
@@ -228,7 +223,6 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 - Clustering works on unlabeled data [ml-074]; Google calls it the main technique of unsupervised learning [ml-003].
 - K-means separates samples into groups by minimizing inertia and needs the number of clusters in advance [ml-071]; it can land in a local minimum that depends on the starting centroids, and k-means++ starting points help [ml-072]; it assumes convex, isotropic clusters [ml-073].
 - GeeksforGeeks also names DBSCAN, mean-shift and PCA [ml-009].
-- J&M (2007) say interest in largely unsupervised methods grew partly because annotated data is costly [ml-075].
 
 **Analogy.** Sorting a mixed bin of screws into piles by eye. ◇
 
@@ -239,9 +233,9 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 ## B11. Words as Numbers
 
 **Concept points.**
-- Features for text: words nearby, as collocational and bag-of-words features [ml-070]; sentiment words such as awesome and love are informative features [ml-080].
-- An n-gram model approximates a word's probability from the last few words [ml-088]. J&M's restaurant example has 9,332 sentences, a vocabulary of 1,446 words, and a bigram probability of .000031 for "i want english food" [ml-076]. ⚙ Recomputed.
-- Unseen n-grams get probability zero unless smoothed [ml-078]; add-one smoothing gives (c+1)/(N+V) [ml-077].
+- Features for text: sentiment words such as awesome and love are informative features [ml-080]. GAP: bag-of-words and collocational features no longer have a source.
+- An n-gram model approximates a word's probability from the last few words [ml-088]. ⚙ A worked bigram example uses our own fictional repair notes.
+- GAP: why unseen n-grams need smoothing, and add-one smoothing, have no source now. scikit-learn says alpha = 1 in MultinomialNB is Laplace smoothing [ml-079].
 - scikit-learn's MultinomialNB takes word-count vectors; alpha = 1 is Laplace smoothing [ml-079].
 
 **Toy: Word Counter.** Count words in fictional repair notes and build a spam filter. ⚙
@@ -296,18 +290,14 @@ Story frame (proposal, changeable): the shop gets a Learning Bench in the back o
 
 ## B16. Saturday Showcase (capstone)
 
-Build a "Quote Machine": load fictional repair tickets, split properly [ml-103], fit a model, compare to a baseline [ml-062], report metrics [ml-054] [ml-060], and write a short model card listing data, intended use and limits [ml-100]. Run its tests.
+Build a "Quote Machine": load fictional repair tickets, split properly [ml-103], fit a model, compare to a baseline (our own teaching), report metrics [ml-054] [ml-060], and write a short model card listing data, intended use and limits [ml-100]. Run its tests.
 
 ---
 
 ## B-Bonus. Time machine (history)
 
-- 1950: J&M (2007) describe Turing's test: an interrogator tries to tell which of two other participants is the machine [ml-105]. (The paper itself was not read.)
-- 1956: McCarthy, Minsky, Shannon and Rochester held a two-month workshop on what they called artificial intelligence [ml-094].
 - 1958: Rosenblatt's article on the perceptron [ml-098].
 - 1959: Samuel reports a computer learning to play checkers better than its programmer, in about 8 or 10 hours of play [ml-097].
-- 1966: ELIZA used pattern matching, and many people believed it understood them [ml-106].
-- 1983 to 1993: return of probabilistic, data-driven models and held-out evaluation [ml-095]. 2000 to 2007: the rise of machine learning [ml-096].
 - 1986: backpropagation widespread [ml-093]. 2017: transformer. 2019: prompting [ml-092].
 
 All dates and claims come from the cited facts; nothing else goes on the timeline.

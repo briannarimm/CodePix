@@ -54,8 +54,7 @@ Status `verified` means we opened and read the page (or PDF) on the access date.
 | numpy-beginners | verified | NumPy: The absolute basics for beginners | NumPy Developers | https://numpy.org/doc/stable/user/absolute_beginners.html | BSD 3-Clause (project LICENSE.txt) | Cite and paraphrase. | 2026-10-14 | 4 |
 | pandas-intro | verified | What kind of data does pandas handle? | pandas development team | https://pandas.pydata.org/docs/getting_started/intro_tutorials/01_table_oriented.html | BSD 3-Clause (project LICENSE) | Cite and paraphrase. | 2026-10-14 | 3 |
 | matplotlib-quick | verified | Quick start guide | Matplotlib development team | https://matplotlib.org/stable/users/explain/quick_start.html | Matplotlib License (project LICENSE) | Cite and paraphrase. | 2026-10-14 | 2 |
-| gfg-types-ml | verified | Types of machine learning | GeeksforGeeks | https://www.geeksforgeeks.org/machine-learning/types-of-machine-learning/ | © GeeksforGeeks, all rights reserved (Brianna: private use) | Supplied by Brianna for private use. Cite and paraphrase only; cross-check with an independent source. | 2026-10-14 | 5 |
-| jm2-2007 | verified | Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition (Draft) | Jurafsky, D., & Martin, J. H. | (file supplied by Brianna, not on the web) | © authors; draft supplied by Brianna for private use | Private use. Cite by chapter and section (the draft restarts page numbers in each chapter). Paraphrase only. | 2026-10-14 | 22 |
+| gfg-types-ml | verified | Types of machine learning | GeeksforGeeks | https://www.geeksforgeeks.org/machine-learning/types-of-machine-learning/ | © GeeksforGeeks, all rights reserved | Cite and paraphrase only; cross-check with an independent source. | 2026-10-14 | 5 |
 | jm3-ch1 | verified | Speech and language processing (3rd ed. draft), Chapter 1: Introduction | Jurafsky, D., & Martin, J. H. | https://web.stanford.edu/~jurafsky/slp3/1.pdf | © authors, all rights reserved; draft of Aug. 19, 2026 offered for class use | Paraphrase only. | 2026-10-14 | 5 |
 | jm3-ch3 | verified | Speech and language processing (3rd ed. draft), Chapter 3: N-gram language models | Jurafsky, D., & Martin, J. H. | https://web.stanford.edu/~jurafsky/slp3/3.pdf | © authors, all rights reserved; draft of Aug. 19, 2026 offered for class use | Paraphrase only. | 2026-10-14 | 2 |
 | jm3-ch4 | verified | Speech and language processing (3rd ed. draft), Chapter 4: Logistic regression and text classification | Jurafsky, D., & Martin, J. H. | https://web.stanford.edu/~jurafsky/slp3/4.pdf | © authors, all rights reserved; draft of Aug. 19, 2026 offered for class use | Paraphrase only. | 2026-10-14 | 9 |
@@ -98,7 +97,6 @@ Status `verified` means we opened and read the page (or PDF) on the access date.
 - **cs50-notes-0**: License verified on https://cs50.harvard.edu/x/license/
 - **atbs3-ch5**: Does not explain how to read a traceback, so do not cite it for that.
 - **gfg-types-ml**: Page shows Last Updated 19 Jan, 2026 and no author.
-- **jm2-2007**: This is a 2007 draft of the 2nd edition (1,044 PDF pages). It predates neural networks and transformers, so use it for classical ideas only.
 - **jm3-ch1**: Draft of August 19, 2026. Site invites use of draft chapters in classes.
 - **jm3-ch3**: Draft of August 19, 2026. Site invites use of draft chapters in classes.
 - **jm3-ch4**: Draft of August 19, 2026. Site invites use of draft chapters in classes.
@@ -109,4 +107,4 @@ Status `verified` means we opened and read the page (or PDF) on the access date.
 - **rosenblatt-1958**: Read the first two pages. DOI 10.1037/h0042519 per a search listing (not opened).
 - **d2l**: Only the landing page was read. Not cited for any fact yet.
 - **runestone-pythonds**: Server returned HTTP 403 to every request, so the page could not be read. Use CS50 notes instead.
-- **turing-1950**: No openly accessible full text was found. Do not cite the paper itself. J&M (2007, Section 1.4) describes the Turing test and cites the paper; cite J&M for that description.
+- **turing-1950**: No openly accessible full text was found. Do not cite the paper itself.

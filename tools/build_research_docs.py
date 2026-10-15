@@ -33,7 +33,7 @@ out = ["# Source candidates and registry (generated)\n",
        "`facts` is how many ledger facts rest on the source.\n",
        "| ID | Status | Title | Author | URL | License | Reuse | Accessed | Facts |\n|---|---|---|---|---|---|---|---|---|"]
 for s in reg:
-    url = s["url"] if not s["url"].startswith("file://") else "(file supplied by Brianna, not on the web)"
+    url = s["url"]
     out.append(f'| {s["id"]} | {s["status"]} | {esc(s["title"])} | {esc(s["author"])} | {url} | {esc(s["license"])} | {esc(s["reuse"])} | {s["accessed"]} | {cnt.get(s["id"], 0)} |')
 notes = [s for s in reg if s.get("notes")]
 out.append("\n## Notes on individual sources\n")

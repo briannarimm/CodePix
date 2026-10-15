@@ -8,8 +8,13 @@ A claim must say no more than its check strings and anchor support. If you canno
 """
 import json, pathlib
 F = []
+COUNT = {"py": 0, "ml": 0}
 def f(src, anchor, claim, check, mod):
-    F.append(dict(id=f"{mod}-{len([x for x in F if x['mod']==mod])+1:03d}", src=src, anchor=anchor, claim=claim, check=check, mod=mod))
+    COUNT[mod] += 1
+    F.append(dict(id=f"{mod}-{COUNT[mod]:03d}", src=src, anchor=anchor, claim=claim, check=check, mod=mod))
+def retired(mod):
+    """A fact that was removed. Keeps later IDs stable so lesson citations do not shift."""
+    COUNT[mod] += 1
 def py(*a): f(*a, "py")
 def ml(*a): f(*a, "ml")
 
@@ -202,7 +207,7 @@ ml("gfg-types-ml","Reinforcement","GeeksforGeeks lists Q-learning and SARSA as r
 ml("gfg-types-ml","Self-Supervised","GeeksforGeeks gives BERT and GPT as examples of self-supervised models that predict masked words from context.",["BERT","GPT"])
 ml("jm3-ch4","4.1","Jurafsky and Martin say handwritten classification rules can be fragile, and that the most common approach is supervised machine learning with a labeled training set and a learning algorithm.",["rules can be fragile","labeled training set"])
 ml("jm3-ch7","7.7","Jurafsky and Martin call language-model pretraining self-supervised because the natural sequence of words supplies its own labels.",["self-supervised","own supervision"])
-ml("jm2-2007","1.3","The 2007 Jurafsky and Martin draft lists decision trees, support vector machines, Gaussian mixture models and logistic regression as common classifiers, and stresses separate training and test sets and cross-validation.",["decision trees, support vector machines","cross-validation"])
+retired("ml")
 # M1: bench
 ml("sk-install","Installing the latest release","scikit-learn's install page creates a virtual environment, activates it, and runs pip install -U scikit-learn (macOS and Linux use source sklearn-env/bin/activate).",["python -m venv sklearn-env","pip install -U scikit-learn","source sklearn-env/bin/activate"])
 ml("sk-install","Installing the latest release","scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer.",["Scikit-learn 1.7 requires Python 3.10 or newer"])
@@ -220,25 +225,25 @@ ml("sk-getting-started","#fitting-and-predicting-estimator-basics","In scikit-le
 # M4: lines and linear regression
 ml("mlcc-linear-regression","Linear regression","Google's linear regression model is y' = b + w1x1, where y' is the predicted label, b the bias, w1 the weight and x1 the feature.",["y' = b + w"])
 ml("mlcc-linear-regression","Example","In Google's car example the learned bias is 34 and the weight is -4.6, so a 4,000-pound car is predicted at 15.6 miles per gallon.",["34","-4.6","15.6"])
-ml("jm2-2007","6.6.1","Jurafsky and Martin (2007) use the word regression when the output is a real number and classification when it is one of a set of classes.",["regression when the output is real-valued"])
-ml("jm2-2007","6.6.1 Fig. 6.17-6.18","In the 2007 draft's made-up housing data the best-fit line is y = -4900x + 16550.",["-4900","16550"])
-ml("jm2-2007","6.6.1","The 2007 draft describes the weights of a linear model as being multiplied by features, and writes the prediction as a dot product of weights and features.",["dot product"])
+retired("ml")
+retired("ml")
+retired("ml")
 ml("sk-linear","1.1.1","scikit-learn's LinearRegression fits its coefficients by minimizing the residual sum of squares.",["residual sum of squares","coef_"])
 # M5: loss and gradient descent
 ml("mlcc-gradient-descent","Gradient descent","Google describes gradient descent as repeating four steps: compute the loss, decide which direction lowers it, move the weight and bias a small amount that way, and repeat until the loss stops improving.",["Calculate the loss with the current weight and bias","Return to step one"])
 ml("mlcc-gradient-descent","Example","In Google's worked example the loss (MSE) is 303.71 at iteration 1, and after six iterations it reaches 42.17.",["Completing the process for six iterations","303.71","42.17"])
 ml("mlcc-gradient-descent","Convergence","Google says a model has converged when more iterations no longer reduce the loss meaningfully, and that linear models have a convex loss surface.",["converge","convex"])
-ml("jm2-2007","6.6.1","The 2007 draft chooses linear-regression weights to minimize the sum-squared error between predicted and observed values.",["sum-squared error"])
+retired("ml")
 # M6: classification and logistic regression
 ml("mlcc-sigmoid","Sigmoid function","Google computes a probability by first calculating z = b + w1x1 + ... + wnxn and then passing z through the sigmoid, y' = 1 / (1 + e^-z).",["z = b + w","e^{-z}"])
 ml("mlcc-sigmoid","Sigmoid table","In Google's sigmoid table z = -2 gives 0.119, z = 0 gives 0.50, z = 1 gives 0.731 and z = 2 gives 0.881.",["-2 0.119","0 0.50 1 0.731 2 0.881"])
 ml("jm3-ch4","4.1","At test time a logistic regression classifier computes the probability of each class and returns the higher-probability label.",["we return the higher probability label"])
 ml("jm3-ch4","4.2","Jurafsky and Martin say logistic regression learns a weight for each feature plus a bias term, and passes the weighted sum z through the sigmoid, also called the logistic function.",["bias term","logistic function"])
-ml("jm2-2007","6.6.2","The 2007 draft defines odds as the probability of being in a class divided by the probability of not being in it, and gives the example that probabilities .75 and .25 make odds of 3.",["odds","= 3"])
+retired("ml")
 ml("sk-linear","1.1.11","scikit-learn says logistic regression is implemented as a linear model for classification rather than regression, in terms of its nomenclature.",["implemented as a linear model for classification rather than regression"])
 # M7: splits, overfitting, cross-validation
-ml("jm2-2007","4.3","The 2007 draft says to train on a training set and measure on a separate test set, and warns that training on the test set makes probabilities look too high.",["training on the test set"])
-ml("jm2-2007","4.3","The 2007 draft describes a held-out set and a development test set (devset), and says that in practice data is often divided 80% training, 10% development and 10% test.",["80% training, 10% development","held-out"])
+retired("ml")
+retired("ml")
 ml("mlcc-splits","Training, validation, and test sets","Google says splitting the data into only a training set and a test set is not an optimal split, and recommends adding a validation set.",["Not an optimal split","validation set"])
 ml("mlcc-splits","Additional problems with test sets","Google warns that the more often you reuse the same test set, the more likely the model fits that test set.",["same test set"])
 ml("mlcc-overfitting","Overfitting","Google says overfitting means creating a model that matches (memorizes) the training set so closely that it fails to make correct predictions on new data, and lists an overly complex model as a cause.",["matches (memorizes) the training set so closely that the model fails to make correct predictions on new data","The model is too complex"])
@@ -246,7 +251,7 @@ ml("sk-cv","Cross-validation","scikit-learn calls evaluating a model on its own 
 ml("sk-cv","k-fold","In k-fold cross-validation the training set is split into k parts, the model is trained on k-1 of them and validated on the last, and the reported score is the average over the k runs.",["k-fold","k - 1"])
 ml("sk-cv","Data transformation with held-out data","scikit-learn says preprocessing such as standardization should be learnt from a training set and applied to held-out data, and that a Pipeline can do this inside cross-validation.",["similarly should be learnt from a training set and applied to held-out data for prediction","Pipeline"])
 ml("sk-overfit-example","Underfitting vs. overfitting","In scikit-learn's example a degree-1 polynomial underfits a noisy cosine, degree 4 fits well and degree 15 overfits, learning the noise of the training data.",["degree 1","15","noise"])
-ml("jm2-2007","5.7","The 2007 draft describes 10-fold cross-validation: repeat random training/test splits 10 times and average the error rates.",["10-fold"])
+retired("ml")
 ml("jm3-ch3","3.5","Jurafsky and Martin show that higher-order n-gram models copy their training text more closely, and a 4-gram model trained on Shakespeare reproduces a line from King John.",["King John","It cannot be but so"])
 # M8: scorekeeping
 ml("mlcc-metrics","Accuracy, recall, precision","Google defines accuracy as (TP+TN)/(TP+TN+FP+FN), recall as TP/(TP+FN) and precision as TP/(TP+FP).",["\\frac{TP+TN}{TP+TN+FP+FN}","\\frac{TP}{TP+FN}","\\frac{TP}{TP+FP}"])
@@ -257,26 +262,26 @@ ml("jm3-ch4","4.9.1","In Jurafsky and Martin's three-class example, macroaverage
 ml("sk-metrics","#confusion-matrix","In scikit-learn's confusion matrix, entry (i, j) counts observations actually in group i but predicted to be in group j, and for two classes ravel() gives tn, fp, fn, tp.",["observations actually in group","predicted to be in group","tn, fp, fn, tp"])
 ml("sk-metrics","#precision-recall-and-f-measures","scikit-learn defines precision as tp/(tp+fp), recall as tp/(tp+fn), and the F-measure as their weighted harmonic mean, with F1 weighting them equally.",["\\text{precision}=\\frac{\\text{tp}}{\\text{tp}+\\text{fp}}","\\text{recall}=\\frac{\\text{tp}}{\\text{tp}+\\text{fn}}","harmonic mean"])
 ml("sk-metrics","#precision-recall-and-f-measures","scikit-learn's example with y_true [0, 1, 0, 1] and y_pred [0, 1, 0, 0] shows precision 1.0, recall 0.5 and an F1 printed as 0.66..., which is the truncated form of 2/3 (0.667).",["0.66"])
-ml("jm2-2007","5.7","The 2007 draft says to compare a classifier with a most-frequent-class baseline and a human ceiling; human taggers agreed on about 96-97% of Penn Treebank tags.",["Most Frequent Class Baseline","96-97%"])
-ml("jm2-2007","13 (chunking)","The 2007 draft defines the F-measure as F1 = 2PR/(P+R), derived from a weighted harmonic mean of precision and recall.",["2PR","harmonic mean"])
+retired("ml")
+retired("ml")
 # M9: neighbors, trees, naive Bayes
 ml("sk-neighbors","1.6.2","scikit-learn describes nearest-neighbors classification as storing the training instances and assigning a query point the class with the most representatives among its k nearest neighbors, and says the best k is highly data-dependent.",["majority vote","highly data-dependent"])
 ml("sk-tree","Advantages / Disadvantages","scikit-learn says decision trees learn if-then-else decision rules, are simple to understand and interpret, and can be visualized, but can overfit; max_depth and min_samples_leaf help control that.",["if-then-else","Simple to understand and to interpret","Trees can be visualized","overfitting","min_samples_leaf"])
 ml("sk-tree","Visualization","scikit-learn's export_text prints a fitted tree as indented text rules.",["export_text"])
 ml("sk-nb","#naive-bayes","Naive Bayes applies Bayes' theorem with the naive assumption that features are conditionally independent given the class.",["conditional independence","Bayes' theorem"])
 ml("sk-nb","#naive-bayes","scikit-learn says naive Bayes has worked well for document classification and spam filtering, and is a decent classifier but a bad estimator of probabilities.",["spam filtering","bad estimator"])
-ml("jm2-2007","20.2.2","The 2007 draft's naive Bayes classifier for word sense disambiguation picks the most probable sense given the feature vector, and naively assumes that the features are independent of one another.",["The naive Bayes classifier approach to WSD","most probable sense given that vector","naively assume that the features are independent of one another"])
-ml("jm2-2007","20.2.1","The 2007 draft says two classes of features are extracted from a target word's neighboring context, collocational features and bag-of-words features, and uses the word bass as its example.",["collocational features and bag-of-words features","disambiguate the word bass"])
+retired("ml")
+retired("ml")
 # M10: clustering
 ml("sk-clustering","#k-means","scikit-learn's KMeans separates samples into groups of equal variance by minimizing the inertia (within-cluster sum-of-squares), and requires the number of clusters to be specified.",["within-cluster sum-of-squares","requires the number of clusters to be specified"])
 ml("sk-clustering","#k-means","scikit-learn says K-means may converge to a local minimum that depends highly on how the centroids are initialized, and that the k-means++ initialization (init='k-means++') helps.",["this may be to a local minimum","highly dependent on the initialization of the centroids","init='k-means++'"])
 ml("sk-clustering","#k-means","scikit-learn warns that K-means assumes convex, similarly shaped clusters and does poorly on elongated or irregular ones.",["convex","isotropic"])
 ml("sk-clustering","#clustering","scikit-learn describes clustering as working on unlabeled data.",["unlabeled data"])
-ml("jm2-2007","1.6.6","The 2007 draft says largely unsupervised approaches received renewed attention near the end of 2000 to 2007, helped by the cost and difficulty of producing reliably annotated corpora, which limited supervised approaches.",["largely unsupervised statistical approaches","cost and difficulty of producing reliably"])
+retired("ml")
 # M11: text as numbers, n-grams
-ml("jm2-2007","4.2","The 2007 draft's Berkeley restaurant corpus has 9,332 sentences and a vocabulary of 1,446 words, and the bigram probability of 'i want english food' is about .000031.",["9332","1446",".000031"])
-ml("jm2-2007","4.5.1","The 2007 draft's Laplace (add-one) smoothing adds one to every count: P(w_i) = (c_i + 1) / (N + V).",["add-one","N +V"])
-ml("jm2-2007","4.5","The 2007 draft says smoothing is needed because a test n-gram never seen in training would otherwise get probability zero.",["sparse data","zero"])
+retired("ml")
+retired("ml")
+retired("ml")
 ml("sk-nb","#multinomial-naive-bayes","scikit-learn's MultinomialNB is a classic text classifier whose inputs are word-count vectors, with smoothing parameter alpha (alpha = 1 is Laplace smoothing).",["word count","Laplace smoothing"])
 ml("jm3-ch4","4.3.1","Jurafsky and Martin's sentiment example uses words such as awesome and love as informative features for a classifier.",["awesome","love"])
 # M12: neural networks
@@ -295,9 +300,9 @@ ml("jm3-ch7","7.6","Decoding choices described include greedy decoding, random s
 # M14: other kinds of learning (covered above in M0) and history
 ml("jm3-ch1","1.4","Jurafsky and Martin date the transformer architecture to 2017 (Vaswani et al.) and the rise of prompting to 2019.",["Vaswani","2017","2019"])
 ml("jm3-ch1","1.4","Jurafsky and Martin say neural network training based on error backpropagation became widespread with Rumelhart et al. (1986).",["backpropagation","Rumelhart et al., 1986"])
-ml("jm2-2007","1.6.2","The 2007 draft says that in the summer of 1956 McCarthy, Minsky, Shannon and Rochester organized a two-month workshop on what they called artificial intelligence.",["1956","artificial intelligence"])
-ml("jm2-2007","1.6.4","The 2007 draft says that from 1983 to 1993 probabilistic, data-driven models returned, with a new focus on evaluating models on held-out data.",["Finite State Models Redux","1983-1993","held-out data"])
-ml("jm2-2007","1.6.6","The 2007 draft names 2000 to 2007 the rise of machine learning, driven by available annotated data, closer ties to the machine learning community, and faster computers.",["Rise of Machine Learning"])
+retired("ml")
+retired("ml")
+retired("ml")
 ml("samuel-1959","Abstract","Samuel's 1959 paper reports that a computer can be programmed to learn to play checkers better than the person who wrote the program, in about 8 or 10 hours of machine-playing time.",["8 or 10 hours"])
 ml("rosenblatt-1958","Title page","Rosenblatt's 1958 Psychological Review article is titled The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain.",["THE PERCEPTRON","INFORMATION STORAGE AND ORGANIZATION"])
 # M15: fairness
@@ -323,13 +328,14 @@ py("py-docs-datetime","date.today","datetime.date.today() returns the current lo
 ml("matplotlib-quick","Parts of a figure","Matplotlib draws on a Figure that can contain one or more Axes, and Axes methods include plot, scatter and hist.",["each of which can contain one or more Axes","ax.scatter(","ax.hist("])
 ml("sk-cv","train_test_split","scikit-learn says to hold out part of the available data as a test set, and its example uses train_test_split(X, y, test_size=0.4, random_state=0) to hold out 40% of the data.",["hold out part of the available data as a test set","test_size=0.4","holding out 40%"])
 ml("sk-getting-started","#model-evaluation","scikit-learn's cross_validate helper performs a 5-fold cross-validation by default.",["cross-validation procedure, using the cross_validate helper","defaults to 5-fold CV"])
-ml("jm2-2007","1.4","The 2007 draft says Alan Turing (1950) introduced what is known as the Turing Test, a game in which an interrogator must work out which of two other participants is the machine.",["Alan Turing (1950)","Turing Test","interrogator must determine which of the other two participants is the machine"])
-ml("jm2-2007","1.4","The 2007 draft says ELIZA (Weizenbaum, 1966) was a very simple program that used pattern matching, and that many people who used it came to believe it really understood them.",["pattern-matching","came to believe that it really understood them"])
+retired("ml")
+retired("ml")
 
 ml("jm3-ch7","7.7","In language-model pretraining, Jurafsky and Martin say the model's parameters are trained via error backpropagation with gradient descent.",["via error backpropagation with gradient descent"])
 
 py("vscode-python","Install a Python interpreter","The VS Code tutorial verifies the Python install by running python3 --version on macOS and Linux.",["python3 --version"])
 
+# Retired facts leave gaps in the numbering on purpose; lessons must not cite them.
 out = pathlib.Path(__file__).with_name("facts.json")
 out.write_text(json.dumps({"facts": F}, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 print(f"wrote {len(F)} facts ({sum(1 for x in F if x['mod']=='py')} python, {sum(1 for x in F if x['mod']=='ml')} ml)")
