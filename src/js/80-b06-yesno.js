@@ -5,7 +5,7 @@ PAGES("b06", [
     h: "Questions with two answers",
     body: [
       "So far the Quote Machine has guessed numbers: minutes, dollars. Many shop questions have only two answers instead. Does this kettle need a new part? Is this ticket urgent? Is this email junk?",
-      "Sorting each example into one of a fixed set of answers is called [[classification]]. The answers are often just *yes* and *no*. GeeksforGeeks lists logistic regression, decision trees, random forests, k-nearest neighbors, naive Bayes and support vector machines as classification methods [ml-008]. This job builds the first one on that list by hand.",
+      "Sorting each example into one of a fixed set of answers is called [[classification]]. The answers are often just *yes* and *no*. scikit-learn's glossary calls a predictor with a finite set of discrete possible outputs a [[classifier]], and one with continuous outputs a [[regressor]] [ml-113]. B4's line was a regressor. GeeksforGeeks lists logistic regression, decision trees, random forests, k-nearest neighbors, naive Bayes and support vector machines as classification methods [ml-008]. This job builds the first one on that list by hand.",
       { analogy: "A dimmer switch. Any score at all, from very negative to very positive, goes in. Out comes a light level between fully off (0) and fully on (1). The middle of the dial is half bright." },
       "A yes-or-no machine works in two moves. First it adds up evidence into a single score. Then it squeezes that score into a [[probability]], a number between 0 and 1 that says how sure it is. A [[threshold]] turns the probability into an answer: at or above the line means yes.",
     ],
@@ -47,6 +47,7 @@ PAGES("b06", [
 
 GLOSS({
   classification: "Sorting each example into one of a fixed set of answers, such as yes or no. (Our own plain-words definition.)",
+  classifier: "A supervised predictor with a finite set of discrete possible output values, such as yes or no. [ml-113]",
   sigmoid: "The squeezer y' = 1 / (1 + e^-z). It turns any score z into a number between 0 and 1. [ml-037]",
   "logistic regression": "A classifier that weights each feature, adds a bias, and passes the sum through the sigmoid. [ml-040] Despite the name, it is used for classification. [ml-042]",
   probability: "A number from 0 to 1 that says how likely something is: 0 means never, 1 means certain. (Our own plain-words definition.)",

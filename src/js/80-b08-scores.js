@@ -1,5 +1,5 @@
 /* B8. Scorekeeping: accuracy, precision, recall, F1, the confusion matrix, rare classes. */
-// TODO(research): no sourced statement about majority-class baselines or human ceilings; the baseline in the exercise is labeled as our own habit.
+// TODO(research): no sourced statement about human ceilings. Baselines are sourced now [ml-118].
 
 const B08_GRID = () => `<svg viewBox="0 0 340 220" role="img" aria-label="A two by two confusion matrix">
   <text x="200" y="18" text-anchor="middle" font-size="13" font-weight="700">the machine said</text>
@@ -47,8 +47,10 @@ PAGES("b08", [
       "Both numbers are easy to check with a lazy machine that always says no:",
       { code: "b08_rare", out: true },
       "Accuracy is 0.99 and 0.9999, exactly the sources' numbers. Recall is 0.0 both times: the lazy machine caught nothing. When the thing you care about is rare, look at precision and recall.",
-      "A habit of ours: before you celebrate a score, work out what the laziest possible machine would get. If yours cannot beat *always give the most common answer*, it has not learned anything useful yet.",
-      { honest: "That baseline habit is our own advice. The sources cited on this page support the accuracy trap, and say nothing about baselines." },
+      "So before you celebrate a score, find out what the laziest possible machine would get. scikit-learn calls comparing your model against simple rules of thumb a sanity check. Its `DummyClassifier` with the `most_frequent` strategy always predicts the most frequent label in the training set, and its predictions ignore the input data [ml-118].",
+      { code: "b08_dummy", out: true },
+      "Most of the twelve fictional tickets are not urgent, so the lazy machine says 0 every time, even for a nine-hour, nine-part monster. It still scores 0.67. Byte's 0.75 beats it, by less than it first looked. If a model cannot beat the most common answer, it has not learned anything useful yet.",
+      { analogy: "Before you praise a new apprentice's guesses, compare them with a rubber stamp that says NOT URGENT. Stamp every ticket. On most days the stamp is right more often than you would like." },
     ],
   },
   {
@@ -134,6 +136,8 @@ LEVEL({
     say("nib", "That is the trap exactly. Google's example: with 1% positives, always saying no scores 99% accuracy and is useless [ml-055]. Let us run it."),
     { predict: { program: "b08_rare", q: "The lazy machine always says no. With 10 urgent tickets in 1,000, and with 100 in a million, what are its accuracy and recall?", choices: ["1% positives:       (0.01, 1.0)\n100 in a million:   (0.0001, 1.0)", "1% positives:       (0.99, 0.0)\n100 in a million:   (0.9999, 0.0)", "1% positives:       (0.5, 0.5)\n100 in a million:   (0.5, 0.5)"], answer: 1,
       why: "Huge accuracy, zero recall. Jurafsky and Martin's pie-tweet example lands on the same 99.99% while finding nothing [ml-056]." } },
+    say("nib", "scikit-learn even ships the lazy machine for this. `DummyClassifier` with the `most_frequent` strategy always predicts the most common training label and ignores the input. Comparing against it is a sanity check [ml-118].", "think"),
+    { predict: { program: "b08_dummy", q: "The lazy machine learns from the twelve tickets, then guesses. What does it say for a nine-hour, nine-part ticket?" } },
     { ask: { q: "A rare-fault detector reports 99.9% accuracy. What should you ask next?", choices: ["Nothing; 99.9% is excellent", "What are its precision and recall on the rare faults?", "How fast does it run?"], answer: 1,
       why: "When one class is rare, accuracy can be high for a machine that finds nothing [ml-055]. Precision and recall look at the rare class directly." } },
     say("nib", "One more wrinkle. With three classes, you can average per-class scores two ways. Jurafsky and Martin's example gets .60 macroaveraged and .73 microaveraged, and the micro average is dominated by the most frequent class [ml-058]."),

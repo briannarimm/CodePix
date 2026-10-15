@@ -1,15 +1,19 @@
 /* B1. The Machine Bench: a virtual environment and the four tools.
    TODO(research): official install lines for NumPy, pandas and Matplotlib (we reuse the Packaging guide's pip command shape).
-   TODO(research): Windows activation and install steps for the venv (py-116 covers Unix and macOS only).
-   TODO(research): which Python the current scikit-learn requires; the install page we read ends at 1.7 (ml-016). */
+   Python floor: the current releases on PyPI [ml-108] to [ml-111]; ml-016 stays as the history of 1.7.
+   Windows venv steps: py-178, py-180 to py-182, py-227. */
 
 PAGES("b01", [
   {
     h: "A clean bench for new tools",
     body: [
       "Module A used only what comes with Python. Module B needs four extra libraries: [[NumPy]] for arrays of numbers, [[pandas]] for tables, [[Matplotlib]] for pictures, and [[scikit-learn]] for the learning itself.",
-      "First, the Python version. scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. So every Module B program in this book is for Python 3.10 or newer. Check yours:",
-      { term: [["python3 --version", "Shows which Python you have [py-165]. You need 3.10 or newer for this module."]] },
+      "First, the Python version. Start with what the tools ask for. PyPI lists scikit-learn 1.9.1 as requiring Python 3.11 or newer [ml-108]. pandas 3.0.6 and Matplotlib 3.11.2 also require 3.11 or newer [ml-110] [ml-111]. NumPy 2.5.4 is the strictest: it requires Python 3.12 or newer [ml-109].",
+      "So for the current releases of all four tools, you need Python 3.12 or newer. The newest Python is fine too: each of the four publishes a CPython 3.15 wheel for Apple silicon Macs [ml-108] [ml-109] [ml-110] [ml-111]. Check yours:",
+      { term: [["python3 --version", "Shows which Python you have [py-165]. You need 3.12 or newer for the current tools."]] },
+      { nerd: "Why do older notes say 3.10?", body: [
+        "The floor moves. scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. PyPI lists version 1.9.1 as requiring 3.11 or newer [ml-108]. The numbers on this page are the current releases when this beta was built. If a later release asks for more, follow the release, not this page.",
+      ] },
       "Second, where the libraries go. A virtual environment is created on top of a base Python and by default is isolated from the packages in the base environment [py-112]. That keeps this module's tools in one box that you can throw away and rebuild.",
       "On a Mac with Homebrew there is one more reason. Homebrew's Python is marked as externally managed, and its error text says a library that is not in Homebrew should be installed in a virtual environment [py-155]. So a plain `pip install` outside an environment stops with an error. That is expected.",
       { analogy: "A virtual environment is a separate toolbox drawer for one project. The machine learning tools go in this drawer, and the rest of your computer never notices them." },
@@ -28,7 +32,13 @@ PAGES("b01", [
       "Activating prepends the environment's `bin` folder to your PATH, so `python` runs the environment's interpreter, and you leave with `deactivate` [py-115]. When you open a new terminal window for this module, `cd` into the folder and run the `source` line again.",
       { alt: "Linux and Windows", body: [
         "**Linux:** with bash or zsh, activation is the same `source <venv>/bin/activate` [py-114], so the commands above work as written.",
-        "**Windows:** the steps for this module are still being checked against sources for the next beta. They are not covered yet.",
+        "**Windows:** the Windows documentation recommends a virtual environment for each project, made with `python -m venv` [py-178]. On Windows the environment's scripts live in `Scripts` instead of `bin` [py-180]. In PowerShell:",
+        { term: [
+          ["py -3 --version", "Check your Python, as the VS Code tutorial does on Windows [py-227]."],
+          ["python -m venv .venv", "Create the environment [py-178]."],
+          [".venv\\Scripts\\Activate.ps1", "Switch it on in PowerShell. In cmd.exe the file is `.venv\\Scripts\\activate.bat` [py-180]."],
+        ], title: "PowerShell (Windows)" },
+        "If PowerShell answers that running scripts is disabled on this system, that is its default execution policy, Restricted [py-181]. Microsoft's guide changes the policy with `Set-ExecutionPolicy` and recommends `RemoteSigned`. It says to read about_Execution_Policies first, and changing the policy for the whole machine needs an administrator PowerShell [py-182]. Or use cmd.exe and `activate.bat` [py-180].",
       ] },
     ],
   },
@@ -74,9 +84,9 @@ LEVEL({
   beats: [
     say("nib", "Before Byte can learn anything, your computer needs the right tools. Four libraries: NumPy, pandas, Matplotlib and scikit-learn."),
     { show: ["nib", "byte"], ...say("byte", "Four new tools! Where do they go? My drawers are full of Module A.", "wow") },
-    say("nib", "In a fresh drawer. First, though, a version check. scikit-learn's install page says version 1.7 requires Python 3.10 or newer [ml-016].", "think"),
-    { ask: { q: "`python3 --version` prints `Python 3.9.6`. Can this Python run Module B?", choices: ["Yes, any Python 3 works", "No, it needs 3.10 or newer", "Only if you use pandas"], answer: 1,
-      why: "scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. Module A's install level shows how to get a current Python." } },
+    say("nib", "In a fresh drawer. First, though, a version check. PyPI lists the current NumPy, 2.5.4, as requiring Python 3.12 or newer [ml-109]. The other three ask for 3.11 or newer [ml-108] [ml-110] [ml-111].", "think"),
+    { ask: { q: "`python3 --version` prints `Python 3.11.9`. Can this Python install the current releases of all four tools?", choices: ["Yes, any Python 3 works", "No, the current NumPy needs 3.12 or newer", "Yes, because scikit-learn only needs 3.11"], answer: 1,
+      why: "scikit-learn 1.9.1, pandas 3.0.6 and Matplotlib 3.11.2 accept 3.11 [ml-108] [ml-110] [ml-111], but NumPy 2.5.4 requires 3.12 or newer [ml-109]. Module A's install level shows how to get a current Python." } },
     say("nib", "Now the fresh drawer: a virtual environment. It sits on top of your Python and is isolated from the packages already installed there [py-112]."),
     say("byte", "So if I make a mess in that drawer, the rest of the computer stays tidy? BEEP of relief."),
     { show: ["nib", "byte", "gridlock"], ...say("gridlock", "Why not just install everything straight onto the computer? Fewer steps.", "think") },

@@ -1,6 +1,5 @@
 /* B5. Measuring Mistakes: loss and gradient descent in plain Python, compared with scikit-learn.
-   TODO(research): a sourced definition of mean squared error (ml-034 only names MSE as the loss in Google's example).
-   TODO(research): the crash course calls the step size the learning rate on its hyperparameters page, which we have not read; the book says "step size" until then. */
+   TODO(research): a sourced definition of mean squared error (ml-034 only names MSE as the loss in Google's example). */
 
 PAGES("b05", [
   {
@@ -25,11 +24,13 @@ PAGES("b05", [
   {
     h: "How big a step?",
     body: [
-      "The program multiplies each slope by `step = 0.05` before moving. That number is a setting we chose; the data does not choose it. Here is the same program with `step = 0.2`:",
+      "The program multiplies each slope by `learning_rate = 0.05` before moving. Zhang and colleagues' open textbook does the same: it multiplies the gradient by a predetermined small positive value called the [[learning rate]] [ml-114]. scikit-learn says the learning rate controls the step size, and can stay constant or slowly decay [ml-115]. Our gradient is the pair of slopes we felt by nudging.",
+      "Here is the same program with `learning_rate = 0.2`:",
       { code: "b05_toobig", out: true },
       "Each step jumps clean over the valley and lands higher up the other side, so the loss grows every time. Too small a step wastes time; too big a step never arrives.",
-      { honest: "This book calls this setting the step size. The crash course gives it another name on a page we have not read yet, so that name waits for a later beta." },
-      { toy: "downhill", label: "Open Downhill and try three step sizes" },
+      "Nobody learns the learning rate from the data. The same textbook calls tunable values like it, which the training loop never updates, [[hyperparameter|hyperparameters]] [ml-114]. scikit-learn says hyperparameters are not learnt directly within estimators. You pass them to the estimator's constructor, and they are best chosen by searching for the best cross validation score [ml-116]. B7 explains cross validation.",
+      { analogy: "The weight and bias are the dials the machine turns for itself. A hyperparameter is a dial on the machine's case that you set before you press Start." },
+      { toy: "downhill", label: "Open Downhill and try three learning rates" },
     ],
   },
   {
@@ -48,18 +49,20 @@ GLOSS({
   mse: "Mean squared error. Google's gradient descent example reports its loss as MSE. [ml-034] In this book's programs it is the average of the squared mistakes.",
   "gradient descent": "Repeat: compute the loss, decide which direction lowers it, move the weight and bias a small amount that way, until the loss stops improving. [ml-033]",
   convergence: "A model has converged when more iterations no longer reduce the loss meaningfully. [ml-035]",
+  "learning rate": "The small positive value that gradient descent multiplies the gradient by. It controls the step size. [ml-114] [ml-115]",
+  hyperparameter: "A tunable setting, such as the learning rate, that training does not update. You choose it; the model does not learn it. [ml-114] [ml-116]",
 }, "b05");
 
 /* ---- Toy: Downhill (JS demo) ---- */
 const B05_DATA = { x: [0.5, 1.0, 2.0, 4.0], y: [42, 48, 86, 172], b: 14.87 };
 TOY("downhill", {
   title: "Downhill", level: "b05", color: "var(--lime-d)",
-  short: "A ball walks down the loss curve one step at a time. Pick the step size.",
+  short: "A ball walks down the loss curve one step at a time. Pick the learning rate.",
   goal: "Reach the bottom of the valley: keep stepping until the loss stops improving.",
   label: "A JavaScript demo of the idea, not Python code. It uses the four fictional tickets from b05_descent, with b held at 14.87 so the hill fits on one curve.",
-  html: () => `<div class="row" role="group" aria-label="Step size">Step size:
+  html: () => `<div class="row" role="group" aria-label="Learning rate">Learning rate:
       <button type="button" class="btn small plain dh-size" data-s="0.01" data-hint="A tiny step: safe and slow">0.01</button>
-      <button type="button" class="btn small lime dh-size" data-s="0.05" aria-pressed="true" data-hint="The step size b05_descent uses">0.05</button>
+      <button type="button" class="btn small lime dh-size" data-s="0.05" aria-pressed="true" data-hint="The learning rate b05_descent uses">0.05</button>
       <button type="button" class="btn small plain dh-size" data-s="0.2" data-hint="A big step: watch what happens">0.2</button></div>
     <div class="dh-board"></div>
     <p class="panel dh-read" aria-live="polite"></p>
@@ -95,7 +98,7 @@ TOY("downhill", {
       if (after > before) last = "The loss went **up**. The step jumped over the valley.";
       else if (before - after < 0.001) { last = "Less than 0.001 better: the loss **stopped improving**. Converged."; done = true; ctx.goalDone("You reached the bottom. Try 0.01 and 0.2 too, and compare the number of steps."); }
       else last = `Down by ${(before - after).toFixed(2)}.`;
-      if (Math.abs(w) > 1e6) { last = "The loss is exploding. This step size will never arrive. Press Reset."; done = true; }
+      if (Math.abs(w) > 1e6) { last = "The loss is exploding. This learning rate will never arrive. Press Reset."; done = true; }
     };
     const reset = () => { w = 5; path = [5]; n = 0; done = false; last = "Press Step."; draw(); };
     $(".dh-step", root).onclick = () => { step(); draw(); };
@@ -125,15 +128,18 @@ LEVEL({
     say("byte", "So the loss is my height on a hill, and I want to walk down to the lowest spot?", "wow"),
     say("nib", "Precisely. That walk is [[gradient descent]]: compute the loss, find which direction lowers it, move the weight and bias a little that way, repeat [ml-033]."),
     say("nib", "We feel the slope by nudging. Push b a tiny bit up and down and see which way the loss moves. Same for w. Then step downhill."),
-    { predict: { program: "b05_descent", q: "Start at b = 0, w = 0 with step size 0.05. How does the loss change as Byte walks?" } },
+    { predict: { program: "b05_descent", q: "Start at b = 0, w = 0 with learning rate 0.05. How does the loss change as Byte walks?" } },
     say("byte", "Huge drops first, then tiny ones. Then I stopped at step 23. Why did I stop?", "think"),
     say("nib", "Because more steps no longer helped much. Google says a model has converged when more iterations no longer reduce the loss meaningfully [ml-035]. We decided \"meaningfully\" means 0.001."),
-    { ask: { q: "Which line of the program decides that descent has stopped improving?", choices: ["`step = 0.05`", "`if loss - new_loss < 0.001:`", "`for i in range(1, 501):`"], answer: 1,
+    { ask: { q: "Which line of the program decides that descent has stopped improving?", choices: ["`learning_rate = 0.05`", "`if loss - new_loss < 0.001:`", "`for i in range(1, 501):`"], answer: 1,
       why: "It compares the old loss with the new one. When a step helps by less than 0.001, the program stops: our version of convergence [ml-035]." } },
     { show: ["nib", "byte", "gridlock"], ...say("gridlock", "Why such baby steps? Take a big one and finish before lunch.", "think") },
-    { predict: { program: "b05_toobig", q: "The same walk with step size 0.2. Does it finish faster?" } },
+    { predict: { program: "b05_toobig", q: "The same walk with learning rate 0.2. Does it finish faster?" } },
     say("byte", "I jumped over the valley and landed higher every time! Ten thousand, twenty thousand... BEEP BEEP BEEP.", "wow"),
-    say("nib", "The step size is a setting we choose. Too small is slow; too big never arrives. The Downhill toy lets you feel all three."),
+    say("nib", "That 0.2 is the [[learning rate]]: the small value that multiplies the gradient [ml-114]. It sets the step size [ml-115]. Too small is slow; too big never arrives."),
+    say("nib", "Nobody learns it from the tickets. Settings that training never updates are [[hyperparameter|hyperparameters]] [ml-114]. You choose them.", "think"),
+    { ask: { q: "In `b05_descent`, which is a hyperparameter?", choices: ["`b`, the bias", "`w`, the weight", "`learning_rate`"], answer: 2,
+      why: "The loop updates `b` and `w` on every step. It never touches `learning_rate`. Tunable values that the training loop does not update are hyperparameters [ml-114]." } },
     { toy: "downhill", goal: "Reach the bottom of the valley: keep stepping until the loss stops improving." },
     say("nib", "And now my favorite question. How do we know descent found the right bottom?", "think"),
     { predict: { program: "b05_compare", q: "scikit-learn fits the same four tickets directly. Does it agree with descent's b = 14.66, w = 38.55?" } },
