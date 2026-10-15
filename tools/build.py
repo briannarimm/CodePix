@@ -28,9 +28,11 @@ def fail(msg):
 def cite_author(a):
     if a.startswith("Python Software") or "," not in a:
         return a
-    names = [p.strip() for p in re.split(r",\s*&\s*|\s*&\s*", a)]
-    surnames = [n.split(",")[0].strip() for n in names if n]
-    surnames = [s for s in surnames if s and not re.fullmatch(r"(?:[A-Z]\.\s*)+", s)]
+    # "Surname, A. B., Surname, C., & Surname, D." : every part that is not initials is a surname
+    parts = [p.strip().lstrip("&").strip() for p in a.split(",")]
+    surnames = [p for p in parts if p and not re.fullmatch(r"(?:[A-Z]\.[\s-]*)+", p)]
+    if len(surnames) == len(parts):
+        return a  # a group author such as "Yale University, Office of the President"
     if len(surnames) >= 3:
         return surnames[0] + " et al."
     return " & ".join(surnames)
