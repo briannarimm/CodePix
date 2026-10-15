@@ -1,10 +1,9 @@
 /* A-Bonus. Save Your Work: Git basics (snapshots, the three states, status, add, commit, .gitignore).
    Pro Git is cited and paraphrased only. Toy: logbook (commits as pages in a logbook, JS demo). */
 
-// TODO(research): installing Git on macOS (Xcode Command Line Tools or Homebrew), with a source.
-// TODO(research): starting a repository (git init), reading history (git log), and pushing to GitHub (git push),
-//   with sources. Pro Git's "Getting a Git Repository" and "Working with Remotes" pages are the likely ones.
-// TODO(research): creating a GitHub account and repository, from GitHub's own docs.
+// TODO(research): reading history (git log), with a source.
+// TODO(research): how a push authenticates to GitHub (HTTPS token or SSH key), and the default branch name
+//   that git init gives, so the push command can name a real branch instead of <branch>.
 // TODO(research): a fact that git add also stages changes to tracked files (Pro Git, "Staging Modified Files").
 
 PAGES("abonus", [
@@ -32,6 +31,38 @@ PAGES("abonus", [
     ],
   },
   {
+    h: "Set up Git on your machine",
+    body: [
+      "Before the first commit, three things need doing once: install Git, tell it who you are, and turn your project folder into a [[repository]].",
+      { os: {
+        mac: [
+          { term: [["git --version", "Pro Git says the easiest way to get Git on macOS is probably the Xcode Command Line Tools. Run this in Terminal. If Git is missing, you will be prompted to install it [py-208]."]], title: "Terminal" },
+          "You installed the Command Line Tools with `xcode-select --install` in the Set Up Your Bench job [py-016], so this may simply print a version number.",
+        ],
+        linux: [{ term: [
+          ["sudo apt install git-all", "On Debian-based systems such as Ubuntu [py-209]."],
+          ["sudo dnf install git-all", "On Fedora [py-209]."],
+        ], title: "Terminal" }],
+        win: [
+          "Pro Git says the most official Windows build is downloaded from [git-scm.com/download/win](https://git-scm.com/download/win). That Git for Windows project is separate from Git itself [py-210].",
+        ],
+      } },
+      { h3: "Tell Git who you are" },
+      "Pro Git says the first thing to do after installing Git is to set your user name and email address, because every commit uses this information [py-211]. Put your own name and email in the quotes.",
+      { term: [
+        ["git config --global user.name \"Your Name\"", "Your name, as it will appear on every logbook page [py-211]."],
+        ["git config --global user.email \"you@example.com\"", "Your email address, for the same reason [py-211]."],
+      ], title: "Terminal (once per computer)" },
+      { h3: "Start a logbook" },
+      "In the terminal, go into your project folder and run `git init`. It creates a `.git` subdirectory that holds the repository files. At that point nothing in the project is tracked yet [py-212]. Tracking starts with `git add`, on the next page.",
+      { term: [
+        ["cd showcase", "Go into your project folder (yours may have another name) [py-003]."],
+        ["git init", "Create the logbook for this folder [py-212]."],
+      ], title: "Terminal" },
+      { analogy: "`git init` puts an empty logbook on the bench. The `.git` folder is the logbook itself. Leave it alone, and let Git write in it." },
+    ],
+  },
+  {
     h: "The everyday commands",
     body: [
       "Three commands do most of the daily work. They run in the terminal, inside your project folder.",
@@ -49,17 +80,21 @@ PAGES("abonus", [
     ],
   },
   {
-    h: "Working offline, sharing later",
+    h: "Working offline, sharing on GitHub",
     body: [
       "Most Git operations need only files on your own computer, so you can work offline and push your commits to a shared copy later [py-146]. The logbook lives in your project folder, and it works on a train with no Wi-Fi.",
-      { h3: "Coming in a later update" },
-      { ul: [
-        "Installing Git on a Mac.",
-        "Starting a brand-new repository in a folder.",
-        "Reading back through the logbook.",
-        "Creating a GitHub account and pushing your project there.",
-      ] },
-      { honest: "These steps are not in Code Pix yet. We only print install steps and commands that we have checked against a source, and these are still being checked." },
+      "GitHub is one place to keep that shared copy. It is optional. Everything on the earlier pages works without it.",
+      { h3: "A GitHub account" },
+      "GitHub asks you to verify your email address during sign up. Without a verified email you can't do some basic tasks, such as creating a repository. GitHub strongly recommends turning on two-factor authentication (2FA) [py-215]. Sign-up screens change, so follow [GitHub's own page on creating an account](https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github).",
+      { h3: "A repository on GitHub" },
+      "GitHub's quickstart creates a repository by typing a short, memorable name, such as hello-world [py-216]. For the showcase, `showcase` will do. The same quickstart describes a commit as like a snapshot of all the files in a project at a point in time [py-216]: our logbook page again. The steps are in [GitHub's quickstart for repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories).",
+      { h3: "Connect and push" },
+      { term: [
+        ["git remote add origin <url>", "Adds a [[remote]] repository under a short name [py-213]. Here the short name is `origin`, and `<url>` is the address of your new GitHub repository."],
+        ["git push origin <branch>", "Sends your commits to the remote [py-214]. Replace `<branch>` with your branch's name."],
+      ], title: "Terminal, inside your project folder" },
+      "A push works only if you have write access to the remote and nobody has pushed in the meantime. Otherwise, you fetch their work first [py-214]. On your own new repository, you are the only one pushing.",
+      { honest: "Code Pix does not cover branches, or how GitHub checks that a push really comes from you, yet. If a push asks you to sign in, follow the steps GitHub shows." },
     ],
   },
 ]);
@@ -68,7 +103,8 @@ GLOSS({
   "version control": "Keeping a history of a project's saved versions so you can look back at any of them.",
   git: "A version control tool that stores a stream of snapshots of a project [py-143].",
   commit: "One snapshot in Git's history. `git commit -m` records one with a message [py-148].",
-  repository: "A project that Git keeps a history for. Pro Git calls the place that history lives the Git directory [py-145].",
+  repository: "A project that Git keeps a history for. Pro Git calls the place that history lives the Git directory [py-145]. `git init` creates one in a `.git` subdirectory [py-212].",
+  remote: "A copy of your repository somewhere else, such as GitHub. `git remote add` adds one under a short name [py-213].",
 }, "abonus");
 
 /* ---------- Toy: Logbook (commits as pages) ---------- */
@@ -158,7 +194,7 @@ LEVEL({
   id: "abonus", title: "Save Your Work", job: "Keep a logbook of every working version.",
   color: "#1a8a8a", scene: "office", cast: ["nib"], toy: "logbook",
   sticker: { title: "Logbook Keeper", glyph: "git", color: "#1a8a8a" },
-  goals: ["Say what a commit is", "Name the three states of a file", "Write a .gitignore"],
+  goals: ["Say what a commit is", "Name the three states of a file", "Start a repository and write a .gitignore", "Know the steps to share on GitHub"],
   beats: [
     nar("Saturday evening. The showcase table is cleared, and the back-office computer hums."),
     say("nib", "{{you}}, a confession. Years ago I changed one line in a working gadget, broke it, and could not remember what the line used to say. Never again.", "think"),
@@ -174,11 +210,17 @@ LEVEL({
     { ask: { q: "Which list holds the three states a file can be in, according to Pro Git?", choices: ["modified, staged, committed", "saved, unsaved, deleted", "working tree, staging area, Git directory"], answer: 0,
       why: "Those are the three states [py-144]. The working tree, staging area and Git directory are the three sections where files live [py-145]." } },
     { toy: "logbook", goal: "Write two logbook pages, and keep .venv out of every page." },
-    say("nib", "On a real machine, `git status` tells you what is untracked, modified or staged [py-147]. `git add` begins tracking a new file, and `git commit -m` records a commit with a message [py-148]."),
+    say("nib", "On a real machine, start with `git --version`. On a Mac, if Git is missing, you will be prompted to install it [py-208]. Then tell Git your name and email, because every commit uses them [py-211]."),
+    say("nib", "Then `git init` inside your project folder. It creates a `.git` subdirectory for the repository files [py-212]. The logbook exists, and it is still empty.", "think"),
+    { ask: { q: "You just ran `git init` in a folder with three files. How many of them does Git track?", choices: ["none yet", "all three", "only the Python files"], answer: 0,
+      why: "`git init` creates the `.git` subdirectory, and at that point nothing in the project is tracked yet [py-212]. `git add` starts tracking a file [py-148]." } },
+    say("nib", "`git status` tells you what is untracked, modified or staged [py-147]. `git add` begins tracking a new file, and `git commit -m` records a commit with a message [py-148]."),
     { ask: { q: "You made a virtual environment in `.venv`. How do you keep it out of the logbook?", choices: ["Delete it before each commit", "List it in a `.gitignore` file", "Name it with capital letters"], answer: 1,
       why: "A `.gitignore` file lists patterns for files Git should ignore [py-149]." } },
-    say("nib", "Most of this works with no network at all. You commit on your own machine and push to a shared copy later [py-146]. Installing Git and setting up GitHub are coming in a later update, once we have checked the steps."),
-    { book: 2, text: "The book has the commands and a sample `.gitignore`." },
+    say("nib", "Most of this works with no network at all. You commit on your own machine and push to a shared copy later [py-146]. GitHub can hold that copy: `git remote add` names it, and `git push` sends your commits there [py-213] [py-214]."),
+    { show: ["nib", "byte"], ...say("byte", "BEEP. GitHub wants me to verify my email. Do robots have email?", "think") },
+    say("nib", "Yours does now. GitHub asks every new account to verify its email, and you can't create a repository without that. It also strongly recommends two-factor authentication [py-215]."),
+    { book: 2, text: "The book has the install steps for macOS, Windows and Linux, then the everyday commands, a sample `.gitignore`, and GitHub on the last page." },
     { machine: ["abonus-ignore"] },
     say("byte", "Page saved. Nothing lost. Dr. Nib's line is safe forever. BEEP BOOP."),
     { sticker: true },

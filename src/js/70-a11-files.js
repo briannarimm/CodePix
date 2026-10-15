@@ -32,6 +32,9 @@ PAGES("a11", [
       { h3: "Where Python looks for the file" },
       "`open(\"a11_letters.txt\", ...)` gives a bare file name. A path that does not start with `/` is relative to the current working directory [py-005]. So run your programs from the folder that holds their files. In a path, `.` means the current directory and `..` means its parent [py-004].",
       { analogy: "A bare file name is like saying \"the letter on the counter\". It only works if you are standing in the right room." },
+      "When Python cannot find the file, it raises `FileNotFoundError`, which means a file or directory was requested but does not exist [py-199]. Here one letter of the name is wrong:",
+      { code: "a11_lost", out: true },
+      "`Opening the mail bag...` printed, and then the `open` line stopped the program. The last line names the file Python looked for. Compare it, letter by letter, with the name you meant. If the name is right, check where you are: `pwd` prints the working directory and `ls` lists what is in it [py-003].",
     ],
   },
   {

@@ -1,14 +1,15 @@
 /* A13. The Toolbox Drawer: import, a few standard modules, venv, pip, pytest. Friday midday.
-   TODO(research): a fact that defines "the standard library" (so the term can go in the glossary).
-   TODO(research): pick the small pure-Python package for the pip practice and add facts from its PyPI page.
-   TODO(research): a fact for the command that runs pytest (the getting-started page shows `pytest`).
-   TODO(research): Windows activation commands for venv (in the venv docs, not yet in the ledger). */
+   The pip practice package is texttable 1.7.1 [py-205]. a13_table.py needs it installed where the site is built
+   (CI: pip install texttable==1.7.1 for the build Python and for the 3.9 verify run).
+   TODO(research): a fact that defines "the standard library" (the glossary has "library" [py-188] for now).
+   TODO(research): a fact for the command that runs pytest (the getting-started page shows `pytest`). */
 
 PAGES("a13", [
   {
     h: "Borrow tools instead of building them",
     body: [
-      "You have written recipe cards of your own. Python also comes with whole drawers of them. Each drawer is a [[module]]: the glossary defines a module as an organizational unit of Python code with its own namespace, and a [[package]] as a module that can hold submodules [py-124].",
+      "You have written recipe cards of your own. Other people have written thousands more. OpenStax calls a collection of code that can be used in other programs a [[library]] [py-188].",
+      "Python also comes with whole drawers of recipe cards. Each drawer is a [[module]]: the glossary defines a module as an organizational unit of Python code with its own namespace, and a [[package]] as a module that can hold submodules [py-124].",
       "To use a drawer, you [[import]] it. Then a dot reaches inside for one tool. The `math` module provides `math.sqrt(x)`, `math.floor(x)`, `math.ceil(x)` and the constant `math.pi` [py-163].",
       { code: "a13_math", out: true },
       "Read the second line of output: `math.floor(2.7)` gave 2 and `math.ceil(2.1)` gave 3. Floor rounds down, ceil rounds up.",
@@ -52,8 +53,24 @@ PAGES("a13", [
           ["which python3", "Check which Python now runs [py-115]."],
           ["deactivate", "Leave the environment [py-115]."],
         ] }],
-        win: [{ honest: "The Windows commands for activating an environment are not checked against a source yet. They will arrive in a later beta." }],
+        win: [
+          "Python's Windows documentation recommends a virtual environment for each project, made with `python -m venv` [py-178]. On Windows, type `python` where this book writes `python3`: the `python3` command there exists to catch the usual POSIX habit, and the documentation does not recommend it [py-177].",
+          { term: [
+            ["python -m venv .venv", "Make an environment in a folder named .venv, inside your project folder [py-178]."],
+            [".venv\\Scripts\\Activate.ps1", "Activate it in PowerShell. On Windows the environment's scripts live in Scripts, where macOS and Linux use bin [py-180]."],
+            [".venv\\Scripts\\activate.bat", "Or activate it in cmd.exe [py-180]."],
+            ["deactivate", "Leave the environment [py-115]."],
+          ], title: "PowerShell or cmd.exe" },
+          { alt: "PowerShell says running scripts is disabled on this system", body: [
+            "Microsoft says the default PowerShell execution policy on Windows 10 and Windows 11 is Restricted. Under it you can't run PowerShell scripts, and the error says running scripts is disabled on this system. Commands you type yourself still run [py-181]. `Activate.ps1` is a script, so it is blocked.",
+            "Microsoft's guide changes the policy with `Set-ExecutionPolicy` and recommends `RemoteSigned` unless you sign your scripts. It says to read the about_Execution_Policies article first, and changing the policy for the whole machine needs an administrator PowerShell [py-182].",
+            "If you would rather leave the policy alone, open cmd.exe instead and use `activate.bat` [py-180].",
+          ] },
+        ],
       } },
+      { alt: "Linux: python3 -m venv fails on Debian or Ubuntu", body: [
+        "On Debian, Ubuntu and their relatives, the Packaging User Guide first runs `sudo apt update` and then `sudo apt install python3-venv python3-pip` [py-183].",
+      ] },
       { honest: "Make a fresh environment for each project folder. The name `.venv` is the one the Packaging User Guide uses [py-116]." },
     ],
   },
@@ -68,8 +85,17 @@ PAGES("a13", [
         ["pytest", "Run every test file in this folder whose name starts with test_ [py-120]."],
       ], title: "Terminal, inside your project folder" },
       "When a project needs several packages, list them in a `requirements.txt` file. `pip install -r requirements.txt` installs everything in it, and `pip freeze` lists the versions you have installed [py-118].",
-      { honest: "Which small package to practise with is still being chosen and checked. For now, pytest is the one package this book installs." },
-      { machine: ["a13-drawer"], label: "Go to your machine: make a venv, use the math drawer" },
+      { h3: "Your practice package: texttable" },
+      "The second package draws tables in plain text. texttable 1.7.1 describes itself as a module to create simple ASCII tables. It was uploaded to PyPI on 2026-10-12 under the MIT license, as a single wheel file [py-205]. It lists no required dependencies [py-206], so installing it adds just one package to your bench.",
+      { term: [
+        ["source .venv/bin/activate", "On your own bench first (macOS and Linux; the Windows command is on the previous page)."],
+        ["python3 -m pip install texttable", "Install it into the environment, the same way the Packaging User Guide installs a package [py-117]."],
+        ["pip freeze", "List what is installed, with versions [py-118]. This book recorded its output with texttable 1.7.1."],
+      ], title: "Terminal, inside your project folder" },
+      { code: "a13_table", out: true },
+      { honest: "This output was recorded with texttable 1.7.1 installed. The parts and shelves are fictional." },
+      "If you run it with a Python that does not have texttable, for example after `deactivate`, the import stops with `ModuleNotFoundError`. `import` raises that error when a module could not be located [py-200]. The fix is to step back onto the bench where you installed it.",
+      { machine: ["a13-drawer"], label: "Go to your machine: make a venv, use the math drawer, install texttable" },
     ],
   },
 ]);
@@ -78,6 +104,7 @@ GLOSS({
   module: "A drawer of ready-made Python code with its own namespace, such as `math`. [py-124]",
   package: "A module that can contain submodules or subpackages. [py-124]",
   import: "Opening a module so your program can use its tools: after `import math`, you can call `math.sqrt`. [py-163]",
+  library: "A collection of code that can be used in other programs. [py-188]",
   pip: "The tool that installs packages. Inside an active environment, `python3 -m pip install requests` installs one. [py-117]",
   "virtual environment": "A private set of installed packages built on top of a base Python, isolated from the base environment's packages by default. [py-112]",
   venv: "The module that makes virtual environments: `python -m venv <folder>` creates one, with pip installed by default. [py-113]",
@@ -142,8 +169,12 @@ LEVEL({
     say("nib", "On your own bench, [[pip]] can install. The first package you will add is pytest: `pip install -U pytest` [py-119]. It finds files named `test_*.py` and runs them [py-120]."),
     { ask: { q: "Which file would pytest pick up as a test file?", choices: ["`drawer.py`", "`test_drawer.py`", "`drawer_tests.txt`"], answer: 1,
       why: "pytest finds tests in files named `test_*.py` or `*_test.py` [py-120]." } },
-    { book: 0, text: "The book has every command, with the macOS and Linux steps side by side." },
-    say("nib", "To your machine. Make a bench, then pack some boxes with the math drawer.", "think"),
+    say("nib", "Then one package just for fun: texttable, a module to create simple ASCII tables [py-205]. Install it on your bench and it draws the parts list as a neat grid."),
+    { ask: { q: "Your program stops with `ModuleNotFoundError: No module named 'texttable'`. You installed it an hour ago. What is the likeliest cause?", choices: ["The environment you installed it into is not active", "texttable deleted itself overnight", "Python cannot draw tables"], answer: 0,
+      why: "`import` raises `ModuleNotFoundError` when it could not locate the module [py-200]. You installed texttable on your own bench, so step back onto that bench first." } },
+    say("nib", "On Windows the bench's scripts live in `Scripts` instead of `bin`. Activate with `.venv\\Scripts\\activate.bat` in cmd.exe, or `.venv\\Scripts\\Activate.ps1` in PowerShell [py-180]."),
+    { book: 3, text: "The book has every command, with macOS, Windows and Linux tabs, and the texttable program with its real output." },
+    say("nib", "To your machine. Make a bench, pack some boxes with the math drawer, then install texttable.", "think"),
     { machine: ["a13-drawer"] },
     { toy: "drawer", goal: "Open all four drawers." },
     say("byte", "Drawers open. Bench clean. Lunch? BEEP BOOP."),
