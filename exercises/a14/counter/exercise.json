@@ -1,0 +1,21 @@
+{
+  "id": "a14-counter",
+  "level": "a14",
+  "title": "A tally counter for the door",
+  "file": "counter.py",
+  "kind": "test",
+  "prompt": "Ms. Gridlock wants to count customers at the front door and the back door. The blueprint, `Counter`, is half built. Its `__init__` already gives each new counter a `count` of 0.\n\nFill in the two methods. `click` adds one to *this* counter. `reset` puts *this* counter back to zero. Two counters must never share a count.\n\nWhen it works, the program prints `Customers so far: 2`.",
+  "run_command": "python3 -m unittest test_counter.py",
+  "expected_output": "Customers so far: 2",
+  "hints": [
+    "Inside a method, `self` is the counter you called it on. Its count lives in `self.count`.",
+    "To add one, read the old count, add 1, and store it back on `self`.",
+    "`self.count = self.count + 1` in `click`, and `self.count = 0` in `reset`."
+  ],
+  "explain_after": "Calling `Counter()` ran `__init__` [py-126], so each counter got its own `count`. When you wrote `door.click()`, Python passed `door` in as the first argument, the one named `self` [py-127]. That is how `click` knew which counter to change.\n\n`count` is an instance variable, so it belongs to one counter only [py-128]. That is why the front door and the back door keep separate tallies.",
+  "concepts": [
+    "classes",
+    "methods",
+    "self"
+  ]
+}

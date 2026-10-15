@@ -1,0 +1,21 @@
+{
+  "id": "a12-shortcuts",
+  "level": "a12",
+  "title": "Three loops, three lines",
+  "file": "shortcuts.py",
+  "kind": "test",
+  "prompt": "The shop's old code builds lists the long way, with a loop and `append`. Dr. Nib wants each job done in one line.\n\nThe comments in `shortcuts.py` show each old loop. Replace the three placeholder lines: two list comprehensions and one call to `sorted()` with a `key`.\n\nWhen it works, the program prints `[12, 8, 30]`, then `['GEAR', 'SPRING', 'BOLT']`, then `['gear', 'bolt', 'spring']`.",
+  "run_command": "python3 -m unittest test_shortcuts.py",
+  "expected_output": "[12, 8, 30]\n['GEAR', 'SPRING', 'BOLT']\n['gear', 'bolt', 'spring']",
+  "hints": [
+    "A comprehension reads like the loop folded up: what to keep, then the `for`, then the `if`. The thing you appended goes first.",
+    "Job 1 starts `big = [p for p in prices ...`. Job 2 keeps `n.upper()` for each `n`.",
+    "Job 3: `sorted(names, key=lambda n: len(n))`. The key says what to compare: here, each name's length."
+  ],
+  "explain_after": "A list comprehension builds a list from an expression and `for` and `if` clauses [py-106]. `sorted()` returns a new sorted list and takes a `key` [py-109], so `names` itself did not change. A lambda is a tiny function made of a single expression [py-108].\n\nWhy did `gear` stay ahead of `bolt`? They have the same length, and `sorted()` is guaranteed to be stable [py-109]: ties keep the order they came in.",
+  "concepts": [
+    "list comprehension",
+    "sorted",
+    "lambda"
+  ]
+}

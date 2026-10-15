@@ -1,0 +1,21 @@
+{
+  "id": "a14-account",
+  "level": "a14",
+  "title": "Store credit that cannot go negative",
+  "file": "account.py",
+  "kind": "test",
+  "prompt": "Some regular customers (all fictional, mostly appliances) keep store credit at the shop. Build the `Account` blueprint.\n\n`__init__` stores the owner and the starting balance on `self`. `deposit` adds money. `withdraw` takes money out only if there is enough, and returns `True` when it worked or `False` when it did not.\n\nWhen it works, the program prints `False`, then `True`, then `Toaster T-9 15`.",
+  "run_command": "python3 -m unittest test_account.py",
+  "expected_output": "False\nTrue\nToaster T-9 15",
+  "hints": [
+    "In `__init__`, write `self.owner = owner` and do the same for the balance. Without `self.`, the names vanish when `__init__` ends.",
+    "`deposit` looks like the counter's click: read `self.balance`, add, store it back.",
+    "In `withdraw`, check first: `if amount > self.balance: return False`. Otherwise subtract and `return True`."
+  ],
+  "explain_after": "Calling `Account(\"Toaster T-9\", 20)` ran `__init__` with those two arguments [py-126]. Each account keeps its own `owner` and `balance`, because instance variables belong to one instance [py-128].\n\nThe first withdrawal asked for 30 when the balance was 25, so it returned `False` and changed nothing. The second took 10 and left 15.",
+  "concepts": [
+    "classes",
+    "__init__",
+    "methods"
+  ]
+}
