@@ -1,0 +1,21 @@
+{
+  "id": "a08-phonebook",
+  "level": "a08",
+  "title": "The shop phone book",
+  "file": "phonebook.py",
+  "kind": "test",
+  "prompt": "The front desk keeps phone numbers in a dictionary called `phones`. Ms. Gridlock wants to call three people in the list `wanted`. One of them is not in the book.\n\nFor each name in `wanted`, print `NAME: NUMBER` when the name is in the book, and `NAME: no number on file` when it is not. The program must not crash.",
+  "run_command": "python3 -m unittest test_phonebook.py",
+  "expected_output": "Dr. Nib: 555-0142\nMx. Sprocket: no number on file\nByte: 555-0199",
+  "hints": [
+    "Run the starter first. Which line crashes, and what does the last line of the error say?",
+    "Before you open a drawer, check that it exists: `if name in phones:`.",
+    "Put the `print(name + \": \" + phones[name])` line under the `if`, and add an `else:` that prints the no-number message."
+  ],
+  "explain_after": "Asking for a missing key with square brackets raises a `KeyError`, and `in` tests whether the key is there first [py-079]. `phones.get(name)` is another safe way: it returns `None` for a missing key.",
+  "concepts": [
+    "dictionaries",
+    "KeyError",
+    "in"
+  ]
+}
