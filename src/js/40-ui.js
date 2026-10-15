@@ -18,7 +18,7 @@ const UI = {
     this.root.innerHTML = "";
     const name = el("input#pname", { type: "text", maxlength: 24, value: S.name, autocomplete: "off", "data-hint": "Type the name the cast will call you", "aria-label": "Your name" });
     const go = () => { S.name = name.value.trim().slice(0, 24) || "Apprentice"; save(); this.app(); };
-    name.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+    name.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); go(); } });
     const started = Object.keys(S.done).length || Object.keys(S.beat).length;
     const card = el("main.title-card", {},
       el("div", { html: logoSVG() }),
@@ -107,7 +107,7 @@ const UI = {
       const tiles = el("div.tiles");
       ls.forEach(L => {
         const st = S.done[L.id] ? "Done" : S.beat[L.id] ? "In progress" : this.unlocked(L) ? "Not started" : "Locked";
-        const t = el("button.tile", { type: "button", style: { "--c": L.color || "#fff" }, "data-hint": this.unlocked(L) ? `${L.title}: ${L.job || ""}` : "Locked until A17 is finished",
+        const t = el("button.tile", { type: "button", "aria-label": `${this.label(L)}: ${L.title}. ${st}`, style: { "--c": L.color || "#fff" }, "data-hint": this.unlocked(L) ? `${L.title}: ${L.job || ""}` : "Locked until A17 is finished",
           onclick: () => ENGINE.start(L.id) },
           el("span.n", {}, this.label(L)), el("span.t", {}, L.title), el("span.s", {}, st));
         if (S.done[L.id]) t.classList.add("done");
@@ -120,6 +120,8 @@ const UI = {
     const cont = LEVELS.find(l => S.beat[l.id] && !S.done[l.id] && this.unlocked(l)) || LEVELS.find(l => !S.done[l.id] && this.unlocked(l));
     if (cont) hub.prepend(el("p", {}, el("button.btn.tang", { type: "button", "data-hint": "Continue with " + cont.title, onclick: () => ENGINE.start(cont.id) }, `Continue: ${this.label(cont)} ${cont.title} ▶`)));
     this.wrap.append(el("div.stage.hub-stage", {}, hub));
+    // keyboard users land on the map's first button instead of the page body
+    if (!document.activeElement || document.activeElement === document.body || !document.activeElement.isConnected) { const f = $("button", hub); if (f) f.focus({ preventScroll: true }); }
     this.palette();
   },
 
@@ -218,7 +220,7 @@ const UI = {
     const reset = el("button.btn.pink", { type: "button", "data-hint": "Erase all progress in this browser (asks twice)" }, "Reset progress");
     reset.onclick = () => {
       if (!armed) { armed = true; reset.textContent = "Press again to erase everything"; return; }
-      resetSave(); toast("Progress erased."); this.closeAll(); this.title();
+      resetSave(); try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* file:// */ } toast("Progress erased."); this.closeAll(); this.title();
     };
     box.append(
       el("div.field", {}, el("b", {}, "Your name"), name),
@@ -235,12 +237,13 @@ const UI = {
   glossary() {
     const list = el("div");
     const q = el("input", { type: "text", placeholder: "Search the glossary", "data-hint": "Type to filter the glossary", "aria-label": "Search" });
-    const draw = () => {
-      list.innerHTML = "";
-      Object.values(GLOSSARY).sort((a, b) => a.term.localeCompare(b.term)).filter(g => !q.value || (g.term + " " + g.def).toLowerCase().includes(q.value.toLowerCase()))
-        .forEach(g => list.append(el("p", { html: `<b>${esc(g.term)}</b>${g.level && LV[g.level] ? ` <span class="chip" style="--c:${LV[g.level].color}">${UI.label(LV[g.level])}</span>` : ""}: ${rich(g.def)}` })));
-    };
-    q.oninput = draw; draw();
+    // render every entry once; typing only hides and shows them
+    const rows = Object.values(GLOSSARY).sort((a, b) => a.term.localeCompare(b.term)).map(g => {
+      const p = el("p", { html: `<b>${esc(g.term)}</b>${g.level && LV[g.level] ? ` <span class="chip" style="--c:${LV[g.level].color}">${UI.label(LV[g.level])}</span>` : ""}: ${rich(g.def)}` });
+      list.append(p);
+      return [(g.term + " " + g.def).toLowerCase(), p];
+    });
+    q.oninput = () => { const v = q.value.toLowerCase(); rows.forEach(([t, p]) => (p.hidden = !!v && !t.includes(v))); };
     this.win({ title: "Glossary", body: el("div.page", {}, el("div.field", {}, q), list), color: "var(--teal)", color2: "var(--teal-d)" });
   },
 
@@ -317,7 +320,7 @@ const UI = {
     } else {
       const ran = Object.keys(S.ran).length;
       box.append(el("div.cert", {}, el("div", { html: logoSVG() }), el("h3", {}, "Certificate of Tinkering"), el("p", {}, "Gadget Gulch Repair & Tinker Shop (fictional) certifies that"),
-        el("div.nm", {}, you()), el("p", {}, `finished Module A, Intro to CS and Python, and reports running ${ran} programs on their own machine.`),
+        el("div.nm", {}, you()), el("p", {}, ran ? `finished Module A, Intro to CS and Python, and reports running ${ran} program${ran === 1 ? "" : "s"} on their own machine.` : "finished Module A, Intro to CS and Python."),
         el("p", {}, "Signed: Dr. Nib, Byte, Reader and Ms. Gridlock"), el("p.own", {}, "Progress is self-reported. Code Pix never sees your code.")));
       if (S.done.b16) box.append(el("div.cert", { style: { marginTop: "16px" } }, el("h3", {}, "Learning Bench Certificate"), el("div.nm", {}, you()), el("p", {}, "finished Module B, Intro to Machine Learning.")));
     }

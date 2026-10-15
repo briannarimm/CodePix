@@ -10,7 +10,7 @@ PAGES("a00", [
       "Gadget Gulch Repair & Tinker Shop fixes talking appliances. Its helpers are computers. OpenStax defines a [[computer]] as an electronic device that stores and processes information, and a [[program]] as a sequence of instructions that a computer can run [py-187].",
       "In this book a computer is a very literal helper. It does exactly what it is told, in exactly the order it is told, and it never guesses what you meant. A program is the numbered list of instructions it follows. Here is a three-line program the office computer runs every morning.",
       { code: "a00_sign", out: true },
-      { analogy: "Picture a recipe card that a very careful cook follows to the letter. If the card says *add salt*, the cook adds salt. If the card says *add slat*, the cook stops and asks what a slat is. Programs work the same way." },
+      { analogy: "Picture the shop's very literal helper with a job sheet. If the sheet says *tighten the bolt*, the helper tightens the bolt. If the sheet says *tighten the blot*, the helper stops and asks what a blot is. Programs work the same way." },
       { trace: "a00_sign", label: "🔍 Watch Reader read it, one line at a time" },
       "You will write programs like this from A1 on. First, you need a way to talk to the computer by typing.",
     ],

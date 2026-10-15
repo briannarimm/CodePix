@@ -30,7 +30,7 @@ PAGES("bbonus", [
 
 LEVEL({
   id: "bbonus", title: "Time Machine", job: "Byte found a box of old catalogs in the back office.",
-  color: "#4f8a12", scene: "office", cast: ["byte"],
+  color: "#64a61f", scene: "office", cast: ["byte"],
   sticker: { title: "Time Traveler", glyph: "1958", color: "#9be34a" },
   goals: ["Place five moments in the history of learning machines", "Say which source backs each one", "Sort events by year in Python"],
   beats: [

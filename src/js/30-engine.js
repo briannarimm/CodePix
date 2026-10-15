@@ -156,6 +156,7 @@ const ENGINE = {
       q.choices.forEach((c, k) => {
         const b = el("button.btn.plain", { type: "button", "data-hint": "Choose this answer", html: rich(c) });
         b.onclick = () => {
+          if (b.getAttribute("aria-disabled") === "true") return;
           tries++;
           fb.hidden = false;
           if (k === q.answer) {
@@ -167,20 +168,20 @@ const ENGINE = {
             $$("button", box).forEach(x => (x.disabled = true));
             b.disabled = false; b.style.background = "var(--lime)";
             const next = el("button.btn.tang", { type: "button", "data-hint": "Continue", onclick: () => res() }, "Next ▶");
-            d.acts.innerHTML = ""; d.acts.append(next); next.focus({ preventScroll: true });
+            d.acts.innerHTML = ""; d.acts.append(next); next.focus({ preventScroll: true }); next.scrollIntoView({ block: "nearest" });
           } else {
             SND.play("bad");
             fb.className = "fb bad";
             fb.innerHTML = "<b class='no-mark'>Not that one.</b> " + rich((q.wrong && q.wrong[k]) || "Have another look and try again.");
-            b.disabled = true;
-            const nx = $$("button", box).find(x => !x.disabled);
-            if (nx) nx.focus({ preventScroll: true });
+            b.setAttribute("aria-disabled", "true"); // stays focusable, so keyboard focus does not jump to another choice
+            fb.scrollIntoView({ block: "nearest" });
           }
         };
         box.append(b);
       });
       d.body.append(box, fb);
       d.acts.append(this.backBtn());
+      if (!this.auto) $("button", box).focus({ preventScroll: true });
       if (this.auto) $$("button", box)[q.answer].click(), setTimeout(res, 0);
     });
   },
@@ -190,6 +191,7 @@ const ENGINE = {
     S.done[L.id] = true; S.beat[L.id] = L.beats.length; save();
     if (L.sticker) UI.award(L.sticker.id || L.id, true);
     BUS.emit("level-done", L.id);
+    UI.palette(); // show the done mark, and Module B's jobs once A17 opens them
     const d = UI.dialog("Job done!", "#9be34a");
     const nxt = UI.nextLevel(L.id);
     d.body.append(el("div.line", { html: rich(first ? `Nice work, {{you}}. **${L.title}** is finished.` : `**${L.title}** is finished again.`) }));

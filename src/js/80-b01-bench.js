@@ -16,7 +16,7 @@ PAGES("b01", [
       ] },
       "Second, where the libraries go. A virtual environment is created on top of a base Python and by default is isolated from the packages in the base environment [py-112]. That keeps this module's tools in one box that you can throw away and rebuild.",
       "On a Mac with Homebrew there is one more reason. Homebrew's Python is marked as externally managed, and its error text says a library that is not in Homebrew should be installed in a virtual environment [py-155]. So a plain `pip install` outside an environment stops with an error. That is expected.",
-      { analogy: "A virtual environment is a separate toolbox drawer for one project. The machine learning tools go in this drawer, and the rest of your computer never notices them." },
+      { analogy: "A virtual environment is your own bench for one project, as in A13. The machine learning tools get clamped to this bench, and the rest of your computer never notices them." },
     ],
   },
   {

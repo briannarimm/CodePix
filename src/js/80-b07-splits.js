@@ -132,7 +132,7 @@ TOY("overfit", {
 
 LEVEL({
   id: "b07", title: "Train, Validate, Test", job: "Prove the Quote Machine works on tickets it has never seen.",
-  color: "#1a8a8a", scene: "bench", cast: ["gridlock"], toy: "overfit",
+  color: "#33a3a3", scene: "bench", cast: ["gridlock"], toy: "overfit",
   sticker: { title: "Fair Examiner", glyph: "3/3", color: "#5cc8ff" },
   goals: ["Split tickets into training, validation and test piles", "Spot overfitting", "Run cross-validation without leaks"],
   beats: [
