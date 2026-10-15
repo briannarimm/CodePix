@@ -1,0 +1,20 @@
+{
+  "id": "a15-cheap",
+  "level": "a15",
+  "title": "First part under budget",
+  "file": "cheap.py",
+  "kind": "test",
+  "prompt": "A customer wants the first part on the shelf that costs less than their budget. Write `first_under(prices, budget)`. It checks the prices from left to right and gives back a pair: the position of the first price below the budget (or `-1` if there is none) and how many prices it looked at.\n\nThat is a linear search with a counter. When it works, `python3 cheap.py` prints `(3, 4)` and then `(-1, 5)`.",
+  "run_command": "python3 -m unittest test_cheap.py",
+  "expected_output": "(3, 4)\n(-1, 5)",
+  "hints": [
+    "You need two things as you walk the shelf: the position you are at, and a count of looks. `for i in range(len(prices)):` gives you the position.",
+    "Add 1 to `looks` every time you check a price. If `prices[i] < budget`, you are done: `return i, looks`.",
+    "Start with `looks = 0`. Inside the loop: `looks = looks + 1`, then the `if`. After the loop ends without finding one, `return -1, looks`."
+  ],
+  "explain_after": "You wrote a linear search: start at the left and check each item in turn, the way the CS50 notes walk past doors from left to right [py-131]. When nothing matches, it has to look at every price, so the number of looks grows with the length of the shelf. Big O calls that O(n) [py-133].",
+  "concepts": [
+    "linear search",
+    "counting comparisons"
+  ]
+}

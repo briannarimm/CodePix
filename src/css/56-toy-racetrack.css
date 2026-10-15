@@ -1,0 +1,23 @@
+/* Race Track toy (A15) */
+.toy-racetrack .rt-lab{font-weight:700}
+.toy-racetrack .btn.lemon{background:var(--lemon)}
+.toy-racetrack .rt-shuf{display:inline-flex;align-items:center;gap:6px;font-size:.92em;cursor:var(--cursor)}
+.toy-racetrack .rt-target{font-family:var(--f-read);font-size:22px}
+.toy-racetrack .rt-shelf{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:3px;padding:8px;border:3px solid var(--ink);border-radius:12px;background:var(--wood);box-shadow:3px 3px 0 var(--ink)}
+.toy-racetrack .rt-shelf.n64,.toy-racetrack .rt-shelf.n256{grid-template-columns:repeat(16,minmax(0,1fr))}
+.toy-racetrack .rt-shelf.n256{gap:2px}
+.toy-racetrack .rt-d{min-width:0;min-height:30px;padding:0;border:2px solid var(--ink);border-radius:5px;background:var(--peg);font:12px/1 var(--f-code);color:var(--ink);cursor:var(--cursor);overflow:hidden}
+.toy-racetrack .rt-shelf.n64 .rt-d{min-height:26px;font-size:9px}
+.toy-racetrack .rt-shelf.n256 .rt-d{min-height:16px;border-width:1px;border-radius:3px}
+.toy-racetrack .rt-d.rt-out{background:var(--silver-d);opacity:.55}
+.toy-racetrack .rt-d.rt-look{background:var(--lemon)}
+.toy-racetrack .rt-d.rt-hit{background:var(--lime);outline:3px solid var(--ink);outline-offset:-1px}
+.toy-racetrack .rt-say{min-height:2.6em;margin:6px 0;font-weight:700}
+.toy-racetrack .rt-board{width:100%;border-collapse:collapse;background:#fff;border:3px solid var(--ink);font-size:.9em}
+.toy-racetrack .rt-board th,.toy-racetrack .rt-board td{padding:4px 6px;border:1px solid var(--silver-d);text-align:left}
+.toy-racetrack .rt-board th{background:var(--tang-l)}
+@media (max-width:520px){
+  .toy-racetrack .rt-shelf{padding:5px}
+  .toy-racetrack .rt-d{font-size:10px}
+  .toy-racetrack .rt-shelf.n64 .rt-d{font-size:0}
+}

@@ -1,0 +1,21 @@
+{
+  "id": "abonus-ignore",
+  "level": "abonus",
+  "title": "Read a .gitignore file",
+  "file": "ignore.py",
+  "kind": "test",
+  "prompt": "A `.gitignore` file lists patterns for files Git should ignore, and Git skips blank lines and lines that start with `#` [py-149]. Build a small Python model of that, using our own simplified matching rules.\n\n`read_patterns(text)` turns the file's text into a list of patterns. `is_ignored(name, patterns)` says whether a file name matches one. The example file is `gitignore_example.txt` (a plain text copy with an ordinary file name).\n\nWhen it works, `python3 ignore.py` prints the three patterns and then which of four shop files would be ignored.",
+  "run_command": "python3 -m unittest test_ignore.py",
+  "expected_output": "['.venv', 'scratch.txt', '*.bak']\ntracker.py False\n.venv True\nprices.bak True\nscratch.txt True",
+  "hints": [
+    "In `read_patterns`, walk through `text.split(\"\\n\")` one line at a time and keep only the lines you want in a new list.",
+    "Skip a line when it is empty or when `line.startswith(\"#\")` is true [py-160]. Use `continue` to move on to the next line.",
+    "In `is_ignored`, loop over the patterns. Return `True` when `name == pattern`, or when the pattern starts with `\"*\"` and `name.endswith(pattern[1:])`. After the loop, return `False`."
+  ],
+  "explain_after": "The rule about blank lines and `#` comes from the Pro Git book [py-149]. The star rule is our own simplification for this exercise.\n\nThe `.venv` line matters for your showcase project. A virtual environment is created on top of a base Python [py-112], so you can build a fresh one on any machine. Its folder does not need a place in the logbook.",
+  "concepts": [
+    "git",
+    ".gitignore",
+    "strings"
+  ]
+}

@@ -1,0 +1,27 @@
+/* Logbook toy (A-Bonus) */
+.toy-logbook .lb-top{justify-content:space-between}
+.toy-logbook .lb-ign{display:inline-flex;align-items:center;gap:8px;font-weight:700;cursor:var(--cursor)}
+.toy-logbook .lb-ign input{width:20px;height:20px;accent-color:var(--teal)}
+.toy-logbook .lb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.toy-logbook .lb-col{padding:8px;border:3px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);min-width:0}
+.toy-logbook .lb-bench{background:var(--peg)}
+.toy-logbook .lb-tray{background:var(--teal-l)}
+.toy-logbook .lb-book{background:var(--paper2)}
+.toy-logbook h4{margin:0 0 8px;font-family:var(--f-display);font-weight:400;font-size:15px}
+.toy-logbook h4 small{font-family:var(--f-story);font-size:12px}
+.toy-logbook .lb-file{margin-bottom:6px;padding:6px;border:2px solid var(--ink);border-radius:8px;background:#fff}
+.toy-logbook .lb-file.lb-s-modified{background:#ffe3ec}
+.toy-logbook .lb-file.lb-s-untracked{background:#fff6b8}
+.toy-logbook .lb-file.lb-s-staged{background:#dff6ff}
+.toy-logbook .lb-name{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px;font-family:var(--f-code);font-size:13px;word-break:break-all}
+.toy-logbook .lb-tag{font-family:var(--f-story);font-size:12px;color:var(--ink2)}
+.toy-logbook .lb-acts{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.toy-logbook .lb-chip{display:inline-block;margin:0 4px 4px 0;padding:3px 8px;border:2px solid var(--ink);border-radius:999px;background:#fff;font:12px var(--f-code)}
+.toy-logbook .lb-empty{margin:4px 0;color:var(--ink2);font-style:italic}
+.toy-logbook .lb-commit{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.toy-logbook .lb-msg{flex:1 1 140px;min-width:0;padding:4px;border:2px solid var(--ink);border-radius:8px;font:inherit;background:#fff}
+.toy-logbook .lb-page{display:flex;flex-direction:column;align-items:flex-start;width:100%;margin-bottom:6px;padding:6px 8px;border:2px solid var(--ink);border-radius:4px 10px 10px 4px;border-left:8px solid var(--teal);background:#fff;font:inherit;text-align:left;cursor:var(--cursor)}
+.toy-logbook .lb-snap{margin-top:6px;font:13px/1.5 var(--f-code);word-break:break-all}
+.toy-logbook .lb-status{margin-top:10px;padding:6px 10px;border:2px dashed var(--ink2);border-radius:8px;background:#fff;font-size:.92em}
+.toy-logbook .lb-say{min-height:1.5em;font-weight:700}
+@media (max-width:700px){.toy-logbook .lb-grid{grid-template-columns:1fr}}

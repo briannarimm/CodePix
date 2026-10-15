@@ -1,0 +1,8 @@
+# Things Git should leave alone in the shop project
+
+# the virtual environment folder
+.venv
+
+# notes nobody else needs
+scratch.txt
+*.bak
