@@ -1,0 +1,21 @@
+{
+  "id": "a02-decode",
+  "level": "a02",
+  "title": "Guess, then decode",
+  "file": "decode.py",
+  "kind": "predict",
+  "prompt": "Four lines, four conversions between letters, numbers and switch patterns. Before you run anything, write your guess for each line in the comment beside it.\n\nThen run `python3 decode.py` and compare.",
+  "run_command": "python3 decode.py",
+  "expected_output": "0b1000001\n65\n65\nB",
+  "hints": [
+    "`bin()` writes a number as a string of 0s and 1s with `0b` in front, so `bin(3)` is `'0b11'` [py-038].",
+    "In ASCII, capital A is 65 [py-037]. `ord()` gives a character's number, and `chr()` goes the other way [py-040].",
+    "For `chr(66)`, set the Bit Board toy to 66 (64 + 2) and read the character it shows."
+  ],
+  "explain_after": "`bin()` wrote 65 in base 2 [py-038], and `int(..., base=2)` read it back [py-039]. `ord()` and `chr()` convert between a character and its code point [py-040]. Capital A is 65 [py-037].",
+  "concepts": [
+    "binary",
+    "ASCII",
+    "REPL"
+  ]
+}
