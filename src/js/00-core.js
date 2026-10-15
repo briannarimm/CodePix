@@ -35,7 +35,10 @@ const store = {
   del(k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } },
 };
 
-const SAVE_KEY = "codepix-save";
+// The release candidate (DATA.channel "rc", served at /CodePix/rc/) shares the live site's origin, so it saves under its own key.
+const SAVE_KEY = DATA.channel === "rc" ? "codepix-save-rc" : "codepix-save";
+const VERSION_TEXT = DATA.channel === "rc" ? `Release candidate ${DATA.version}${DATA.buildId ? " (build " + DATA.buildId + ")" : ""}` : `Version ${DATA.version}`;
+if (DATA.channel === "rc") document.title = "RC: " + document.title;
 const FRESH = () => ({ v: 1, name: "", done: {}, beat: {}, stickers: {}, ran: {}, hints: {}, sol: {}, quiz: {}, toys: {}, seen: {}, cur: null,
   settings: { sound: true, motion: "auto", unlockAll: false, os: "mac" } });
 let S = Object.assign(FRESH(), store.get(SAVE_KEY, {}));

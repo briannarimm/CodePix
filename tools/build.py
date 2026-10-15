@@ -11,7 +11,10 @@ Steps:
   6. Syntax-check the JS with node (prints "JS syntax: OK").
   7. Copy static/ (fonts go to assets/fonts), traces to data/traces, and exercises to exercises/
      with a zip per level (starters, tests and data; solutions are separate files).
-Usage: python3 tools/build.py [--out DIR] [--python PATH] [--skip-lint]
+Channels: --channel prod (default) is the live site. --channel rc builds the release candidate that CI
+publishes at /CodePix/rc/: it says "release candidate" in the app and saves progress under its own key.
+The version comes from the VERSION file.
+Usage: python3 tools/build.py [--out DIR] [--python PATH] [--skip-lint] [--channel prod|rc] [--build-id ID]
 """
 import argparse, datetime, json, os, pathlib, re, shutil, subprocess, sys, tempfile, zipfile
 
@@ -55,6 +58,8 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "dist"))
     ap.add_argument("--python", default=os.environ.get("CODEPIX_PYTHON", sys.executable))
     ap.add_argument("--skip-lint", action="store_true")
+    ap.add_argument("--channel", choices=("prod", "rc"), default=os.environ.get("CODEPIX_CHANNEL", "prod"))
+    ap.add_argument("--build-id", default="", help="shown next to the release-candidate version, e.g. a commit hash")
     a = ap.parse_args()
     out = pathlib.Path(a.out).resolve()
 
@@ -108,7 +113,8 @@ def main():
 
     built = datetime.date.today().isoformat()
     data = {"facts": data_facts, "sources": data_sources, "programs": progs, "exercises": exercises,
-            "built": built, "python": next(iter(programs.values()))["python"] if programs else ""}
+            "built": built, "python": next(iter(programs.values()))["python"] if programs else "",
+            "version": (ROOT / "VERSION").read_text(encoding="utf-8").strip(), "channel": a.channel, "buildId": a.build_id}
     js_all = "const DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n" + js_src
 
     with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as t:
@@ -154,7 +160,7 @@ def main():
                 for name in ex["files"]:
                     z.write(out / ex["path"] / name, f"codepix-{lvl}/{slug}/{name}")
     size = len(html.encode()) // 1024
-    print(f"built {out} : index.html {size} KB, {len(progs)} programs, {len(exercises)} exercises, {len(data_facts)} cited facts")
+    print(f"built {out} ({a.channel} {data['version']}) : index.html {size} KB, {len(progs)} programs, {len(exercises)} exercises, {len(data_facts)} cited facts")
 
 
 if __name__ == "__main__":

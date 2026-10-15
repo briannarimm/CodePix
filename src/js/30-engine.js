@@ -26,7 +26,7 @@ const ENGINE = {
   start(id, from) {
     const L = LV[id];
     if (!L) return;
-    if (!UI.unlocked(L)) { toast("Module B opens when you finish the Saturday Showcase (A17). Settings has a beta switch to open it early."); return; }
+    if (!UI.unlocked(L)) { toast("Module B opens when you finish the Saturday Showcase (A17). Settings has a switch that opens it early."); return; }
     UI.closeAll();
     this.lvl = L; this.token++;
     S.cur = id; save();
