@@ -2,7 +2,7 @@
 
 A public static website with two modules: **Module A, Intro to CS and Python**, which unlocks **Module B, Intro to Machine Learning**. It fuses a point-and-click visual novel with an interactive, cited textbook, in a 90s edutainment look with a Kid Pix style toolbox. The learner installs Python on their own computer and does the exercises there. **No Python runs in the browser.** Everything the app shows as Python output was recorded from real `python3` at build time.
 
-- Live site (target): https://dev.briannaimm.com/CodePix/ (works once `brianna-imm-site` is renamed `briannarimm.github.io`, see `docs/deploy.md`). Fallback: https://briannarimm.github.io/CodePix/. The old `codepix.briannaimm.com` plan is dropped.
+- Live site (target): https://www.briannaimm.com/CodePix/ (works once `brianna-imm-site` is renamed `briannarimm.github.io`, see `docs/deploy.md`). Fallback: https://briannarimm.github.io/CodePix/. The old `codepix.briannaimm.com` plan is dropped.
 - Repo: github.com/briannarimm/CodePix (public). Pushes to `main` build and deploy through GitHub Actions.
 - The full spec is `docs/handoff.md`. Decisions and their reasons are in `docs/decisions.md`. Brianna's deploy steps are in `docs/deploy.md`.
 - Sibling project for patterns and copied infrastructure: `~/Documents/Programming/ai-pix-explorer/` (read its CLAUDE.md). It moved out of the Google Drive folder in October 2026.
@@ -82,5 +82,5 @@ Site build:
 ## Known gotchas
 
 - This folder is in `~/Documents`, which iCloud syncs (with Optimize Storage on). GitHub is the source of truth. Local servers started from tools may not be able to read `~/Documents`, so preview and check build into `$TMPDIR/codepix-dist` and serve that.
-- The domain `dev.briannaimm.com` belongs to the user site (`briannarimm.github.io`); `CodePix` must NOT have its own CNAME file or custom domain, or it stops living at `/CodePix/`. DNS is in Cloudflare.
+- The domain `www.briannaimm.com` belongs to the user site (`briannarimm.github.io`); `CodePix` must NOT have its own CNAME file or custom domain, or it stops living at `/CodePix/`. DNS is in Cloudflare.
 - From the sibling: boot creates all toy DOM first and then runs every `init()`; toy ids are global. Do not `await UI.openToy()` (its promise resolves on close). Toolbox buttons live in an absolutely positioned `.tbin`. `.stagewrap` is `display:block`. Sprites use `pointer-events:none`, and the hotspot layer sits above the cast. `stopAll()` removes hotspot handlers. In Playwright, end `evaluate` expressions that call promise-returning functions with `0;`. Keep scene detail above y = 520 in the 960x720 art.

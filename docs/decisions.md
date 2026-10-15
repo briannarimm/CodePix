@@ -36,5 +36,5 @@ Answers Brianna gave to the open questions in `handoff.md` section 12, on 2026-1
 
 | Topic | Decision | Notes |
 |---|---|---|
-| Address | `https://dev.briannaimm.com/CodePix/` | Replaces `codepix.briannaimm.com`. Needs the user-site repo named `briannarimm.github.io`; see docs/deploy.md. |
+| Address | `https://www.briannaimm.com/CodePix/` | Replaces `codepix.briannaimm.com`. Needs the user-site repo named `briannarimm.github.io`; see docs/deploy.md. |
 | Repository visibility | Public, private use only | Needed for free Pages. Citation limits in sources are not a concern for Brianna's private use. |
