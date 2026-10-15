@@ -5,7 +5,7 @@
 .win.full{width:min(1240px,100%);height:calc(100vh - 24px)}
 .win > header{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 12px;background:linear-gradient(90deg,var(--c,var(--tang)),var(--c2,var(--tang-d)));border-bottom:3px solid var(--ink);color:#fff}
 .win > header h2{flex:1;margin:0;font-family:var(--f-display);font-size:18px;font-weight:400;text-shadow:2px 2px 0 var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.win > header .x{width:36px;height:36px;border:3px solid var(--ink);border-radius:8px;background:var(--pink);font-weight:900;font-size:18px;line-height:1;box-shadow:2px 2px 0 var(--ink);color:var(--ink)}
+.win > header .x{width:36px;height:36px;border:3px solid var(--ink);border-radius:8px;background:var(--pink);font:900 24px/1 system-ui,sans-serif;box-shadow:2px 2px 0 var(--ink);color:var(--ink);padding:0}
 .win > .body{flex:1;overflow:auto;background:var(--paper);padding:16px;min-height:0}
 .win > footer{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;align-items:center;padding:8px 10px;border-top:3px solid var(--ink);background:var(--silver-l)}
 .win .label{font-family:var(--f-read);font-size:19px;color:var(--ink2)}
@@ -17,7 +17,7 @@
 .pop .apa a{word-break:break-all}
 .pop .lic{margin-top:6px;font-size:.88em;color:var(--ink2)}
 .pop .claim{margin-top:6px;padding-top:6px;border-top:1px dashed var(--silver-d);font-size:.92em}
-.pop .closepop{float:right;margin:-4px -4px 0 6px;border:2px solid var(--ink);border-radius:6px;background:var(--pink);font-weight:900;width:28px;height:28px;line-height:1}
+.pop .closepop{float:right;margin:-4px -4px 0 6px;border:2px solid var(--ink);border-radius:6px;background:var(--pink);font:900 18px/1 system-ui,sans-serif;width:28px;height:28px;padding:0}
 
 .toast{position:fixed;z-index:85;left:50%;bottom:20px;transform:translateX(-50%);max-width:calc(100vw - 32px);padding:10px 16px;border:3px solid var(--ink);border-radius:12px;background:var(--lemon);box-shadow:4px 4px 0 var(--ink);font-weight:700;animation:pop .3s}
 @keyframes pop{from{transform:translate(-50%,20px);opacity:0}}

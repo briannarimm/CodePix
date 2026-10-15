@@ -22,7 +22,7 @@ const UI = {
     const started = Object.keys(S.done).length || Object.keys(S.beat).length;
     const card = el("main.title-card", {},
       el("div", { html: logoSVG() }),
-      el("h1", { html: '<span class="c">CODE</span> <span class="p">PIX</span>' }),
+      el("h1.sr-only", {}, "Code Pix"),
       el("p.tag", {}, "A visual-novel textbook. You learn Python and machine learning by running real programs on your own computer, with the shop's very literal helper robot."),
       el("label", { for: "pname" }, "What should the shop call you?"), name,
       el("div.row", {},
