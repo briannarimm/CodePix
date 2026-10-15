@@ -1,5 +1,4 @@
 /* B4. Fit a Line: y' = b + w x, by hand and with scikit-learn.
-   TODO(research): a sourced definition of regression versus classification (GAP in the lesson plan).
    TODO(research): a source for LinearRegression's coef_ and intercept_ attributes (shown working in recorded programs only).
    TODO(research): a source for the least-squares slope formula used in b04_byhand (the book checks it against scikit-learn instead). */
 
@@ -9,6 +8,7 @@ PAGES("b04", [
     body: [
       "The scatter plot in B3 showed the tickets climbing in a rough straight band. A straight line through that band is the simplest Quote Machine there is.",
       "Google writes the model as y' = b + w1x1, where y' is the predicted label, b the [[bias]], w1 the [[weight]] and x1 the feature [ml-027]. That is [[linear regression]] with one feature. For us, x1 is hours of work and y' is the predicted cost.",
+      "scikit-learn's glossary sorts predictors by what comes out. A [[regressor]] has continuous output values. A [[classifier]] has a finite set of discrete possible outputs [ml-113]. A repair cost can land on any amount, so the Quote Machine is a regressor for now. B6 builds a classifier.",
       "Google's own example predicts a car's fuel economy from its weight. There the learned bias is 34 and the weight is -4.6, so a 4,000-pound car is predicted at 15.6 miles per gallon [ml-028].",
       { analogy: "Lay a ruler across the dots. The bias is where the ruler crosses the zero-hours line: the price of a job before any work happens. The weight is how steeply the ruler climbs: the extra dollars for each extra hour." },
       { fig: () => { const f = B0X_PLOT.hoursCost(); let s = f.s; B0X_TICKETS.forEach(t => { s += `<circle cx="${f.sx(t.hours)}" cy="${f.sy(t.cost)}" r="6" fill="#ff8a1f" stroke="#141414" stroke-width="2"/>`; }); s += `<line x1="${f.sx(0)}" y1="${f.sy(20)}" x2="${f.sx(4.5)}" y2="${f.sy(20 + 30 * 4.5)}" stroke="#1a8a8a" stroke-width="4"/>`; return B0X_PLOT.svg(s, "The tickets with a guessed line, b = 20 and w = 30"); },
@@ -52,6 +52,7 @@ GLOSS({
   "linear regression": "A model that predicts a number with a straight line. Google writes it as y' = b + w1x1. [ml-027]",
   weight: "In y' = b + w1x1, the number w1 that multiplies the feature x1: how much the prediction changes per unit of the feature. [ml-027]",
   bias: "In y' = b + w1x1, the number b added on its own: the prediction when the feature is zero. [ml-027]",
+  regressor: "A supervised predictor whose output values are continuous, such as a price. [ml-113]",
 }, "b04");
 
 /* ---- Toy: Line Fitter (JS demo) ---- */
@@ -111,6 +112,9 @@ LEVEL({
     say("nib", "The bias is the price before any work starts. The weight is the extra dollars per hour. Hours go in, a price comes out.", "think"),
     { ask: { q: "A line has b = 20 and w = 30. What does it predict for a 2-hour job?", choices: ["$50", "$80", "$100"], answer: 1,
       why: "y' = b + w x = 20 + 30 × 2 = 80. The bias adds once; the weight multiplies the hours." } },
+    say("nib", "A machine that answers with a number from a smooth range is a [[regressor]]. One that picks from a fixed list of answers is a [[classifier]] [ml-113]. Prices are smooth, so today we build a regressor."),
+    { ask: { q: "Which of these jobs is a regressor's job?", choices: ["Guess how many minutes a repair will take", "Guess whether a kettle needs a new part: yes or no", "Guess which of five shelves a part belongs on"], answer: 0,
+      why: "Minutes come from a continuous range, so that is a regressor's job. Yes or no, and one of five shelves, are finite sets of answers: a classifier's job [ml-113]." } },
     say("nib", "Google's example does the same with cars: bias 34, weight -4.6, and a 4,000-pound car comes out at 15.6 miles per gallon [ml-028]."),
     say("byte", "I can draw lots of lines. How do I know which one is good?", "think"),
     say("nib", "Exactly my favorite question. Score each line. For every ticket, square the gap between the real cost and the line's guess, and add them up. Smaller wins."),

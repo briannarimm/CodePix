@@ -1,5 +1,4 @@
-/* B9. Neighbors, Trees and Odds: k-nearest neighbors, decision trees, naive Bayes. */
-// TODO(research): random forests and support vector machines are only named by a source [ml-008]; no explanation is sourced yet, so the book only names them.
+/* B9. Neighbors, Trees and Odds: k-nearest neighbors, decision trees, naive Bayes, and a short look at random forests and SVMs [ml-119] to [ml-124]. */
 
 PAGES("b09", [
   {
@@ -40,7 +39,22 @@ PAGES("b09", [
       "Same eight gadgets, three different models, two new tickets. Each model learns with `fit` and answers with `predict` [ml-026].",
       { code: "b09_judges", out: true },
       "On the first ticket all three agree. On the second, an old gadget with a cheap estimate, the tree disagrees with the others. The tree only ever asks about the estimate, while the neighbors and naive Bayes also weigh the gadget's age. Different models notice different things, which is why the Train, Validate, Test job compares them on held-out tickets.",
-      "GeeksforGeeks also lists random forests and support vector machines among classification algorithms [ml-008]. This book names them and does not cover them yet.",
+      "GeeksforGeeks also lists random forests and support vector machines among classification algorithms [ml-008]. The next page lets them judge too.",
+    ],
+  },
+  {
+    h: "Two more judges: a forest and a margin",
+    body: [
+      "An [[ensemble]] combines the predictions of several base models to be more general or more robust than any one of them. scikit-learn names random forests and gradient-boosted trees as famous examples [ml-119].",
+      "A [[random forest]] is a crowd of decision trees. Each tree learns from a bootstrap sample of the training set, drawn with replacement, and considers only a random subset of the features while it grows [ml-120]. So every tree sees a slightly different shop.",
+      "Why bother? scikit-learn says a single decision tree typically has high variance and tends to overfit, and averaging many diverse trees lets some of their errors cancel out. Its forests average the trees' probability predictions instead of taking a vote [ml-121].",
+      { analogy: "One apprentice who memorized last month's tickets has strong opinions about everything. Ask a hundred apprentices who each studied a different handful of tickets, and average their hunches. The odd ideas wash out." },
+      "A [[support vector machine]] is a supervised method for classification, regression and outlier detection. Its decision function uses only some of the training points, called [[support vectors]] [ml-122]. Intuitively, it separates the classes with the line (in general, a hyperplane) that has the largest distance to the nearest training points of any class. That distance is the margin [ml-123].",
+      { analogy: "Lay the widest possible plank on the floor between the fix pile and the replace pile. Only the gadgets touching the plank's edges decide where it goes. Those are the support vectors." },
+      { code: "b09_more", out: true },
+      "The forest grew 100 trees, and its averaged odds land close to half and half on both tickets: eight gadgets are thin evidence. The SVM's support vectors are three of the eight gadgets: (4, 4) from the fix pile, and (8, 6) and (6, 9) from the replace pile. They are the gadgets nearest the gap.",
+      "Both new judges say *fix* for the (5, 6) ticket, and the first three judges said *replace*. That ticket sits in the gap between the piles, where reasonable judges disagree. One more note: scikit-learn says SVMs do not directly provide probability estimates [ml-124], so the program asks the SVM only for its answers.",
+      { honest: "The forest uses a fixed seed (`random_state=0`), so the build gets the same trees every run. A different seed grows different trees and can tip a ticket this close the other way." },
       { machine: ["b09-neighbors"], label: "Go to your machine: write the neighbor vote" },
     ],
   },
@@ -50,6 +64,10 @@ GLOSS({
   "k-nearest neighbors": "A classifier that remembers the training examples and gives a new point the most common class among its k nearest neighbors. [ml-064]",
   "decision tree": "A model that learns if-then-else rules from the data. Easy to read; can overfit unless limited. [ml-065]",
   "naive Bayes": "A classifier that uses Bayes' theorem and assumes the features are independent once the class is known. [ml-067]",
+  ensemble: "A model that combines the predictions of several base models to be more general or robust than one. Random forests are an example. [ml-119]",
+  "random forest": "An ensemble of decision trees, each built from a bootstrap sample of the training set with a random subset of the features. scikit-learn averages the trees' probabilities. [ml-120] [ml-121]",
+  "support vector machine": "A supervised method for classification, regression and outlier detection that separates classes with the widest possible margin. [ml-122] [ml-123]",
+  "support vectors": "The subset of training points that a support vector machine's decision function uses: the ones nearest the dividing line. [ml-122] [ml-123]",
 }, "b09");
 
 TOY("neighbors", {
@@ -111,7 +129,7 @@ LEVEL({
   id: "b09", title: "Neighbors, Trees and Odds", job: "Fix it or replace it? Ask three different judges.",
   color: "#5cc8ff", scene: "bench", cast: ["gridlock"], toy: "neighbors",
   sticker: { title: "Three Judges", glyph: "kNN", color: "#5cc8ff" },
-  goals: ["Classify by asking the nearest neighbors", "Read a decision tree's rules", "Compare three models on the same tickets"],
+  goals: ["Classify by asking the nearest neighbors", "Read a decision tree's rules", "Compare five models on the same tickets"],
   beats: [
     say("gridlock", "{{you}}, customers keep asking whether to fix an old gadget or just replace it. I answer from gut feeling. Can the bench answer from the records instead?", "think"),
     { show: ["gridlock", "nib"], ...say("nib", "What does your gut actually do? It remembers similar gadgets and what happened to them. We can do that on purpose. It is called [[k-nearest neighbors]].") },
@@ -136,8 +154,16 @@ LEVEL({
     { predict: { program: "b09_judges", q: "All three judges see two new tickets: (5, 6) and an old cheap one, (9, 4). Will they agree?" } },
     { ask: { q: "On the old gadget with a cheap estimate, the tree said fix and the others said replace. Why might that be?", choices: ["The tree only asks about the estimate; the others also weigh the age", "The tree is broken", "Naive Bayes copied the neighbors"], answer: 0,
       why: "Our tree's only rule is about the estimate. The other two judges use both features, and this gadget is very old." } },
-    { book: 3, text: "The book's last page has the three judges side by side." },
-    say("gridlock", "Three judges, and they argue. Just like my family. Fine: {{you}}, write the neighbor vote by hand so I know it is not magic."),
+    { book: 3, text: "The book has the three judges side by side." },
+    say("nib", "Two more judges want a turn. A [[random forest]] is many trees, each trained on a bootstrap sample with a random subset of the features [ml-120]. It averages their probabilities [ml-121].", "think"),
+    say("nib", "And a [[support vector machine]] looks for the dividing line with the widest margin to the nearest gadgets on each side [ml-123]. Those nearest gadgets are the [[support vectors]] [ml-122]."),
+    { predict: { program: "b09_more", q: "A 100-tree forest and an SVM judge the same two tickets. What do they say?" } },
+    { ask: { q: "The SVM's support vectors are (4, 4), (8, 6) and (6, 9). Why those three gadgets?", choices: ["They sit nearest the gap between the fix pile and the replace pile", "They are the three newest gadgets", "The SVM picks three gadgets at random"], answer: 0,
+      why: "The SVM's line keeps the largest distance to the nearest training points of each class [ml-123], and its decision function uses only those points, the support vectors [ml-122]." } },
+    { ask: { q: "Why does a random forest usually beat one lonely tree?", choices: ["Averaging many diverse trees lets some of their errors cancel out", "Each tree in a forest is deeper", "A forest never overfits"], answer: 0,
+      why: "scikit-learn says single trees have high variance and tend to overfit, and averaging many diverse trees lets some errors cancel out [ml-121]." } },
+    { book: 4, text: "The last book page has the forest, the margin and the five-judge vote." },
+    say("gridlock", "Five judges, and they argue. Just like my family. Fine: {{you}}, write the neighbor vote by hand so I know it is not magic."),
     { machine: ["b09-neighbors"] },
     say("byte", "I asked my neighbors whether I deserve a sticker. Two out of three said yes. BEEP BOOP."),
     { sticker: true },

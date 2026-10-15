@@ -5,14 +5,14 @@
   "file": "plot_tickets.py",
   "kind": "explore",
   "py": "3.10",
-  "prompt": "Time to see the data on your own screen. Run `plot_tickets.py` inside your virtual environment. A window opens with a scatter plot of hours against cost for the twelve fictional tickets. Close the window to end the program.\n\nThen try the second picture: change `ax.scatter(hours, costs)` to `ax.hist(costs)` and run it again.",
+  "prompt": "Time to see the data on your own screen. Run `plot_tickets.py` inside your virtual environment. A window opens with a scatter plot of hours against cost for the twelve fictional tickets. Close the window to end the program.\n\nThen try the second picture: change `ax.scatter(hours, costs)` to `ax.hist(costs)` and run it again.\n\nLast, keep a copy: add `fig.savefig(\"tickets.png\")` on the line before `plt.show()`, run it once more, and look for `tickets.png` in your folder.",
   "run_command": "python3 plot_tickets.py",
   "hints": [
     "No window? Check that the virtual environment is active (`source .venv/bin/activate`) and that Matplotlib installed without errors.",
     "The program waits while the window is open. Close the window and the terminal prompt comes back.",
     "`ax.hist` needs only one list, the costs. `ax.scatter` needs two, one for across and one for up."
   ],
-  "explain_after": "That is Matplotlib's basic pattern: `plt.subplots()` makes a figure with one Axes, a method draws on the Axes, and `plt.show()` displays it [ml-020]. `scatter` and `hist` are both Axes methods [ml-102]. Look for the dot far up and to the right: the fridge job. Spotting a lonely dot like that before you build a model is the whole point of this level.",
+  "explain_after": "That is Matplotlib's basic pattern: `plt.subplots()` makes a figure with one Axes, a method draws on the Axes, and `plt.show()` displays it [ml-020]. `scatter` and `hist` are both Axes methods [ml-102]. Look for the dot far up and to the right: the fridge job. Spotting a lonely dot like that before you build a model is the whole point of this level. `savefig` saved the figure to a file, and the `.png` ending picked the format [ml-112].",
   "concepts": [
     "Matplotlib",
     "scatter plot",

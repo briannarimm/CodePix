@@ -1,5 +1,5 @@
 /* B3. Draw the Data: look before you model.
-   TODO(research): saving a figure to a file (savefig) is a GAP; the book says so and the recorded programs never call plt.show(). */
+   The recorded programs never call plt.show(): the build computer has no screen. b03_save shows savefig [ml-112]. */
 
 /* A tiny SVG chart helper shared by the B3, B4 and B5 toys and figures (hand-written, no library). */
 const B0X_PLOT = {
@@ -46,7 +46,9 @@ PAGES("b03", [
       "The build computer has no screen, so the recorded program reports what it drew. On your machine, add one line at the end and a window opens with the picture:",
       { snippet: "plt.show()", lang: "py", file: "add at the end" },
       { fig: () => B0X_PLOT.scatterSVG(), cap: "A JavaScript drawing of the same twelve numbers, made for this page. Matplotlib's own picture looks a little different." },
-      { honest: "Saving the picture to an image file is not covered yet; the page we read for Matplotlib does not show it." },
+      "To keep a copy of the picture, save it. `Figure.savefig` saves the figure as an image or vector graphic file. If you give no format, Matplotlib takes it from the file name's extension, and `dpi` sets the resolution in dots per inch [ml-112].",
+      { code: "b03_save", out: true },
+      "The first call writes a PNG image at 100 dots per inch. The second writes an SVG, a vector graphic, because the name ends in `.svg`. Both files land in the folder where the program ran. Open them like any other picture.",
     ],
   },
   {
@@ -143,6 +145,9 @@ LEVEL({
     say("byte", "Twelve dots on one Axes. I wish I could see them. My screen is only a face.", "think"),
     { ask: { q: "The recorded programs leave out one line that you add on your own machine to open the picture. Which?", choices: ["`plt.subplots()`", "`ax.scatter(hours, costs)`", "`plt.show()`"], answer: 2,
       why: "`plt.show()` displays the figure [ml-020]. The build computer has no screen, so the recorded programs stop before it." } },
+    say("nib", "And to keep the picture, `fig.savefig(\"tickets.png\")` writes it to a file. With no format given, the file name's extension picks one [ml-112]."),
+    { ask: { q: "You run `fig.savefig(\"quote.svg\")` with no other settings. What kind of file do you get?", choices: ["A PNG image, the default", "An SVG vector graphic", "An error, because no format was given"], answer: 1,
+      why: "With no format given, `savefig` takes the format from the file name's extension [ml-112]. The name ends in `.svg`." } },
     { predict: { program: "b03_hist", q: "Matplotlib's `hist` with the same bin edges. Do its counts match the text histogram?" } },
     { show: ["nib", "byte", "gridlock"], ...say("gridlock", "So what does the picture say about my prices?", "think") },
     say("nib", "Longer jobs cost more, in a rough straight band. And there is one dot up in the corner: the fridge. It sits near the band, so we keep it."),

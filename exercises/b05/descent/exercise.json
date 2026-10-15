@@ -13,7 +13,7 @@
     "Downhill means against the slope. If the slope for `b` is positive, `b` should get smaller: `new_b = b - size * slope_b(...)`.",
     "Work out both slopes from the old `b` and `w` first, then return `(b - size * sb, w - size * sw)`."
   ],
-  "explain_after": "You wrote gradient descent. Google describes it as four repeated steps: compute the loss, decide which direction lowers it, move the weight and bias a small amount that way, and repeat until the loss stops improving [ml-033]. The answer matches what scikit-learn found for the same four tickets in `b05_compare`. Try `size = 0.2` and watch the loss blow up instead.",
+  "explain_after": "You wrote gradient descent. Google describes it as four repeated steps: compute the loss, decide which direction lowers it, move the weight and bias a small amount that way, and repeat until the loss stops improving [ml-033]. The answer matches what scikit-learn found for the same four tickets in `b05_compare`. The `size` you pass to `step` is the learning rate: the small value that multiplies the gradient [ml-114]. Try `0.2` and watch the loss blow up instead.",
   "concepts": [
     "loss",
     "MSE",
