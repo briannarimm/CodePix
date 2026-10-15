@@ -1,15 +1,14 @@
 /* A0. Open the Shop: the cast, the terminal, folders and paths. Monday morning. */
 
-// TODO(research): Windows terminal commands (PowerShell or Command Prompt) are a GAP; only the macOS and Linux shell is sourced.
 // TODO(research): no source yet for "~" meaning the home folder, or for the macOS folder layout (/Users/...). The toy uses a fictional tree.
-// TODO(research): no source for a formal definition of "program" or "computer"; the book keeps them as our own plain words.
+// TODO(research): Windows output for pwd and ls (lesson plan asks to record it on a real Windows machine); the book shows commands only.
 
 PAGES("a00", [
   {
     h: "A very literal helper",
     body: [
-      "Gadget Gulch Repair & Tinker Shop fixes talking appliances. Its helpers are computers, and a computer is a very literal helper. It does exactly what it is told, in exactly the order it is told, and it never guesses what you meant.",
-      "A program is a numbered list of instructions for that helper. (That is our own working definition. The book makes it sharper as we go.) Here is a three-line program the office computer runs every morning.",
+      "Gadget Gulch Repair & Tinker Shop fixes talking appliances. Its helpers are computers. OpenStax defines a [[computer]] as an electronic device that stores and processes information, and a [[program]] as a sequence of instructions that a computer can run [py-187].",
+      "In this book a computer is a very literal helper. It does exactly what it is told, in exactly the order it is told, and it never guesses what you meant. A program is the numbered list of instructions it follows. Here is a three-line program the office computer runs every morning.",
       { code: "a00_sign", out: true },
       { analogy: "Picture a recipe card that a very careful cook follows to the letter. If the card says *add salt*, the cook adds salt. If the card says *add slat*, the cook stops and asks what a slat is. Programs work the same way." },
       { trace: "a00_sign", label: "🔍 Watch Reader read it, one line at a time" },
@@ -25,7 +24,9 @@ PAGES("a00", [
       { honest: "The exact prompt and the exact folder name differ from computer to computer, so this page does not show a made-up answer. Type `pwd` on your own machine and read yours." },
       { alt: "Windows and Linux", body: [
         "Linux: the commands in this chapter come from a lecture that teaches the bash shell [py-002].",
-        "Windows: the commands on this page are for macOS and Linux shells. Windows steps are still being checked against sources for a later beta. For now, Code Pix's Windows instructions use VS Code's own terminal.",
+        "Windows: Microsoft describes Windows PowerShell as a command-line shell that comes preinstalled on all modern versions of Windows [py-166]. On Windows 11, the easiest way to find it is to type PowerShell into the search bar [py-167].",
+        "PowerShell on Windows understands the familiar names through aliases: `cd` runs `Set-Location`, `ls` runs `Get-ChildItem`, `pwd` runs `Get-Location`, `cp` runs `Copy-Item` and `mv` runs `Move-Item` [py-168]. Microsoft's table also pairs `mkdir` with `New-Item` [py-169]. So `pwd`, `ls`, `cd`, `mkdir`, `mv` and `cp` all work in PowerShell on Windows. These aliases are Windows-only; PowerShell on macOS or Linux runs the native commands instead [py-170].",
+        { term: [["pwd", "Prints where you are. In PowerShell on Windows this runs Get-Location [py-168]."]], title: "PowerShell on Windows" },
       ] },
     ],
   },
@@ -51,6 +52,9 @@ PAGES("a00", [
         ["`.`", "relative", "Right here."],
       ] } },
       { honest: "These folders belong to the fictional shop computer in the Folder Map toy. Your own computer has its own folder names." },
+      { alt: "Windows paths", body: [
+        "Linux and macOS separate folders with `/`. Windows uses `\\` instead, and it has one root for each disk partition, such as `C:\\` [py-171]. So the office path `/office/gridlock` would be written `C:\\office\\gridlock` on a Windows machine with the same folders.",
+      ] },
       { analogy: "An absolute path is a full street address. A relative path is \"two doors down from here\". Both work, and the second one only makes sense if you know where *here* is." },
     ],
   },
@@ -59,6 +63,9 @@ PAGES("a00", [
     body: [
       "`mkdir` makes a directory, `mv` moves or renames, and `cp` copies [py-007]. Your first real job is to make a folder for everything you build in Code Pix.",
       { term: [["pwd", "Check where you are."], ["mkdir codepix", "Make a folder named codepix."], ["cd codepix", "Walk into it."], ["pwd", "Check again. The path now ends in codepix."]], title: "Terminal: make your codepix folder" },
+      { alt: "Windows: the same four commands in PowerShell", body: [
+        "Type the same four commands into PowerShell. On Windows, `mkdir` runs the cmdlet `New-Item` [py-169], and `pwd` and `cd` run `Get-Location` and `Set-Location` [py-168]. The path `pwd` prints uses `\\` between folders [py-171].",
+      ] },
       { nerd: "Two more tricks for later", body: [
         "`>` sends a program's output to a file, `>>` adds to the end of a file, and `|` sends one program's output into another program's input [py-008]. You will not need these for a while. They are here so the symbols look familiar when you meet them.",
         "The shell finds commands by searching a list of folders kept in the [[PATH variable]], and `which echo` shows the file the `echo` command runs [py-006]. A1 uses `which` to check which Python you have.",
@@ -72,6 +79,8 @@ GLOSS({
   terminal: "The app that shows you a shell, where you type commands. On a Mac you open Terminal from Spotlight or from Applications, Utilities. [py-001]",
   directory: "Another word for a folder. Directories hold files and other directories.",
   "working directory": "The folder the shell is standing in right now. `pwd` prints it and `cd` changes it. [py-003]",
+  computer: "An electronic device that stores and processes information (OpenStax's definition). In this book, a very literal helper. [py-187]",
+  program: "A sequence of instructions that a computer can run (OpenStax's definition). [py-187]",
   path: "Directions to a file or folder. A path that starts with `/` is absolute; any other path is relative to the working directory. [py-005]",
   "PATH variable": "The list of folders the shell searches when you type a command. `which` shows the file a command runs. [py-006]",
 }, "a00");
@@ -177,6 +186,7 @@ LEVEL({
     say("reader", "Reader, at your service. When you write programs, I read them. One line at a time. Never two. Two is chaos."),
     say("nib", "Reader will matter a lot tomorrow. Today, the text window. It is called the [[terminal]], and inside it runs the [[shell]], a textual interface for giving the computer commands [py-002]."),
     say("nib", "On a Mac, open Terminal from Spotlight by typing Terminal, or from the Utilities folder inside Applications [py-001]. Then it waits for you to type.", "think"),
+    say("byte", "Windows folks: type PowerShell into the search bar on Windows 11 [py-167]. It is a command-line shell that comes with Windows [py-166]. BEEP. Same idea, different window."),
     { ask: { q: "What is the shell?", choices: ["A text interface for giving the computer commands", "A folder where programs are kept", "The Python language"], answer: 0,
       why: "The shell is a textual interface for giving the computer commands [py-002]. Terminal is the app that shows it to you." } },
     say("nib", "The computer keeps files in folders, also called [[directory|directories]]. The shell always stands in one of them. That folder is the [[working directory]]."),

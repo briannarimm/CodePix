@@ -3,7 +3,7 @@
 // TODO(research): how to start and leave the REPL (typing python3 alone, the >>> prompt, exit()) has no fact yet. The book says so plainly.
 // TODO(research): installing VS Code on macOS, and setting up the `code` command for `code .`, are not sourced. The book links the VS Code tutorial.
 // TODO(research): the name of the shell configuration file (for example .zprofile) and Homebrew's prefix on Intel Macs are not sourced.
-// TODO(research): step-by-step Windows install and VS Code on Windows are only partly sourced; Linux apt/dnf commands are a GAP.
+// TODO(research): Linux sources cover pip, venv and IDLE packages only; a per-distribution command that installs Python itself is not sourced.
 // TODO(research): real `which python3` and `python3 --version` output from a clean macOS account (lesson plan asks for it).
 
 /* Fixes for the setup troubleshooter. Used by the Setup Checklist toy and by the Troubleshooting page (90-x-trouble.js). */
@@ -20,8 +20,13 @@ const SETUP_FIXES = [
     "That is the Python that comes with macOS: an older, incomplete Python meant for Apple's development tools. The Python docs say never to modify or delete it [py-012]. Leave it alone and use Homebrew's.",
     "On Apple silicon, Homebrew lives under `/opt/homebrew` [py-017], so its `python3` has a path that starts there. If you see `/usr/bin/python3`, check that you ran `brew install python3` [py-157] and that Homebrew's `brew shellenv` line is in your shell setup [py-018].",
   ] },
-  { id: "win", q: "Windows: `python3` is not recognized.", os: "win", a: [
+  { id: "win", q: "Windows: `python3` is not recognized, or behaves oddly.", os: "win", a: [
     "On Windows the recommended command for launching Python is `python` [py-026]. The `py` command also starts Python, and it can pick between versions [py-027]. Wherever Code Pix says `python3`, type `python`.",
+    "The Python install manager does include a `python3` command, but only to catch the habit from other systems. The documentation says it is not meant to be widely used or recommended [py-177].",
+  ] },
+  { id: "winstore", q: "Windows: `python` says command not found, or opens the Microsoft Store.", os: "win", a: [
+    "The Windows documentation's troubleshooting table covers this. Check that the Python install manager is installed. Then, under **Manage app execution aliases** in Windows settings, check that the Python (default) aliases are enabled [py-179].",
+    "If you had other Pythons installed before, or changed your PATH by hand, you may need to remove or undo those first [py-175].",
   ] },
   { id: "nofile", q: "`python3 hello.py` says it cannot open the file.", os: "all", a: [
     "`hello.py` is a relative path, so Python looks for it in your working directory [py-005]. You are probably standing in a different folder.",
@@ -64,14 +69,34 @@ PAGES("a01", [
           { honest: "We do not show sample answers here because they depend on your machine. The next page explains how to read yours." },
         ],
         win: [
-          "The Windows section of the Python documentation starts with the Python install manager [py-026]. Follow it from [Using Python on Windows](https://docs.python.org/3/using/windows.html).",
-          "On Windows the recommended command for launching Python is `python` [py-026]. `py` also starts Python and can choose between versions [py-027]. Wherever Code Pix says `python3`, type `python`.",
-          { honest: "Step-by-step Windows instructions are still being checked against sources for a later beta." },
+          "Unlike most Unix systems, Windows does not include a system supported installation of Python [py-172]. So there is no old Python to leave alone, and you install one yourself.",
+          { h3: "1. The Python install manager" },
+          "To get Python from the CPython team, the documentation says to use the Python Install Manager. Download it from [python.org/downloads](https://www.python.org/downloads/), or get it through the Microsoft Store app [py-173].",
+          { ul: [
+            "From the Store: click Install. Then open a terminal and type `python` [py-174].",
+            "From python.org: double-click the downloaded file and select Install [py-174].",
+          ] },
+          "Afterwards the `python`, `py` and `pymanager` commands should be available. If you already had other Pythons installed, or changed your PATH, you may need to remove or undo those first [py-175]. The full guide is [Using Python on Windows](https://docs.python.org/3/using/windows.html).",
+          { h3: "2. Check it" },
+          { term: [["py -3 --version", "Print the version. The VS Code tutorial checks a Windows install this way [py-227]."],["py list", "Show which installed version is current. The global python command launches that one [py-176]."]], title: "Windows terminal" },
+          { h3: "3. Type python, not python3" },
+          "`py` also starts Python and can choose between versions [py-027]. The install manager includes a `python3` command only to catch habits from other systems, and the documentation does not recommend it [py-177]. So wherever Code Pix says `python3`, type `python`.",
+          { h3: "4. VS Code" },
+          "Install VS Code and its Python extension from the [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial) [py-022]. Its Run Python File button runs `python hello.py` on Windows [py-228].",
+          { honest: "Last verified 2026-10-14 against the Python documentation. If `python` opens the Microsoft Store, see the troubleshooter below." },
         ],
         linux: [
           "Python comes preinstalled on most Linux distributions and is available as a package on all the others [py-028]. Check what you have:",
           { term: [["python3 --version", "Print the version [py-165]."], ["which python3", "Show which file runs [py-006]."]] },
-          { honest: "Package-manager commands for each distribution are still being checked against sources." },
+          { h3: "pip and venv (needed from A13)" },
+          "On Debian, Ubuntu and their relatives, the Python Packaging User Guide installs these with two commands [py-183]:",
+          { term: [["sudo apt update", "Refresh the package lists."], ["sudo apt install python3-venv python3-pip", "Install the venv and pip packages [py-183]."]], title: "Debian and Ubuntu" },
+          "On Fedora it installs pip with one command [py-184]:",
+          { term: [["sudo dnf install python3-pip python3-wheel", "Install pip [py-184]."]], title: "Fedora" },
+          { honest: "The Packaging User Guide marks this Linux page as incomplete, and it was last reviewed on 2021-07-26 [py-185]. We checked it on 2026-10-14. If your distribution's own docs disagree, follow them." },
+          { alt: "IDLE is missing", body: [
+            "The Python docs install IDLE with `sudo apt install idle` on Debian and Ubuntu, and with `sudo dnf install python3-idle` on Fedora, RHEL and CentOS [py-186]. Code Pix uses VS Code, so this is optional.",
+          ] },
         ],
       } },
       { toy: "setup", label: "Open the Setup Checklist (with a troubleshooter)" },
@@ -100,7 +125,7 @@ PAGES("a01", [
       { term: [["cd codepix", "Go into your Code Pix folder from A0."], ["mkdir hello", "Make a folder for this job."], ["cd hello", "Walk into it."], ["code .", "Open VS Code on this folder. The dot means here."]] },
       "In VS Code, make a new file named `hello.py` and type one line:",
       { code: "a01_hello", out: true },
-      "Run it from the terminal with `python3 hello.py`. VS Code's **Run Python File** button does the same thing for you: it opens a terminal and runs `python3 hello.py` on macOS and Linux [py-024].",
+      "Run it from the terminal with `python3 hello.py`. VS Code's **Run Python File** button does the same thing for you: it opens a terminal and runs `python3 hello.py` on macOS and Linux [py-024]. On Windows the same button runs `python hello.py` [py-228].",
       { nerd: "Another editor that is already there", body: [
         "IDLE is the development environment that comes as a standard part of official Python distributions [py-015]. With Homebrew's Python, IDLE needs tkinter from a separate formula, `python-tk@3.14` [py-021]. Code Pix uses VS Code, so you can skip this.",
       ] },
@@ -110,6 +135,7 @@ PAGES("a01", [
   {
     h: "Reader, the interpreter",
     body: [
+      "Python is a [[high-level language]]. OpenStax explains that its source code is meant for humans to understand, while computers understand only low-level machine code made of 1s and 0s [py-190]. Something has to bridge that gap.",
       "When you run `python3 hello.py`, a program called the [[interpreter]] reads your file and carries it out. The Python glossary calls Python an interpreted language, as opposed to a compiled one, though it says the line can be blurry. Source files can be run directly, without first making a separate program file [py-031].",
       "Under the hood, Python first compiles your source code into **bytecode**, which it caches in `.pyc` files [py-032].",
       { analogy: "In this book the interpreter is Reader: a tiny runner with a clipboard who reads your program one line at a time, from the top, and does what each line says." },
@@ -119,6 +145,7 @@ PAGES("a01", [
       { h3: "The REPL" },
       "Python can also take one line at a time, straight from you. The glossary calls this the [[REPL]], short for read-eval-print loop: another name for the interactive interpreter shell [py-030]. You type a line, Python reads it, works it out, prints the answer and waits for the next one.",
       { code: "a01_sums", out: true },
+      "A handy trick: in most Python shells, the up arrow brings back the previous line you typed and the down arrow the next one, so you can repeat a line without retyping it [py-191].",
       { honest: "The exact steps for opening the REPL on your machine are still being checked against a source for this beta. Until then, every REPL example in this book is also a program file you can run with `python3`." },
     ],
   },
@@ -127,6 +154,7 @@ PAGES("a01", [
 GLOSS({
   Homebrew: "A package manager for macOS that installs tools such as Python. The Python docs list it as an alternative distribution that the core Python team does not maintain. [py-014]",
   interpreter: "The program that reads your Python code and carries it out. Python is an interpreted language, so source files can be run directly. [py-031]",
+  "high-level language": "A language whose source code is meant for humans to understand. Computers understand only low-level machine code made of 1s and 0s. Python is high-level. [py-190]",
   REPL: "Short for read-eval-print loop: the interactive interpreter shell, where you type one line and see the answer. [py-030]",
 }, "a01");
 
@@ -153,14 +181,16 @@ TOY("setup", {
         "Run `hello.py` from the terminal and with Run Python File [py-024].",
       ],
       win: [
-        "Follow the Python install manager in [Using Python on Windows](https://docs.python.org/3/using/windows.html) [py-026].",
-        "Start Python with `python` or `py` [py-027].",
+        "Install the Python Install Manager from python.org/downloads or the Microsoft Store [py-173].",
+        "Open PowerShell (type PowerShell into the search bar on Windows 11) [py-167].",
+        "Run `py -3 --version` [py-227] and `py list` [py-176].",
         "Install VS Code and its Python extension [py-022].",
-        "Run `hello.py` with `python hello.py`.",
+        "Run `hello.py` with Run Python File, which runs `python hello.py` [py-228].",
       ],
       linux: [
         "Check for Python with `python3 --version` [py-165]. Most distributions include it [py-028].",
         "Check which one runs with `which python3` [py-006].",
+        "Debian or Ubuntu: `sudo apt update`, then `sudo apt install python3-venv python3-pip` [py-183]. Fedora: `sudo dnf install python3-pip python3-wheel` [py-184].",
         "Install VS Code and its Python extension [py-022].",
         "Run `hello.py` from the terminal and with Run Python File [py-024].",
       ],
@@ -221,6 +251,8 @@ LEVEL({
     { ask: { q: "`which python3` prints `/usr/bin/python3`. Whose Python is that?", choices: ["Homebrew's", "Apple's, for its developer tools", "VS Code's"], answer: 1,
       why: "`/usr/bin/python3` is the one that comes with macOS [py-012]. On Apple silicon, Homebrew's lives under `/opt/homebrew` [py-017]." } },
     say("nib", "Next, the editor. VS Code's Python tutorial needs Python 3, VS Code and the Python extension [py-022]. It opens a folder with `code .` [py-025]."),
+    say("byte", "Windows bench? Windows has no system Python [py-172]. Get the Python Install Manager [py-173], then type `python` where I say `python3` [py-026]. BEEP. Two fewer keystrokes."),
+    say("nib", "One more idea before Reader takes over. Python is a [[high-level language]]: its code is meant for humans to read. Computers understand only machine code made of 1s and 0s [py-190].", "think"),
     { show: ["nib", "byte", "reader"], ...say("reader", "My turn. When you run a program, I am the one who reads it. Officially I am the [[interpreter]]. Python source files can be run directly [py-031].") },
     say("reader", "I start at the top and read one line at a time. If a line makes no sense, I stop right there. Watch this program with a typo on line 3.", "think"),
     { predict: { program: "a01_reader", q: "Line 3 says `prnt` instead of `print`. What gets printed before Reader stops?" } },

@@ -36,12 +36,20 @@ const MACHINE = {
     const sd = el("div"); sd.append(codeBlock(ex.starter_src, { file: ex.file })); starter.append(sd);
     ol.append(el("li", {}, el("b", {}, "Get the files. "), "Download them, or copy the starter code into a new file with the same name.", files, starter));
     // 2. folder
-    const name = ex.files.join(" ");
     ol.append(el("li", {}, el("b", {}, "Put them in a folder and open it. "), "In Terminal, make a folder for this exercise, move the downloads into it, and open it in VS Code.",
       osTabs({
         mac: [{ term: [[`mkdir -p ${dir}`, "Make the folder (and any missing folders above it)."], [`cd ${dir}`, "Move into it."], [`mv ${ex.files.map(f => "~/Downloads/" + f).join(" ")} .`, "Move the downloaded files here. The dot means this folder."], ["code .", "Open this folder in VS Code."]] }],
         linux: [{ term: [[`mkdir -p ${dir}`, "Make the folder."], [`cd ${dir}`, "Move into it."], [`mv ${ex.files.map(f => "~/Downloads/" + f).join(" ")} .`, "Move the downloaded files here."], ["code .", "Open this folder in VS Code."]] }],
-        win: [{ honest: "Windows terminal steps are still being checked against sources for the next beta. For now, make a folder named " + dir.replace("~/", "codepix\\").replace(/\//g, "\\") + " in your user folder with File Explorer, move " + name + " into it, and open the folder in VS Code with File, Open Folder. Then use VS Code's own terminal (Terminal, New Terminal) for the next step, and type python where this page says python3." }],
+        win: (() => {
+          const wdir = dir.replace(/\//g, "\\");
+          return [
+            "Use PowerShell. On Windows 11, type PowerShell into the search bar to find it [py-167]. Windows paths use `\\` between folders [py-171].",
+            { term: [[`mkdir ${wdir}`, "Make the folder. In PowerShell on Windows, mkdir runs New-Item [py-169]."], [`cd ${wdir}`, "Move into it. cd runs Set-Location [py-168]."],
+              ...ex.files.map(f => [`mv ~\\Downloads\\${f} .`, "Move a downloaded file here. mv runs Move-Item [py-168]. The dot means this folder."]),
+              ["code .", "Open this folder in VS Code."]], title: "PowerShell" },
+            "In the next step, type `python` wherever it says `python3`. On Windows the recommended command for launching Python is `python` [py-026], and VS Code's Run Python File button runs `python` there too [py-228].",
+          ];
+        })(),
       })));
     // 3. edit
     ol.append(el("li", {}, el("b", {}, "Edit. "), el("span", { html: rich(`Open \`${ex.file}\` in VS Code and follow the comments in it. Save the file.`) })));
