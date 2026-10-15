@@ -4594,7 +4594,7 @@
    "claim": "In scikit-learn's train_test_split, test_size is the proportion (or number) of samples for the test split; if neither test_size nor train_size is given, the test size is set to 0.25.",
    "check": [
     "represent the proportion of the dataset to include in the test split",
-    "If train_size is also None, it will be set to 0.25"
+    "it will be set to 0.25"
    ],
    "mod": "ml"
   },
