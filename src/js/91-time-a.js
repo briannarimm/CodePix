@@ -1,11 +1,13 @@
 /* Time machine entries for Module A (computing history, Python's origin and versions). Cited facts only.
    Module B's machine-learning history lives in its own file. Logo (1967, py-071) lives in the a06b level file. */
 
-// TODO(research): Ada Lovelace (py-222, py-223), ENIAC (py-224) and Hopper's A-0 and COBOL (py-225) are researched
-// but still pending; add their cards once the checker marks those sources verified. PEP 20 (the Zen of Python)
-// would fit too, once a source gives its date.
+// TODO(research): ENIAC (py-224) stays out until its source is verified. PEP 20 (the Zen of Python) would fit
+// too, once a source gives its date.
 
 EVENTS([
+  { year: 1843, when: "1843", level: "a02", text: "Ada Lovelace publishes a translation from the French of an article on the Analytical Engine. Her Notes include the first published description of a stepwise sequence of operations [py-222]. They run to about three times the length of the original memoir [py-223]. The CS50 notes define an algorithm as a step-by-step set of instructions to solve a problem [py-226]." },
+  { year: 1934, when: "1934", level: "a02", text: "Grace Hopper earns a Yale doctorate in mathematics. Yale's biography also lists her work on the Harvard Mark I [py-225]." },
+  { year: 1952, when: "1952", level: "a02", text: "Grace Hopper develops the first compiler, called A-0. She later takes part in creating COBOL [py-225]." },
   { year: 1906, when: "1906 to 1992", level: "a02", text: "Grace Hopper (1906-1992) comes up with the idea of machine-independent programming languages, and envisions a programming language based on English [py-220]." },
   { year: 1954, when: "1954", level: "a02", text: "The programming language Fortran is created, with John Backus as its primary author, according to IBM's history page [py-153]." },
   { year: 1957, when: "1957", level: "a02", text: "IBM releases Fortran commercially [py-153]." },

@@ -1,8 +1,6 @@
 /* A13. The Toolbox Drawer: import, a few standard modules, venv, pip, pytest. Friday midday.
    The pip practice package is texttable 1.7.1 [py-205]. a13_table.py needs it installed where the site is built
-   (CI: pip install texttable==1.7.1 for the build Python and for the 3.9 verify run).
-   TODO(research): a fact that defines "the standard library" (the glossary has "library" [py-188] for now).
-   TODO(research): a fact for the command that runs pytest (the getting-started page shows `pytest`). */
+   (CI: pip install texttable==1.7.1 for the build Python and for the 3.9 verify run). */
 
 PAGES("a13", [
   {
@@ -10,6 +8,7 @@ PAGES("a13", [
     body: [
       "You have written recipe cards of your own. Other people have written thousands more. OpenStax calls a collection of code that can be used in other programs a [[library]] [py-188].",
       "Python also comes with whole drawers of recipe cards. Each drawer is a [[module]]: the glossary defines a module as an organizational unit of Python code with its own namespace, and a [[package]] as a module that can hold submodules [py-124].",
+      "The biggest cabinet of drawers is Python's [[standard library]]. It is a collection of modules, most written in Python and some in C, and all of them can be imported into your program to add functionality [py-251].",
       "To use a drawer, you [[import]] it. Then a dot reaches inside for one tool. The `math` module provides `math.sqrt(x)`, `math.floor(x)`, `math.ceil(x)` and the constant `math.pi` [py-163].",
       { code: "a13_math", out: true },
       "Read the second line of output: `math.floor(2.7)` gave 2 and `math.ceil(2.1)` gave 3. Floor rounds down, ceil rounds up.",
@@ -82,8 +81,9 @@ PAGES("a13", [
       { term: [
         ["source .venv/bin/activate", "Be on your own bench first (macOS and Linux)."],
         ["pip install -U pytest", "Install pytest into the environment [py-119]."],
-        ["pytest", "Run every test file in this folder whose name starts with test_ [py-120]."],
+        ["pytest", "Run all files of the form test_*.py or *_test.py in this folder and its subfolders [py-252]."],
       ], title: "Terminal, inside your project folder" },
+      "That bare `pytest` command is how the pytest getting-started page runs tests [py-252]. You do not name a file. pytest goes looking for test files on its own.",
       "When a project needs several packages, list them in a `requirements.txt` file. `pip install -r requirements.txt` installs everything in it, and `pip freeze` lists the versions you have installed [py-118].",
       { h3: "Your practice package: texttable" },
       "The second package draws tables in plain text. texttable 1.7.1 describes itself as a module to create simple ASCII tables. It was uploaded to PyPI on 2026-10-12 under the MIT license, as a single wheel file [py-205]. It lists no required dependencies [py-206], so installing it adds just one package to your bench.",
@@ -105,6 +105,7 @@ GLOSS({
   package: "A module that can contain submodules or subpackages. [py-124]",
   import: "Opening a module so your program can use its tools: after `import math`, you can call `math.sqrt`. [py-163]",
   library: "A collection of code that can be used in other programs. [py-188]",
+  "standard library": "Python's own collection of modules, most written in Python and some in C. All of them can be imported into your program. [py-251]",
   pip: "The tool that installs packages. Inside an active environment, `python3 -m pip install requests` installs one. [py-117]",
   "virtual environment": "A private set of installed packages built on top of a base Python, isolated from the base environment's packages by default. [py-112]",
   venv: "The module that makes virtual environments: `python -m venv <folder>` creates one, with pip installed by default. [py-113]",
@@ -152,6 +153,7 @@ LEVEL({
   beats: [
     nar("Friday, just before lunch. Dr. Nib pulls open a cabinet nobody has noticed before. It is full of labeled drawers."),
     say("nib", "{{you}}, you have been building every tool by hand. Admirable. Also slow. Python comes with drawers full of tools. Each drawer is a [[module]] [py-124].", "wow"),
+    say("nib", "This whole cabinet is the [[standard library]]: a collection of modules, and all of them can be imported into your program [py-251]."),
     say("nib", "You [[import]] a drawer to open it, then reach in with a dot. `math.sqrt`, `math.ceil`, `math.pi` all live in the math drawer [py-163]."),
     { predict: { program: "a13_math", q: "50 springs, 12 to a box. `math.ceil` is the round-up tool. What will this print?" } },
     { trace: { program: "a13_math", note: "There is no box for `math` itself in the picture. Watch `boxes` get its value from `math.ceil`." } },
@@ -169,6 +171,7 @@ LEVEL({
     say("nib", "On your own bench, [[pip]] can install. The first package you will add is pytest: `pip install -U pytest` [py-119]. It finds files named `test_*.py` and runs them [py-120]."),
     { ask: { q: "Which file would pytest pick up as a test file?", choices: ["`drawer.py`", "`test_drawer.py`", "`drawer_tests.txt`"], answer: 1,
       why: "pytest finds tests in files named `test_*.py` or `*_test.py` [py-120]." } },
+    say("nib", "And the command to run them is one word: `pytest`. It runs every `test_*.py` or `*_test.py` file in the folder and its subfolders [py-252].", "think"),
     say("nib", "Then one package just for fun: texttable, a module to create simple ASCII tables [py-205]. Install it on your bench and it draws the parts list as a neat grid."),
     { ask: { q: "Your program stops with `ModuleNotFoundError: No module named 'texttable'`. You installed it an hour ago. What is the likeliest cause?", choices: ["The environment you installed it into is not active", "texttable deleted itself overnight", "Python cannot draw tables"], answer: 0,
       why: "`import` raises `ModuleNotFoundError` when it could not locate the module [py-200]. You installed texttable on your own bench, so step back onto that bench first." } },
