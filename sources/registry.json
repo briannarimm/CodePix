@@ -3064,12 +3064,12 @@
   },
   {
    "id": "nyamawe-2025-pml",
-   "status": "unverified",
+   "status": "verified",
    "title": "Practical machine learning: A beginner's guide with ethical insights",
    "author": "Nyamawe, A. S., Mjahidi, M. M., Nnko, N. E., Diwani, S. A., Minja, G. G., & Malyango, K.",
    "site": "Chapman and Hall/CRC (Taylor & Francis)",
    "date": "2025",
-   "url": "https://doi.org/10.1201/9781003486817",
+   "url": "https://library.oapen.org/handle/20.500.12657/98246",
    "license": "CC BY-NC-ND 4.0",
    "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
    "reuse": "NonCommercial, NoDerivatives: cite and paraphrase only; never copy text or figures.",
@@ -3078,7 +3078,8 @@
     115,
     -1
    ],
-   "notes": "Open access monograph (OAPEN handle 20.500.12657/98246; published Feb. 7, 2025). Only the book description and the chapter 6 learning objectives on taylorfrancis.com could be read: the OAPEN PDF is robots-disallowed for the fetch tool and the Taylor & Francis PDF endpoint returned an error. Re-read the full text on a networked machine before citing."
+   "notes": "Open access monograph (published Feb. 7, 2025). The citation link is the OAPEN Library record (plain HTML), which carries the book's own description; ml-188 comes from that description only. Rc-gaps pass (2026-10-15): the record page was read with WebFetch and the check strings found verbatim. The OAPEN bitstream PDF is robots-disallowed for the fetch tool and the Taylor & Francis PDF endpoint returned an error, so no claim is taken from the chapters.",
+   "doi": "https://doi.org/10.1201/9781003486817"
   },
   {
    "id": "zhao-2025-procs",
@@ -3113,6 +3114,151 @@
     -1
    ],
    "notes": "doi.org and Crossref rate-limited the sandbox and ScienceDirect is robots-disallowed, so neither the paper nor its access status could be read. No claims taken."
+  },
+  {
+   "id": "brew-lang-runtimes",
+   "status": "verified",
+   "title": "Language runtimes and packages",
+   "author": "Homebrew",
+   "site": "Homebrew Documentation",
+   "date": "n.d.",
+   "url": "https://docs.brew.sh/Language-Runtimes-and-Packages#python",
+   "license": "BSD 2-Clause (Homebrew LICENSE.txt)",
+   "licenseUrl": "https://opensource.org/license/bsd-2-clause",
+   "reuse": "Cite and paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    6
+   ],
+   "notes": "docs.brew.sh/Homebrew-and-Python now redirects here.",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/brew/main/docs/Language-Runtimes-and-Packages.md"
+  },
+  {
+   "id": "brew-python315",
+   "status": "verified",
+   "title": "python@3.15 formula",
+   "author": "Homebrew",
+   "site": "Homebrew Formulae",
+   "date": "n.d.",
+   "url": "https://formulae.brew.sh/formula/python@3.15",
+   "license": "Python-2.0 (formula's stated license)",
+   "licenseUrl": "",
+   "reuse": "Facts only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    1,
+    6
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Lists aliases python, python3 and python@3, stable version 3.15.0, and the python-tk@3.15 caveat."
+  },
+  {
+   "id": "brew-core-python315-rb",
+   "status": "verified",
+   "title": "python@3.15.rb (Homebrew formula source)",
+   "author": "Homebrew",
+   "site": "GitHub: Homebrew/homebrew-core",
+   "date": "2026",
+   "url": "https://github.com/Homebrew/homebrew-core/blob/main/Formula/p/python@3.15.rb",
+   "license": "BSD 2-Clause (Homebrew/homebrew-core LICENSE.txt)",
+   "licenseUrl": "https://opensource.org/license/bsd-2-clause",
+   "reuse": "Facts only (what the caveat says).",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "The caveats block is the template formulae.brew.sh renders; python@3.14.rb has the same two lines.",
+   "mirror": "https://raw.githubusercontent.com/Homebrew/homebrew-core/main/Formula/p/python@3.15.rb",
+   "text": true,
+   "prefer_mirror": true
+  },
+  {
+   "id": "ubuntu-pkg-python3-tk",
+   "status": "verified",
+   "title": "Package python3-tk",
+   "author": "Canonical",
+   "site": "Ubuntu Packages",
+   "date": "n.d.",
+   "url": "https://packages.ubuntu.com/python3-tk",
+   "license": "No license shown on the page",
+   "licenseUrl": "",
+   "reuse": "Facts only (package name and description).",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Ubuntu's own package archive search page; lists python3-tk for 22.04 LTS through 26.04 LTS."
+  },
+  {
+   "id": "fedora-pkg-python3-tkinter",
+   "status": "verified",
+   "title": "python3-tkinter (subpackage of python3.15)",
+   "author": "Fedora Project",
+   "site": "Fedora Packages",
+   "date": "n.d.",
+   "url": "https://packages.fedoraproject.org/pkgs/python3.15/python3-tkinter/",
+   "license": "No license shown on the page",
+   "licenseUrl": "",
+   "reuse": "Facts only (package name and description).",
+   "accessed": "2026-10-15",
+   "levels": [
+    6
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Lists Fedora 45 and Rawhide with 3.15.0."
+  },
+  {
+   "id": "penn-eniac",
+   "status": "verified",
+   "title": "Celebrating Penn Engineering history: ENIAC",
+   "author": "Penn Engineering, University of Pennsylvania",
+   "site": "Penn Engineering",
+   "date": "n.d.",
+   "url": "https://www.engineering.upenn.edu/about/history-heritage/eniac/",
+   "license": "(c) 2026 Penn Engineering; no license shown",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    -1
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. www.seas.upenn.edu/about/history-heritage/eniac/ redirects here. Replaces ethw-eniac for the time machine (ethw.org blocks CI)."
+  },
+  {
+   "id": "sep-turing-test",
+   "status": "verified",
+   "title": "The Turing test",
+   "author": "Oppy, G., & Dowe, D.",
+   "site": "Stanford Encyclopedia of Philosophy",
+   "date": "2021",
+   "url": "https://plato.stanford.edu/entries/turing-test/",
+   "license": "(c) Metaphysics Research Lab, Stanford University; free to read online",
+   "licenseUrl": "",
+   "reuse": "Cite and paraphrase only.",
+   "accessed": "2026-10-15",
+   "levels": [
+    116,
+    -1
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. First published Apr. 9, 2003; substantive revision Oct. 4, 2021. Page metadata names David Dowe; PhilArchive lists Graham Oppy for the same entry. Section 1 quotes Turing (1950)."
+  },
+  {
+   "id": "cowley-2022-human-eval",
+   "status": "verified",
+   "title": "A framework for rigorous evaluation of human performance in human and machine learning comparison studies",
+   "author": "Cowley, H. P., Natter, M., Gray-Roncal, K., Rhodes, R. E., Johnson, E. C., Drenkow, N., Shead, T. M., Chance, F. S., Wester, B., & Gray-Roncal, W.",
+   "site": "Scientific Reports, 12, 5444",
+   "date": "2022",
+   "url": "https://www.nature.com/articles/s41598-022-08078-3",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "reuse": "CC BY 4.0: attribute; paraphrase.",
+   "accessed": "2026-10-15",
+   "levels": [
+    108
+   ],
+   "notes": "Read with WebFetch on 2026-10-15; check strings confirmed verbatim in the fetched text. Raw text not downloadable from the research sandbox (proxy), so the CI link and fact checks are the first raw-text check. Open access (PMC8971503). An author correction exists (PMC9263099, not read); facts use the abstract and the Guiding principles section only.",
+   "doi": "https://doi.org/10.1038/s41598-022-08078-3",
+   "mirror": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8971503/fullTextXML"
   }
  ]
 }

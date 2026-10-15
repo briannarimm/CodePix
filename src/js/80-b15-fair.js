@@ -71,6 +71,8 @@ PAGES("b15", [
         "**Results by group:** the error rate for each group you can measure, not only the average.",
       ] },
       "Careful evaluation is part of fairness too. Google warns that the more often you reuse the same test set, the more likely the model fits that test set [ml-046]. scikit-learn says preprocessing should be learnt from the training set and only applied to held-out data [ml-050]. A model that peeked at its test can look fair on paper.",
+      "Plan for this from the first day of a project. Nyamawe and colleagues' open beginner textbook makes the same point. It emphasizes building responsible and explainable AI into machine learning models, so these principles are a priority instead of an afterthought [ml-188]. Follow the citation if you want a second guide after this one.",
+      { analogy: "Safety checks belong in the repair plan, written before the first screw comes out. Bolted on at the end, they tend to get skipped." },
       { machine: ["b15-rates"], label: "Go to your machine: mistakes by group" },
     ],
   },
