@@ -26,7 +26,7 @@ jobs:
           set -o pipefail
           { python tools/verify_facts.py --fresh; if [ -f tools/check_links.py ]; then python tools/check_links.py; fi; } 2>&1 | tee report.txt
       - name: Open an issue on failure
-        if: failure()
+        if: failure() && github.ref == 'refs/heads/main'
         uses: actions/github-script@v7
         with:
           script: |
