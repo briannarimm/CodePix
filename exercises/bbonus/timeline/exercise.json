@@ -1,0 +1,22 @@
+{
+  "id": "bbonus-timeline",
+  "level": "bbonus",
+  "title": "Order the time machine",
+  "file": "timeline.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "The time machine's cards fell on the floor. Write `in_order(events)`, which returns a new list sorted oldest first and leaves the original alone, and `span(events)`, the number of years from the oldest event to the newest.\n\nWhen it works, `python3 timeline.py` starts with 1958 and ends with `span: 59 years`.",
+  "run_command": "python3 -m unittest test_timeline.py",
+  "expected_output": "1958 Rosenblatt's perceptron article\n1959 Samuel's checkers paper\n1986 backpropagation becomes widespread\n2017 transformer architecture\nspan: 59 years",
+  "hints": [
+    "`sorted(...)` makes a new list; `.sort()` changes the old one. Which one does the test want?",
+    "Tuples sort by their first item, so `sorted(events)` already sorts by year.",
+    "For `span`, collect the years into a list and subtract `min` from `max`."
+  ],
+  "explain_after": "Every event on this list comes from a cited source. Rosenblatt's perceptron article appeared in Psychological Review in 1958 [ml-098]. Samuel's 1959 paper reports a checkers program that learned to play better than its programmer [ml-097]. Training by error backpropagation became widespread with Rumelhart et al. in 1986 [ml-093], and Jurafsky and Martin date the transformer to 2017 [ml-092].",
+  "concepts": [
+    "sorting",
+    "tuples",
+    "history"
+  ]
+}

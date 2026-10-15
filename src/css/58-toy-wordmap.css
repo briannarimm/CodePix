@@ -1,0 +1,11 @@
+/* Toy: Word Map (b13) */
+.toy-wordmap .wm-wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;align-items:start}
+.toy-wordmap .wm-map svg{width:100%;height:auto;border:3px solid var(--ink);border-radius:12px;background:#fff}
+.toy-wordmap .wm-dot{cursor:var(--cursor)}
+.toy-wordmap .wm-dot:focus{outline:none}
+.toy-wordmap .wm-dot:focus circle{stroke-width:5}
+.toy-wordmap .wm-pick-label{margin:0;font-weight:700}
+.toy-wordmap .wm-words{gap:6px}
+.toy-wordmap .wm-out ol{margin:4px 0 0;padding-left:1.4em;font-family:var(--f-code);font-size:15px}
+.toy-wordmap .wm-out p{margin:0}
+@media (max-width:700px){.toy-wordmap .wm-wrap{grid-template-columns:minmax(0,1fr)}}

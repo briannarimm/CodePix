@@ -1,0 +1,15 @@
+/* Toy: Card Maker (b16) */
+.toy-modelreport .mr-wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;align-items:start}
+.toy-modelreport .mr-h{margin:0 0 4px;font-family:var(--f-display);font-size:15px}
+.toy-modelreport .mr-sec{margin-bottom:10px}
+.toy-modelreport .mr-sec .row{margin:4px 0;flex-direction:column;align-items:stretch}
+.toy-modelreport .mr-sec .btn{text-align:left;justify-content:flex-start;white-space:normal}
+.toy-modelreport .mr-fb{margin:2px 0 0;font-size:.9em;min-height:1.2em}
+.toy-modelreport .mr-side{display:grid;gap:10px}
+.toy-modelreport .mr-grid{display:grid;gap:4px}
+.toy-modelreport .mr-count{display:grid;grid-template-columns:minmax(0,1fr) auto 2.5em auto;gap:6px;align-items:center;font-size:15px}
+.toy-modelreport .mr-count b{font-family:var(--f-code);text-align:center}
+.toy-modelreport .mr-metrics{margin:6px 0 0;font-size:15px}
+.toy-modelreport .mr-card{background:var(--paper2);font-family:var(--f-code);font-size:14px}
+.toy-modelreport .mr-card p{margin:4px 0}
+@media (max-width:700px){.toy-modelreport .mr-wrap{grid-template-columns:minmax(0,1fr)}}

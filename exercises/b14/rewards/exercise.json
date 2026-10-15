@@ -1,0 +1,22 @@
+{
+  "id": "b14-rewards",
+  "level": "b14",
+  "title": "Learn from rewards",
+  "file": "rewards.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Byte searches three shelves for a spare fuse. Each search earns a reward: 1 for a fuse, 0 for nothing. Byte keeps one average per shelf.\n\nWrite `new_average(average, tries, reward)`, which updates an average with one more reward, and `best_shelf(averages)`, which names the shelf with the highest average.\n\nWhen it works, `python3 rewards.py` ends with `habit: middle`.",
+  "run_command": "python3 -m unittest test_rewards.py",
+  "expected_output": "top 0.5\nmiddle 0.67\nbottom 0.0\nhabit: middle",
+  "hints": [
+    "The old average times the number of tries gives the old total of rewards.",
+    "Add the new reward to that total, then divide by one more try than before.",
+    "For `best_shelf`, `max(averages, key=averages.get)` picks the key with the biggest value."
+  ],
+  "explain_after": "Reinforcement learning learns from rewards and penalties and produces a policy [ml-004]. Byte's habit of checking the best shelf first is a tiny policy of our own making. Real reinforcement learning algorithms, such as Q-learning and SARSA, are listed by GeeksforGeeks [ml-010]; this exercise does not cover them.",
+  "concepts": [
+    "reward",
+    "policy",
+    "running average"
+  ]
+}

@@ -1,0 +1,12 @@
+/* Toy: Fuse Hunt (b14) */
+.toy-rewards .rw-shelves{display:grid;gap:8px}
+.toy-rewards .rw-shelf{display:grid;grid-template-columns:8em minmax(0,1fr);grid-template-areas:"name bar" "num num" "peek peek";gap:2px 10px;align-items:center;text-align:left;width:100%;padding:8px 10px;border:3px solid var(--ink);border-radius:12px;background:var(--wood);color:#fff;box-shadow:3px 3px 0 var(--ink);font:inherit}
+.toy-rewards .rw-shelf.best{background:var(--teal);outline:4px solid var(--lemon)}
+.toy-rewards .rw-name{grid-area:name;font-weight:700}
+.toy-rewards .rw-bar{grid-area:bar;height:18px;border:2px solid var(--ink);border-radius:8px;background:linear-gradient(90deg,var(--lemon) var(--w),#fff var(--w))}
+.toy-rewards .rw-num{grid-area:num;font-family:var(--f-code);font-size:14px}
+.toy-rewards .rw-peek{grid-area:peek;font-family:var(--f-code);font-size:14px;color:var(--lemon)}
+.toy-rewards .rw-explore{display:block;margin:8px 0;font-weight:700}
+.toy-rewards .rw-explore input{display:block}
+.toy-rewards .rw-habit{margin:10px 0 0}
+.toy-rewards .rw-log{min-height:1.5em;font-family:var(--f-code);font-size:15px}
