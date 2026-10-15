@@ -1,0 +1,14 @@
+/* Overfit Lab (B7) */
+.toy-overfit .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.toy-overfit figure{margin:0;min-width:0}
+.toy-overfit figcaption{font-size:14px;text-align:center;margin-top:4px}
+.toy-overfit .k{display:inline-block;width:18px;height:6px;border:1px solid var(--ink);vertical-align:middle}
+.toy-overfit .k.tr{background:#ff8a1f}
+.toy-overfit .k.te{background:#1a8a8a}
+.toy-overfit .sl{display:flex;align-items:center;gap:8px;flex:1 1 220px;font-weight:700;max-width:560px}
+.toy-overfit .sl input{flex:1}
+.toy-overfit .readout{min-width:2em;text-align:right}
+.toy-overfit .say{margin:6px 0 0;font-size:17px}
+.toy-overfit .dot{display:inline-block;width:11px;height:11px;border:2px solid var(--ink);border-radius:50%;vertical-align:middle}
+.toy-overfit .dot.tr{background:#ff8a1f}
+.toy-overfit .dot.te{background:#fff}

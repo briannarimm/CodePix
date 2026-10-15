@@ -1,0 +1,17 @@
+{
+  "id": "b07-degrees",
+  "level": "b07",
+  "title": "Run the Overfit Lab yourself",
+  "file": "degrees.py",
+  "kind": "explore",
+  "py": "3.10",
+  "prompt": "This is the program behind the Overfit Lab, with the same 20 fictional tickets in `repair_times.csv`. Run it inside your activated venv with NumPy and scikit-learn installed.\n\nRead the table. Find the degree where the test error is lowest, and the degree where the training error reaches zero. Then try the three experiments at the bottom of the file, one at a time.",
+  "run_command": "python3 degrees.py",
+  "hints": [
+    "If Python stops with an error that names numpy or sklearn, check that your venv is active, then run the line again.",
+    "Training error only goes down as the degree rises. Test error goes down, then up. Look for the bottom of that valley.",
+    "For experiment 3, swap `~held_out` and `held_out` in the two lines that make `X_train` and `X_test`."
+  ],
+  "explain_after": "Google calls this overfitting: a model that matches the training set so closely that it fails on new data, and an overly complex model is one cause [ml-047]. scikit-learn's own version of the experiment fits a noisy cosine with degrees 1, 4 and 15 and finds underfitting, a good fit and overfitting [ml-051]. Scoring a model on its own training data would have hidden all of this [ml-048].",
+  "concepts": ["overfitting", "underfitting", "test set"]
+}

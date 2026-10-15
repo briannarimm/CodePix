@@ -1,0 +1,18 @@
+{
+  "id": "b11-wordcount",
+  "level": "b11",
+  "title": "Count the words, then the pairs",
+  "file": "wordcount.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "A model can only read numbers, so the shop's repair notes need turning into counts. Write three functions: `tokens` cuts a note into clean lowercase words, `bag` counts each word, and `pairs` counts each pair of words that sit side by side.\n\nWhen it works, `python3 wordcount.py` shows that the pair `('the', 'lamp')` appears twice.",
+  "run_command": "python3 -m unittest test_wordcount.py",
+  "expected_output": "['the', 'lamp', 'flickers', 'the', 'lamp', 'hums']\n{'the': 2, 'lamp': 2, 'flickers': 1, 'hums': 1}\n{('the', 'lamp'): 2, ('lamp', 'flickers'): 1, ('flickers', 'the'): 1, ('lamp', 'hums'): 1}",
+  "hints": [
+    "`text.lower().split()` gives lowercase words with the punctuation still attached. `word.strip(\".,!?\")` takes it off the ends.",
+    "In `bag`, start every new word at 0 with `counts.get(w, 0)` and add 1. In `pairs`, `zip(words, words[1:])` lines each word up with the next one.",
+    "`for first, second in zip(words, words[1:]):` then `counts[(first, second)] = counts.get((first, second), 0) + 1`."
+  ],
+  "explain_after": "Word counts are one simple way to turn text into numbers; scikit-learn's `MultinomialNB`, a classic text classifier, takes exactly this kind of word-count vector as input [ml-079]. Counting pairs is the first step toward an n-gram model, which guesses a word from only the last few words before it [ml-088].",
+  "concepts": ["tokenization", "bag of words", "n-gram", "dictionaries"]
+}

@@ -1,0 +1,5 @@
+/* Pile Maker (B10) */
+.toy-kmeans svg.board{max-width:480px;display:block;margin:0 auto}
+.toy-kmeans .ctl{justify-content:center}
+.toy-kmeans .kk{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.toy-kmeans .say{margin:6px auto 0;font-size:17px;max-width:520px}

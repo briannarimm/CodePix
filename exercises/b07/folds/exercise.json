@@ -1,0 +1,18 @@
+{
+  "id": "b07-folds",
+  "level": "b07",
+  "title": "Deal the folds",
+  "file": "folds.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "Dr. Nib wants every ticket to take one turn as the validation set. Write `folds(items, k)`. It cuts `items` into `k` equal parts, in order, and returns one round per part. Each round is a pair: the part that sits out (validate) and everything else (train).\n\nWhen it works, `python3 folds.py` prints three rounds, and no ticket ever appears on both sides of the same line.",
+  "run_command": "python3 -m unittest test_folds.py",
+  "expected_output": "validate ['T1', 'T2'] train ['T3', 'T4', 'T5', 'T6']\nvalidate ['T3', 'T4'] train ['T1', 'T2', 'T5', 'T6']\nvalidate ['T5', 'T6'] train ['T1', 'T2', 'T3', 'T4']",
+  "hints": [
+    "Part number `part` starts at index `part * size` and stops just before `part * size + size`.",
+    "A slice gives the part. Two slices glued with `+` give everything before it and everything after it.",
+    "Loop `for part in range(k):`, set `start = part * size`, then `validate = items[start:start + size]` and `train = items[:start] + items[start + size:]`, and append the pair."
+  ],
+  "explain_after": "In k-fold cross-validation the data is split into k parts, the model trains on k-1 of them and is checked on the last one, and the reported score is the average over the k runs [ml-049]. Your function deals the parts. scikit-learn's `cross_validate` helper does all of it, with 5 folds by default [ml-104].",
+  "concepts": ["cross-validation", "slices"]
+}

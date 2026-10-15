@@ -1,0 +1,6 @@
+/* Sigmoid Dial (B6) */
+.toy-sigmoid svg.board{max-width:520px;display:block;margin:0 auto}
+.toy-sigmoid .sl{display:flex;align-items:center;gap:8px;flex:1 1 220px;font-weight:700}
+.toy-sigmoid .sl input{flex:1}
+.toy-sigmoid .readout{min-width:3.5em;text-align:right}
+.toy-sigmoid .say{margin:6px 0 0;font-size:17px}

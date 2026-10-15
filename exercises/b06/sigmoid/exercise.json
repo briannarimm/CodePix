@@ -1,0 +1,18 @@
+{
+  "id": "b06-sigmoid",
+  "level": "b06",
+  "title": "Build the yes-or-no squeezer",
+  "file": "sigmoid.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "The Quote Machine needs a part that turns any score into a chance between 0 and 1, and a part that turns that chance into an answer.\n\nFill in `sigmoid(z)` with the formula 1 / (1 + e^-z). `math.exp(-z)` gives e^-z. Then fill in `decide(p, threshold)`: answer `\"yes\"` when `p` is at least the threshold, and `\"no\"` otherwise.\n\nWhen it works, `python3 sigmoid.py` prints three lines, and the middle one is `0 0.5 yes`.",
+  "run_command": "python3 -m unittest test_sigmoid.py",
+  "expected_output": "-2 0.119 no\n0 0.5 yes\n2 0.881 yes",
+  "hints": [
+    "Python writes e to the power x as `math.exp(x)`. So e^-z is `math.exp(-z)`.",
+    "The whole formula fits in one return line. Watch the brackets: the 1 + goes under the division.",
+    "`return 1 / (1 + math.exp(-z))`. For `decide`, use `if p >= threshold:` and return the two words."
+  ],
+  "explain_after": "Google's crash course computes z first and then passes it through the sigmoid, y' = 1 / (1 + e^-z) [ml-037]. Your three lines match its table: z = -2 gives 0.119, z = 0 gives 0.50 and z = 2 gives 0.881 [ml-038]. Python prints 0.5 without the trailing zero. The threshold is your own choice, and the Scorekeeping job shows what moving it does.",
+  "concepts": ["sigmoid", "probability", "threshold"]
+}
