@@ -1,0 +1,21 @@
+{
+  "id": "a16-kettle",
+  "level": "a16",
+  "title": "The countdown kettle",
+  "file": "kettle.py",
+  "kind": "test",
+  "prompt": "The shop kettle counts down before it whistles. Write `kettle(n)` so `kettle(3)` prints `3...`, `2...`, `1...` and then `Tea!`, each on its own line. Use recursion: `kettle` calls `kettle` with a smaller number. No loops.\n\nWhen it works, `python3 kettle.py` prints those four lines.",
+  "run_command": "python3 -m unittest test_kettle.py",
+  "expected_output": "3...\n2...\n1...\nTea!",
+  "hints": [
+    "Two cases. When `n` is 0 or less, the kettle is done. Otherwise there is still counting to do.",
+    "The base case is `if n <= 0:` followed by `print(\"Tea!\")`. In the other case, print `n` with three dots after it, using an f-string such as `f\"{n}...\"`.",
+    "After printing `n`, call `kettle(n - 1)`. That call does the rest of the countdown."
+  ],
+  "explain_after": "This is the countdown from Think Python with a shop twist: the function prints `n` and calls itself with `n - 1`, and stops when `n` reaches 0 or goes below it [py-139]. The call with `n` equal to 0 is the base case [py-140]. Without it, the calls would never stop, and Python would end the program with a `RecursionError` [py-141].",
+  "concepts": [
+    "recursion",
+    "base case",
+    "recursive case"
+  ]
+}

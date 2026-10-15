@@ -1,0 +1,20 @@
+{
+  "id": "a15-race",
+  "level": "a15",
+  "title": "Race two searches with a stopwatch",
+  "file": "race.py",
+  "kind": "explore",
+  "prompt": "This program builds a sorted shelf of 100,000 part numbers and looks for the last one twice: once with a linear search and once with a binary search. It times both with Python's `timeit` module and prints the times.\n\nRun it. Then change `SIZE = 100000` to `SIZE = 1000000` (one million), save, and run it again. Write down both pairs of times. Which time grew by more?\n\nYour numbers will differ from anyone else's. They depend on your computer and on what else it is doing, so Code Pix never shows a recorded time.",
+  "run_command": "python3 race.py",
+  "hints": [
+    "Run it from the folder that holds `race.py`: `python3 race.py`. A run takes a second or two.",
+    "SIZE is near the top of the file. Change only the number, keep the name and the `=`.",
+    "Compare the two linear times with each other, then the two binary times with each other. One grew about ten times; the other barely moved."
+  ],
+  "explain_after": "The documentation for `timeit` advises taking the minimum of repeated timings as the best estimate [py-138], which is why the program times each search five times and keeps the fastest. You can also time a single statement straight from the terminal with `python -m timeit` [py-137].\n\nThe linear time grows with the size of the shelf, which Big O calls O(n). The binary time grows much more slowly, O(log n) [py-133]. Making the shelf ten times bigger makes the linear search do about ten times the work, and adds only a few looks to the binary search.",
+  "concepts": [
+    "timing",
+    "Big O",
+    "binary search"
+  ]
+}

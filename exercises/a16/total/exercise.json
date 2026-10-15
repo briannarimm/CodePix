@@ -1,0 +1,20 @@
+{
+  "id": "a16-total",
+  "level": "a16",
+  "title": "Add up a bill with recursion",
+  "file": "total.py",
+  "kind": "test",
+  "prompt": "Write `total(prices)` so it adds up a list of prices by calling itself. No loops and no `sum()` this time.\n\nThink of it as nested dolls. The total of an empty list is 0: that is the smallest doll, your base case. The total of any other list is its first price plus the total of the rest of the list: open one doll and hand the rest to a smaller copy of the same job.\n\nWhen it works, `python3 total.py` prints `8.0` and then `0`.",
+  "run_command": "python3 -m unittest test_total.py",
+  "expected_output": "8.0\n0",
+  "hints": [
+    "Start with the base case. If `prices == []`, give back 0 right away.",
+    "`prices[0]` is the first price. `prices[1:]` is a new list with everything after it.",
+    "The recursive case is one line: `return prices[0] + total(prices[1:])`."
+  ],
+  "explain_after": "A function that calls itself is recursive [py-139], and the condition that stops it is the base case [py-142]. Each call to `total` gets its own frame with its own `prices`, one frame per call [py-140], and each list is one price shorter than the last. When the empty list arrives, the base case answers 0 and the frames hand their sums back down the tower.",
+  "concepts": [
+    "recursion",
+    "base case"
+  ]
+}
