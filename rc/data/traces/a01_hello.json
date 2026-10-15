@@ -1,0 +1,1 @@
+{"steps":[{"l":0,"ev":"call","o":0,"st":[{"fn":"<module>","l":0,"v":[]}]},{"l":1,"ev":"line","o":0,"st":[{"fn":"<module>","l":1,"v":[]}]},{"l":1,"ev":"return","o":25,"st":[{"fn":"<module>","l":1,"v":[]}],"rv":["NoneType","None"]}],"out":"Hello from Gadget Gulch!\n","err":"","truncated":false,"id":"a01_hello","python":"3.13.16","src":"print(\"Hello from Gadget Gulch!\")\n"}
