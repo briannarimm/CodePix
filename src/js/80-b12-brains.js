@@ -1,6 +1,4 @@
 /* B12. Little Brains: neural units, weights, activation, layers, XOR. Toy: neuron (Wire a Brain). */
-// TODO(research): the mechanics of backpropagation are a GAP (J&M3 section 6.6 not read). The level only names it.
-// TODO(research): no fact describes scikit-learn's MLPClassifier yet; the book shows it only as recorded code and output.
 
 /* A figure: the four XOR cases on a square. Our own drawing. */
 function b12XorFig() {
@@ -25,7 +23,7 @@ PAGES("b12", [
       { trace: "b12_unit", label: "🔍 Watch z grow, one input at a time" },
       "ReLU is the simplest activation to read. It outputs z when z is positive and 0 otherwise [ml-085]. That is why the last line prints 0.87 again.",
       { nerd: "How it really works", body: [
-        "Sigmoid and tanh can saturate: far from zero, their output barely changes. Jurafsky and Martin connect that to the vanishing gradient problem [ml-085]. Code Pix does not cover gradients for networks, so we leave the details there.",
+        "Sigmoid and tanh can saturate: far from zero, their output barely changes. Jurafsky and Martin connect that to the vanishing gradient problem [ml-085]. The last page of this chapter says where a network's gradients come from. The vanishing problem itself stays out of this book.",
       ] },
     ],
   },
@@ -66,8 +64,10 @@ PAGES("b12", [
     h: "Letting the computer find the weights",
     body: [
       "We picked those weights by hand. A real network learns them from examples. Jurafsky and Martin say training neural networks by error backpropagation became widespread with Rumelhart et al. (1986) [ml-093].",
-      { honest: "Code Pix does not explain how backpropagation works yet. Our sources for its mechanics are still being checked." },
-      "The program below hands the same four XOR examples to `MLPClassifier`, a class from scikit-learn's `neural_network` module, and asks for its predictions. It also prints the shape of the weights it found for its hidden layer.",
+      "How does it learn them? You met [[gradient descent]] in Measuring Mistakes. A network needs a gradient for every weight and bias, and [[backpropagation]] computes them. It goes through the network in reverse order, from the output layer back to the input layer, using the chain rule from calculus [ml-125].",
+      { analogy: "Picture the inspectors from page one after a wrong verdict. The last inspector works out how much each note they read pushed the verdict off. Each note-writer then does the same for their own clues. The blame flows backward, one row at a time." },
+      "Zhang and colleagues, in their open deep learning textbook, add a practical cost: training needs significantly more memory than plain prediction [ml-126]. The backward trip needs the numbers from the forward trip, so they have to be kept around. (That last sentence is our own explanation.)",
+      "The program below hands the same four XOR examples to `MLPClassifier`, a class from scikit-learn's `neural_network` module, and asks for its predictions. scikit-learn says its multi-layer perceptron trains with a form of gradient descent, with gradients calculated by backpropagation [ml-127]. The program also prints the shape of the weights it found for its hidden layer.",
       { code: "b12_mlp", out: true },
       "The weights it found will not look like ours. Any weights that get all four cases right do the job. The program prints the scikit-learn version, so you can compare your run with this one.",
     ],
@@ -82,6 +82,7 @@ GLOSS({
   layer: "A row of units that all read the same inputs. (Our own wording.)",
   "hidden layer": "A layer between a network's inputs and its output. Its nodes are called neurons. [ml-081]",
   xor: "Exclusive or: 1 when exactly one of two inputs is 1. A single perceptron cannot compute it, because it is not linearly separable. [ml-084]",
+  backpropagation: "How a neural network gets the gradients for its weights: go through the network in reverse order, from the output layer to the input layer, using the chain rule from calculus. [ml-125] scikit-learn's multi-layer perceptron uses it with a form of gradient descent. [ml-127]",
   perceptron: "An early single-unit learning machine, named in the title of Rosenblatt's 1958 article. [ml-098] A single perceptron cannot compute XOR. [ml-084]",
 }, "b12");
 
@@ -195,7 +196,10 @@ LEVEL({
     { trace: { program: "b12_xor", note: "Hidden unit `h1` counts the inputs that are on; `h2` wakes up only when both are on." } },
     { ask: { q: "In the hand-wired XOR network, which input pair wakes up hidden unit 2?", choices: ["0 and 0", "0 and 1", "1 and 1"], answer: 2,
       why: "`relu(x1 + x2 - 1)` is above 0 only when both inputs are 1." } },
-    say("nib", "We chose those weights by hand. Real networks learn theirs from examples. Training by error backpropagation became widespread with Rumelhart et al. in 1986 [ml-093]. The book does not cover how it works yet."),
+    say("nib", "We chose those weights by hand. Real networks learn theirs from examples. Training by error backpropagation became widespread with Rumelhart et al. in 1986 [ml-093]."),
+    say("nib", "[[backpropagation|Backpropagation]] works out how much each weight should change. It walks the network backward, from the output layer to the input layer, using the chain rule from calculus [ml-125]. Then gradient descent takes the step.", "think"),
+    { ask: { q: "Which way does backpropagation go through the network?", choices: ["From the input layer to the output layer", "From the output layer back to the input layer", "Through a random layer each time"], answer: 1,
+      why: "It goes through the network in reverse order, from the output to the input layer, using the chain rule [ml-125]." } },
     { book: 4, text: "The book has the whole chapter, including scikit-learn learning XOR by itself." },
     say("gridlock", "So my big brain is lots of little dials. Fine. Prove you can wire the little ones on your own computer.", "think"),
     { machine: ["b12-unit", "b12-xor"] },

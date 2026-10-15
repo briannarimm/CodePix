@@ -1,6 +1,4 @@
-/* B14. Other Ways to Learn: reinforcement, semi-supervised (single source), self-supervised. Toy: rewards (Fuse Hunt). */
-// TODO(research): semi-supervised learning has a single source (GeeksforGeeks, [ml-007]) that only names it.
-// Add an independent source with a definition before saying more. No library program for this level yet.
+/* B14. Other Ways to Learn: reinforcement, semi-supervised, self-supervised. Toy: rewards (Fuse Hunt). */
 
 PAGES("b14", [
   {
@@ -13,8 +11,9 @@ PAGES("b14", [
         ["Unsupervised", "No answers at all. The model looks for groups. [ml-003]"],
         ["Reinforcement", "Rewards and penalties after each try. [ml-004]"],
         ["Self-supervised", "The data supplies its own labels. [ml-013]"],
+        ["Semi-supervised", "Some examples have labels and the rest do not. [ml-135]"],
       ] } },
-      "This chapter visits the last two, plus a short note on semi-supervised learning.",
+      "This chapter visits the last three.",
     ],
   },
   {
@@ -39,9 +38,20 @@ PAGES("b14", [
       { code: "b14_selfsup", out: true },
       { trace: "b14_selfsup", label: "🔍 Watch the pairs appear" },
       "GeeksforGeeks gives BERT and GPT as examples of self-supervised models that predict masked words from context [ml-011]. Same trick, different blank: hide a word, then guess it.",
-      { h3: "Semi-supervised learning" },
-      "GeeksforGeeks also covers semi-supervised learning as one more type [ml-007].",
-      { honest: "That is a single source, and it only names the idea. Code Pix will say more once a second, independent source backs it up." },
+      "This is how large language models learn. Zhang and colleagues say decoder-only transformers, the de facto architecture for large-scale language modeling, learn from unlabeled text through self-supervised learning [ml-130].",
+    ],
+  },
+  {
+    h: "A few labels go a long way",
+    body: [
+      "Sometimes there is a middle road. A person labels a handful of examples and leaves the rest blank.",
+      "scikit-learn describes [[semi-supervised learning]] as learning from training data in which some samples are not labeled. Its semi-supervised estimators use the unlabeled data to better capture the shape of the data, and they can do well with very few labeled points and many unlabeled ones [ml-135]. GeeksforGeeks lists it as a type of machine learning too [ml-007].",
+      "To mark a point as unlabeled, scikit-learn's semi-supervised estimators use the integer -1 in `y` [ml-136].",
+      { analogy: "Ms. Gridlock sorts two tickets into the trays herself: one small job, one big job. The other eight sit on the counter. Each one goes to whichever tray its nearest neighbors went to, and the sorting spreads outward from the two she did." },
+      "This program gives `LabelSpreading`, one of scikit-learn's semi-supervised classes, ten fictional tickets. Only two carry a label.",
+      { code: "b14_semisup", out: true },
+      "Two labels in, ten labels out. The small jobs cluster at the low end and the big ones at the high end, so the two labels had plenty of shape to spread along.",
+      { honest: "The tickets are fictional and the two groups are far apart on purpose. Real data is rarely this tidy, and a label in the wrong place can spread just as far as a right one. (Our own caution.)" },
     ],
   },
 ]);
@@ -50,7 +60,7 @@ GLOSS({
   reward: "The signal reinforcement learning learns from: rewards and penalties after each try. [ml-004]",
   policy: "What reinforcement learning produces, in Google's introduction. [ml-004] In the Fuse Hunt toy, the policy is Byte's habit of which shelf to check first.",
   "self-supervised learning": "Learning where the data supplies its own labels, as in language-model pretraining, where each next word is the label. [ml-013]",
-  "semi-supervised learning": "A type of machine learning that GeeksforGeeks covers alongside the three main types. [ml-007] Code Pix has only this one source for it so far.",
+  "semi-supervised learning": "Learning from training data in which some samples are not labeled; the unlabeled data helps capture the shape of the data. [ml-135] scikit-learn marks an unlabeled point with -1 in y. [ml-136]",
 }, "b14");
 
 /* Toy: Fuse Hunt. A JavaScript demo of learning from rewards (a three-shelf bandit). */
@@ -143,7 +153,10 @@ LEVEL({
     { trace: { program: "b14_selfsup", note: "Watch `pairs` grow. Nobody typed a single label." } },
     { ask: { q: "In self-supervised learning, who writes the labels?", choices: ["A person, one at a time", "The data itself, such as the next word in a text", "The reward signal"], answer: 1,
       why: "The natural sequence of words supplies its own labels [ml-013]." } },
-    say("nib", "One more name you may meet: semi-supervised learning. GeeksforGeeks covers it [ml-007], and so far that is our only source. So we stop at the name.", "think"),
+    say("nib", "One more middle road: [[semi-supervised learning]]. Some examples have labels and the rest do not. The unlabeled ones still show the shape of the data [ml-135].", "think"),
+    { show: ["nib", "gridlock"], ...say("gridlock", "So I label two tickets and the machine sorts the other eight? I can live with two.") },
+    { ask: { q: "In scikit-learn's semi-supervised estimators, how do you mark a ticket that has no label?", choices: ["Leave it out of the data", "Put -1 in y", "Put 0 in y"], answer: 1,
+      why: "scikit-learn's semi-supervised estimators mark unlabeled points with the integer -1 in y [ml-136]." } },
     { book: 1, text: "The book has the whole chapter, including the Fuse Hunt program." },
     say("gridlock", "Gold stars work on robots. Noted. Now teach the same trick to the real computer.", "think"),
     { machine: ["b14-rewards"] },

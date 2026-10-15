@@ -34,7 +34,8 @@ PAGES("b16", [
     h: "The same job with the library",
     body: [
       "The library version uses three features at once: age, parts and hours. scikit-learn's guide says to hold out part of the data as a test set, and its own example uses `train_test_split(X, y, test_size=0.4, random_state=0)` to hold out 40% [ml-103]. We copy that call exactly.",
-      "Every scikit-learn model is fitted with `fit(X, y)` and used with `predict` [ml-026]. That makes swapping models easy. The program runs the same loop twice: once for a baseline that always predicts the most common answer, once for logistic regression.",
+      "Every scikit-learn model is fitted with `fit(X, y)` and used with `predict` [ml-026]. That makes swapping models easy. The program runs the same loop twice: once for a baseline, once for logistic regression.",
+      "scikit-learn calls comparing your model against simple rules of thumb a sanity check. Its `DummyClassifier` with the `most_frequent` strategy always predicts the most frequent label in the training set, and its predictions ignore the input data [ml-118]. That is the laziest apprentice, built into the library.",
       { code: "b16_report", out: true },
       "scikit-learn defines precision as tp/(tp+fp), recall as tp/(tp+fn), and F1 as their harmonic mean with equal weight [ml-060]. The baseline's precision, recall and F1 are all 0: it never flags anything.",
       { nerd: "Why not score on the training tickets?", body: [
@@ -156,6 +157,7 @@ LEVEL({
       why: "Recall is TP/(TP+FN) [ml-054]. The baseline flags nothing, so it finds none of the big jobs." } },
     say("nib", "Accuracy alone can fool you. Google's example: always predicting negative on data with 1% positives scores 99% accuracy and is useless [ml-055].", "think"),
     say("nib", "Step three: the library. Three features, scikit-learn's own split from its guide, and a baseline run through the very same code [ml-103] [ml-026]."),
+    say("nib", "The library even ships the lazy apprentice. `DummyClassifier` with `most_frequent` always predicts the most common training label and ignores the input. scikit-learn calls comparing against rules like that a sanity check [ml-118].", "think"),
     { predict: { program: "b16_report", q: "Both models get the same split. Which one do you expect to have the higher recall, and what will its precision look like?" } },
     { ask: { q: "A precision of 0.80 would mean:", choices: ["80% of the big jobs were found", "80% of the tickets it flagged really were big", "80% of all tickets were right"], answer: 1,
       why: "Precision is tp/(tp+fp): of the flagged tickets, the share that were really big [ml-060]." } },
