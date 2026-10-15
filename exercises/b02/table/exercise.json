@@ -1,0 +1,23 @@
+{
+  "id": "b02-table",
+  "level": "b02",
+  "title": "The ticket table",
+  "file": "table.py",
+  "kind": "test",
+  "py": "3.10",
+  "prompt": "`b02_tickets.csv` holds twelve fictional tickets. Finish `load(path)` so it reads the file with pandas and returns `X`, a DataFrame with the `hours` and `parts` columns, and `y`, the `cost` column as a Series.\n\nRun it inside your virtual environment. `python3 table.py` prints the two shapes.",
+  "run_command": "python3 -m unittest test_table.py",
+  "expected_output": "X shape: (12, 2)\ny shape: (12,)",
+  "hints": [
+    "`pd.read_csv(path, encoding=\"utf-8\")` gives you the whole table as a DataFrame. Call it `df`.",
+    "A list of column names in square brackets picks several columns: `df[[\"hours\", \"parts\"]]`. One name picks one column as a Series: `df[\"cost\"]`.",
+    "Three lines: `df = pd.read_csv(path, encoding=\"utf-8\")`, `X = df[[\"hours\", \"parts\"]]`, `y = df[\"cost\"]`, then `return X, y`."
+  ],
+  "explain_after": "A DataFrame is a two-dimensional table whose columns can hold different types, and a Series is one column [ml-024]. The shape `(12, 2)` is the form scikit-learn expects for `X`: one row per sample and one column per feature [ml-026].",
+  "concepts": [
+    "pandas",
+    "DataFrame",
+    "Series",
+    "shape"
+  ]
+}

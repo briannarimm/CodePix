@@ -1,0 +1,8 @@
+/* Plot Lab (B3) */
+.toy-plotlab .pl-board svg{display:block;max-width:560px;margin:0 auto}
+.toy-plotlab .pl-dot{fill:#ff8a1f;stroke:#141414;stroke-width:2;cursor:var(--cursor)}
+.toy-plotlab .pl-dot.on{fill:var(--lemon);stroke-width:3}
+.toy-plotlab .pl-bar{fill:var(--sky);stroke:#141414;stroke-width:2;cursor:var(--cursor)}
+.toy-plotlab .pl-bar.on{fill:var(--lemon)}
+.toy-plotlab .pl-dot:focus-visible,.toy-plotlab .pl-bar:focus-visible{outline:none;stroke:#9b6bff;stroke-width:4}
+.toy-plotlab .pl-read{margin:10px 0 0;font-family:var(--f-book);font-size:16px}
