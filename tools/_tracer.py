@@ -90,7 +90,7 @@ def snapshot(frame, ev, arg=None):
     s = {"l": frame.f_lineno, "ev": ev, "o": len(buf.getvalue()), "st": st}
     if ev == "return":
         s["rv"] = val(arg, heap)
-        changed = {k: v for k, v in heap.items() if heap_last.get(k) != v}
+        changed.update({k: v for k, v in heap.items() if heap_last.get(k) != v})
         heap_last.update(heap)
     if changed:
         s["h"] = changed
