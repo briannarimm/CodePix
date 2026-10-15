@@ -26,7 +26,7 @@ const ENGINE = {
   start(id, from) {
     const L = LV[id];
     if (!L) return;
-    if (!UI.unlocked(L)) { toast("Module B opens when you finish the Saturday Showcase (A17). Settings has a beta switch to open it early."); return; }
+    if (!UI.unlocked(L)) { toast("Module B opens when you finish the Saturday Showcase (A17). Settings has a switch that opens it early."); return; }
     UI.closeAll();
     this.lvl = L; this.token++;
     S.cur = id; save();
@@ -173,6 +173,8 @@ const ENGINE = {
             fb.className = "fb bad";
             fb.innerHTML = "<b class='no-mark'>Not that one.</b> " + rich((q.wrong && q.wrong[k]) || "Have another look and try again.");
             b.disabled = true;
+            const nx = $$("button", box).find(x => !x.disabled);
+            if (nx) nx.focus({ preventScroll: true });
           }
         };
         box.append(b);
@@ -202,9 +204,11 @@ const ENGINE = {
 
 document.addEventListener("keydown", e => {
   if (!ENGINE.lvl || $(".winlayer") || POP.node) return;
-  if (/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(e.target.tagName) && e.target.closest(".choices")) return;
+  if (e.target.closest && e.target.closest("button,a,input,textarea,select,summary,[role=button],[tabindex]")) {
+    // a focused control handles Enter and Space itself; only the arrow key still means "next line"
+    if (e.key !== "ArrowRight" || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.closest(".choices")) return;
+  }
   if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") {
-    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
     const b = $(".dialog .acts .btn.tang, .dialog .acts .btn.lime");
     if (b && !b.disabled && document.activeElement !== b) { e.preventDefault(); b.click(); }
   }

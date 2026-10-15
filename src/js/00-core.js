@@ -97,8 +97,9 @@ document.addEventListener("click", e => {
 });
 
 function toast(msg, ms = 2600) {
-  const t = el("div.toast", { role: "status" }, msg);
+  const t = el("div.toast", { role: "status" });
   document.body.append(t);
+  setTimeout(() => (t.textContent = msg), 30); // fill after insertion so screen readers announce it
   setTimeout(() => t.remove(), ms);
 }
 

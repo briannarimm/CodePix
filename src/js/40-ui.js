@@ -10,7 +10,7 @@ const UI = {
 
   unlocked(L) { return L.mod !== "B" || S.settings.unlockAll || !!S.done.a17; },
   nextLevel(id) { const k = LEVELS.findIndex(l => l.id === id); return LEVELS[k + 1] || null; },
-  label(L) { return L.id.toUpperCase().replace(/^([AB])0?(\d)/, "$1$2"); },
+  label(L) { return /bonus$/.test(L.id) ? L.id[0].toUpperCase() + "-Bonus" : L.id.toUpperCase().replace(/^([AB])0?(\d)/, "$1$2").replace(/B$/, "b"); },
 
   /* ---------- Title screen ---------- */
   title() {
@@ -46,7 +46,7 @@ const UI = {
     this.toolbox = el("nav.toolbox", { "aria-label": "Toolbox" }, tbin);
     this.wrap = el("div.stagewrap");
     this.pal = el("footer.palette", { "aria-label": "Jobs" });
-    const hint = el("div.hintbar", { role: "status" });
+    const hint = el("div.hintbar", { "aria-hidden": "true" });
     this.root.append(el("div.app.pegboard", {}, top, this.toolbox, this.wrap, this.pal, hint));
     HINT.init(hint);
     this.palette();
@@ -62,7 +62,7 @@ const UI = {
       if (mod && L.mod !== mod) this.pal.append(el("span.sep"));
       mod = L.mod;
       const b = el("button", { type: "button", style: { "--c": L.color || "#fff" }, "data-hint": `${this.label(L)}: ${L.title}${this.unlocked(L) ? "" : " (locked)"}`,
-        "aria-label": `${this.label(L)} ${L.title}`, onclick: () => ENGINE.start(L.id) }, this.label(L));
+        "aria-label": `${this.label(L)} ${L.title}${S.done[L.id] ? ", done" : ""}${this.unlocked(L) ? "" : ", locked"}`, onclick: () => ENGINE.start(L.id) }, this.label(L));
       if (S.done[L.id]) b.classList.add("done");
       if (!this.unlocked(L)) b.classList.add("locked");
       if (ENGINE.lvl === L) b.setAttribute("aria-current", "true");
@@ -135,6 +135,15 @@ const UI = {
       el("header", {}, el("h2", {}, title), x), b, f);
     const layer = el("div.winlayer", {}, w);
     layer.addEventListener("mousedown", e => { if (e.target === layer) api.close(); });
+    // keep Tab inside the window (a citation note opened from it may hold focus too)
+    layer.addEventListener("keydown", e => {
+      if (e.key !== "Tab") return;
+      const f = $$("button,a[href],input,select,textarea,summary,[tabindex]:not([tabindex='-1'])", w).filter(n => !n.disabled && n.offsetParent !== null);
+      if (!f.length) return;
+      const a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    });
     document.body.append(layer);
     if (body) b.append(body);
     if (foot) f.append(foot); else f.hidden = true;
@@ -154,7 +163,7 @@ const UI = {
   /* ---------- Toys ---------- */
   openToy(id, opts = {}) {
     const T = TOYS[id];
-    if (!T) { toast("That toy is not built yet."); return null; }
+    if (!T) { toast("Could not find that toy."); return null; }
     const root = el("div.toy.toy-" + id);
     const goal = opts.goal || T.goal;
     const g = goal ? el("p.goal", { role: "status", html: rich("Goal: " + goal) }) : null;

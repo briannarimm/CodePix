@@ -47,7 +47,7 @@ PAGES("b14", [
       "Sometimes there is a middle road. A person labels a handful of examples and leaves the rest blank.",
       "scikit-learn describes [[semi-supervised learning]] as learning from training data in which some samples are not labeled. Its semi-supervised estimators use the unlabeled data to better capture the shape of the data, and they can do well with very few labeled points and many unlabeled ones [ml-135]. GeeksforGeeks lists it as a type of machine learning too [ml-007].",
       "To mark a point as unlabeled, scikit-learn's semi-supervised estimators use the integer -1 in `y` [ml-136].",
-      { analogy: "Ms. Gridlock sorts two tickets into the trays herself: one small job, one big job. The other eight sit on the counter. Each one goes to whichever tray its nearest neighbors went to, and the sorting spreads outward from the two she did." },
+      { analogy: "Ms. Gridlock sorts two tickets into the trays by hand: one small job, one big job. The other eight sit on the counter. Each one goes to whichever tray its nearest neighbors went to, and the sorting spreads outward from those first two." },
       "This program gives `LabelSpreading`, one of scikit-learn's semi-supervised classes, ten fictional tickets. Only two carry a label.",
       { code: "b14_semisup", out: true },
       "Two labels in, ten labels out. The small jobs cluster at the low end and the big ones at the high end, so the two labels had plenty of shape to spread along.",

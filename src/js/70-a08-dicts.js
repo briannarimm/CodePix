@@ -18,7 +18,7 @@ PAGES("a08", [
     body: [
       "The Python tutorial's own phone-book example makes the point. Asking for a missing key with square brackets raises a `KeyError`, `get()` returns `None` instead, and `in` tests whether the key is present [py-079].",
       { code: "a08_missing", out: true },
-      "The cabinet found Ms. Gridlock and printed her number. Then it was asked for a folder that does not exist, and the program stopped. The last line names the error and the missing key. The Bug Hunt job is all about reading messages like this one.",
+      "The cabinet found Ms. Gridlock's folder and printed the number in it. Then the program asked for a folder that does not exist, and it stopped. The last line names the error and the missing key. The Bug Hunt job is all about reading messages like this one.",
       { h3: "Which keys are allowed?" },
       "Keys can be any [[immutable]] type, such as strings and numbers. Lists cannot be keys, because a list can be changed in place [py-078]. A folder tab that could rewrite itself would be no use in a cabinet.",
       { toy: "cabinet", label: "Open the Filing Cabinet" },

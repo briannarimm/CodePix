@@ -12,7 +12,7 @@ PAGES("b01", [
       "So for the current releases of all four tools, you need Python 3.12 or newer. The newest Python is fine too: each of the four publishes a CPython 3.15 wheel for Apple silicon Macs [ml-108] [ml-109] [ml-110] [ml-111]. Check yours:",
       { term: [["python3 --version", "Shows which Python you have [py-165]. You need 3.12 or newer for the current tools."]] },
       { nerd: "Why do older notes say 3.10?", body: [
-        "The floor moves. scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. PyPI lists version 1.9.1 as requiring 3.11 or newer [ml-108]. The numbers on this page are the current releases when this beta was built. If a later release asks for more, follow the release, not this page.",
+        "The floor moves. scikit-learn's install page states that scikit-learn 1.7 requires Python 3.10 or newer [ml-016]. PyPI lists version 1.9.1 as requiring 3.11 or newer [ml-108]. The numbers on this page are the current releases when this version of Code Pix was built. If a later release asks for more, follow the release, not this page.",
       ] },
       "Second, where the libraries go. A virtual environment is created on top of a base Python and by default is isolated from the packages in the base environment [py-112]. That keeps this module's tools in one box that you can throw away and rebuild.",
       "On a Mac with Homebrew there is one more reason. Homebrew's Python is marked as externally managed, and its error text says a library that is not in Homebrew should be installed in a virtual environment [py-155]. So a plain `pip install` outside an environment stops with an error. That is expected.",

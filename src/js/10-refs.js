@@ -49,7 +49,7 @@ function refList(used) {
 
 /* Popovers for citations and glossary words */
 const POP = {
-  node: null,
+  node: null, anchor: null,
   close() { if (this.node) { this.node.remove(); this.node = null; } },
   show(anchor, html) {
     this.close();
@@ -60,7 +60,7 @@ const POP = {
     if (y + hgt > innerHeight - 12) y = Math.max(12, r.top - hgt - 8);
     p.style.left = x + "px"; p.style.top = y + "px";
     $(".closepop", p).onclick = () => { this.close(); anchor.focus(); };
-    this.node = p;
+    this.node = p; this.anchor = anchor;
     $(".closepop", p).focus({ preventScroll: true });
   },
 };
@@ -77,4 +77,7 @@ document.addEventListener("click", e => {
     POP.show(g, t ? `<div class="ttl">${esc(t.term)}</div><div>${rich(t.def)}</div>` : `<div>No glossary entry yet for ${esc(g.dataset.term)}.</div>`);
   } else if (POP.node && !POP.node.contains(e.target)) POP.close();
 });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && POP.node) POP.close(); });
+document.addEventListener("keydown", e => {
+  // Escape closes only the note (not the window under it) and puts focus back on the word that opened it
+  if (e.key === "Escape" && POP.node) { e.preventDefault(); e.stopImmediatePropagation(); const a = POP.anchor; POP.close(); if (a && a.isConnected) a.focus({ preventScroll: true }); }
+});

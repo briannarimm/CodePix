@@ -26,6 +26,8 @@ button,a,[role=button],label,select,summary{cursor:var(--cursor)}
 a{color:var(--teal-d)}
 img,svg{max-width:100%}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--lemon)}
+pre{font-family:var(--f-code)}
+code,kbd,samp{font-family:var(--f-code);font-size:.9em}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Chunky glossy buttons with hard shadows */

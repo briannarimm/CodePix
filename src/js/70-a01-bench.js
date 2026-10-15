@@ -146,7 +146,7 @@ PAGES("a01", [
       "Python can also take one line at a time, straight from you. The glossary calls this the [[REPL]], short for read-eval-print loop: another name for the interactive interpreter shell [py-030]. You type a line, Python reads it, works it out, prints the answer and waits for the next one.",
       { code: "a01_sums", out: true },
       "A handy trick: in most Python shells, the up arrow brings back the previous line you typed and the down arrow the next one, so you can repeat a line without retyping it [py-191].",
-      { honest: "The exact steps for opening the REPL on your machine are still being checked against a source for this beta. Until then, every REPL example in this book is also a program file you can run with `python3`." },
+      { honest: "The exact steps for opening the REPL on your machine are still being checked against a source. Until then, every REPL example in this book is also a program file you can run with `python3`." },
     ],
   },
 ]);
